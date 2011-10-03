@@ -173,6 +173,7 @@ class JComponentRouter
 	
 	function getCategory($id)
 	{
+		jimport('joomla.application.categories');
 		$category = JCategories::getInstance($this->getName())->get($id);
 		return $category;
 	}
