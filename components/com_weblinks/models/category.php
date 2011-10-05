@@ -232,6 +232,7 @@ class WeblinksModelCategory extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_num_links_cat', 1) || $params->get('show_empty_categories', 0);
+			jimport('joomla.application.categories');
 			$categories = JCategories::getInstance('Weblinks', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 			if(is_object($this->_item))
