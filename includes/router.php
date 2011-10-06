@@ -53,7 +53,7 @@ class JRouterSite extends JRouter
 			$name = $compname.'Router';
 			if(class_exists($name)) {
 				$reflection = new ReflectionClass($name);
-				if(in_array('JComponentRouterInterface', $reflection->getInterfaceNames)) {
+				if(in_array('JComponentRouterInterface', $reflection->getInterfaceNames())) {
 					$this->componentRouters[$component] = new $name();
 				}
 			}
@@ -74,7 +74,7 @@ class JRouterSite extends JRouter
 	public function setComponentRouter($component, $router)
 	{
 		$reflection = new ReflectionClass($router);
-		if(in_array('JComponentRouterInterface', $reflection->getInterfaceNames)) {
+		if(in_array('JComponentRouterInterface', $reflection->getInterfaceNames())) {
 			$this->componentRouters[$component] = $router;
 			return true;
 		} else {
@@ -135,7 +135,7 @@ class JDefaultRouter implements JComponentRouterInterface
 	 * 
 	 * @return array Array of query elements
 	 */
-	function parse($segments)
+	function parse(&$segments)
 	{
 		$function = $this->component.'ParseRoute';
 		if(function_exists($function)) {

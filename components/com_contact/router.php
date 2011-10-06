@@ -17,7 +17,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class ContactRouter extends JComponentRouter
+class ContactRouter extends JComponentRouter implements JComponentRouterInterface
 {
 	function __construct()
 	{

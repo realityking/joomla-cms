@@ -24,7 +24,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class NewsfeedRouter extends JComponentRouter
+class NewsfeedRouter extends JComponentRouter implements JComponentRouterInterface
 {
 	function __construct()
 	{

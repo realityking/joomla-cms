@@ -25,7 +25,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class WeblinksRouter extends JComponentRouter
+class WeblinksRouter extends JComponentRouter implements JComponentRouterInterface
 {
 	function __construct()
 	{
