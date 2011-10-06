@@ -17,7 +17,6 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.categories');
-JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/component/router.php');
 
 /**
  * Weblinks Router
@@ -25,7 +24,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class WeblinksRouter extends JComponentRouter implements JComponentRouterInterface
+class WeblinksRouter extends JComponentRouter
 {
 	function __construct()
 	{

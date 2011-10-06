@@ -1,5 +1,23 @@
 <?php
-class JComponentRouter
+/**
+ * @version		$Id$
+ * @package		Joomla.Site
+ * @subpackage	Application
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// No direct access
+defined('JPATH_BASE') or die;
+
+/**
+ * Class to create and parse routes for a component
+ *
+ * @package		Joomla.Site
+ * @subpackage	Application
+ * @since		1.5
+ */
+class JComponentRouter implements JComponentRouterInterface
 {	
 	/**
 	 * Array of buildrules
@@ -14,20 +32,74 @@ class JComponentRouter
 	 * @var array
 	 */
 	protected $parserules = array();
-		
+	
+	/**
+	 * Name of the Router
+	 * 
+	 * @var string
+	 */
 	protected $name;
 	
+	/**
+	 * Views of the component
+	 * 
+	 * @var array
+	 */
 	protected $views = array();
 	
-	protected $lookup;
+	/**
+	 * Lookup-table for menu items
+	 * 
+	 * @var array
+	 */
+	protected $lookup = array();
 	
+	/**
+	 * Constructor for JComponentRouter
+	 */
 	function __construct()
 	{
 		$app = JFactory::getApplication();
 		$this->attachBuildRule(array($this, 'findItemid'));
 		$app->triggerEvent('onComponentRouterRules', array($this));
+		
+		// Prepare the reverse lookup array.
+		$menus = $app->getMenu();
+		$component	= JComponentHelper::getComponent('com_'.$this->getName(true));
+		$items		= $menus->getItems('component_id', $component->id);
+		$views		= $this->getViews();
+		foreach ($items as $item)
+		{
+			if (isset($item->query['view']))
+			{
+				$view = $item->query['view'];
+				if (!isset($this->lookup[$view])) {
+					$this->lookup[$view] = array();
+				}
+				if ($views[$view]->id && isset($item->query[$views[$view]->id])) {
+					$this->lookup[$view][$item->query[$views[$view]->id]] = $item->id;
+				} else {
+					$this->lookup[$view] = $item->id;
+				}
+			}
+		}	
 	}
 	
+	/**
+	 * Register the views of a component
+	 * 
+	 * @param string $name Internal name of the view. Has to be unique for the component
+	 * @param string $view Identifier of the view
+	 * @param string $id Identifier of the ID variable used to identify the primary content item of this view 
+	 * @param string $parent Internal name of the parent view
+	 * @param string $parent_id Identifier of the ID variable used to identify the content item of the parent view
+	 * @param bool $nestable Is this view nestable?
+	 * @param string $layouts Layout to use for this view by default
+	 * 
+	 * @return void
+	 * 
+	 * @since 11.3
+	 */
 	function register($name, $view, $id = false, $parent = false, $parent_id = false, $nestable = false, $layouts = false)
 	{
 		$viewobj = new stdClass();
@@ -54,11 +126,26 @@ class JComponentRouter
 		$this->views[$view] = $viewobj;
 	}
 	
+	/**
+	 * Return an array of registered view objects
+	 * 
+	 * @return array Array of registered view objects
+	 * 
+	 * @since 11.3
+	 */
 	function getViews()
 	{
 		return $this->views;
 	}
 	
+	/**
+	 * Get the path of views from target view to root view 
+	 * including content items of a nestable view
+	 * 
+	 * @param array $query Array of query elements
+	 * 
+	 * @return array List of views including IDs of content items
+	 */
 	function getPath($query)
 	{
 		$views = $this->getViews();
@@ -94,6 +181,15 @@ class JComponentRouter
 		return $result;
 	}
 	
+	/**
+	 * Add a number of router rules to the object
+	 * 
+	 * @param array $rules Associative multi-dimensional array of callbacks
+	 * 
+	 * @return void
+	 * 
+	 * @since 11.3
+	 */
 	function setRules($rules)
 	{
 		foreach($rules['build'] as $rule) {
@@ -138,6 +234,13 @@ class JComponentRouter
 		}
 	}
 	
+	/**
+	 * Build method for URLs
+	 * 
+	 * @param array $query Array of query elements
+	 * 
+	 * @return array Array of URL segments
+	 */
 	function build(&$query)
 	{
 		$segments = array();
@@ -148,6 +251,13 @@ class JComponentRouter
 		return $segments;
 	}
 	
+	/**
+	 * Parse method for URLs
+	 * 
+	 * @param array $segments Array of URL string-segments
+	 * 
+	 * @return array Associative array of query values
+	 */
 	function parse(&$segments)
 	{
 		$vars = array();
@@ -158,6 +268,13 @@ class JComponentRouter
 		return $vars;
 	}
 	
+	/**
+	 * Method to return the name of the router
+	 * 
+	 * @return string Name of the router
+	 * 
+	 * @since 11.3
+	 */
 	function getName()
 	{
 		if (empty($this->name)) {
@@ -171,6 +288,17 @@ class JComponentRouter
 		return $this->name;
 	}
 	
+	/**
+	 * Get content items of the type category
+	 * This is a generic function for all components that use the JCategories
+	 * system and can be overriden if necessary.
+	 * 
+	 * @param int $id ID of the category to load
+	 * 
+	 * @return JCategoryNode Category identified by $id
+	 * 
+	 * @since 11.3
+	 */
 	function getCategory($id)
 	{
 		jimport('joomla.application.categories');
@@ -178,6 +306,17 @@ class JComponentRouter
 		return $category;
 	}
 	
+	/**
+	 * Find the correct Itemid for this URL
+	 * 
+	 * @param object $crouter Component-Router object
+	 * @param array $query Array of query elements
+	 * @param array $segments Array of segments
+	 * 
+	 * @return void
+	 * 
+	 * @since 11.3
+	 */
 	public function findItemid($crouter, $query, $segments)
 	{
 		if(isset($query['Itemid'])) {
@@ -186,31 +325,6 @@ class JComponentRouter
 		
 		$app		= JFactory::getApplication();
 		$menus		= $app->getMenu('site');
-
-		// Prepare the reverse lookup array.
-		if ($this->lookup === null)
-		{
-			$this->lookup = array();
-
-			$component	= JComponentHelper::getComponent('com_'.$this->getName(true));
-			$items		= $menus->getItems('component_id', $component->id);
-			$views		= $this->getViews();
-			foreach ($items as $item)
-			{
-				if (isset($item->query['view']))
-				{
-					$view = $item->query['view'];
-					if (!isset($this->lookup[$view])) {
-						$this->lookup[$view] = array();
-					}
-					if ($views[$view]->id && isset($item->query[$views[$view]->id])) {
-						$this->lookup[$view][$item->query[$views[$view]->id]] = $item->id;
-					} else {
-						$this->lookup[$view] = $item->id;
-					}
-				}
-			}
-		}
 
 		$needles = $this->getPath($query);
 

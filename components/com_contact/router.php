@@ -9,7 +9,6 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.categories');
-JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/component/router.php');
 
 /**
  * Contact Router
@@ -17,7 +16,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class ContactRouter extends JComponentRouter implements JComponentRouterInterface
+class ContactRouter extends JComponentRouter
 {
 	function __construct()
 	{

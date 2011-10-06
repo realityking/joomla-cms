@@ -16,7 +16,6 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.categories');
-JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/component/router.php');
 
 /**
  * Newsfeed Router
@@ -24,7 +23,7 @@ JLoader::register('JComponentRouter', JPATH_LIBRARIES.'/joomla/application/compo
  * 
  *
  */
-class NewsfeedRouter extends JComponentRouter implements JComponentRouterInterface
+class NewsfeedRouter extends JComponentRouter
 {
 	function __construct()
 	{
