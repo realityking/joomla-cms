@@ -135,12 +135,12 @@ class JRouter extends JObject
 	 *
 	 * @since   11.1
 	 */
-	public function parse(&$uri)
+	public function parse(JURI $uri)
 	{
 		// Process the parsed variables based on custom defined rules
 		foreach ($this->parserules as $rule)
 		{
-			call_user_func_array($rule, array(&$this, &$uri));
+			call_user_func_array($rule, array($this, $uri));
 		}
 		$this->setVars($uri->getQuery(true));
 
@@ -196,7 +196,7 @@ class JRouter extends JObject
 		//Process the uri information based on custom defined rules
 		foreach ($this->buildrules as $rule)
 		{
-			call_user_func_array($rule, array(&$this, &$uri));
+			call_user_func_array($rule, array($this, $uri));
 		}
 
 		// Get the path data

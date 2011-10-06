@@ -26,10 +26,10 @@ abstract class ContentHelperRoute
 	public static function getArticleRoute($id, $catid = 0)
 	{
 		//Create the link
-		$link = 'index.php?option=com_content&view=article&id='. $id;
+		$link = array('option' => 'com_content', 'view' => 'article', 'id' => $id);
 		if ((int)$catid > 1)
 		{
-			$link .= '&catid='.$catid;
+			$link['catid'] = $catid;
 		}
 
 		return $link;
@@ -38,7 +38,7 @@ abstract class ContentHelperRoute
 	public static function getCategoryRoute($catid)
 	{
 		//Create the link
-		$link = 'index.php?option=com_content&view=category&id='.$catid;
+		$link = array('option' => 'com_content', 'view' => 'category', 'id' => $catid);
 
 		return $link;
 	}

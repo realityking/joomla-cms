@@ -26,10 +26,10 @@ abstract class ContactHelperRoute
 	public static function getContactRoute($id, $catid)
 	{
 		//Create the link
-		$link = 'index.php?option=com_contact&view=contact&id='. $id;
+		$link = array('option' => 'com_contact', 'view' => 'contact', 'id' => $id);
 		if ($catid > 1)
 		{
-			$link .= '&catid='.$catid;
+			$link['catid'] = $catid;
 		}
 
 		return $link;
@@ -38,7 +38,7 @@ abstract class ContactHelperRoute
 	public static function getCategoryRoute($catid)
 	{
 		//Create the link
-		$link = 'index.php?option=com_contact&view=category&id='.$catid;
+		$link = array('option' => 'com_contact', 'view' => 'category', 'id' => $catid);
 
 		return $link;
 	}
