@@ -30,24 +30,27 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</div>
 
 		<div class="right">
-			<select name="filter_access" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_access" class="inputbox" onchange="this.form.submit()" id="filter_access">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
 			</select>
 
-			<select name="filter_published" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_published" class="inputbox" onchange="this.form.submit()" id="filter_published">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
 
-			<select name="filter_category_id" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_category_id" class="inputbox" onchange="this.form.submit()" id="filter_category_id">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_contact'), 'value', 'text', $this->state->get('filter.category_id'));?>
 			</select>
-			<select name="filter_language" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_language" class="inputbox" onchange="this.form.submit()" id="filter_language">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
 			</select>
+
+			<button type="submit" id="filter-go">
+				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
 

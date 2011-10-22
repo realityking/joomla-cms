@@ -3154,7 +3154,6 @@ div#element-box div.section-box {
 }
 
 /* login */
-
 div#element-box.login  {
 	background-color: #ffffff;
 }
@@ -3162,4 +3161,37 @@ div#element-box.login  {
 /* -- Codemirror Editor  ----------- */
 div.CodeMirror-wrapping {
 	border: 1px solid #cccccc;
+}
+
+/* Filters */
+#filter-bar > legend {
+	position: absolute !important;
+	margin: 0;
+	padding: 0;
+	border:0;
+	margin-left: -10000px;
+	font-size: 1px;
+	height: 0;
+}
+
+#filter-bar .filter-search {
+	float: left;
+}
+
+#filter-bar .filter-select {
+	float: right;
+}
+
+#filter-bar .filter-select > label {
+	position: absolute;
+	left: -1000em;
+}
+
+#filter-go {
+	display: none;
+}
+
+/* Table header layout classes */
+th.checkmark-col {
+	width: 1%;
 }

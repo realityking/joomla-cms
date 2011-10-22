@@ -17,9 +17,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 <form action="<?php echo JRoute::_('index.php?option=com_cache'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-		<legend class="element-invisible"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
-		<div class="filter-select fltrt">
-			<label class="selectlabel" for="filter_client_id">
+		<legend><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
+		<div class="filter-select">
+			<label for="filter_client_id">
 				<?php echo JText::_('COM_CACHE_SELECT_CLIENT'); ?>
 			</label>
 			<select name="filter_client_id" class="inputbox" id="filter_client_id">
@@ -30,8 +30,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
-	<div class="clr"> </div>
-<table class="adminlist">
+	<div class="clr"></div>
+
+	<table class="adminlist">
 	<thead>
 		<tr>
 			<th class="title row-number-col">
@@ -77,14 +78,14 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</tr>
 		<?php $i++; endforeach; ?>
 	</tbody>
-</table>
+	</table>
 
-<?php echo $this->pagination->getListFooter(); ?>
+	<?php echo $this->pagination->getListFooter(); ?>
 
-<input type="hidden" name="task" value="" />
-<input type="hidden" name="boxchecked" value="0" />
-<input type="hidden" name="client" value="<?php echo $this->client->id;?>" />
-<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-<?php echo JHtml::_('form.token'); ?>
+	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="boxchecked" value="0" />
+	<input type="hidden" name="client" value="<?php echo $this->client->id;?>" />
+	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
+	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>

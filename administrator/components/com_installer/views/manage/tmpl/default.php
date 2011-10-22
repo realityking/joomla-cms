@@ -31,7 +31,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	<table class="adminlist">
 		<thead>
 			<tr>
-				<th width="20">
+				<th class="checkmark-col">
 					<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
 				<th class="nowrap">

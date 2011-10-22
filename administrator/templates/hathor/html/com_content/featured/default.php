@@ -7,7 +7,6 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  * @since		1.6
  */
-/* add accessibility, labels on input forms */
 
 // no direct access
 defined('_JEXEC') or die;
@@ -21,11 +20,10 @@ $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 $canOrder	= $user->authorise('core.edit.state', 'com_content.article');
 $saveOrder	= $listOrder == 'fp.ordering';
-$n			= count($this->items);
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_content&view=featured');?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-	<legend class="element-invisible"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
+		<legend><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
 		<div class="filter-search">
 			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
 			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
@@ -34,19 +32,19 @@ $n			= count($this->items);
 		</div>
 
 		<div class="filter-select">
-			<label class="selectlabel" for="filter_published"><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></label>
+			<label for="filter_published"><?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?></label>
 			<select name="filter_published" class="inputbox" id="filter_published">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
 
-            <label class="selectlabel" for="filter_access"><?php echo JText::_('JOPTION_SELECT_ACCESS'); ?></label>
+            <label for="filter_access"><?php echo JText::_('JOPTION_SELECT_ACCESS'); ?></label>
 			<select name="filter_access" class="inputbox" id="filter_access">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
 			</select>
 
-			<label class="selectlabel" for="filter_language"><?php echo JText::_('JOPTION_SELECT_LANGUAGE'); ?></label>
+			<label for="filter_language"><?php echo JText::_('JOPTION_SELECT_LANGUAGE'); ?></label>
 			<select name="filter_language" class="inputbox" id="filter_language">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
@@ -56,7 +54,7 @@ $n			= count($this->items);
 				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
-	<div class="clr"> </div>
+	<div class="clr"></div>
 
 	<table class="adminlist">
 		<thead>
@@ -178,7 +176,7 @@ $n			= count($this->items);
 		</tbody>
 	</table>
 
-<?php echo $this->pagination->getListFooter(); ?>
+	<?php echo $this->pagination->getListFooter(); ?>
 
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="0" />

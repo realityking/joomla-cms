@@ -18,7 +18,7 @@ foreach ($fieldSets as $name => $fieldSet) :
 	endif;
 	?>
 	<fieldset class="panelform" >
-	<legend class="element-invisible"><?php echo JText::_($fieldSet->label); ?></legend>
+		<legend class="element-invisible"><?php echo JText::_($fieldSet->label); ?></legend>
 		<ul class="adminformlist">
 			<?php foreach ($this->form->getFieldset($name) as $field) : ?>
 				<li><?php echo $field->label; ?>

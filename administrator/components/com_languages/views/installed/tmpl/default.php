@@ -28,7 +28,7 @@ $clientId	= $this->state->get('filter.client_id', 0);
 				<th width="20">
 					<?php echo JText::_('COM_LANGUAGES_HEADING_NUM'); ?>
 				</th>
-				<th width="20">
+				<th class="checkmark-col">
 					&#160;
 				</th>
 				<th width="25%" class="title">
@@ -100,9 +100,7 @@ $clientId	= $this->state->get('filter.client_id', 0);
 		</tbody>
 	</table>
 
-	<div>
-		<input type="hidden" name="task" value="" />
-		<input type="hidden" name="boxchecked" value="0" />
-		<?php echo JHtml::_('form.token'); ?>
-	</div>
+	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="boxchecked" value="0" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>

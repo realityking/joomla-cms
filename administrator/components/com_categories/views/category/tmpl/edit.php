@@ -69,6 +69,7 @@ JHtml::_('behavior.keepalive');
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
 			</ul>
+
 			<div class="clr"></div>
 			<?php echo $this->form->getLabel('description'); ?>
 			<div class="clr"></div>
@@ -92,7 +93,7 @@ JHtml::_('behavior.keepalive');
 	<div class="clr"></div>
 
 	<?php if ($this->canDo->get('core.admin')): ?>
-		<div  class="width-100 fltlft">
+		<div class="width-100 fltlft">
 
 			<?php echo JHtml::_('sliders.start','permissions-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 

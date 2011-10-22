@@ -34,7 +34,7 @@ defined('_JEXEC') or die;
 			<?php echo $field->input; ?>
 		<?php endforeach; ?>
 		<button type="submit" id="filter-go">
-				<?php echo JText::_('JSUBMIT'); ?></button>
+			<?php echo JText::_('JSUBMIT'); ?></button>
 	</div>
 </fieldset>
 <div class="clr"></div>

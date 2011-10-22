@@ -19,11 +19,12 @@ $user		= JFactory::getUser();
 $userId		= $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
+$params		= (isset($this->state->params)) ? $this->state->params : new JObject();
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_banners&view=clients'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-	<legend class="element-invisible"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
+		<legend><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
 		<div class="filter-search">
 			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
 			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_BANNERS_SEARCH_IN_TITLE'); ?>" />
@@ -32,7 +33,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</div>
 
 		<div class="filter-select">
-			<label class="selectlabel" for="filter_state">
+			<label for="filter_state">
 				<?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?>
 			</label>
 			<select name="filter_state" class="inputbox" id="filter_state">
@@ -44,7 +45,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
-	<div class="clr"> </div>
+	<div class="clr"></div>
 
 	<table class="adminlist">
 		<thead>
@@ -113,7 +114,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				</td>
 				<td class="center">
 					<?php if ($item->purchase_type<0):?>
-						<?php echo JText::sprintf('COM_BANNERS_DEFAULT',JText::_('COM_BANNERS_FIELD_VALUE_'.$this->state->params->get('purchase_type')));?>
+						<?php echo JText::sprintf('COM_BANNERS_DEFAULT',JText::_('COM_BANNERS_FIELD_VALUE_'.$params->get('purchase_type')));?>
 					<?php else:?>
 						<?php echo JText::_('COM_BANNERS_FIELD_VALUE_'.$item->purchase_type);?>
 					<?php endif;?>

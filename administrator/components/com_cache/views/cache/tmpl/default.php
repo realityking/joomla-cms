@@ -16,20 +16,28 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 <form action="<?php echo JRoute::_('index.php?option=com_cache'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-		<div class="filter-select fltrt">
-			<select name="filter_client_id" class="inputbox" onchange="this.form.submit()">
+		<legend><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
+		<div class="filter-select">
+			<label for="filter_client_id">
+				<?php echo JText::_('COM_CACHE_SELECT_CLIENT'); ?>
+			</label>
+			<select name="filter_client_id" class="inputbox" onchange="this.form.submit()" id="filter_client_id">
 				<?php echo JHtml::_('select.options', CacheHelper::getClientOptions(), 'value', 'text', $this->state->get('clientId'));?>
 			</select>
+
+			<button type="submit" id="filter-go">
+				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
-	<div class="clr"> </div>
-<table class="adminlist">
+	<div class="clr"></div>
+
+	<table class="adminlist">
 	<thead>
 		<tr>
 			<th class="title" width="10">
 				<?php echo JText::_('COM_CACHE_NUM'); ?>
 			</th>
-			<th width="20">
+			<th class="checkmark-col">
 				<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 			</th>
 			<th class="title nowrap">
@@ -73,13 +81,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</tr>
 		<?php $i++; endforeach; ?>
 	</tbody>
-</table>
-<div>
+	</table>
+
 	<input type="hidden" name="task" value="" />
 	<input type="hidden" name="boxchecked" value="0" />
 	<input type="hidden" name="client" value="<?php echo $this->client->id;?>" />
 	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
 	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 	<?php echo JHtml::_('form.token'); ?>
-</div>
 </form>

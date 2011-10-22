@@ -24,33 +24,49 @@ $params		= (isset($this->state->params)) ? $this->state->params : new JObject();
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_banners&view=banners'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-		<div class="filter-search fltlft">
+		<legend><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></legend>
+		<div class="filter-search">
 			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
 			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_BANNERS_SEARCH_IN_TITLE'); ?>" />
 			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
 			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
 		</div>
-		<div class="filter-select fltrt">
 
-			<select name="filter_state" class="inputbox" onchange="this.form.submit()">
+		<div class="filter-select">
+			<label for="filter_state">
+				<?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?>
+			</label>
+			<select name="filter_state" class="inputbox" onchange="this.form.submit()" id="filter_state">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.state'), true);?>
 			</select>
 
-			<select name="filter_client_id" class="inputbox" onchange="this.form.submit()">
+			<label for="filter_client_id">
+				<?php echo JText::_('COM_BANNERS_SELECT_CLIENT'); ?>
+			</label>
+			<select name="filter_client_id" class="inputbox" onchange="this.form.submit()" id="filter_client_id">
 				<option value=""><?php echo JText::_('COM_BANNERS_SELECT_CLIENT');?></option>
 				<?php echo JHtml::_('select.options', JFormFieldBannerClient::getOptions(), 'value', 'text', $this->state->get('filter.client_id'));?>
 			</select>
 
-			<select name="filter_category_id" class="inputbox" onchange="this.form.submit()">
+			<label for="filter_category_id">
+				<?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?>
+			</label>
+			<select name="filter_category_id" class="inputbox" onchange="this.form.submit()" id="filter_category_id">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_banners'), 'value', 'text', $this->state->get('filter.category_id'));?>
 			</select>
 
-			<select name="filter_language" class="inputbox" onchange="this.form.submit()">
+			<label for="filter_language">
+				<?php echo JText::_('JOPTION_SELECT_LANGUAGE'); ?>
+			</label>
+			<select name="filter_language" class="inputbox" onchange="this.form.submit()" id="filter_language">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
 			</select>
+
+			<button type="submit" id="filter-go">
+				<?php echo JText::_('JSUBMIT'); ?></button>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -58,7 +74,7 @@ $params		= (isset($this->state->params)) ? $this->state->params : new JObject();
 	<table class="adminlist">
 		<thead>
 			<tr>
-				<th width="1%">
+				<th class="checkmark-col">
 					<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
 				<th>
@@ -196,11 +212,9 @@ $params		= (isset($this->state->params)) ? $this->state->params : new JObject();
 		</tbody>
 	</table>
 
-	<div>
-		<input type="hidden" name="task" value="" />
-		<input type="hidden" name="boxchecked" value="0" />
-		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-		<?php echo JHtml::_('form.token'); ?>
-	</div>
+	<input type="hidden" name="task" value="" />
+	<input type="hidden" name="boxchecked" value="0" />
+	<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
+	<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>

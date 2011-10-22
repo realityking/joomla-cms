@@ -47,17 +47,16 @@ foreach ($fieldSets as $name => $fieldSet) :
 	?>
 	<fieldset class="panelform">
 	<legend class="element-invisible"><?php echo JText::_($label); ?></legend>
-	<ul class="adminformlist">
-		<?php foreach ($this->form->getFieldset($name) as $field) : ?>
-			<li><?php echo $field->label; ?>
-			<?php echo $field->input; ?></li>
-		<?php endforeach; ?>
+		<ul class="adminformlist">
+			<?php foreach ($this->form->getFieldset($name) as $field) : ?>
+				<li><?php echo $field->label; ?>
+				<?php echo $field->input; ?></li>
+			<?php endforeach; ?>
 
-		<?php if ($name=='basic'):?>
-			<li><?php echo $this->form->getLabel('note'); ?>
-			<?php echo $this->form->getInput('note'); ?></li>
-		<?php endif;?>
-	</ul>
-
+			<?php if ($name=='basic'):?>
+				<li><?php echo $this->form->getLabel('note'); ?>
+				<?php echo $this->form->getInput('note'); ?></li>
+			<?php endif;?>
+		</ul>
 	</fieldset>
 <?php endforeach; ?>

@@ -907,36 +907,36 @@ fieldset ul.checklist input:focus {
 	outline: thin dotted #333333;
 }
 
-fieldset#filter-bar {
+#filter-bar {
 	margin: 0;
 	padding: 5px 10px 5px 10px;
 }
 
-fieldset#filter-bar ol, fieldset#filter-bar ul {
+#filter-bar ol, fieldset#filter-bar ul {
 	list-style: none;
 	margin: 0;
 	padding: 5px 0 0;
 }
 
-fieldset#filter-bar ol li, fieldset#filter-bar ul li {
+#filter-bar ol li, fieldset#filter-bar ul li {
 	float: left;
 	padding: 0 5px 0 0;
 }
 
-fieldset#filter-bar ol li fieldset, fieldset#filter-bar ul li fieldset {
+#filter-bar ol li fieldset, fieldset#filter-bar ul li fieldset {
 	margin: 0;
 	padding: 0;
 }
 
-fieldset#filter-bar .filter-search {
+#filter-bar .filter-search {
 	float: left;
 }
 
-fieldset#filter-bar .filter-select {
+#filter-bar .filter-select {
 	float: right;
 }
 
-fieldset#filter-bar input#search {
+#filter-bar input#search {
 	width: 10em;
 }
 
@@ -1007,6 +1007,7 @@ span.faux-label {
 	font-size: 1.1em;
 }
 
+#filter-bar .filter-select > label,
 label.selectlabel {
 	position: absolute;
 	left: -1000em;
@@ -1178,7 +1179,7 @@ th.width-40 {
 	width: 40%;
 }
 
-	/* Table header layout classes */
+/* Table header layout classes */
 th.row-number-col {
 	width: 3%;
 }
@@ -1887,7 +1888,8 @@ body.contentpane input, body.contentpane select {
 	/* Firefox has issues styling legend so this is a universal fix
 	for making the legend invisible (i.e. visually it's not there, but screen readers see it */
 
-legend.element-invisible {
+legend.element-invisible,
+#filter-bar > legend {
 	position: absolute !important;
 	margin: 0;
 	padding: 0;

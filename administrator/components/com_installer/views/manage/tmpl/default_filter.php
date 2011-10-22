@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 
 ?>
 <fieldset id="filter-bar">
-	<div class="filter-search fltlft">
+	<div class="filter-search">
 		<?php foreach($this->form->getFieldSet('search') as $field): ?>
 			<?php if (!$field->hidden): ?>
 				<?php echo $field->label; ?>
@@ -21,13 +21,16 @@ defined('_JEXEC') or die;
 			<?php echo $field->input; ?>
 		<?php endforeach; ?>
 	</div>
-	<div class="filter-select fltrt">
+
+	<div class="filter-select">
 		<?php foreach($this->form->getFieldSet('select') as $field): ?>
 			<?php if (!$field->hidden): ?>
 				<?php echo $field->label; ?>
 			<?php endif; ?>
 			<?php echo $field->input; ?>
 		<?php endforeach; ?>
+		<button type="submit" id="filter-go">
+			<?php echo JText::_('JSUBMIT'); ?></button>
 	</div>
 </fieldset>
 <div class="clr"></div>

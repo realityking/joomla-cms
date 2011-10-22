@@ -104,7 +104,6 @@ JHtml::_('behavior.formvalidation');
 			</fieldset>
 			<?php echo JHtml::_('sliders.panel',JText::_('COM_CONTACT_CONTACT_DETAILS'), 'basic-options'); ?>
 
-
 			<fieldset class="panelform">
 				<p><?php echo empty($this->item->id) ? JText::_('COM_CONTACT_DETAILS') : JText::sprintf('COM_CONTACT_EDIT_DETAILS', $this->item->id); ?></p>
 

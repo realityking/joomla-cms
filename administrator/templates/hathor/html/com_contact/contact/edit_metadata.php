@@ -18,7 +18,7 @@ foreach ($fieldSets as $name => $fieldSet) :
 	endif;
 	?>
 	<fieldset class="panelform">
-	<legend class="element-invisible"><?php echo JText::_($fieldSet->label); ?></legend>
+		<legend class="element-invisible"><?php echo JText::_($fieldSet->label); ?></legend>
 		<ul class="adminformlist">
 			<?php if ($name == 'jmetadata') : // Include the real fields in this panel. ?>
 				<li><?php echo $this->form->getLabel('metadesc'); ?>

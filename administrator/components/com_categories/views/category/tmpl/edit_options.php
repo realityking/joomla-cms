@@ -44,18 +44,16 @@ foreach ($fieldSets as $name => $fieldSet) :
 	endif;
 	?>
 	<fieldset class="panelform">
-	<ul class="adminformlist">
+		<ul class="adminformlist">
+			<?php foreach ($this->form->getFieldset($name) as $field) : ?>
+				<li><?php echo $field->label; ?>
+				<?php echo $field->input; ?></li>
+			<?php endforeach; ?>
 
-		<?php foreach ($this->form->getFieldset($name) as $field) : ?>
-			<li><?php echo $field->label; ?>
-			<?php echo $field->input; ?></li>
-		<?php endforeach; ?>
-
-		<?php if ($name=='basic'):?>
-			<li><?php echo $this->form->getLabel('note'); ?>
-			<?php echo $this->form->getInput('note'); ?></li>
-		<?php endif;?>
-	</ul>
-
+			<?php if ($name=='basic'):?>
+				<li><?php echo $this->form->getLabel('note'); ?>
+				<?php echo $this->form->getInput('note'); ?></li>
+			<?php endif;?>
+		</ul>
 	</fieldset>
 <?php endforeach; ?>

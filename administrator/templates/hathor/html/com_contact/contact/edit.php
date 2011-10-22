@@ -74,7 +74,7 @@ JHtml::_('behavior.formvalidation');
 			<?php echo JHtml::_('sliders.panel',JText::_('JGLOBAL_FIELDSET_PUBLISHING'), 'publishing-details'); ?>
 
 			<fieldset class="panelform">
-			<legend class="element-invisible"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING'); ?></legend>
+				<legend class="element-invisible"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING'); ?></legend>
 				<ul class="adminformlist">
 
 					<li><?php echo $this->form->getLabel('created_by'); ?>
@@ -105,7 +105,7 @@ JHtml::_('behavior.formvalidation');
 			<?php echo JHtml::_('sliders.panel',JText::_('COM_CONTACT_CONTACT_DETAILS'), 'basic-options'); ?>
 
 			<fieldset class="panelform">
-			<legend class="element-invisible"><?php echo JText::_('COM_CONTACT_CONTACT_DETAILS'); ?></legend>
+				<legend class="element-invisible"><?php echo JText::_('COM_CONTACT_CONTACT_DETAILS'); ?></legend>
 				<p><?php echo empty($this->item->id) ? JText::_('COM_CONTACT_DETAILS') : JText::sprintf('COM_CONTACT_EDIT_DETAILS', $this->item->id); ?></p>
 
 				<ul class="adminformlist">

@@ -23,7 +23,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_banners&view=tracks'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
-	<legend class="element-invisible"><?php echo JText::_('COM_BANNERS_BEGIN_LABEL'); ?></legend>
+		<legend><?php echo JText::_('COM_BANNERS_BEGIN_LABEL'); ?></legend>
 		<div class="filter-search">
 			<label class="filter-hide-lbl" for="filter_begin"><?php echo JText::_('COM_BANNERS_BEGIN_LABEL'); ?></label>
 			<?php echo JHtml::_('calendar',$this->state->get('filter.begin'), 'filter_begin','filter_begin','%Y-%m-%d' , array('size'=>10));?>
@@ -33,7 +33,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</div>
 
 		<div class="filter-select">
-            <label class="selectlabel" for="filter_client_id">
+			<label for="filter_client_id">
 				<?php echo JText::_('COM_BANNERS_SELECT_CLIENT'); ?>
 			</label>
 			<select name="filter_client_id" class="inputbox" id="filter_client_id">
@@ -41,7 +41,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<?php echo JHtml::_('select.options', JFormFieldBannerClient::getOptions(), 'value', 'text', $this->state->get('filter.client_id'));?>
 			</select>
 
-			<label class="selectlabel" for="filter_category_id">
+			<label for="filter_category_id">
 				<?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?>
 			</label>
 			<?php $category = $this->state->get('filter.category_id');?>
@@ -50,11 +50,11 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_banners'), 'value', 'text', $category);?>
 			</select>
 
-			<label class="selectlabel" for="filter_type">
+			<label for="filter_type">
 				<?php echo JText::_('BANNERS_SELECT_TYPE'); ?>
 			</label>
 			<select name="filter_type" class="inputbox" id="filter_type">
-				<?php echo JHtml::_('select.options', array(JHtml::_('select.option', '0', JText::_('COM_BANNERS_SELECT_TYPE')), JHtml::_('select.option', 1, JText::_(				'COM_BANNERS_IMPRESSION')), JHtml::_('select.option', 2, JText::_('COM_BANNERS_CLICK'))), 'value', 'text', $this->state->get('filter.type'));?>
+				<?php echo JHtml::_('select.options', array(JHtml::_('select.option', '0', JText::_('COM_BANNERS_SELECT_TYPE')), JHtml::_('select.option', 1, JText::_('COM_BANNERS_IMPRESSION')), JHtml::_('select.option', 2, JText::_('COM_BANNERS_CLICK'))), 'value', 'text', $this->state->get('filter.type'));?>
 			</select>
 
 			<button type="submit" id="filter-go">
