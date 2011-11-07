@@ -226,7 +226,7 @@ class JInstallerFile extends JAdapterInstance
 			$row->set('client_id', 0);
 			$row->set('params', '');
 			$row->set('system_data', '');
-			$row->set('manifest_cache', '');
+			$row->set('manifest_cache', $this->parent->generateManifestCache());
 
 			if (!$row->store())
 			{
@@ -262,7 +262,7 @@ class JInstallerFile extends JAdapterInstance
 				$this->parent->setSchemaVersion($this->manifest->update->schemas, $row->extension_id);
 			}
 		}
-		else if (strtolower($this->route) == 'update') {
+		elseif (strtolower($this->route) == 'update') {
 			if ($this->manifest->update) {
 				$result = $this->parent->parseSchemaUpdates($this->manifest->update->schemas, $row->extension_id);
 				if ($result === false) {

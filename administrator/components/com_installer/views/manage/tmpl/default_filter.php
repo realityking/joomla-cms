@@ -34,4 +34,3 @@ defined('_JEXEC') or die;
 	</div>
 </fieldset>
 <div class="clr"></div>
-
