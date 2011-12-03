@@ -1,27 +1,30 @@
 <?php
 /**
- * @version		$Id:
  * @package		Joomla
- * @subpackage	JFramework
- * @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
- * @license		GNU/GPL, see LICENSE.php
+ * @subpackage	Plugin
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
-
-jimport('joomla.plugin.plugin');
+defined('_JEXEC') or die;
 
 /**
  * Securimage Captcha Plugin.
  * Based on the Securimage Captcha library( http://www.phpcaptcha.org/ )
  *
  * @package		Joomla
- * @subpackage	JFramework
- * @since		1.6
+ * @subpackage	Plugin
+ * @since		2.5
  */
 class plgCaptchaSecurimage extends JPlugin
 {
+	/**
+	 * Captcha Plugin object
+	 *
+	 * @var	JCaptchaSecurimage
+	 */
+	private $captcha;
+	
 	/**
 	 * Constructor
 	 *
@@ -33,9 +36,8 @@ class plgCaptchaSecurimage extends JPlugin
 	{
 		parent::__construct($subject, $config, $options);
 
-		jimport('joomla.captcha.helper');
 		$namespace = !empty($options['namespace']) ? $options['namespace'] : '_default';
-		$this->captcha = new JCaptchaHelper();
+		$this->captcha = new JCaptchaSecurimage();
 		$this->captcha->set('namespace', $namespace);
 	}
 
@@ -49,10 +51,10 @@ class plgCaptchaSecurimage extends JPlugin
 		$params = $this->params->toArray();
 
 		if (isset($params['image_bg_color'])) {
-			$params['image_bg_color'] = new JCaptcha_Color(trim($params['image_bg_color']));
+			$params['image_bg_color'] = new JCaptchaColor(trim($params['image_bg_color']));
 		}
 		if (isset($params['line_color'])) {
-			$params['line_color'] = new JCaptcha_Color(trim($params['line_color']));
+			$params['line_color'] = new JCaptchaColor(trim($params['line_color']));
 		}
 
 		if (isset($params['text_color']))
@@ -61,12 +63,12 @@ class plgCaptchaSecurimage extends JPlugin
 			{
 				$multi_text_color = explode(',', $params['text_color']);
 				foreach ($multi_text_color as $color) {
-					$colors[] = new JCaptcha_Color(trim($color));
+					$colors[] = new JCaptchaColor(trim($color));
 				}
 				$params['text_color'] = $colors;
 			}
 			else {
-				$params['text_color'] = new JCaptcha_Color(trim($params['text_color']));
+				$params['text_color'] = new JCaptchaColor(trim($params['text_color']));
 			}
 		}
 
@@ -116,6 +118,4 @@ class plgCaptchaSecurimage extends JPlugin
   			return false;
   		}
 	}
-
 }
-

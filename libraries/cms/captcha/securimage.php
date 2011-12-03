@@ -1,25 +1,22 @@
 <?php
 /**
- * @version		$Id: helper.php
- * @package		Joomla.Framework
- * @subpackage	Cache
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @package		Joomla.Libraries
+ * @subpackage	Captcha
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// No direct access
-defined('JPATH_BASE') or die;
+defined('JPATH_PLATFORM') or die;
 
 /**
  * Joomla! Captcha helper object.
  * Based on Securimage (http://www.phpcaptcha.org/).
  *
- * @abstract
- * @package		Joomla.Framework
- * @subpackage	CaptchaHelper
- * @since		1.6
+ * @package		Joomla.Libraries
+ * @subpackage	Captcha
+ * @since		2.5
  */
-class JCaptchaHelper extends JObject
+class JCaptchaSecurimage extends JObject
 {
 	/**
 	 * The gd image resource.
@@ -57,10 +54,10 @@ class JCaptchaHelper extends JObject
 			'code_length' => 4,
 			'charset' => 'ABCDEFGHKLMNPRSTUVWYZ23456789',
 			'font_type' => 'GD',// GD or TTF
-			'gd_font_path' => array($image_path, $file_path, JPATH_LIBRARIES.'/joomla/captcha/gdfonts'),
+			'gd_font_path' => array($image_path, $file_path, JPATH_PLATFORM.'/cms/captcha/gdfonts'),
 			'gd_font_file' => 'bubblebath.gdf',
 			'gd_font_size' => 20,
-			'ttf_font_path' => array($image_path, $file_path, JPATH_LIBRARIES.'/joomla/captcha/ttffonts'),
+			'ttf_font_path' => array($image_path, $file_path, JPATH_PLATFORM.'/cms/captcha/ttffonts'),
 			'ttf_font_file' => 'elephant.ttf',
 			'ttf_font_size' => 25,
 			'perturbation' => 0.75,
@@ -70,14 +67,14 @@ class JCaptchaHelper extends JObject
 			'text_x_start' => 8,
 			'background_image_path' => array($image_path, $file_path, JPATH_BASE.'/media/system/images/captcha'),
 			'background_image_file' => -1,
-			'image_bg_color' => new JCaptcha_Color(0xff, 0xff, 0xff),
-			'text_color' => array(new JCaptcha_Color(0x0, 0x0, 0x0),
-										new JCaptcha_Color(0x0, 0x0, 0x33),
-										new JCaptcha_Color(0x0, 0x33, 0x33),
-										new JCaptcha_Color(0x0, 0x33, 0x00)),
+			'image_bg_color' => new JCaptchaColor(0xff, 0xff, 0xff),
+			'text_color' => array(new JCaptchaColor(0x0, 0x0, 0x0),
+										new JCaptchaColor(0x0, 0x0, 0x33),
+										new JCaptchaColor(0x0, 0x33, 0x33),
+										new JCaptchaColor(0x0, 0x33, 0x00)),
 			'use_transparent_text' => true,
 			'text_transparency_percentage' => 15,
-			'line_color' => new JCaptcha_Color(0x3d, 0x3d, 0x3d),
+			'line_color' => new JCaptchaColor(0x3d, 0x3d, 0x3d),
 			'num_lines' => 10,
 			'draw_lines' => 'under',
 			'case_sensitive' => false,
@@ -89,6 +86,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Generate and output the image to a file or to the browser
+	 *
+	 * @since 2.5
 	 */
 	public function create()
 	{
@@ -153,6 +152,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Allocate all colors that will be used in the CAPTCHA image
+	 *
+	 * @since 2.5
 	 */
 	private function allocateColors()
 	{
@@ -190,6 +191,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Create the id and the filename
+	 *
+	 * @since 2.5
 	 */
 	private function generateId()
 	{
@@ -199,6 +202,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Save the data in the session
+	 *
+	 * @since 2.5
 	 */
 	private function saveData()
 	{
@@ -230,11 +235,15 @@ class JCaptchaHelper extends JObject
 	private function setBackgroundImage()
 	{
 		$bgimg = JPath::find($this->background_image_path, $this->background_image_file);
-		if(!is_readable($bgimg)) return;
+		if (!is_readable($bgimg)) {
+			return;
+		}
 		$dat = @getimagesize($bgimg);
-		if($dat == false) return;
+		if ($dat == false) {
+			return;
+		}
 
-		switch($dat[2])
+		switch ($dat[2])
 		{
 			case 1:
 				$newim = @imagecreatefromgif($bgimg);
@@ -262,6 +271,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Draw lines on the image
+	 *
+	 * @since 2.5
 	 */
 	private function drawLines()
 	{
@@ -290,7 +301,8 @@ class JCaptchaHelper extends JObject
 			$ldx = round(-$dy * $lwid);
 			$ldy = round($dx * $lwid);
 
-			for ($i = 0; $i < $n; ++$i) {
+			for ($i = 0; $i < $n; ++$i)
+			{
 				$x = $x0 + $i * $dx + $amp * $dy * sin($k * $i * $step + $phi);
 				$y = $y0 + $i * $dy - $amp * $dx * sin($k * $i * $step + $phi);
 				imagefilledrectangle($this->im, $x, $y, $x + $lwid, $y + $lwid, $this->gdlinecolor);
@@ -300,6 +312,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Draw the CAPTCHA code over the image
+	 *
+	 * @since 2.5
 	 */
 	private function drawWord()
 	{
@@ -345,7 +359,7 @@ class JCaptchaHelper extends JObject
 				$x  = floor($width2 / 2 - $tx / 2 - $bb[0]);
 				$y  = round($height2 / 2 - $ty / 2 - $bb[1]);
 
-				for($i = 0; $i < $strlen; ++$i)	
+				for ($i = 0; $i < $strlen; ++$i)	
 				{
 					$angle = rand($this->text_angle_minimum, $this->text_angle_maximum);
 					$y = rand($y - 5, $y + 5);
@@ -392,6 +406,8 @@ class JCaptchaHelper extends JObject
 	 * @author Han-Kwang Nienhuys modified
 	 * @copyright Han-Kwang Neinhuys
 	 *
+	 *
+	 * @since 2.5
 	 */
 	private function distortedCopy()
 	{
@@ -451,6 +467,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Create a code
+	 *
+	 * @since 2.5
 	 */
 	private function createCode()
 	{
@@ -461,12 +479,15 @@ class JCaptchaHelper extends JObject
 	 * Generate a code
 	 *
 	 * @return	string	The Generated Code
+	 *
+	 * @since 2.5
 	 */
 	private function generateCode()
 	{
 		$code = '';
 
-		for($i = 1, $cslen = strlen($this->charset); $i <= $this->code_length; ++$i) {
+		for ($i = 1, $cslen = strlen($this->charset); $i <= $this->code_length; ++$i)
+		{
 			$code .= strtoupper( $this->charset{rand(0, $cslen - 1)} );
 		}
 		return $code;
@@ -474,6 +495,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Output image to the browser
+	 *
+	 * @since 2.5
 	 */
 	private function outputBrowser()
 	{
@@ -508,6 +531,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Output image to a file
+	 *
+	 * @since 2.5
 	 */
 	private function outputFile()
 	{
@@ -542,6 +567,8 @@ class JCaptchaHelper extends JObject
 
 	/**
 	 * Remove old Captchas images files from the tmp folder
+	 *
+	 * @since 2.5
 	 */
 	private function purgeCaptchas($session = true, $tmp = true)
 	{
@@ -554,7 +581,7 @@ class JCaptchaHelper extends JObject
 		// Get the path
 		$path = $this->file_path;
 
-		if($session)
+		if ($session)
 		{
 			// Get the Application
 			$app = JFactory::getApplication();
@@ -569,7 +596,9 @@ class JCaptchaHelper extends JObject
 				{
 					// Store for delete
 					$file = $path.'/'.$captcha['file'];
-					if(JFile::exists($file)) $session_excludes[] = $file;
+					if (JFile::exists($file)) {
+						$session_excludes[] = $file;
+					}
 				}
 
 				// Delete the files
@@ -583,7 +612,7 @@ class JCaptchaHelper extends JObject
 			}
 		}
 
-		if($tmp)
+		if ($tmp)
 		{
 			jimport('joomla.filesystem.folder');
 			$past = time() - JFactory::getConfig()->get('lifetime', 15) * 60;
@@ -591,12 +620,12 @@ class JCaptchaHelper extends JObject
 			// Get the files
 			if (($files = JFolder::files($path, '^jcaptcha\.[0-9]{9, 10}\.(png|gif|jpg)$')) === false)
 			{
-				$e = new JException(JText::_('JLIB_CAPTCHA_ERROR_GETTING_FILES_FROM_TMP_FOLDER'));
+				$e = new Exception(JText::_('JLIB_CAPTCHA_ERROR_GETTING_FILES_FROM_TMP_FOLDER'));
 				$this->setError($e);
 				return false;
 			}
 
-			if(!empty($files))
+			if (!empty($files))
 			{
 				// Initialise variables
 				$file_excludes = null;
@@ -610,7 +639,9 @@ class JCaptchaHelper extends JObject
 					{
 						// Store for delete
 						$file = $path.'/'.$file;
-						if(JFile::exists($file)) $file_excludes[] = $file;
+						if (JFile::exists($file)) {
+							$file_excludes[] = $file;
+						}
 					}
 				}
 
@@ -627,7 +658,10 @@ class JCaptchaHelper extends JObject
 	 *
 	 * @param	int		$id		The Id of the captcha
 	 * @param	string	$code	The code the user entered
+	 *
 	 * @return	boolean	true if the code was correct, false if not
+	 *
+	 * @since 2.5
 	 */
 	public function validate($id, $input)
 	{
@@ -640,7 +674,7 @@ class JCaptchaHelper extends JObject
 		// Check that the specified captcha test exists
 		if (!isset($captchas[$id]))
 		{
-			$e = new JException(JText::_('JLIB_CAPTCHA_ID_NOT_FOUND'));
+			$e = new Exception(JText::_('JLIB_CAPTCHA_ID_NOT_FOUND'));
 			$this->setError($e);
 			return false;
 		}
@@ -667,7 +701,7 @@ class JCaptchaHelper extends JObject
 		}
 		else
 		{
-			$e = new JException(JText::_('JLIB_CAPTCHA_INCORRECT_SOLUTION'));
+			$e = new Exception(JText::_('JLIB_CAPTCHA_INCORRECT_SOLUTION'));
 			$this->setError($e);
 			return false;
 		}
@@ -677,6 +711,8 @@ class JCaptchaHelper extends JObject
 	 * Generate random number less than 1
 	 * 
 	 * @return float
+	 *
+	 * @since 2.5
 	 */
 	private function frand()
 	{
@@ -684,69 +720,3 @@ class JCaptchaHelper extends JObject
 	}
 }
 
-/**
- * Color object for CAPTCHA
- */
-class JCaptcha_Color
-{
-	/**
-	 * Red component: 0-255
-	 *
-	 * @var int
-	 */
-	public $r;
-	/**
-	 * Green component: 0-255
-	 *
-	 * @var int
-	 */
-	public $g;
-	/**
-	 * Blue component: 0-255
-	 *
-	 * @var int
-	 */
-	public $b;
-
-	/**
-	 * Create a new Securimage_Color object.<br />
-	 * Specify the red, green, and blue components using their HTML hex code equivalent.<br />
-	 * Example: The code for the HTML color #4A203C is:<br />
-	 * $color = new Securimage_Color(0x4A, 0x20, 0x3C);
-	 *
-	 * @param	$red	Red		component 0-255
-	 * @param	$green	Green	component 0-255
-	 * @param	$blue	Blue	component 0-255
-	 */
-	public function __construct($red, $green = null, $blue = null)
-	{
-		if ($green == null && $blue == null && preg_match('/^#[a-f0-9]{3,6}$/i', $red))
-		{
-			$col = substr($red, 1);
-			if (strlen($col) == 3) {
-				$red   = str_repeat(substr($col, 0, 1), 2);
-				$green = str_repeat(substr($col, 1, 1), 2);
-				$blue  = str_repeat(substr($col, 2, 1), 2);
-			} else {
-				$red   = substr($col, 0, 2);
-				$green = substr($col, 2, 2);
-				$blue  = substr($col, 4, 2); 
-			}
-			
-			$red   = hexdec($red);
-			$green = hexdec($green);
-			$blue  = hexdec($blue);
-		} else {
-			if ($red < 0) $red	   = 0;
-			if ($red > 255) $red	 = 255;
-			if ($green < 0) $green   = 0;
-			if ($green > 255) $green = 255;
-			if ($blue < 0) $blue	 = 0;
-			if ($blue > 255) $blue   = 255;
-		}
-
-		$this->r = $red;
-		$this->g = $green;
-		$this->b = $blue;
-	}
-}

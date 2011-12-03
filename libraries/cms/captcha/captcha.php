@@ -1,22 +1,23 @@
 <?php
 /**
- * @version		$Id: captcha.php
- * @package		Joomla.Framework
- * @subpackage	Cache
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @package		Joomla.Libraries
+ * @subpackage	Captcha
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// No direct access
-defined('JPATH_BASE') or die;
+defined('JPATH_PLATFORM') or die;
+
+jimport('joomla.filesystem.file');
+jimport('joomla.base.observable');
 
 /**
  * Joomla! Captcha base object
  *
  * @abstract
- * @package		Joomla.Framework
+ * @package		Joomla.Libraries
  * @subpackage	Captcha
- * @since		1.6
+ * @since		2.5
  */
 class JCaptcha extends JObservable
 {
@@ -25,18 +26,29 @@ class JCaptcha extends JObservable
 	 *
 	 * @var	object
 	 */
-	protected $_captcha;
+	private $_captcha;
 
 	/**
 	 * Editor Plugin name
 	 *
 	 * @var string
 	 */
-	protected $_name;
+	private $_name;
+	
+	/**
+	 * Captcha Plugin object
+	 *
+	 * @var	array
+	 */
+	private static $_instances = array();
 
 	/**
 	 * Class constructor.
 	 *
+	 * @param	string	$editor  The editor to use.
+	 * @param	array	$options  Associative array of options.
+	 *
+	 * @since 2.5
 	 */
 	public function __construct($captcha, $options)
 	{
@@ -49,23 +61,29 @@ class JCaptcha extends JObservable
 	 * if it doesn't already exist.
 	 *
 	 * @param	string	$editor  The editor to use.
+	 * @param	array	$options  Associative array of options.
+	 *
 	 * @return	object	The JCaptcha object.
+	 *
+	 * @since 2.5
 	 */
-	public static function getInstance($captcha = '', $options = array())
+	public static function getInstance($captcha = '', array $options = array())
 	{
-		static $instances;
-
-		if (is_null($instances)) $instances = array();
-
+		$captcha = empty($captcha) ? JFactory::getConfig()->get('captcha') : $captcha;
 		$signature = md5(serialize(array($captcha, $options)));
 
-		if (empty($instances[$signature])) {
-			$instances[$signature] = new JCaptcha($captcha, $options);
+		if (empty(self::$_instances[$signature])) {
+			self::$_instances[$signature] = new JCaptcha($captcha, $options);
 		}
 
-		return $instances[$signature];
+		return self::$_instances[$signature];
 	}
 
+	/**
+	 * @return boolean True on success
+	 *
+	 * @since	2.5
+	 */
 	public function initialise($id)
 	{
 		$args['id']		= $id ;
@@ -73,7 +91,7 @@ class JCaptcha extends JObservable
 
 		$return = $this->_captcha->update($args);
 
-		if(JError::isError($return))
+		if ($return instanceof Exception)
 		{
 			JError::throwError($return);
 			return false;
@@ -87,17 +105,17 @@ class JCaptcha extends JObservable
 	 * Get the HTML for the captcha.
 	 *
 	 * @return 	the return value of the function "onDisplay" of the selected Plugin.
-	 * @since	1.6
+	 * @since	2.5
 	 */
 	public function display($name, $id, $class = '')
 	{
 		// Check if captcha is already loaded.
-		if(is_null(($this->_captcha))) {
+		if (is_null($this->_captcha)) {
 			return;
 		}
 
 		// Initialise the Captcha.
-		if(!$this->initialise($id)) {
+		if (!$this->initialise($id)) {
 			return;
 		}
 
@@ -113,7 +131,7 @@ class JCaptcha extends JObservable
 	 * Checks if the answer is correct.
 	 *
 	 * @return 	the return value of the function "onCheckAnswer" of the selected Plugin.
-	 * @since	1.6
+	 * @since	2.5
 	 */
 	public function checkAnswer($code)
 	{
@@ -129,21 +147,24 @@ class JCaptcha extends JObservable
 	}
 
 	/**
-	 * Load the Captcha.
+	 * Load the Captcha plug-in.
 	 *
-	 * @since	1.6
+	 * @param	array	$options  Associative array of options.
+	 *
+	 * @return  void
+	 *
+	 * @since	2.5
 	 */
-	protected function _load($options)
+	private function _load(array $options = array())
 	{
-		jimport('joomla.filesystem.file');
-
 		// Build the path to the needed captcha plugin
 		$name = JFilterInput::getInstance()->clean($this->_name, 'cmd');
-		$path = JPATH_SITE.'/plugins/captcha/'.$name.'/'.$name.'.php';
+		$path = JPATH_PLUGINS . '/captcha/' . $name . '/' . $name . '.php';
 
 		if (!JFile::exists($path))
 		{
-			$path = JPATH_SITE.'/plugins/captcha/'.$name.'.php';
+
+			$path = JPATH_PLUGINS . '/captcha/' . $name . '.php';
 			if (!JFile::exists($path))
 			{
 				JError::raiseWarning(500, JText::_('JLIB_CAPTCHA_ERROR_LOADING', $name));
@@ -155,8 +176,8 @@ class JCaptcha extends JObservable
 		require_once $path;
 
 		// Get the plugin
-		$plugin   = JPluginHelper::getPlugin('captcha', $this->_name);
-		$params   = new JRegistry($plugin->params);
+		$plugin = JPluginHelper::getPlugin('captcha', $this->_name);
+		$params = new JRegistry($plugin->params);
 		$plugin->params = $params;
 
 		// Build captcha plugin classname

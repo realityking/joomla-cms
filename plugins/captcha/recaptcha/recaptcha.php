@@ -1,16 +1,14 @@
 <?php
 /**
- * @version		$Id:$
  * @package		Joomla
- * @subpackage	JFramework
- * @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
- * @license		GNU/GPL, see LICENSE.php
+ * @subpackage	Plugin
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die( 'Restricted access' );
+defined('_JEXEC') or die;
 
-jimport('joomla.plugin.plugin');
+jimport('joomla.environment.browser');
 
 define("RECAPTCHA_API_SERVER", "http://api.recaptcha.net");
 define("RECAPTCHA_API_SECURE_SERVER", "https://api-secure.recaptcha.net");
@@ -21,8 +19,8 @@ define("RECAPTCHA_VERIFY_SERVER", "api-verify.recaptcha.net");
  * Based on the oficial recaptcha library( http://recaptcha.net/plugins/php/ )
  *
  * @package		Joomla
- * @subpackage	JFramework
- * @since		1.6
+ * @subpackage	Plugin
+ * @since		2.5
  */
 class plgCaptchaRecaptcha extends JPlugin
 {
@@ -44,32 +42,22 @@ class plgCaptchaRecaptcha extends JPlugin
 		// Initialise variables
 		$lang		= $this->_getLanguage();
 		$pubkey		= $this->params->get('public_key', '');
-		$use_ssl	= JFactory::getConfig()->get('force_ssl', 0);
 		$theme		= $this->params->get('theme', 'clean');
 
 		if ($pubkey == null || $pubkey == '') {
-			return new JException(JText::_('PLG_RECAPTCHA_ERROR_NO_PUBLIC_KEY'), 500, E_WARNING);
+			return new Exception(JText::_('PLG_RECAPTCHA_ERROR_NO_PUBLIC_KEY'), 500, E_WARNING);
 		}
 
-		switch ($use_ssl)
-		{
-			case 1:
-				if(JPATH_BASE == JPATH_ADMINISTRATOR){
-					$server = RECAPTCHA_API_SECURE_SERVER;
-					break;
-				}
-			case 2:
-				$server = RECAPTCHA_API_SECURE_SERVER;
-				break;
-			case 0:
-			default:
-				$server = RECAPTCHA_API_SERVER;
-				break;
+		$server = RECAPTCHA_API_SERVER;
+		if (JBrowser::getInstance()->isSSLConnection()) {
+			$server = RECAPTCHA_API_SECURE_SERVER;
 		}
 
 		JHtml::_('script', $server.'/js/recaptcha_ajax.js');
 		$document = JFactory::getDocument();
-		$document->addScriptDeclaration('window.addEvent(\'domready\', function() {Recaptcha.create("'.$pubkey.'", "dynamic_recaptcha_1", {theme: "'.$theme.'",'.$lang.'tabindex: 0});});');
+		$document->addScriptDeclaration('window.addEvent(\'domready\', function() {
+			Recaptcha.create("'.$pubkey.'", "dynamic_recaptcha_1", {theme: "'.$theme.'",'.$lang.'tabindex: 0});});'
+		);
 
 		return true;
 	}
@@ -178,14 +166,16 @@ class plgCaptchaRecaptcha extends JPlugin
 		$http_request .= $req;
 
 		$response = '';
-		if(($fs = @fsockopen($host, $port, $errno, $errstr, 10)) == false ) {
+		if (($fs = @fsockopen($host, $port, $errno, $errstr, 10)) == false ) {
 				die('Could not open socket');
 		}
 
 		fwrite($fs, $http_request);
 
 		while ( !feof($fs) )
+		{
 				$response .= fgets($fs, 1160); // One TCP-IP packet
+		}
 		fclose($fs);
 		$response = explode("\r\n\r\n", $response, 2);
 
@@ -202,23 +192,18 @@ class plgCaptchaRecaptcha extends JPlugin
 		// Initialise variables
 		$language = JFactory::getLanguage();
 		$lang = $this->params->get('lang');
-
 		// If empty get the default language and see if it is available
-		if(empty($lang))
+		if (empty($lang))
 		{
-			$tag = $language->getTag();
+			$tag = explode('-', $language->getTag());
+			$tag = $tag[0];
 			$available = array('en','pt','fr','de','nl','ru','es','tr');
 
-			foreach($available as $v)
-			{
-				if(strrpos($tag, $v) == 0)
-				{
-					$lang = substr($tag, 0, 2);
-					break;
-				}
+			if (in_array($tag, $available)) {
+				$lang = $tag;
 			}
 			// If the default language is not available, let's search for a custom translation
-			if(empty($lang) && $language->hasKey('PLG_RECAPTCHA_CUSTOM_LANG'))
+			if (empty($lang) && $language->hasKey('PLG_RECAPTCHA_CUSTOM_LANG'))
 			{
 				$custom[] ='custom_translations : {';
 				$custom[] ="\t".'instructions_visual : "'.JText::_('PLG_RECAPTCHA_INSTRUCTIONS_VISUAL').'",';
@@ -240,10 +225,9 @@ class plgCaptchaRecaptcha extends JPlugin
 			}
 
 		}
-		else{
+		else {
 			return "lang : '".$lang."',";
 		}
 
 	}
 }
-

@@ -1,21 +1,22 @@
 <?php
 /**
- * @version		$Id: editors.php 13698 2009-12-11 18:38:48Z eddieajau $
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @package		Joomla
+ * @subpackage	Form
+ * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('JPATH_BASE') or die;
 
-jimport('joomla.html.html');
-require_once dirname(__FILE__).DS.'list.php';
+jimport('joomla.form.formfield');
+JFormHelper::loadFieldClass('list');
 
 /**
  * Form Field class for the Joomla Framework.
  *
- * @package		Joomla.Framework
+ * @package		Joomla.Libraries
  * @subpackage	Form
- * @since		1.6
+ * @since		2.5
  */
 class JFormFieldPlugins extends JFormFieldList
 {
@@ -36,7 +37,7 @@ class JFormFieldPlugins extends JFormFieldList
 		// Initialise variables
 		$folder	= $this->element['folder'];
 
-		if(!empty($folder))
+		if (!empty($folder))
 		{
 			// Get list of plugins
 			$db		= JFactory::getDbo();
@@ -69,7 +70,7 @@ class JFormFieldPlugins extends JFormFieldList
 				return '';
 			}
 
-		} else{
+		} else {
 			JError::raiseWarning(500, JText::_('JFRAMEWORK_FORM_FIELDS_PLUGINS_ERROR_FOLDER_EMPTY'));
 		}
 

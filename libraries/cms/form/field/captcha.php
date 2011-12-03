@@ -1,6 +1,7 @@
 <?php
 /**
- * @version		$Id: captcha.php
+ * @package		Joomla
+ * @subpackage	Plugin
  * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -12,9 +13,9 @@ jimport('joomla.form.formfield');
 /**
  * Form Field class for the Joomla Framework.
  *
- * @package		Joomla.Framework
+ * @package		Joomla.Libraries
  * @subpackage	Form
- * @since		1.6
+ * @since		2.5
  */
 class JFormFieldCaptcha extends JFormField
 {
@@ -40,7 +41,7 @@ class JFormFieldCaptcha extends JFormField
 			return '';
 		}
 		else{
-			if (($captcha = JFactory::getCaptcha($plugin, array('namespace' => $namespace))) == null){
+			if (($captcha = JCaptcha::getInstance($plugin, array('namespace' => $namespace))) == null){
 				return '';
 			}
 		}
