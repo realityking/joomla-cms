@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<extension
+	version="1.6"
+	type="plugin"
+	group="captcha">
+	<name>Captcha - ReCaptcha</name>
+	<version>1.0</version>
+	<creationDate>Jan 2010</creationDate>
+	<author></author>
+	<authorEmail>N/A</authorEmail>
+	<authorUrl></authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<description>PLG_CAPTCHA_SECURIMAGE_XML_DESCRIPTION</description>
+	<files>
+		<filename
+			plugin="recaptcha">recaptcha.php</filename>
+	</files>
+	<config>
+	<fields name="params">
+
+		<fieldset name="basic">
+			<field
+			name="public_key"
+			type="text"
+			default=""
+			label="PLG_RECAPTCHA_PUBLIC_KEY_LABEL"
+			description="PLG_RECAPTCHA_PUBLIC_KEY_DESC"
+			required="true"
+			filter="string"
+			size="50" />
+
+			<field
+			name="private_key"
+			type="text"
+			default=""
+			label="PLG_RECAPTCHA_PRIVATE_KEY_LABEL"
+			description="PLG_RECAPTCHA_PRIVATE_KEY_DESC"
+			required="true"
+			filter="string"
+			size="50" />
+
+			<field
+			name="theme"
+			type="list"
+			default="red"
+			label="PLG_RECAPTCHA_THEME_LABEL"
+			description="PLG_RECAPTCHA_THEME_DESC"
+			required="true"
+			filter="">
+			<option
+				value="clean">PLG_RECAPTCHA_THEME_CLEAN</option>
+			<option
+				value="white">PLG_RECAPTCHA_THEME_WHITE</option>
+			<option
+				value="blackglass">PLG_RECAPTCHA_THEME_BLACKGLASS</option>
+			<option
+				value="red">PLG_RECAPTCHA_THEME_RED</option>
+			</field>
+
+			<field
+			name="lang"
+			type="list"
+			default="red"
+			label="PLG_RECAPTCHA_LANG_LABEL"
+			description="PLG_RECAPTCHA_LANG_DESC"
+			filter="">
+			<option
+				value="">JDEFAULT</option>
+			<option
+				value="en">JOPTION_LANGUAGE_EN_US</option>
+			<option
+				value="pt">JOPTION_LANGUAGE_PT_BR</option>
+				<option
+				value="pt">JOPTION_LANGUAGE_PT_PT</option>
+			<option
+				value="fr">JOPTION_LANGUAGE_FR_FR</option>
+			<option
+				value="de">JOPTION_LANGUAGE_DE_DE</option>
+			<option
+				value="nl">JOPTION_LANGUAGE_NL_NL</option>
+			<option
+				value="ru">JOPTION_LANGUAGE_RU_RU</option>
+			<option
+				value="es">JOPTION_LANGUAGE_ES_ES</option>
+			<option
+				value="tr">JOPTION_LANGUAGE_TR_TR</option>
+			</field>
+		</fieldset>
+	</fields>
+	</config>
+</extension>
