@@ -55,7 +55,7 @@ class JCaptchaColor
 
             if (strlen($color) != 3 && strlen($color) != 6)
             {
-                throw new InvalidArgumentException('Invalid HTML color code passed to JCaptcha_Color');
+                throw new InvalidArgumentException('Invalid HTML color code passed to JCaptchaColor');
             }
 
             $this->constructHTML($color);
@@ -66,15 +66,18 @@ class JCaptchaColor
         }
         else
         {
-            throw new InvalidArgumentException('JCaptcha_Color constructor expects 0, 1 or 3 arguments; ' . count($args) . ' given');
+            throw new InvalidArgumentException('JCaptchaColor constructor expects 0, 1 or 3 arguments; ' . count($args) . ' given');
         }
     }
 
     /**
      * Construct from an rgb triplet
+     *
      * @param int $red   The red component, 0-255
      * @param int $green The green component, 0-255
      * @param int $blue  The blue component, 0-255
+     *
+     * @return void
      */
     protected function constructRGB($red, $green, $blue)
     {
@@ -92,7 +95,10 @@ class JCaptchaColor
 
     /**
      * Construct from an html hex color code
-     * @param string $color
+     *
+     * @param string $color Color in hexadecimal
+     *
+     * @return void
      */
     protected function constructHTML($color)
     {

@@ -9,6 +9,8 @@
 
 defined('JPATH_PLATFORM') or die;
 
+jimport('joomla.environment.uri');
+
 /**
  * Joomla! Captcha helper object.
  * Based on Securimage (http://www.phpcaptcha.org/).
@@ -17,6 +19,8 @@ defined('JPATH_PLATFORM') or die;
  * @package     Joomla.Libraries
  * @subpackage  Captcha
  * @since       2.5
+ * @author      Drew Phillips
+ * @copyright   Copyright (c) 2011, Drew Phillips
  */
 class JCaptchaSecurimage extends JObject
 {
@@ -200,10 +204,12 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public function __construct($options = array())
 	{
-		if (isset($options['namespace'])) {
+		if (isset($options['namespace']))
+		{
 			$this->namespace = $options['namespace'];
 		}
-		$this->file_path = JFactory::getConfig()->get('tmp_path');
+		$this->file_path = JPATH_ROOT . '/media/captcha';
+		$this->fileUri   = JURI::root(true) . '/media/captcha';
 	}
 
 	/**
@@ -243,25 +249,32 @@ class JCaptchaSecurimage extends JObject
 
 		$ttf_file = JPath::find(array($image_path, $file_path, JPATH_PLATFORM . '/cms/captcha'), $this->ttf_file);
 
-		if ($ttf_file && is_readable($ttf_file)){
+		if ($ttf_file && is_readable($ttf_file))
+		{
 			$this->ttf_file = $ttf_file;
-		} else {
-			$this->ttf_file = JPATH_PLATFORM . '/cms/captcha/AHGBold.ttf';
+		}
+		else
+		{
+			$this->ttf_file = dirname(__FILE__) . '/fonts/AHGBold.ttf';
 		}
 
-		if (empty($this->signature_font)) {
+		if (empty($this->signature_font))
+		{
 			$this->signature_font = $this->ttf_file;
 		}
 
-		if (empty($this->wordlist_file)) {
-			$this->wordlist_file = JPATH_PLATFORM . '/cms/captcha/words.txt';
+		if (empty($this->wordlist_file))
+		{
+			$this->wordlist_file = dirname(__FILE__) . '/words.txt';
 		}
 
-		if (empty($this->code_length) || $this->code_length < 1) {
+		if (empty($this->code_length) || $this->code_length < 1)
+		{
 			$this->code_length = 6;
 		}
 
-		if (!is_numeric($this->perturbation)) {
+		if (!is_numeric($this->perturbation))
+		{
 			$this->perturbation = 0.75;
 		}
 	}
@@ -276,9 +289,12 @@ class JCaptchaSecurimage extends JObject
 		// Remove old captchas
 		$this->purgeCaptchas();
 
-		if (($this->use_transparent_text == true || $this->bgimg) && function_exists('imagecreatetruecolor')) {
+		if (($this->use_transparent_text == true || $this->bgimg) && function_exists('imagecreatetruecolor'))
+		{
 			$imagecreate = 'imagecreatetruecolor';
-		} else {
+		}
+		else
+		{
 			$imagecreate = 'imagecreate';
 		}
 
@@ -294,35 +310,29 @@ class JCaptchaSecurimage extends JObject
 
 		$this->createCode();
 		
-		if ($this->noise_level > 0) {
+		if ($this->noise_level > 0)
+		{
 			$this->drawNoise();
 		}
 
 		$this->drawWord();
 
-		if ($this->perturbation > 0 && is_readable($this->ttf_file)) {
+		if ($this->perturbation > 0 && is_readable($this->ttf_file))
+		{
 			$this->distortedCopy();
 		}
 
-		if ($this->num_lines > 0) {
+		if ($this->num_lines > 0)
+		{
 			$this->drawLines();
 		}
 
-		if (trim($this->image_signature) != '') {
+		if (trim($this->image_signature) != '')
+		{
 			$this->addSignature();
 		}
 
-		// Output to...
-		if (strtolower($this->output) == 'browser')
-		{
-			// the browser
-			$this->outputBrowser();
-		}
-		else
-		{
-			// a file.
-			$this->outputFile();
-		}
+		$this->outputFile();
 
 		return true;
 	}
@@ -404,7 +414,8 @@ class JCaptchaSecurimage extends JObject
 
 		
 		$dat = @getimagesize($this->bgimg);
-		if ($dat == false) {
+		if ($dat == false)
+		{
 			return;
 		}
 
@@ -423,7 +434,10 @@ class JCaptchaSecurimage extends JObject
 				return;
 		}
 
-		if (!$newim) return;
+		if (!$newim) 
+		{
+			return;
+		}
 
 		imagecopyresized($this->im, $newim, 0, 0, 0, 0,
 						 $this->image_width, $this->image_height,
@@ -487,11 +501,13 @@ class JCaptchaSecurimage extends JObject
 
 			case self::SI_CAPTCHA_STRING:
 			default:
-				if ($this->use_wordlist && is_readable($this->wordlist_file)) {
+				if ($this->use_wordlist && is_readable($this->wordlist_file))
+				{
 					$this->code = $this->readCodeFromFile();
 				}
 
-				if ($this->code == false) {
+				if ($this->code == false)
+				{
 					$this->code = $this->generateCode($this->code_length);
 				}
 
@@ -587,11 +603,13 @@ class JCaptchaSecurimage extends JObject
 				{
 					$dx = $ix - $px[$i];
 					$dy = $iy - $py[$i];
-					if ($dx == 0 && $dy == 0) {
+					if ($dx == 0 && $dy == 0)
+					{
 						continue;
 					}
 					$r = sqrt($dx * $dx + $dy * $dy);
-					if ($r > $rad[$i]) {
+					if ($r > $rad[$i])
+					{
 						continue;
 					}
 					$rscale = $amp[$i] * sin(3.14 * $r / $rad[$i]);
@@ -601,10 +619,13 @@ class JCaptchaSecurimage extends JObject
 				$c = $bgCol;
 				$x *= $this->iscale;
 				$y *= $this->iscale;
-				if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2) {
+				if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2)
+				{
 					$c = imagecolorat($this->tmpimg, $x, $y);
 				}
-				if ($c != $bgCol) { // only copy pixels of letters to preserve any background image
+				if ($c != $bgCol)
+				{
+					// only copy pixels of letters to preserve any background image
 					imagesetpixel($this->im, $ix, $iy, $c);
 				}
 			}
@@ -659,9 +680,12 @@ class JCaptchaSecurimage extends JObject
 	 */
 	protected function drawNoise()
 	{
-		if ($this->noise_level > 10) {
+		if ($this->noise_level > 10)
+		{
 			$noise_level = 10;
-		} else {
+		}
+		else
+		{
 			$noise_level = $this->noise_level;
 		}
 
@@ -696,40 +720,6 @@ class JCaptchaSecurimage extends JObject
 	}
 
 	/**
-	 * Sends the appropriate image and cache headers and outputs image to the browser
-	 *
-	 * @since 2.5
-	 */
-	protected function outputBrowser()
-	{
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
-		header("Cache-Control: no-store, no-cache, must-revalidate");
-		header("Cache-Control: post-check=0, pre-check=0", false);
-		header("Pragma: no-cache");
-
-		switch ($this->image_type)
-		{
-			case 'jpg':
-				header("Content-Type: image/jpeg");
-				imagejpeg($this->im, null, 90);
-				break;
-			case 'gif':
-				header("Content-Type: image/gif");
-				imagegif($this->im);
-				break;
-			case 'png':
-			default:
-				header("Content-Type: image/png");
-				imagepng($this->im);
-				break;
-		}
-
-		imagedestroy($this->im);
-		JFactory::getApplication()->close();
-	}
-
-	/**
 	 * Output image to a file
 	 *
 	 * @since 2.5
@@ -755,11 +745,6 @@ class JCaptchaSecurimage extends JObject
 
 		imagedestroy($this->im);
 
-		// Set the URI of the file
-		$r = JURI::root(true);
-		$path = explode($r, str_replace(DS, '/', $path));
-		$this->fileUri = $r.$path[1].'/'.$this->filename;
-
 		return true;
 	}
 
@@ -784,9 +769,12 @@ class JCaptchaSecurimage extends JObject
 		$start = @strpos($data, "\n", rand(0, 56)) + 1; // random start position
 		$end   = @strpos($data, "\n", $start);          // find end of word
 
-		if ($start === false) {
+		if ($start === false)
+		{
 			return false;
-		} else if ($end === false) {
+		}
+		else if ($end === false)
+		{
 			$end = strlen($data);
 		}
 
@@ -802,7 +790,8 @@ class JCaptchaSecurimage extends JObject
 	{
 		$code = '';
 
-		for ($i = 1, $cslen = JString::strlen($this->charset); $i <= $this->code_length; ++$i) {
+		for ($i = 1, $cslen = JString::strlen($this->charset); $i <= $this->code_length; ++$i)
+		{
 			$code .= $this->charset{rand(0, $cslen - 1)};
 		}
 
@@ -843,15 +832,22 @@ class JCaptchaSecurimage extends JObject
 				{
 					// Store for delete
 					$file = $path.'/'.$captcha['file'];
-					if (JFile::exists($file)) $session_excludes[] = $file;
+					if (JFile::exists($file))
+					{
+						$session_excludes[] = $file;
+					}
 				}
 
 				// Delete the files
-				if (!empty($session_excludes)) $return = JFile::delete($session_excludes);
+				if (!empty($session_excludes))
+				{
+					$return = JFile::delete($session_excludes);
+				}
 			}
 			
 			// Leave only the las 4 captchas in the session
-			if (count($captchas) >= 4){
+			if (count($captchas) >= 4)
+			{
 				$captchas = array_slice($captchas, -3, null, true);
 				$app->setUserState($this->namespace.'.JCaptcha', $captchas);
 			}
@@ -884,12 +880,18 @@ class JCaptchaSecurimage extends JObject
 					{
 						// Store for delete
 						$file = $path.'/'.$file;
-						if (JFile::exists($file)) $file_excludes[] = $file;
+						if (JFile::exists($file))
+						{
+							$file_excludes[] = $file;
+						}
 					}
 				}
 
 				// Delete the files
-				if (!empty($file_excludes)) $return = JFile::delete($file_excludes);
+				if (!empty($file_excludes))
+				{
+					$return = JFile::delete($file_excludes);
+				}
 			}
 		}
 
@@ -976,7 +978,7 @@ class JCaptchaSecurimage extends JObject
 	/**
 	 * Convert an html color code to a JCaptchaColor
 	 * @param string $color
-	 * @param JCaptchaColor $default The defalt color to use if $color is invalid
+	 * @param string $default The defalt color to use if $color is invalid
 	 *
 	 * @since 2.5
 	 */

@@ -29,14 +29,15 @@ class plgCaptchaSecurimage extends JPlugin
 	/**
 	 * Constructor
 	 *
-	 * @param object  $subject  The object to observe
-	 * @param array   $config   An optional associative array of configuration settings.
-	 * @param array   $options  An optional associative array of options settings.
+	 * @param  object  $subject  The object to observe
+	 * @param  array   $config   An optional associative array of configuration settings.
+	 * @param  array   $options  An optional associative array of options settings.
+	 *
+	 * @since  2.5
 	 */
 	public function __construct($subject, $config, $options = array())
 	{
 		parent::__construct($subject, $config, $options);
-
 		$namespace = isset($options['namespace']) ? $options['namespace'] : '_default';
 		$this->captcha = new JCaptchaSecurimage(array('namespace' => $namespace));
 	}
@@ -45,15 +46,26 @@ class plgCaptchaSecurimage extends JPlugin
 	 * Initialise the captcha
 	 *
 	 * @return Boolean
+	 * @since  2.5
 	 */
 	public function onInit()
 	{
 		$params = $this->params->toArray();
 
-		if (is_array($params['bgimg']) && count($params['bgimg']) == 1 && $params['bgimg'][0] == -1){
-			$params['bgimg'] = false;
-		} elseif (($k = array_search(-1, $params['bgimg'])) !== false) {
-			unset($params['bgimg'][$k]);
+		if (is_array($params['bgimg']))
+		{
+			if (count($params['bgimg']) == 1 && $params['bgimg'][0] == -1)
+			{
+				$params['bgimg'] = false;
+			}
+			elseif (($k = array_search(-1, $params['bgimg'])) !== false)
+			{
+				unset($params['bgimg'][$k]);
+			}
+		}
+		else
+		{
+			unset($params['bgimg']);
 		}
 
 		if ($this->captcha->setProperties($params)) return true;
@@ -63,6 +75,7 @@ class plgCaptchaSecurimage extends JPlugin
 	 * Gets the challenge HTML.
 	 *
 	 * @return string  The HTML to be embedded in the form.
+	 * @since  2.5
 	 */
 	public function onDisplay($name, $id, $class)
 	{
@@ -73,9 +86,9 @@ class plgCaptchaSecurimage extends JPlugin
 			return false;
 		}
 
-		$html[] = '<img src="'.$this->captcha->fileUri.'" alt="captcha"><br />';
-		$html[] = '<input type="text" name="'.$name.'[code]" id="'.$id.'" '.$class.' />';
-		$html[] = '<input type="hidden" name="'.$name.'[id]" value="'.$this->captcha->id.'" />';
+		$html[] = '<img src="' . $this->captcha->fileUri . '/' . $this->captcha->filename . '" alt="captcha"><br />';
+		$html[] = '<input type="text" name="' . $name . '[code]" id="' . $id . '" ' . $class . ' />';
+		$html[] = '<input type="hidden" name="' . $name . '[id]" value="' . $this->captcha->id . '" />';
 
 		return implode("\n", $html);
 	}
@@ -84,6 +97,7 @@ class plgCaptchaSecurimage extends JPlugin
 	 * Check the Answer
 	 *
 	 * @return Boolean
+	 * @since  2.5
 	 */
 	public function onCheckAnswer($input)
 	{
@@ -97,6 +111,7 @@ class plgCaptchaSecurimage extends JPlugin
   		else
   		{
   			$this->loadLanguage();
+  			//@todo use exceptions here
   			$this->_subject->setError(JText::_('PLG_SECURIMAGE_ERROR_INCORRECT_CAPTCHA_SOL'));
   			return false;
   		}
