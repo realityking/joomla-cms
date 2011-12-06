@@ -89,16 +89,17 @@ class JCaptcha extends JObservable
 		$args['id']		= $id ;
 		$args['event']	= 'onInit';
 
-		$return = $this->_captcha->update($args);
-
-		if ($return instanceof Exception)
+		try
 		{
-			JError::throwError($return);
+			$this->_captcha->update($args);
+		}
+		catch (Exception $e)
+		{
+			JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
 			return false;
 		}
 
 		return true;
-
 	}
 
 	/**

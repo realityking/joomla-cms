@@ -49,7 +49,7 @@ class JFormRuleCaptcha extends JFormRule
 				return $error;
 			}
 			else {
-				return new Exception($error);
+				return new JException($error);
 			}
 		}
 

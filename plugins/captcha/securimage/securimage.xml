@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" ?>
 <extension version="2.5" type="plugin" group="captcha">
-	<name>Captcha - Securimage</name>
-	<version>2.5.0</version>
-	<creationDate>December 2011</creationDate>
+	<name>plg_captcha_securimage</name>
 	<author>Joomla! Project</author>
-	<authorEmail>admin@joomla.org</authorEmail>
-	<authorUrl>www.joomla.org</authorUrl>
+	<creationDate>December 2011</creationDate>
 	<copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<description>PLG_CAPTCHA_RECAPTCHA_XML_DESCRIPTION</description>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<description>PLG_CAPTCHA_SECURIMAGE_XML_DESCRIPTION</description>
 	<files>
 		<filename
 			plugin="securimage">securimage.php</filename>
@@ -16,8 +15,22 @@
 	<config>
 	<fields name="params">
 
-		<fieldset name="basic">
-			<field
+	<fieldset name="basic">
+		<field
+			name="captcha_type"
+			type="list"
+			default="0"
+			label="PLG_SECURIMAGE_CAPTCHA_TYPE_LABEL"
+			description="PLG_SECURIMAGE_CAPTCHA_TYPE_DESC"
+			required="true"
+			filter="boolean">
+			<option
+				value="0">PLG_SECURIMAGE_STRING</option>
+			<option
+				value="1">PLG_SECURIMAGE_MATHEMATIC</option>
+			</field>
+
+		<field
 			name="image_width"
 			type="text"
 			default="175"
@@ -27,7 +40,7 @@
 			filter="int"
 			size="8" />
 
-			<field
+		<field
 			name="image_height"
 			type="text"
 			default="45"
@@ -37,10 +50,10 @@
 			filter="int"
 			size="8" />
 
-			<field
+		<field
 			name="image_type"
 			type="list"
-			default="2"
+			default="png"
 			label="PLG_SECURIMAGE_IMAGE_TYPE_LABEL"
 			description="PLG_SECURIMAGE_IMAGE_TYPE_DESC"
 			required="true"
@@ -53,27 +66,27 @@
 				value="png">PLG_SECURIMAGE_PNG</option>
 			</field>
 
-			<field
+		<field
 			name="code_length"
 			type="text"
-			default="4"
+			default="6"
 			label="PLG_SECURIMAGE_CODE_LENGTH_LABEL"
 			description="PLG_SECURIMAGE_CODE_LENGTH_DESC"
 			required="true"
 			filter="int"
 			size="8" />
 
-			<field
+		<field
 			name="charset"
 			type="text"
-			default="ABCDEFGHKLMNPRSTUVWYZ23456789"
+			default="ABCDEFGHKLMNPRSTUVWYZabcdefghklmnprstuvwyz23456789"
 			label="PLG_SECURIMAGE_CHARSET_LABEL"
 			description="PLG_SECURIMAGE_CHARSET_DESC"
 			required="true"
 			filter="string"
 			size="45" />
 
-			<field
+		<field
 			name="case_sensitive"
 			type="radio"
 			default="0"
@@ -87,53 +100,8 @@
 				value="0">JNO</option>
 			</field>
 
-			<field
-			name="font_type"
-			type="radio"
-			default="ttf"
-			label="PLG_SECURIMAGE_FONT_TYPE_LABEL"
-			description="PLG_SECURIMAGE_FONT_TYPE_DESC"
-			required="true" >
-			<option
-				value="GD" onclick="$('jform_params_ttf_font_file-lbl').setStyle('display', 'none');$('jform_params_ttf_font_file').setStyle('display', 'none');$('jform_params_ttf_font_size-lbl').setStyle('display', 'none');$('jform_params_ttf_font_size').setStyle('display', 'none');$('jform_params_gd_font_file-lbl').setStyle('display', 'block');$('jform_params_gd_font_file').setStyle('display', 'block');$('jform_params_gd_font_size-lbl').setStyle('display', 'block');$('jform_params_gd_font_size').setStyle('display', 'block');">
-				PLG_SECURIMAGE_GD</option>
-			<option
-				value="TTF" onclick="$('jform_params_ttf_font_file-lbl').setStyle('display', 'block');$('jform_params_ttf_font_file').setStyle('display', 'block');$('jform_params_ttf_font_size-lbl').setStyle('display', 'block');$('jform_params_ttf_font_size').setStyle('display', 'block');$('jform_params_gd_font_file-lbl').setStyle('display', 'none');$('jform_params_gd_font_file').setStyle('display', 'none');$('jform_params_gd_font_size-lbl').setStyle('display', 'none');$('jform_params_gd_font_size').setStyle('display', 'none');">
-				PLG_SECURIMAGE_TTF</option>
-			</field>
-
-			<field
-			name="gd_font_file"
-			type="filelist"
-			default=""
-			label="PLG_SECURIMAGE_GD_FONT_FILE_LABEL"
-			description="PLG_SECURIMAGE_GD_FONT_FILE_DESC"
-			filter="\.gdf$"
-			directory="images"
-			hide_none="true"
-			size="">
-			<option
-				value="automatic.gdf">Automatic</option>
-			<option
-				value="bubblebath.gdf">Bubblebath</option>
-			<option
-				value="caveman.gdf">Caveman</option>
-			<option
-				value="crass.gdf">Crass</option>
-			</field>
-
-			<field
-			name="gd_font_size"
-			type="text"
-			default="20"
-			label="PLG_SECURIMAGE_GD_FONT_SIZE_LABEL"
-			description="PLG_SECURIMAGE_GD_FONT_SIZE_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="ttf_font_file"
+		<field
+			name="ttf_file"
 			type="filelist"
 			default=""
 			label="PLG_SECURIMAGE_TTF_FONT_FILE_LABEL"
@@ -141,113 +109,39 @@
 			filter="\.ttf$"
 			directory="images"
 			hide_none="true">
-			<option
-				value="elephant.ttf">Elephant</option>
-			<option
-				value="fixed_bold.ttf">Fixed Bold</option>
-			<option
-				value="malapropism.ttf">Malapropism</option>
-			<option
-				value="painty_paint.ttf">Painty Paint</option>
-			<option
-				value="plastique.ttf">Plastique</option>
-			<option
-				value="dread.ttf">Dread</option>
-			<option
-				value="scratchy.ttf">Scratchy</option>
-			<option
-				value="weltron_urban.ttf">Weltron Urban</option>
 			</field>
 
-			<field
-			name="ttf_font_size"
-			type="text"
-			default="24"
-			label="PLG_SECURIMAGE_TTF_FONT_SIZE_LABEL"
-			description="PLG_SECURIMAGE_TTF_FONT_SIZE_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="text_angle_minimum"
-			type="text"
-			default="-20"
-			label="PLG_SECURIMAGE_TEXT_ANGLE_MINIMUM_LABEL"
-			description="PLG_SECURIMAGE_TEXT_ANGLE_MINIMUM_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="text_angle_maximum"
-			type="text"
-			default="20"
-			label="PLG_SECURIMAGE_TEXT_ANGLE_MAXIMUM_LABEL"
-			description="PLG_SECURIMAGE_TEXT_ANGLE_MAXIMUM_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="text_x_start"
-			type="text"
-			default="8"
-			label="PLG_SECURIMAGE_TEXT_X_START_LABEL"
-			description="PLG_SECURIMAGE_TEXT_X_START_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="text_minimum_distance"
-			type="text"
-			default="30"
-			label="PLG_SECURIMAGE_TEXT_MINIMUM_DISTANCE_LABEL"
-			description="PLG_SECURIMAGE_TEXT_MINIMUM_DISTANCE_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="text_maximum_distance"
-			type="text"
-			default="33"
-			label="PLG_SECURIMAGE_TEXT_MAXIMUM_DISTANCE_LABEL"
-			description="PLG_SECURIMAGE_TEXT_MAXIMUM_DISTANCE_DESC"
-			required="true"
-			filter="int"
-			size="8" />
-
-			<field
-			name="background_image_file"
+		<field
+			name="bgimg"
 			type="imagelist"
 			default="-1"
-			directory="media/system/images/captcha"
+			directory="images"
 			label="PLG_SECURIMAGE_BGIMG_LABEL"
 			description="PLG_SECURIMAGE_BGIMG_DESC"
-			hide_default="true" />
+			hide_default="true"
+			multiple="true" />
 
-			<field
+		<field
 			name="image_bg_color"
 			type="text"
-			default="#E3DAED"
+			default="#FFFFFF"
 			label="PLG_SECURIMAGE_IMAGE_BG_COLOR_LABEL"
 			description="PLG_SECURIMAGE_IMAGE_BG_COLOR_DESC"
 			required="true"
+			validate="color"
 			size="8" />
 
-			<field
+		<field
 			name="text_color"
 			type="text"
-			default="#000000,#000033,#003333,#003300"
+			default="#616161"
 			label="PLG_SECURIMAGE_TEXT_COLOR_LABEL"
 			description="PLG_SECURIMAGE_TEXT_COLOR_DESC"
 			required="true"
-			filter=""
-			size="45" />
+			validate="color"
+			size="8" />
 
-			<field
+		<field
 			name="use_transparent_text"
 			type="radio"
 			default="1"
@@ -262,7 +156,7 @@
 				value="0">JNo</option>
 			</field>
 
-			<field
+		<field
 			name="text_transparency_percentage"
 			type="text"
 			default="15"
@@ -272,35 +166,79 @@
 			filter="int"
 			size="8" />
 
-			<field
+		<field
 			name="line_color"
 			type="text"
-			default="#80BFFF"
+			default="#616161"
 			label="PLG_SECURIMAGE_LINE_COLOR_LABEL"
 			description="PLG_SECURIMAGE_LINE_COLOR_DESC"
 			required="true"
-			filter=""
+			validate="color"
 			size="8" />
 
-			<field
-			name="draw_lines"
-			type="radio"
-			default="below"
-			label="PLG_SECURIMAGE_DRAW_LINES_OVER_TEXT_LABEL"
-			description="PLG_SECURIMAGE_DRAW_LINES_OVER_TEXT_DESC"
-			required="true" >
-			<option
-				value="below">PLG_SECURIMAGE_BELOW_TEXT</option>
-			<option
-				value="above">PLG_SECURIMAGE_ABOVE_TEXT</option>
-			<option
-				value="0">PLG_SECURIMAGE_NO_LINES</option>
+		<field
+			name="noise_color"
+			type="text"
+			default="#616161"
+			label="PLG_SECURIMAGE_NOISE_COLOR_LABEL"
+			description="PLG_SECURIMAGE_NOISE_COLOR_DESC"
+			required="true"
+			validate="color"
+			size="8" />
+
+		<field
+			name="perturbation"
+			type="text"
+			default="0.75"
+			label="PLG_SECURIMAGE_PERTURBATION_LABEL"
+			description="PLG_SECURIMAGE_PERTURBATION_DESC"
+			required="true"
+			filter="floatval"
+			size="8" />
+
+		<field
+			name="noise_level"
+			type="text"
+			default="0"
+			label="PLG_SECURIMAGE_NOISE_LEVEL_LABEL"
+			description="PLG_SECURIMAGE_NOISE_LEVEL_DESC"
+			required="true"
+			filter="intval"
+			size="3" />
+
+		<field
+			name="image_signature"
+			type="text"
+			default=""
+			label="PLG_SECURIMAGE_IMAGE_SIGNATURE_LABEL"
+			description="PLG_SECURIMAGE_IMAGE_SIGNATURE_DESC"
+			filter=""
+			size="45" />
+
+		<field
+			name="signature_color"
+			type="text"
+			default="#616161"
+			label="PLG_SECURIMAGE_SIGNATURE_COLOR_LABEL"
+			description="PLG_SECURIMAGE_SIGNATURE_COLOR_DESC"
+			validate="color"
+			size="8" />
+
+		<field
+			name="signature_font"
+			type="filelist"
+			default=""
+			label="PLG_SECURIMAGE_SIGNATURE_FONT_LABEL"
+			description="PLG_SECURIMAGE_SIGNATURE_FONT_DESC"
+			filter="\.ttf$"
+			directory="images"
+			hide_none="true">
 			</field>
 
-			<field
+		<field
 			name="num_lines"
 			type="text"
-			default="10"
+			default="8"
 			label="PLG_SECURIMAGE_NUM_LINES_LABEL"
 			description="PLG_SECURIMAGE_TEXT_NUM_LINES_DESC"
 			required="true"
