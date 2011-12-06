@@ -72,9 +72,12 @@ class JCaptchaColor
 
     /**
      * Construct from an rgb triplet
+     *
      * @param int $red   The red component, 0-255
      * @param int $green The green component, 0-255
      * @param int $blue  The blue component, 0-255
+     *
+     * @return void
      */
     protected function constructRGB($red, $green, $blue)
     {
@@ -92,7 +95,10 @@ class JCaptchaColor
 
     /**
      * Construct from an html hex color code
-     * @param string $color
+     *
+     * @param string $color Color in hexadecimal
+     *
+     * @return void
      */
     protected function constructHTML($color)
     {

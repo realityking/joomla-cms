@@ -17,6 +17,8 @@ defined('JPATH_PLATFORM') or die;
  * @package     Joomla.Libraries
  * @subpackage  Captcha
  * @since       2.5
+ * @author      Drew Phillips
+ * @copyright   Copyright (c) 2011, Drew Phillips
  */
 class JCaptchaSecurimage extends JObject
 {

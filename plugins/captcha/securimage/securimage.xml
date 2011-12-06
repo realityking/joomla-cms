@@ -123,7 +123,7 @@
 
 		<field
 			name="image_bg_color"
-			type="text"
+			type="color"
 			default="#FFFFFF"
 			label="PLG_SECURIMAGE_IMAGE_BG_COLOR_LABEL"
 			description="PLG_SECURIMAGE_IMAGE_BG_COLOR_DESC"
@@ -133,7 +133,7 @@
 
 		<field
 			name="text_color"
-			type="text"
+			type="color"
 			default="#616161"
 			label="PLG_SECURIMAGE_TEXT_COLOR_LABEL"
 			description="PLG_SECURIMAGE_TEXT_COLOR_DESC"
@@ -168,7 +168,7 @@
 
 		<field
 			name="line_color"
-			type="text"
+			type="color"
 			default="#616161"
 			label="PLG_SECURIMAGE_LINE_COLOR_LABEL"
 			description="PLG_SECURIMAGE_LINE_COLOR_DESC"
@@ -178,7 +178,7 @@
 
 		<field
 			name="noise_color"
-			type="text"
+			type="color"
 			default="#616161"
 			label="PLG_SECURIMAGE_NOISE_COLOR_LABEL"
 			description="PLG_SECURIMAGE_NOISE_COLOR_DESC"
@@ -217,7 +217,7 @@
 
 		<field
 			name="signature_color"
-			type="text"
+			type="color"
 			default="#616161"
 			label="PLG_SECURIMAGE_SIGNATURE_COLOR_LABEL"
 			description="PLG_SECURIMAGE_SIGNATURE_COLOR_DESC"
