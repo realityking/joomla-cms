@@ -50,7 +50,8 @@ class plgCaptchaSecurimage extends JPlugin
 	{
 		$params = $this->params->toArray();
 
-		if (is_array($params['bgimg']) && count($params['bgimg']) == 1 && $params['bgimg'][0] == -1){
+		$params['bgimg'] = (array) $params['bgimg'];
+		if (count($params['bgimg']) == 1 && $params['bgimg'][0] == -1){
 			$params['bgimg'] = false;
 		} elseif (($k = array_search(-1, $params['bgimg'])) !== false) {
 			unset($params['bgimg'][$k]);
