@@ -64,7 +64,7 @@ class JCaptchaColor
         {
             $this->constructRGB($args[0], $args[1], $args[2]);
         }
-        else 
+        else
         {
             throw new InvalidArgumentException('JCaptcha_Color constructor expects 0, 1 or 3 arguments; ' . count($args) . ' given');
         }

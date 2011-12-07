@@ -176,8 +176,6 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public $background_directory;
 
-	public $output = 'file';
-
 	protected $im;
 	protected $tmpimg;
 	protected $bgimg;
@@ -205,7 +203,6 @@ class JCaptchaSecurimage extends JObject
 		if (isset($options['namespace'])) {
 			$this->namespace = $options['namespace'];
 		}
-		$this->file_path = JFactory::getConfig()->get('tmp_path');
 	}
 
 	/**
@@ -275,9 +272,6 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public function create()
 	{
-		// Remove old captchas
-		$this->purgeCaptchas();
-
 		if (($this->use_transparent_text == true || $this->bgimg) && function_exists('imagecreatetruecolor')) {
 			$imagecreate = 'imagecreatetruecolor';
 		} else {
@@ -292,10 +286,8 @@ class JCaptchaSecurimage extends JObject
 
 		$this->setBackground();
 
-		$this->generateId();
-
 		$this->createCode();
-		
+
 		if ($this->noise_level > 0) {
 			$this->drawNoise();
 		}
@@ -314,19 +306,7 @@ class JCaptchaSecurimage extends JObject
 			$this->addSignature();
 		}
 
-		// Output to...
-		if (strtolower($this->output) == 'browser')
-		{
-			// the browser
-			$this->outputBrowser();
-		}
-		else
-		{
-			// a file.
-			$this->outputFile();
-		}
-
-		return true;
+		return $this->output();
 	}
 
 	/**
@@ -362,7 +342,7 @@ class JCaptchaSecurimage extends JObject
 														  $this->noise_color->b,
 														  $alpha);
 		}
-		else 
+		else
 		{
 			$this->gdtextcolor = imagecolorallocate($this->im,
 													$this->text_color->r,
@@ -404,7 +384,7 @@ class JCaptchaSecurimage extends JObject
 			return;
 		}
 
-		
+
 		$dat = @getimagesize($this->bgimg);
 		if ($dat == false) {
 			return;
@@ -502,17 +482,6 @@ class JCaptchaSecurimage extends JObject
 		}
 
 		$this->saveData();
-	}
-
-	/**
-	 * Create the id and the filename
-	 *
-	 * @since 2.5
-	 */
-	private function generateId()
-	{
-		$this->id		= mt_rand();
-		$this->filename	= 'jcaptcha.'.$this->id.'.'.$this->image_type;
 	}
 
 	/**
@@ -708,67 +677,25 @@ class JCaptchaSecurimage extends JObject
 	 *
 	 * @since 2.5
 	 */
-	protected function outputBrowser()
+	protected function output()
 	{
-		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . "GMT");
-		header("Cache-Control: no-store, no-cache, must-revalidate");
-		header("Cache-Control: post-check=0, pre-check=0", false);
-		header("Pragma: no-cache");
-
+		ob_start();
 		switch ($this->image_type)
 		{
 			case 'jpg':
-				header("Content-Type: image/jpeg");
 				imagejpeg($this->im, null, 90);
 				break;
 			case 'gif':
-				header("Content-Type: image/gif");
 				imagegif($this->im);
 				break;
 			case 'png':
 			default:
-				header("Content-Type: image/png");
 				imagepng($this->im);
 				break;
 		}
 
 		imagedestroy($this->im);
-		JFactory::getApplication()->close();
-	}
-
-	/**
-	 * Output image to a file
-	 *
-	 * @since 2.5
-	 */
-	private function outputFile()
-	{
-		$path = $this->file_path;
-		$filename = $path.'/'.$this->filename;
-
-		switch ($this->image_type)
-		{
-			case 'jpg':
-				imagejpeg($this->im, $filename, 90);
-				break;
-			case 'gif':
-				imagegif($this->im, $filename);
-				break;
-			case 'png':
-			default:
-				imagepng($this->im, $filename);
-				break;
-		}
-
-		imagedestroy($this->im);
-
-		// Set the URI of the file
-		$r = JURI::root(true);
-		$path = explode($r, str_replace(DS, '/', $path));
-		$this->fileUri = $r.$path[1].'/'.$this->filename;
-
-		return true;
+		return ob_get_clean();
 	}
 
 	/**
@@ -818,123 +745,27 @@ class JCaptchaSecurimage extends JObject
 	}
 
 	/**
-	 * Remove old Captchas images files from the tmp folder
-	 *
-	 * @since 2.5
-	 */
-	private function purgeCaptchas($session = true, $tmp = true)
-	{
-		// Import
-		jimport('joomla.filesystem.file');
-
-		// Initialise variables
-		$return = false;
-
-		// Get the path
-		$path = $this->file_path;
-
-		if ($session)
-		{
-			// Get the Application
-			$app = JFactory::getApplication();
-
-			// Get the captchas
-			$captchas = $app->getUserState($this->namespace.'.JCaptcha', array());
-
-			if (!empty($captchas))
-			{
-				// Initialise variables
-				$session_excludes = array();
-
-				// Iterate the captchas and delete the files
-				foreach ($captchas as $captcha)
-				{
-					// Store for delete
-					$file = $path.'/'.$captcha['file'];
-					if (JFile::exists($file)) $session_excludes[] = $file;
-				}
-
-				// Delete the files
-				if (!empty($session_excludes)) $return = JFile::delete($session_excludes);
-			}
-			
-			// Leave only the las 4 captchas in the session
-			if (count($captchas) >= 4){
-				$captchas = array_slice($captchas, -3, null, true);
-				$app->setUserState($this->namespace.'.JCaptcha', $captchas);
-			}
-		}
-
-		if ($tmp)
-		{
-			jimport('joomla.filesystem.folder');
-			$past = time() - JFactory::getConfig()->get('lifetime', 15) * 60;
-
-			// Get the files
-			if (($files = JFolder::files($path, '^jcaptcha\.[0-9]{9, 10}\.(png|gif|jpg)$')) === false)
-			{
-				$e = new JException(JText::_('JLIB_CAPTCHA_ERROR_GETTING_FILES_FROM_TMP_FOLDER'));
-				$this->setError($e);
-				return false;
-			}
-
-			if (!empty($files))
-			{
-				// Initialise variables
-				$file_excludes = array();
-
-				foreach ($files as $file)
-				{
-					$ftime = filemtime($path.'/'.$file);
-
-					// Check if the file is older than the session time
-					if ($ftime < $past)
-					{
-						// Store for delete
-						$file = $path.'/'.$file;
-						if (JFile::exists($file)) $file_excludes[] = $file;
-					}
-				}
-
-				// Delete the files
-				if (!empty($file_excludes)) $return = JFile::delete($file_excludes);
-			}
-		}
-
-		return $return;
-	}
-
-	/**
 	 * Checks the entered code against the value stored in the session, handles case sensitivity
 	 * Also clears the stored codes if the code was entered correctly to prevent re-use
 	 *
-	 * @param  int     $id    The Id of the captcha
 	 * @param  string  $code  The code the user entered
 	 * @return boolean true if the code was correct, false if not
 	 *
 	 * @since 2.5
 	 */
-	public function validate($id, $input)
+	public function validate($input)
 	{
-		// Get the Application
-		$app = JFactory::getApplication();
+		// Get the captcha
+		$key = $this->namespace.'.JCaptcha';
+		$session = JFactory::getSession();
+		$registry = $session->get('registry');
+		$code = is_null($registry) ? '' : $registry->get($key, '');
 
-		// Get the captchas
-		$captchas = $app->getUserState($this->namespace.'.JCaptcha', array());
-
-		// Check that the specified captcha test exists
-		if (!isset($captchas[$id]))
+		// Remove from session
+		if (!is_null($registry))
 		{
-			return false;
+			$registry->set($key, '');
 		}
-
-		// Pull out the code
-		$code = $captchas[$id]['code'];
-
-		// Cleanup
-		unset($captchas[$id]);
-		$app->setUserState($this->namespace.'.JCaptcha', $captchas);
-		$this->purgeCaptchas();
 
 		// Adjust case if necessary
 		if (!$this->case_sensitive)
@@ -954,37 +785,27 @@ class JCaptchaSecurimage extends JObject
 	 */
 	protected function saveData()
 	{
-		// Get the Application
-		$app = JFactory::getApplication();
-
-		// Get the captchas
-		$captchas = $app->getUserState($this->namespace.'.JCaptcha', array());
-
-		if (!$this->id) {
-			$this->id = mt_rand();
+		$registry = JFactory::getSession()->get('registry');
+		if (!is_null($registry)) {
+			$registry->set($this->namespace.'.JCaptcha', $this->code);
 		}
-
-		// Add a new captcha
-		$captchas[$this->id] = array('id' => $this->id, 'code' => $this->code, 'file' => $this->filename);
-
-		// Save in the session
-		$app->setUserState($this->namespace.'.JCaptcha', $captchas);
 	}
 
 	/**
 	 * Generate random number less than 1
-	 * 
+	 *
 	 * @return float
 	 */
-	function frand()
+	protected function frand()
 	{
 		return 0.0001 * rand(0,9999);
 	}
 
 	/**
 	 * Convert an html color code to a JCaptchaColor
-	 * @param string $color
-	 * @param JCaptchaColor $default The defalt color to use if $color is invalid
+	 * @param  string $color   The color to convert
+	 * @param  string $default The defalt color to use if $color is invalid
+	 * @return JCaptchaColor
 	 *
 	 * @since 2.5
 	 */

@@ -20,11 +20,11 @@ defined('_JEXEC') or die;
 class plgCaptchaSecurimage extends JPlugin
 {
 	/**
-	 * Captcha Plugin object
+	 * Captcha namespace
 	 *
-	 * @var	JCaptchaSecurimage
+	 * @var	String
 	 */
-	private $captcha;
+	private $namespace = '_default';
 
 	/**
 	 * Constructor
@@ -37,8 +37,9 @@ class plgCaptchaSecurimage extends JPlugin
 	{
 		parent::__construct($subject, $config, $options);
 
-		$namespace = isset($options['namespace']) ? $options['namespace'] : '_default';
-		$this->captcha = new JCaptchaSecurimage(array('namespace' => $namespace));
+		if (isset($options['namespace'])) {
+			$this->namespace = $options['namespace'];
+		}
 	}
 
 	/**
@@ -48,16 +49,7 @@ class plgCaptchaSecurimage extends JPlugin
 	 */
 	public function onInit()
 	{
-		$params = $this->params->toArray();
-
-		$params['bgimg'] = (array) $params['bgimg'];
-		if (count($params['bgimg']) == 1 && $params['bgimg'][0] == -1){
-			$params['bgimg'] = false;
-		} elseif (($k = array_search(-1, $params['bgimg'])) !== false) {
-			unset($params['bgimg'][$k]);
-		}
-
-		if ($this->captcha->setProperties($params)) return true;
+		return true;
 	}
 
 	/**
@@ -67,18 +59,14 @@ class plgCaptchaSecurimage extends JPlugin
 	 */
 	public function onDisplay($name, $id, $class)
 	{
-		// Try create the captcha
-		if (!$this->captcha->create())
-		{
-			$this->_subject->setError($this->captcha->getError());
-			return false;
-		}
+		JHtml::_('script', 'securimage/captcha.js', true, true);
+		JHtml::_('stylesheet', 'securimage/captcha.css', array(), true);
+		$html[] = '<img src="plugins/captcha/securimage/image.php?namespace='.$this->namespace.'"';
+		$html[] = ' alt="captcha" class="securimage-captcha">';
+		$html[] = '<div class="securimage-reload"></div><br />';
+		$html[] = '<input type="text" name="'.$name.'" id="'.$id.'" '.$class.' />';
 
-		$html[] = '<img src="'.$this->captcha->fileUri.'" alt="captcha"><br />';
-		$html[] = '<input type="text" name="'.$name.'[code]" id="'.$id.'" '.$class.' />';
-		$html[] = '<input type="hidden" name="'.$name.'[id]" value="'.$this->captcha->id.'" />';
-
-		return implode("\n", $html);
+		return implode('', $html);
 	}
 
 	/**
@@ -89,9 +77,12 @@ class plgCaptchaSecurimage extends JPlugin
 	public function onCheckAnswer($input)
 	{
 		// Special treatement for this param
-		$this->captcha->case_sensitive = $this->params->get('case_sensitive', false);
+		$captcha = new JCaptchaSecurimage(array(
+			'namespace' => $this->namespace
+		));
+		$captcha->case_sensitive = $this->params->get('case_sensitive', false);
 
-		if ($this->captcha->validate($input->id, $input->code))
+		if ($captcha->validate($input))
 		{
   			return true;
   		}

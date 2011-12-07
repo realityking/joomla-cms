@@ -34,7 +34,7 @@ class JCaptcha extends JObservable
 	 * @var string
 	 */
 	private $_name;
-	
+
 	/**
 	 * Captcha Plugin object
 	 *
