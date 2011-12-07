@@ -72,8 +72,17 @@ class JCaptcha extends JObservable
 		$captcha = empty($captcha) ? JFactory::getConfig()->get('captcha') : $captcha;
 		$signature = md5(serialize(array($captcha, $options)));
 
-		if (empty(self::$_instances[$signature])) {
-			self::$_instances[$signature] = new JCaptcha($captcha, $options);
+		if (empty(self::$_instances[$signature]))
+		{
+			try
+			{
+				self::$_instances[$signature] = new JCaptcha($captcha, $options);
+			}
+			catch (Exception $e)
+			{
+				JFactory::getApplication()->enqueueMessage($e->getMessage(), 'error');
+				return null;
+			}
 		}
 
 		return self::$_instances[$signature];
@@ -164,12 +173,10 @@ class JCaptcha extends JObservable
 
 		if (!JFile::exists($path))
 		{
-
 			$path = JPATH_PLUGINS . '/captcha/' . $name . '.php';
 			if (!JFile::exists($path))
 			{
-				JError::raiseWarning(500, JText::_('JLIB_CAPTCHA_ERROR_LOADING', $name));
-				return false;
+				throw new Exception(JText::sprintf('JLIB_CAPTCHA_ERROR_PLUGIN_NOT_FOUND', $name));
 			}
 		}
 
@@ -178,6 +185,7 @@ class JCaptcha extends JObservable
 
 		// Get the plugin
 		$plugin = JPluginHelper::getPlugin('captcha', $this->_name);
+		if (!$plugin) throw new Exception(JText::sprintf('JLIB_CAPTCHA_ERROR_LOADING', $name));
 		$params = new JRegistry($plugin->params);
 		$plugin->params = $params;
 
