@@ -636,8 +636,6 @@ class JCaptchaSecurimage extends JObject
 			$noise_level = $this->noise_level;
 		}
 
-		$t0 = microtime(true);
-
 		$noise_level *= 125; // an arbitrary number that works well on a 1-10 scale
 
 		$points = $this->image_width * $this->image_height * $this->iscale;
@@ -651,10 +649,6 @@ class JCaptchaSecurimage extends JObject
 			if ($x - $size <= 0 && $y - $size <= 0) continue; // dont cover 0,0 since it is used by imagedistortedcopy
 			imagefilledarc($this->tmpimg, $x, $y, $size, $size, 0, 360, $this->gdnoisecolor, IMG_ARC_PIE);
 		}
-
-		$t1 = microtime(true);
-
-		$t = $t1 - $t0;
 	}
 
 	/**
