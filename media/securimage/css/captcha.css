@@ -1,10 +1,12 @@
 .securimage-captcha, .securimage-container {
+	margin: 4px 0;
 	float: left
 }
 .securimage-play, .securimage-reload {
 	width: 20px;
 	height: 20px;
-	margin: 2px
+	margin: 2px;
+	cursor: pointer
 }
 .securimage-play {
 	background: url(../images/btn_p.png)

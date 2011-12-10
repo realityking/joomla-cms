@@ -40,6 +40,8 @@ class plgCaptchaSecurimage extends JPlugin
 		if (isset($options['namespace'])) {
 			$this->namespace = $options['namespace'];
 		}
+
+		$this->loadLanguage();
 	}
 
 	/**
@@ -64,9 +66,10 @@ class plgCaptchaSecurimage extends JPlugin
 		$html[] = '<img src="plugins/captcha/securimage/image.php?namespace='.$this->namespace.'"';
 		$html[] = ' alt="captcha" class="securimage-captcha">';
 		$html[] = '<div class="securimage-container">';
-		$html[] = '<div class="securimage-reload"></div>';
-		$html[] = '<div class="securimage-play"></div>';
+		$html[] = '<div class="securimage-reload" title="'.JText::_('PLG_SECURIMAGE_TITLE_RELOAD').'"></div>';
+		$html[] = '<div class="securimage-play" title="'.JText::_('PLG_SECURIMAGE_TITLE_PLAY_SOUND_CHALLENGE').'"></div>';
 		$html[] = '</div>';
+		$html[] = '<div class="clr"></div>';
 		$html[] = '<input type="text" name="'.$name.'" id="'.$id.'" '.$class.' />';
 
 		return implode('', $html);
@@ -87,13 +90,12 @@ class plgCaptchaSecurimage extends JPlugin
 
 		if ($captcha->validate($input))
 		{
-  			return true;
-  		}
-  		else
-  		{
-  			$this->loadLanguage();
-  			$this->_subject->setError(JText::_('PLG_SECURIMAGE_ERROR_INCORRECT_CAPTCHA_SOL'));
-  			return false;
-  		}
+			return true;
+		}
+		else
+		{
+			$this->_subject->setError(JText::_('PLG_SECURIMAGE_ERROR_INCORRECT_CAPTCHA_SOL'));
+			return false;
+		}
 	}
 }
