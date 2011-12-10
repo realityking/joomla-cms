@@ -75,7 +75,7 @@
 			size="30"
 			validate="equals"
 		/>
-		
+
 		<field
 			name="captcha"
 			type="captcha"
