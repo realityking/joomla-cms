@@ -693,6 +693,168 @@ class JCaptchaSecurimage extends JObject
 	}
 
 	/**
+	 * Gets the code and returns the binary audio file for the stored captcha code
+	 */
+	public function getAudibleCode()
+	{
+		$this->createCode();
+
+		return $this->generateWAV($this->code);
+	}
+
+	/**
+	 * Generate a wav file given the $letters in the code
+	 * @todo Add ability to merge 2 sound files together to have random background sounds
+	 * @param  array  $letters
+	 *
+	 * @return string The binary contents of the wav file
+	 *
+	 * @since 2.5
+	 */
+	protected function generateWAV($code)
+	{
+		$data_len       = 0;
+		$files          = array();
+		$out_data       = '';
+		$out_channels   = 0;
+		$out_samplert   = 0;
+		$out_bpersample = 0;
+		$numSamples     = 0;
+		$removeChunks   = array('LIST', 'DISP', 'NOTE');
+
+		for ($i = 0; $i < JString::strlen($code); ++$i)
+		{
+			$letter   = $code[$i];
+			$filename = JPATH_PLATFORM . '/cms/captcha/audio/' . strtoupper($letter) . '.wav';
+			$file     = array();
+			$data     = @file_get_contents($filename);
+
+			if ($data === false) {
+				// echo "Failed to read $filename";
+				return $this->audioError();
+			}
+
+			$header = substr($data, 0, 36);
+			$info   = unpack('NChunkID/VChunkSize/NFormat/NSubChunk1ID/'
+							.'VSubChunk1Size/vAudioFormat/vNumChannels/'
+							.'VSampleRate/VByteRate/vBlockAlign/vBitsPerSample',
+							 $header);
+
+			$dataPos        = strpos($data, 'data');
+			$out_channels   = $info['NumChannels'];
+			$out_samplert   = $info['SampleRate'];
+			$out_bpersample = $info['BitsPerSample'];
+
+			if ($dataPos === false) {
+				// wav file with no data?
+				// echo "Failed to find DATA segment in $filename";
+				return $this->audioError();
+			}
+
+			if ($info['AudioFormat'] != 1) {
+				// only work with PCM audio
+				// echo "$filename was not PCM audio, only PCM is supported";
+				return $this->audioError();
+			}
+
+			if ($info['SubChunk1Size'] != 16 && $info['SubChunk1Size'] != 18) {
+				// probably unsupported extension
+				// echo "Bad SubChunk1Size in $filename - Size was {$info['SubChunk1Size']}";
+				return $this->audioError();
+			}
+
+			if ($info['SubChunk1Size'] > 16) {
+				$header .= substr($data, 36, $info['SubChunk1Size'] - 16);
+			}
+
+			if ($i == 0) {
+				// create the final file's header, size will be adjusted later
+				$out_data = $header . 'data';
+			}
+
+			$removed = 0;
+
+			foreach($removeChunks as $chunk)
+			{
+				$chunkPos = strpos($data, $chunk);
+				if ($chunkPos !== false)
+				{
+					$listSize = unpack('VSize', substr($data, $chunkPos + 4, 4));
+
+					$data = substr($data, 0, $chunkPos) .
+							substr($data, $chunkPos + 8 + $listSize['Size']);
+
+					$removed += $listSize['Size'] + 8;
+				}
+			}
+
+			$dataSize    = unpack('VSubchunk2Size', substr($data, $dataPos + 4, 4));
+			$dataSize['Subchunk2Size'] -= $removed;
+			$out_data   .= substr($data, $dataPos + 8, $dataSize['Subchunk2Size'] * ($out_bpersample / 8));
+			$numSamples += $dataSize['Subchunk2Size'];
+		}
+
+		$filesize  = strlen($out_data);
+		$chunkSize = $filesize - 8;
+		$dataCSize = $numSamples;
+
+		$out_data = substr_replace($out_data, pack('V', $chunkSize), 4, 4);
+		$out_data = substr_replace($out_data, pack('V', $numSamples), 40 + ($info['SubChunk1Size'] - 16), 4);
+
+		return $this->scrambleAudioData($out_data);
+	}
+
+	/**
+	 * Randomizes the audio data to add noise and prevent binary recognition
+	 *
+	 * @param  string $data  The binary audio file data
+	 * @return string
+	 *
+	 * @since 2.5
+	 */
+	protected function scrambleAudioData($data)
+	{
+		$start = strpos($data, 'data') + 4; // look for "data" indicator
+		if ($start === false) $start = 44;  // if not found assume 44 byte header
+
+		$start  += rand(1, 4); // randomize starting offset
+		$datalen = strlen($data) - $start;
+		$step    = 1;
+
+		for ($i = $start; $i < $datalen; $i += $step)
+		{
+			$ch = ord($data{$i});
+			if ($ch == 0 || $ch == 255) continue;
+
+			if ($ch < 16 || $ch > 239) {
+				$ch += rand(-6, 6);
+			} else {
+				$ch += rand(-12, 12);
+			}
+
+			if ($ch < 0) $ch = 0; else if ($ch > 255) $ch = 255;
+
+			$data{$i} = chr($ch);
+
+			$step = rand(1,4);
+		}
+
+		return $data;
+	}
+
+	/**
+	 * Return a wav file saying there was an error generating file
+	 *
+	 * @return string The binary audio contents
+	 *
+	 * @since 2.5
+	 */
+	protected function audioError()
+	{
+		return @file_get_contents(JPATH_PLATFORM . '/cms/captcha/audio/error.wav');
+	}
+
+	/**
 	 * Gets a captcha code from a wordlist
 	 *
 	 * @since 2.5

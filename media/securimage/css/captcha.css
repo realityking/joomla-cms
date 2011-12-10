@@ -1,13 +1,29 @@
-.securimage-captcha {
+.securimage-captcha, .securimage-container {
 	float: left
 }
-.securimage-reload {
+.securimage-play, .securimage-reload {
 	width: 20px;
 	height: 20px;
-	background: url(../images/btn.png);
-	float: left;
 	margin: 2px
+}
+.securimage-play {
+	background: url(../images/btn_p.png)
+}
+.securimage-reload {
+	background: url(../images/btn_r.png)
 }
 .securimage-reload:hover {
 	background-position: 0 20px
+}
+.securimage-play:hover {
+	background-position: 0 -40px
+}
+.securimage-play.playing {
+	background-position: 0 -80px
+}
+.securimage-play.playing:hover {
+	background-position: 0 -120px
+}
+.securimage-play.loading {
+	background-position: 0 40px
 }

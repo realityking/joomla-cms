@@ -63,7 +63,10 @@ class plgCaptchaSecurimage extends JPlugin
 		JHtml::_('stylesheet', 'securimage/captcha.css', array(), true);
 		$html[] = '<img src="plugins/captcha/securimage/image.php?namespace='.$this->namespace.'"';
 		$html[] = ' alt="captcha" class="securimage-captcha">';
-		$html[] = '<div class="securimage-reload"></div><br />';
+		$html[] = '<div class="securimage-container">';
+		$html[] = '<div class="securimage-reload"></div>';
+		$html[] = '<div class="securimage-play"></div>';
+		$html[] = '</div>';
 		$html[] = '<input type="text" name="'.$name.'" id="'.$id.'" '.$class.' />';
 
 		return implode('', $html);
