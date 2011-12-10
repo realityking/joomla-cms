@@ -34,6 +34,8 @@ JHtml::_('behavior.tooltip');
 						<dt><?php echo $this->form->getLabel('contact_email_copy'); ?></dt>
 						<dd><?php echo $this->form->getInput('contact_email_copy'); ?></dd>
 				<?php 	} ?>
+				<dt><?php echo $this->form->getLabel('captcha'); ?></dt>
+				<dd><?php echo $this->form->getInput('captcha'); ?></dd>
 			<?php //Dynamically load any additional fields from plugins. ?>
 			     <?php foreach ($this->form->getFieldsets() as $fieldset): ?>
 			          <?php if ($fieldset->name != 'contact'):?>

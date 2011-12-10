@@ -79,6 +79,25 @@ class ContactModelContact extends JModelForm
 			return false;
 		}
 
+		return $form;
+	}
+
+	protected function loadFormData()
+	{
+		$data = (array)JFactory::getApplication()->getUserState('com_contact.contact.data', array());
+		return $data;
+	}
+
+	/**
+	 * Override preprocessForm.
+	 *
+	 * @param	object	A form object.
+	 * @param	mixed	The data expected for the form.
+	 * @throws	Exception if there is an error in the form event.
+	 * @since	2.5
+	 */
+	protected function preprocessForm(JForm $form, $data, $group = 'content')
+	{
 		$id = $this->getState('contact.id');
 		$params = $this->getState('params');
 		$contact = $this->_item[$id];
@@ -88,13 +107,18 @@ class ContactModelContact extends JModelForm
 			$form->removeField('contact_email_copy');
 		}
 
-		return $form;
-	}
+		// Deal with captcha
+		$captcha = $params->get('captcha');
+		if ($captcha === 0 || $captcha === '0')
+		{
+			$form->removeField('captcha');
+		}
+		else
+		{
+			$form->setFieldAttribute('captcha', 'plugin', $captcha);
+		}
 
-	protected function loadFormData()
-	{
-		$data = (array)JFactory::getApplication()->getUserState('com_contact.contact.data', array());
-		return $data;
+		parent::preprocessForm($form, $data, $group);
 	}
 
 	/**

@@ -659,6 +659,20 @@
 			description="COM_CONTACT_FIELD_CONFIG_BANNED_TEXT_DESC"
 		/>
 
+		<field
+			name="captcha"
+			type="plugins"
+			folder="captcha"
+			default=""
+			label="COM_CONTACT_FIELD_CONFIG_CAPTCHA_LABEL"
+			description="COM_CONTACT_FIELD_CONFIG_CAPTCHA_DESC"
+			filter="cmd" >
+			<option
+				value="0">JOPTION_DO_NOT_USE</option>
+			<option
+				value="">JOPTION_USE_DEFAULT</option>
+		</field>
+
 		<field name="validate_session"
 			type="radio"
 			default="1"

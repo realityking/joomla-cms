@@ -49,5 +49,12 @@
 			default="0"
 		/>
 
+		<field
+			name="captcha"
+			type="captcha"
+			label="COM_CONTACT_CONTACT_CAPTCHA_LABEL"
+			description="COM_CONTACT_CONTACT_CAPTCHA_DESC"
+			validate="captcha"
+		/>
 	</fieldset>
 </form>
