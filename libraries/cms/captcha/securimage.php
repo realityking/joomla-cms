@@ -697,9 +697,24 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public function getAudibleCode()
 	{
-		$this->createCode();
+		// Get the captcha
+		$key = $this->namespace.'.JCaptcha';
+		$session = JFactory::getSession();
 
-		return $this->generateWAV($this->code);
+		$registry = $session->get('registry');
+		if (is_null($registry))
+		{
+			return $this->audioError();
+		}
+
+		$code = $registry->get($key, false);
+		if ($code === false)
+		{
+			$this->createCode();
+			$code = $this->code;
+		}
+
+		return $this->generateWAV($code);
 	}
 
 	/**
@@ -713,6 +728,8 @@ class JCaptchaSecurimage extends JObject
 	 */
 	protected function generateWAV($code)
 	{
+		$tag            = JFactory::getLanguage()->getTag();
+		$file_path      = JPATH_SITE . "/language/$tag/captcha/";
 		$data_len       = 0;
 		$files          = array();
 		$out_data       = '';
@@ -722,10 +739,16 @@ class JCaptchaSecurimage extends JObject
 		$numSamples     = 0;
 		$removeChunks   = array('LIST', 'DISP', 'NOTE');
 
+		// If there is no translated audio use the english as default
+		if (!file_exists($file_path))
+		{
+			$file_path = JPATH_SITE . "/language/en-GB/captcha/";
+		}
+
 		for ($i = 0; $i < JString::strlen($code); ++$i)
 		{
 			$letter   = $code[$i];
-			$filename = JPATH_PLATFORM . '/cms/captcha/audio/' . strtoupper($letter) . '.wav';
+			$filename = $file_path . strtoupper($letter) . '.wav';
 			$file     = array();
 			$data     = @file_get_contents($filename);
 
@@ -774,7 +797,7 @@ class JCaptchaSecurimage extends JObject
 
 			$removed = 0;
 
-			foreach($removeChunks as $chunk)
+			foreach ($removeChunks as $chunk)
 			{
 				$chunkPos = strpos($data, $chunk);
 				if ($chunkPos !== false)
@@ -946,6 +969,8 @@ class JCaptchaSecurimage extends JObject
 			$registry->set($this->namespace.'.JCaptcha', $this->code);
 		}
 	}
+
+
 
 	/**
 	 * Generate random number less than 1

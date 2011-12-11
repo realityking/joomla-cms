@@ -1,10 +1,1 @@
-window.addEvent('domready', function(){
-	var url;
-	document.body.addEvents({
-		'click:relay(.securimage-reload)': function(e){
-			var img = this.getParent().getSiblings('.securimage-captcha')[0];
-			if (!url) url = new URI(img.get('src'));
-			img.set('src', url.setData('c', Math.random()));
-		}
-	});
-});
+window.addEvent("domready",function(){$$("form").each(function(a){var c=a.getElement(".securimage-captcha");if(null!=c){var b=a.getElement(".securimage-sound"),e=a.getElement(".securimage-reload"),d=a.getElement(".securimage-play"),f=new URI(c.get("src")),g=new URI(b.get("src")),a=function(){b.set("src",g.setData("c",Math.random()));d.removeClass("playing")};c.addEvent("load",a);b.addListener("ended",a).addListener("pause",a).addListener("play",function(){d.addClass("playing")});e.addEvent("click",function(){c.set("src",f.setData("c",Math.random()))});d.addEvent("click",function(){b.paused?b.play():b.pause()})}})});
