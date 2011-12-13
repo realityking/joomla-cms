@@ -36,7 +36,8 @@ class Captcha extends JWeb
 
 	protected function respond()
 	{
-		$audio = $this->getBody();
+		$audio  = $this->getBody();
+		$length = strlen($audio);
 
 		$this->setHeader('Content-Type', 'audio/x-wav');
 		$this->setHeader('Content-Disposition', 'attachment; filename="securimage_audio.wav"');
@@ -44,7 +45,9 @@ class Captcha extends JWeb
 		$this->setHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT', true);
 		$this->setHeader('Cache-Control', 'no-store, no-cache, must-revalidate', false);
 		$this->setHeader('Pragma', 'no-cache');
-		$this->setHeader('Content-Length', strlen($audio));
+		$this->setHeader('Content-Length', $length);
+		$this->setHeader('Content-Range', 'bytes 0-'.($length - 1).'/'.$length);
+		$this->setHeader('Accept-Ranges', 'bytes');
 
 		$this->sendHeaders();
 
