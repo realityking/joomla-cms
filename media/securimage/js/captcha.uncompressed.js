@@ -6,8 +6,7 @@ window.addEvent('domready', function(){
 			reload_btn = form.getElement('.securimage-reload'),
 			play_btn = form.getElement('.securimage-play'),
 			imgUri = new URI(img.get('src')),
-			audioUri = new URI(audio.get('src')),
-			listening = false;
+			audioUri = new URI(audio.get('data-src'));
 
 		audio
 			.addListener('ended', function(){
@@ -19,7 +18,7 @@ window.addEvent('domready', function(){
 				 * When we set currentTime to 0, Firefox plays the audio,
 				 * even if audio.paused == true, so we need to pause it again.
 				 * It wont get into an infinite loop because onPause is fired only when audio.paused == false
-				 */ 
+				 */
 				audio.pause();
 				play_btn.removeClass('playing');
 			})
@@ -27,19 +26,22 @@ window.addEvent('domready', function(){
 				play_btn.addClass('playing');
 			});
 
-		reload_btn
-			.addEvent('click:once', function(){
-				img.addEvent('load', function(){
-					play_btn.removeClass('playing');
-					audio.set('src', audioUri.setData('c', Math.random()));
-				});
-			})
-			.addEvent('click', function(e){
-				img.set('src', imgUri.setData('c', Math.random()));
-			});
+		img.addEvent('load', function(){
+			audioUri.setData('c', Math.random());
+		});
+		reload_btn.addEvent('click', function(e){
+			img.set('src', imgUri.setData('c', Math.random()).toString());
+			if (!audio.paused) audio.pause();
+		});
 
 		play_btn.addEvent('click', function(e){
-			audio.paused ? audio.play() : audio.pause();
+			if (audio.paused) {
+				audio.set('src', audioUri.toString());
+				audio.load();
+				audio.play();
+			} else {
+				audio.pause();
+			}
 		});
 	});
 });

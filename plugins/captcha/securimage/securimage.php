@@ -69,9 +69,9 @@ class plgCaptchaSecurimage extends JPlugin
 		$html[] = '<div class="securimage-reload" title="'.JText::_('PLG_SECURIMAGE_TITLE_RELOAD').'"></div>';
 		$html[] = '<div class="securimage-play" title="'.JText::_('PLG_SECURIMAGE_TITLE_PLAY_SOUND_CHALLENGE').'"></div>';
 		$html[] = '</div>';
-		$html[] = '<div class="clr"></div>';
+		$html[] = '<div style="clear:both"></div>';
 		$html[] = '<input type="text" name="'.$name.'" id="'.$id.'" '.$class.' />';
-		$html[] = '<audio preload="none" class="securimage-sound" src="plugins/captcha/securimage/sound.php?namespace='.$this->namespace.'"></audio>';
+		$html[] = '<audio preload="none" class="securimage-sound" data-src="plugins/captcha/securimage/sound.php?namespace='.$this->namespace.'"></audio>';
 
 		return implode('', $html);
 	}
