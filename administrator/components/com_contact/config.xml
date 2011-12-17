@@ -660,6 +660,19 @@
 		/>
 
 		<field
+			name="captcha_guests_only"
+			type="radio"
+			default="1"
+			label="COM_CONTACT_FIELD_CONFIG_CAPTCHA_GUESTS_ONLY_LABEL"
+			description="COM_CONTACT_FIELD_CONFIG_CAPTCHA_GUESTS_ONLY_DESC"
+			filter="cmd" >
+			<option
+				value="1">COM_CONTACT_FIELD_VALUE_GUESTS_ONLY</option>
+			<option
+				value="0">COM_CONTACT_FIELD_VALUE_EVERYBODY</option>
+		</field>
+
+		<field
 			name="captcha"
 			type="plugins"
 			folder="captcha"

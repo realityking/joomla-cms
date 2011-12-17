@@ -109,7 +109,8 @@ class ContactModelContact extends JModelForm
 
 		// Deal with captcha
 		$captcha = $params->get('captcha');
-		if ($captcha === 0 || $captcha === '0')
+		if (($captcha === 0 || $captcha === '0')
+			|| ($params->get('captcha_guests_only', true) && JFactory::getUser()->id))
 		{
 			$form->removeField('captcha');
 		}
