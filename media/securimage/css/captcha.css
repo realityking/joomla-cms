@@ -2,30 +2,13 @@
 	margin: 4px 0;
 	float: left
 }
-.securimage-play, .securimage-reload {
+.securimage-reload {
 	width: 20px;
 	height: 20px;
 	margin: 2px;
-	cursor: pointer
-}
-.securimage-play {
-	background: url(../images/btn_p.png)
-}
-.securimage-reload {
+	cursor: pointer;
 	background: url(../images/btn_r.png)
 }
 .securimage-reload:hover {
 	background-position: 0 20px
-}
-.securimage-play:hover {
-	background-position: 0 -40px
-}
-.securimage-play.playing {
-	background-position: 0 -80px
-}
-.securimage-play.playing:hover {
-	background-position: 0 -120px
-}
-.securimage-play.loading {
-	background-position: 0 40px
 }
