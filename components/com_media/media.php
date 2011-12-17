@@ -29,10 +29,8 @@ define('COM_MEDIA_BASE',	JPATH_ROOT.'/'.$params->get('image_path', 'images'));
 define('COM_MEDIA_BASEURL', JURI::root().'/'.$params->get('image_path', 'images'));
 
 $lang = JFactory::getLanguage();
-	$lang->load($option, JPATH_ADMINISTRATOR, null, false, false)
-||	$lang->load($option, JPATH_COMPONENT_ADMINISTRATOR, null, false, false)
-||	$lang->load($option, JPATH_ADMINISTRATOR, $lang->getDefault(), false, false)
-||	$lang->load($option, JPATH_COMPONENT_ADMINISTRATOR, $lang->getDefault(), false, false);
+	$lang->load('com_media', JPATH_ADMINISTRATOR, null, false, false)
+	||	$lang->load('com_media', JPATH_ADMINISTRATOR, $lang->getDefault(), false, false);
 
 // Load the admin HTML view
 require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/media.php';
@@ -44,6 +42,7 @@ require_once JPATH_COMPONENT.'/controller.php';
 $user	= JFactory::getUser();
 $app	= JFactory::getApplication();
 $cmd	= JRequest::getCmd('task', null);
+$format = JRequest::getCmd('format');
 
 if (strpos($cmd, '.') != false) {
 	// We have a defined controller/task pair -- lets split them out
@@ -51,7 +50,9 @@ if (strpos($cmd, '.') != false) {
 
 	// Define the controller name and path
 	$controllerName	= strtolower($controllerName);
-	$controllerPath	= JPATH_COMPONENT_ADMINISTRATOR.'/controllers/'.$controllerName.'.php';
+	$file = $controllerName;
+	if ($format && $format !== 'html') $file .= '.'.$format;
+	$controllerPath	= JPATH_COMPONENT_ADMINISTRATOR.'/controllers/'.$file.'.php';
 
 	// If the controller file path exists, include it ... else lets die with a 500 error
 	if (file_exists($controllerPath)) {
