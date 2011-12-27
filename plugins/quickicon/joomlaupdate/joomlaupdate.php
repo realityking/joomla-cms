@@ -42,20 +42,22 @@ class plgQuickiconJoomlaupdate extends JPlugin
 	public function onGetIcon()
 	{
 		$cur_template = JFactory::getApplication()->getTemplate();
-		$ajax_url = JURI::base().'index.php?option=com_installer&format=json&task=update.notification';
-		$script = "var plg_quickicon_joomlaupdate_ajax_url = '$ajax_url';\n";
-		$script .= 'var plg_quickicon_jupdatecheck_jversion = "'.JVERSION.'";'."\n";
-		$script .= 'var plg_quickicon_joomlaupdate_text = {"UPTODATE" : "'.
-			JText::_('PLG_QUICKICON_JOOMLAUPDATE_UPTODATE').'", "UPDATEFOUND": "'.
-			JText::_('PLG_QUICKICON_JOOMLAUPDATE_UPDATEFOUND').'", "ERROR": "'.
-			JText::_('PLG_QUICKICON_JOOMLAUPDATE_ERROR')."\"};\n";
-		$script .= 'var plg_quickicon_joomlaupdate_img = {"UPTODATE" : "'.
-			JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-jupdate-uptodate.png'.'", "ERROR": "'.
-			JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-deny.png'.'", "UPDATEFOUND": "'.
-			JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-jupdate-updatefound.png'."\"};\n";
 		$document = JFactory::getDocument();
-		$document->addScriptDeclaration($script);
-		$document->addScript(JURI::base().'../media/plg_quickicon_joomlaupdate/jupdatecheck.js');
+		$document->addScript(JURI::base().'../media/updater.js');
+		$document->addScriptDeclaration("
+			window.addEvent('domready', function(){
+				new Joomla.UpdateNotification({
+					id: 'plg_quickicon_joomlaupdate',
+					url: '" . JURI::base().'index.php?option=com_installer&format=json&task=update.notification' . "',
+					updateFoundString: '" . JText::_('PLG_QUICKICON_JOOMLAUPDATE_UPDATEFOUND') . "',
+					upToDateString: '" . JText::_('PLG_QUICKICON_JOOMLAUPDATE_UPTODATE') . "',
+					errorString: '" . JText::_('PLG_QUICKICON_JOOMLAUPDATE_ERROR') . "',
+					updateFoundImg: '" . JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-jupdate-updatefound.png' . "',
+					upToDateImg: '" . JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-jupdate-uptodate.png' . "',
+					errorImg: '" . JURI::base(true) .'/templates/'. $cur_template .'/images/header/icon-48-deny.png' . "'
+				});
+			});
+		");
 		
 		return array(
 			'link' => 'index.php?option=com_installer&view=update',
