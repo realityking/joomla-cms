@@ -42,7 +42,7 @@ class plgQuickiconJoomlaupdate extends JPlugin
 	public function onGetIcon()
 	{
 		$cur_template = JFactory::getApplication()->getTemplate();
-		$ajax_url = JURI::base().'index.php?option=com_installer&view=update&task=update.ajax';
+		$ajax_url = JURI::base().'index.php?option=com_installer&format=json&task=update.notification';
 		$script = "var plg_quickicon_joomlaupdate_ajax_url = '$ajax_url';\n";
 		$script .= 'var plg_quickicon_jupdatecheck_jversion = "'.JVERSION.'";'."\n";
 		$script .= 'var plg_quickicon_joomlaupdate_text = {"UPTODATE" : "'.

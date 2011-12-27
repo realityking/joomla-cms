@@ -41,7 +41,7 @@ class plgQuickiconExtensionupdate extends JPlugin
 	public function onGetIcon()
 	{
 		$cur_template = JFactory::getApplication()->getTemplate();
-		$ajax_url = JURI::base().'index.php?option=com_installer&view=update&task=update.ajax';
+		$ajax_url = JURI::base().'index.php?option=com_installer&format=json&task=update.notification';
 		$script = "var plg_quickicon_extensionupdate_ajax_url = '$ajax_url';\n";
 		$script .= 'var plg_quickicon_extensionupdate_text = {"UPTODATE" : "'.
 			JText::_('PLG_QUICKICON_EXTENSIONUPDATE_UPTODATE').'", "UPDATEFOUND": "'.
