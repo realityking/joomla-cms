@@ -1,14 +1,13 @@
 <?php
 /**
- * @package		Joomla
- * @subpackage	Plugin
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla
+ * @subpackage  Form
+ *
+ * @copyright   Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('JPATH_BASE') or die;
-
-jimport('joomla.form.formfield');
 
 /**
  * Form Field class for the Joomla Framework.
@@ -59,18 +58,25 @@ class JFormFieldCaptcha extends JFormField
 	 * Method to get the field input.
 	 *
 	 * @return	string		The field input.
+	 *
+	 * @since   2.5
 	 */
 	protected function getInput()
 	{
-		$class = $this->element['class'] ? (string) $this->element['class'] : '';
-		$plugin = $this->element['plugin'] ? (string) $this->element['plugin'] : '';
+		$class     = $this->element['class'] ? (string) $this->element['class'] : '';
+		$plugin    = $this->element['plugin'] ? (string) $this->element['plugin'] : '';
 		$namespace = $this->element['namespace'] ? (string) $this->element['namespace'] : $this->form->getName();
 
-		if ($plugin === 0 || $plugin === '0'){// Use 0 for none
+		// Use 0 for none
+		if ($plugin === 0 || $plugin === '0')
+		{
 			return '';
 		}
-		else{
-			if (($captcha = JCaptcha::getInstance($plugin, array('namespace' => $namespace))) == null){
+		else
+		{
+
+			if (($captcha = JCaptcha::getInstance($plugin, array('namespace' => $namespace))) == null)
+			{
 				return '';
 			}
 		}
