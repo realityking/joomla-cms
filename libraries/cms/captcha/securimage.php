@@ -200,7 +200,8 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public function __construct($options = array())
 	{
-		if (isset($options['namespace'])) {
+		if (isset($options['namespace']))
+		{
 			$this->namespace = $options['namespace'];
 		}
 	}
@@ -228,11 +229,13 @@ class JCaptchaSecurimage extends JObject
 		$this->noise_color     = $this->initColor($this->noise_color,     '#616161');
 		$this->signature_color = $this->initColor($this->signature_color, '#616161');
 
-		if (!in_array($this->image_type, array('jpg', 'gif', 'png'))){
+		if (!in_array($this->image_type, array('jpg', 'gif', 'png')))
+		{
 			$this->image_type = 'png';
 		}
 
-		if (empty($this->ttf_file)) {
+		if (empty($this->ttf_file))
+		{
 			$this->ttf_file = 'AHGBold.ttf';
 		}
 
@@ -242,25 +245,32 @@ class JCaptchaSecurimage extends JObject
 
 		$ttf_file = JPath::find(array($image_path, $file_path, JPATH_PLATFORM . '/cms/captcha'), $this->ttf_file);
 
-		if ($ttf_file && is_readable($ttf_file)){
+		if ($ttf_file && is_readable($ttf_file))
+		{
 			$this->ttf_file = $ttf_file;
-		} else {
+		}
+		else
+		{
 			$this->ttf_file = JPATH_PLATFORM . '/cms/captcha/AHGBold.ttf';
 		}
 
-		if (empty($this->signature_font)) {
+		if (empty($this->signature_font))
+		{
 			$this->signature_font = $this->ttf_file;
 		}
 
-		if (empty($this->wordlist_file)) {
+		if (empty($this->wordlist_file))
+		{
 			$this->wordlist_file = JPATH_PLATFORM . '/cms/captcha/words.txt';
 		}
 
-		if (empty($this->code_length) || $this->code_length < 1) {
+		if (empty($this->code_length) || $this->code_length < 1)
+		{
 			$this->code_length = 6;
 		}
 
-		if (!is_numeric($this->perturbation)) {
+		if (!is_numeric($this->perturbation))
+		{
 			$this->perturbation = 0.75;
 		}
 	}
@@ -272,9 +282,12 @@ class JCaptchaSecurimage extends JObject
 	 */
 	public function create()
 	{
-		if (($this->use_transparent_text == true || $this->bgimg) && function_exists('imagecreatetruecolor')) {
+		if (($this->use_transparent_text == true || $this->bgimg) && function_exists('imagecreatetruecolor'))
+		{
 			$imagecreate = 'imagecreatetruecolor';
-		} else {
+		}
+		else
+		{
 			$imagecreate = 'imagecreate';
 		}
 
@@ -288,21 +301,25 @@ class JCaptchaSecurimage extends JObject
 
 		$this->createCode();
 
-		if ($this->noise_level > 0) {
+		if ($this->noise_level > 0)
+		{
 			$this->drawNoise();
 		}
 
 		$this->drawWord();
 
-		if ($this->perturbation > 0 && is_readable($this->ttf_file)) {
+		if ($this->perturbation > 0 && is_readable($this->ttf_file))
+		{
 			$this->distortedCopy();
 		}
 
-		if ($this->num_lines > 0) {
+		if ($this->num_lines > 0)
+		{
 			$this->drawLines();
 		}
 
-		if (trim($this->image_signature) != '') {
+		if (trim($this->image_signature) != '')
+		{
 			$this->addSignature();
 		}
 
@@ -713,9 +730,12 @@ class JCaptchaSecurimage extends JObject
 		$start = @strpos($data, "\n", rand(0, 56)) + 1; // random start position
 		$end   = @strpos($data, "\n", $start);          // find end of word
 
-		if ($start === false) {
+		if ($start === false)
+		{
 			return false;
-		} else if ($end === false) {
+		}
+		else if ($end === false)
+		{
 			$end = strlen($data);
 		}
 
@@ -731,7 +751,8 @@ class JCaptchaSecurimage extends JObject
 	{
 		$code = '';
 
-		for ($i = 1, $cslen = JString::strlen($this->charset); $i <= $this->code_length; ++$i) {
+		for ($i = 1, $cslen = JString::strlen($this->charset); $i <= $this->code_length; ++$i)
+		{
 			$code .= $this->charset{rand(0, $cslen - 1)};
 		}
 
@@ -780,7 +801,8 @@ class JCaptchaSecurimage extends JObject
 	protected function saveData()
 	{
 		$registry = JFactory::getSession()->get('registry');
-		if (!is_null($registry)) {
+		if (!is_null($registry))
+		{
 			$registry->set($this->namespace.'.JCaptcha', $this->code);
 		}
 	}
