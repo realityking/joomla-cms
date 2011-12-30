@@ -254,7 +254,5 @@ class plgCaptchaRecaptcha extends JPlugin
 		{
 			return "lang : '" . $lang . "',";
 		}
-
-		return "lang : '".$lang."',";
 	}
 }
