@@ -74,18 +74,6 @@ class JUser extends JObject
 	public $password_clear = '';
 
 	/**
-	 * User type
-	 * Used in Joomla 1.0 and 1.5 for access control.
-	 *
-	 * @var    string
-	 * @deprecated    12.1
-	 * @see    $_authGroups
-	 * @see    JAccess
-	 * @since  11.1
-	 */
-	public $usertype = null;
-
-	/**
 	 * Block status
 	 *
 	 * @var    integer
@@ -303,26 +291,6 @@ class JUser extends JObject
 	}
 
 	/**
-	 * Proxy to authorise
-	 *
-	 * @param   string  $action     The name of the action to check for permission.
-	 * @param   string  $assetname  The name of the asset on which to perform the action.
-	 *
-	 * @return  boolean  True if authorised
-	 *
-	 * @deprecated    12.1
-	 * @note    Use the authorise method instead.
-	 * @since   11.1
-	 */
-	public function authorize($action, $assetname = null)
-	{
-		// Deprecation warning.
-		JLog::add('JUser::authorize() is deprecated.', JLog::WARNING, 'deprecated');
-
-		return $this->authorise($action, $assetname);
-	}
-
-	/**
 	 * Method to check JUser object authorisation against an access control
 	 * object and optionally an access extension object
 	 *
@@ -368,23 +336,6 @@ class JUser extends JObject
 		}
 
 		return $this->isRoot ? true : JAccess::check($this->id, $action, $assetname);
-	}
-
-	/**
-	 * Gets an array of the authorised access levels for the user
-	 *
-	 * @return  array
-	 *
-	 * @deprecated  12.1
-	 * @note    Use the getAuthorisedViewLevels method instead.
-	 * @since   11.1
-	 */
-	public function authorisedLevels()
-	{
-		// Deprecation warning.
-		JLog::add('JUser::authorisedLevels() is deprecated.', JLog::WARNING, 'deprecated');
-
-		return $this->getAuthorisedViewLevels();
 	}
 
 	/**
@@ -490,35 +441,12 @@ class JUser extends JObject
 	 * @return  object   The user parameters object.
 	 *
 	 * @since   11.1
+	 * @deprecated  12.3
 	 */
 	public function getParameters($loadsetupfile = false, $path = null)
 	{
-		static $parampath;
-
-		// Set a custom parampath if defined
-		if (isset($path))
-		{
-			$parampath = $path;
-		}
-
-		// Set the default parampath if not set already
-		if (!isset($parampath))
-		{
-			$parampath = JPATH_ADMINISTRATOR . 'components/com_users/models';
-		}
-
-		if ($loadsetupfile)
-		{
-			$type = str_replace(' ', '_', strtolower($this->usertype));
-
-			$file = $parampath . '/' . $type . '.xml';
-			if (!file_exists($file))
-			{
-				$file = $parampath . '/' . 'user.xml';
-			}
-
-			$this->_params->loadSetupFile($file);
-		}
+		// Deprecation warning.
+		JLog::add('JUser::getParameters() is deprecated.', JLog::WARNING, 'deprecated');
 
 		return $this->_params;
 	}
