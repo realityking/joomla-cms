@@ -96,7 +96,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 	 * @since  12.1
 	 */
 	protected $tables = array(
-		'primary' => '#__content',
+		'primary' => '#__ucm',
 		'hits' => '#__content_hits'
 	);
 
@@ -241,7 +241,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 
 		// Build the query checkin the item.
 		$query = $this->db->getQuery(true);
-		$query->update($this->db->qn('#__content'));
+		$query->update($this->db->qn('#__ucm'));
 		$query->set('checked_out_user_id = NULL');
 		$query->set('checked_out_session = ""');
 		$query->where('content_id = ' . (int) $this->content_id);
@@ -303,7 +303,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 				// Build the query to check if the item is editable.
 				$query = $this->db->getQuery(true);
 				$query->select('a.content_id');
-				$query->from($this->db->qn('#__content') . ' AS a');
+				$query->from($this->db->qn('#__ucm') . ' AS a');
 				$query->join('INNER', '#__session AS s ON s.session_id = a.checked_out_session');
 				$query->where('a.content_id = ' . (int) $this->content_id);
 
@@ -324,7 +324,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 
 			// Build the query to checkout the item.
 			$query = $this->db->getQuery(true);
-			$query->update($this->db->qn('#__content'));
+			$query->update($this->db->qn('#__ucm'));
 			$query->set('checked_out_user_id = ' . (!empty($userId) ? (int) $userId : 'NULL'));
 			$query->set('checked_out_session = ' . $this->db->quote($sessionId));
 			$query->where('content_id = ' . (int) $this->content_id);
@@ -371,14 +371,14 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 
 			// Build a query to get the content ids that are checked out to active sessions.
 			$sub = $this->db->getQuery(true)->select('c.content_id');
-			$sub->from('#__content AS c');
+			$sub->from('#__ucm AS c');
 			$sub->innerJoin('#__session AS s ON c.checked_out_session = s.session_id');
 			$sub->where('c.temporary = 1');
 
 			// Build a query to get the content objects that are not checked out to active sessions.
 			$query = $this->db->getQuery(true);
 			$query->select('a.content_id, b.alias AS type');
-			$query->from('#__content AS a');
+			$query->from('#__ucm AS a');
 			$query->innerJoin('#__content_types AS b ON b.type_id = a.type_id');
 			$query->where('a.temporary = 1');
 			$query->where('a.content_id NOT IN(' . $sub . ')');
@@ -540,7 +540,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 
 		// Build the query to update the likes count.
 		$query = $this->db->getQuery(true);
-		$query->update($this->db->qn('#__content'));
+		$query->update($this->db->qn('#__ucm'));
 		$query->set('likes = likes+1');
 		$query->where('content_id = ' . (int) $this->content_id);
 
@@ -691,7 +691,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 
 		// Build the query to update the likes count.
 		$query = $this->db->getQuery(true);
-		$query->update($this->db->qn('#__content'));
+		$query->update($this->db->qn('#__ucm'));
 		$query->set('likes = likes-1');
 		$query->where('likes > 0');
 		$query->where('content_id = ' . (int) $this->content_id);
@@ -780,7 +780,7 @@ class JContent extends JDatabaseObject implements JAuthorisationAuthorisable
 			// Build the query to check if the item is editable.
 			$query = $this->db->getQuery(true);
 			$query->select('a.content_id');
-			$query->from('#__content AS a');
+			$query->from('#__ucm AS a');
 			$query->join('INNER', '#__session AS s ON s.session_id = a.checked_out_session');
 			$query->where('a.content_id = ' . (int) $this->content_id);
 
