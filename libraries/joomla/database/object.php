@@ -559,7 +559,8 @@ abstract class JDatabaseObject extends JCacheObject
 			foreach ($this->tables as $alias => $table)
 			{
 				// Store the data to the database.
-				$this->db->updateObject($table, $this->dumpTable($alias), $primaryKey);
+				$dump = $this->dumpTable($alias);
+				$this->db->updateObject($table, $dump, $primaryKey);
 			}
 
 			// Commit the transaction.

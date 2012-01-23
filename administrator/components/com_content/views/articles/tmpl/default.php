@@ -118,21 +118,21 @@ $saveOrder	= $listOrder == 'a.ordering';
 			$item->max_ordering = 0; //??
 			$ordering	= ($listOrder == 'a.ordering');
 			$canCreate	= $user->authorise('core.create',		'com_content.category.'.$item->catid);
-			$canEdit	= $user->authorise('core.edit',			'com_content.article.'.$item->id);
-			$canCheckin	= $user->authorise('core.manage',		'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
-			$canEditOwn	= $user->authorise('core.edit.own',		'com_content.article.'.$item->id) && $item->created_by == $userId;
-			$canChange	= $user->authorise('core.edit.state',	'com_content.article.'.$item->id) && $canCheckin;
+			$canEdit	= $user->authorise('core.edit',			'com_content.article.'.$item->content_id);
+			$canCheckin	= $user->authorise('core.manage',		'com_checkin') || $item->checked_out_user_id == $userId || $item->checked_out_user_id == 0;
+			$canEditOwn	= $user->authorise('core.edit.own',		'com_content.article.'.$item->content_id) && $item->created_user_id == $userId;
+			$canChange	= $user->authorise('core.edit.state',	'com_content.article.'.$item->content_id) && $canCheckin;
 			?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td class="center">
-					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+					<?php echo JHtml::_('grid.id', $i, $item->content_id); ?>
 				</td>
 				<td>
-					<?php if ($item->checked_out) : ?>
-						<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'articles.', $canCheckin); ?>
+					<?php if ($item->checked_out_user_id) : ?>
+						<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, null, 'articles.', $canCheckin); ?>
 					<?php endif; ?>
 					<?php if ($canEdit || $canEditOwn) : ?>
-						<a href="<?php echo JRoute::_('index.php?option=com_content&task=article.edit&id='.$item->id);?>">
+						<a href="<?php echo JRoute::_('index.php?option=com_content&task=article.edit&id='.$item->content_id);?>">
 							<?php echo $this->escape($item->title); ?></a>
 					<?php else : ?>
 						<?php echo $this->escape($item->title); ?>
@@ -141,7 +141,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 						<?php echo JText::sprintf('JGLOBAL_LIST_ALIAS', $this->escape($item->alias));?></p>
 				</td>
 				<td class="center">
-					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'articles.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'articles.', $canChange, 'cb', $item->publish_start_date, $item->publish_end_date); ?>
 				</td>
 				<td class="center">
 					<?php echo JHtml::_('contentadministrator.featured', $item->featured, $i, $canChange); ?>
@@ -173,7 +173,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 					<?php echo $this->escape($item->author_name); ?>
 				</td>
 				<td class="center nowrap">
-					<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC4')); ?>
+					<?php echo JHtml::_('date', $item->created_date, JText::_('DATE_FORMAT_LC4')); ?>
 				</td>
 				<td class="center">
 					<?php echo (int) $item->hits; ?>
@@ -186,7 +186,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 					<?php endif;?>
 				</td>
 				<td class="center">
-					<?php echo (int) $item->id; ?>
+					<?php echo (int) $item->content_id; ?>
 				</td>
 			</tr>
 			<?php endforeach; ?>

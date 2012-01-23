@@ -10,14 +10,14 @@
 // No direct access
 defined('_JEXEC') or die;
 
-jimport('joomla.application.component.controllerform');
+jimport('joomla.application.component.controllerformucm');
 
 /**
  * @package     Joomla.Administrator
  * @subpackage  com_content
  * @since       1.6
  */
-class ContentControllerArticle extends JControllerForm
+class ContentControllerArticle extends JControllerFormUcm
 {
 	/**
 	 * Class constructor.
@@ -37,6 +37,8 @@ class ContentControllerArticle extends JControllerForm
 		}
 
 		parent::__construct($config);
+
+		$this->content_type = 'Article';
 	}
 
 	/**
@@ -146,4 +148,6 @@ class ContentControllerArticle extends JControllerForm
 
 		return parent::batch($model);
 	}
+	
+	
 }

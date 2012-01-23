@@ -94,7 +94,7 @@ class ContentViewArticles extends JView
 			JToolBarHelper::checkin('articles.checkin');
 		}
 
-		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete')) {
+		if ($this->state->get('filter.published') == -1 && $canDo->get('core.delete')) {
 			JToolBarHelper::deleteList('', 'articles.delete', 'JTOOLBAR_EMPTY_TRASH');
 			JToolBarHelper::divider();
 		}

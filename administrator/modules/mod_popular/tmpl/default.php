@@ -26,10 +26,10 @@ defined('_JEXEC') or die;
 	</thead>
 <?php if (count($list)) : ?>
 	<tbody>
-	<?php foreach ($list as $i=>$item) : ?>
+	<?php foreach ($list as $i => $item) : ?>
 		<tr>
 			<th scope="row">
-				<?php if ($item->checked_out) : ?>
+				<?php if ($item->checked_out_user_id) : ?>
 						<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time); ?>
 				<?php endif; ?>
 
@@ -41,7 +41,7 @@ defined('_JEXEC') or die;
 				endif; ?>
 			</th>
 			<td class="center">
-				<?php echo JHtml::_('date', $item->created, 'Y-m-d H:i:s'); ?>
+				<?php echo JHtml::_('date', $item->created_date, 'Y-m-d H:i:s'); ?>
 			</td>
 			<td class="center">
 				<?php echo $item->hits;?>

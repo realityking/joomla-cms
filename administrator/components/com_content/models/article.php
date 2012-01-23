@@ -30,6 +30,40 @@ class ContentModelArticle extends JModelAdmin
 	protected $text_prefix = 'COM_CONTENT';
 
 	/**
+	 * Method to get a single record.
+	 *
+	 * @param   integer  $pk  The id of the primary key.
+	 *
+	 * @return  mixed    Object on success, false on failure.
+	 *
+	 * @since   11.1
+	 */
+	public function getItem($pk = null)
+	{
+		// Initialise variables.
+		$pk = (!empty($pk)) ? $pk : (int) $this->getState($this->getName() . '.id');
+
+		if ($pk > 0)
+		{
+			$factory = JContentFactory::getInstance('Article');
+			$object = $factory->getContent('Article')->load($pk)->checkout();
+		}
+
+		// Convert to the JObject before adding other data.
+		$item = $object->dump();
+		
+		// Convert the params field to an array.
+		if (is_object($item->config))
+		{
+			$item->config = get_object_vars($item->config);
+		}
+
+		$item->articletext = trim($item->fulltext) != '' ? $item->body . "<hr id=\"system-readmore\" />" . $item->fulltext : $item->body;
+
+		return $item;
+	}
+
+	/**
 	 * Batch copy items to a new category or current.
 	 *
 	 * @param   integer  $value     The new category.
@@ -248,44 +282,6 @@ class ContentModelArticle extends JModelAdmin
 	}
 
 	/**
-	 * Method to get a single record.
-	 *
-	 * @param	integer	The id of the primary key.
-	 *
-	 * @return	mixed	Object on success, false on failure.
-	 */
-	public function getItem($pk = null)
-	{
-		if ($item = parent::getItem($pk)) {
-			// Convert the params field to an array.
-			$registry = new JRegistry;
-			$registry->loadString($item->attribs);
-			$item->attribs = $registry->toArray();
-
-			// Convert the metadata field to an array.
-			$registry = new JRegistry;
-			$registry->loadString($item->metadata);
-			$item->metadata = $registry->toArray();
-
-			// Convert the images field to an array.
-			$registry = new JRegistry;
-			$registry->loadString($item->images);
-			$item->images = $registry->toArray();
-
-			// Convert the urls field to an array.
-			$registry = new JRegistry;
-			$registry->loadString($item->urls);
-			$item->urls = $registry->toArray();
-
-
-
-			$item->articletext = trim($item->fulltext) != '' ? $item->introtext . "<hr id=\"system-readmore\" />" . $item->fulltext : $item->introtext;
-		}
-
-		return $item;
-	}
-
-	/**
 	 * Method to get the record form.
 	 *
 	 * @param	array	$data		Data for the form.
@@ -390,19 +386,18 @@ class ContentModelArticle extends JModelAdmin
 	 */
 	public function save($data)
 	{
-			if (isset($data['images']) && is_array($data['images'])) {
-				$registry = new JRegistry;
-				$registry->loadArray($data['images']);
-				$data['images'] = (string)$registry;
+		if (isset($data['images']) && is_array($data['images'])) {
+			$registry = new JRegistry;
+			$registry->loadArray($data['images']);
+			$data['images'] = (string)$registry;
+		}
 
-			}
+		if (isset($data['urls']) && is_array($data['urls'])) {
+			$registry = new JRegistry;
+			$registry->loadArray($data['urls']);
+			$data['urls'] = (string)$registry;
+		}
 
-			if (isset($data['urls']) && is_array($data['urls'])) {
-				$registry = new JRegistry;
-				$registry->loadArray($data['urls']);
-				$data['urls'] = (string)$registry;
-
-			}
 		// Alter the title for save as copy
 		if (JRequest::getVar('task') == 'save2copy') {
 			list($title, $alias) = $this->generateNewTitle($data['catid'], $data['alias'], $data['title']);

@@ -153,7 +153,7 @@ abstract class JHtmlJGrid
 		$states = array(1 => array('unpublish', 'JPUBLISHED', 'JLIB_HTML_UNPUBLISH_ITEM', 'JPUBLISHED', false, 'publish', 'publish'),
 			0 => array('publish', 'JUNPUBLISHED', 'JLIB_HTML_PUBLISH_ITEM', 'JUNPUBLISHED', false, 'unpublish', 'unpublish'),
 			2 => array('unpublish', 'JARCHIVED', 'JLIB_HTML_UNPUBLISH_ITEM', 'JARCHIVED', false, 'archive', 'archive'),
-			-2 => array('publish', 'JTRASHED', 'JLIB_HTML_PUBLISH_ITEM', 'JTRASHED', false, 'trash', 'trash'));
+			-1 => array('publish', 'JTRASHED', 'JLIB_HTML_PUBLISH_ITEM', 'JTRASHED', false, 'trash', 'trash'));
 
 		// Special state for dates
 		if ($publish_up || $publish_down)
@@ -274,7 +274,7 @@ abstract class JHtmlJGrid
 		}
 		if (!array_key_exists('trash', $config) || $config['trash'])
 		{
-			$options[] = JHtml::_('select.option', '-2', 'JTRASHED');
+			$options[] = JHtml::_('select.option', '-1', 'JTRASHED');
 		}
 		if (!array_key_exists('all', $config) || $config['all'])
 		{
@@ -297,7 +297,7 @@ abstract class JHtmlJGrid
 	 *
 	 * @since   11.1
 	 */
-	public static function checkedout($i, $editorName, $time, $prefix = '', $enabled = false, $checkbox = 'cb')
+	public static function checkedout($i, $editorName, $time = null, $prefix = '', $enabled = false, $checkbox = 'cb')
 	{
 		if (is_array($prefix))
 		{
@@ -308,10 +308,16 @@ abstract class JHtmlJGrid
 		}
 
 		$text = addslashes(htmlspecialchars($editorName, ENT_COMPAT, 'UTF-8'));
-		$date = addslashes(htmlspecialchars(JHtml::_('date', $time, JText::_('DATE_FORMAT_LC')), ENT_COMPAT, 'UTF-8'));
-		$time = addslashes(htmlspecialchars(JHtml::_('date', $time, 'H:i'), ENT_COMPAT, 'UTF-8'));
-		$active_title = JText::_('JLIB_HTML_CHECKIN') . '::' . $text . '<br />' . $date . '<br />' . $time;
-		$inactive_title = JText::_('JLIB_HTML_CHECKED_OUT') . '::' . $text . '<br />' . $date . '<br />' . $time;
+		$active_title = JText::_('JLIB_HTML_CHECKIN') . '::' . $text;
+		$inactive_title = JText::_('JLIB_HTML_CHECKED_OUT') . '::' . $text;
+		if (isset($time))
+		{
+			$date = addslashes(htmlspecialchars(JHtml::_('date', $time, JText::_('DATE_FORMAT_LC')), ENT_COMPAT, 'UTF-8'));
+			$time = addslashes(htmlspecialchars(JHtml::_('date', $time, 'H:i'), ENT_COMPAT, 'UTF-8'));
+			$active_title .= '<br />' . $date . '<br />' . $time;
+			$inactive_title .= '<br />' . $date . '<br />' . $time;
+		}
+		
 
 		return self::action(
 			$i, 'checkin', $prefix, JText::_('JLIB_HTML_CHECKED_OUT'), $active_title, $inactive_title, true, 'checkedout',

@@ -65,7 +65,7 @@ class ContentViewArticle extends JView
 		$user		= JFactory::getUser();
 		$userId		= $user->get('id');
 		$isNew		= ($this->item->id == 0);
-		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
+		$checkedOut	= !($this->item->checked_out_user_id == 0 || $this->item->checked_out_user_id == $userId);
 		$canDo		= ContentHelper::getActions($this->state->get('filter.category_id'), $this->item->id);
 		JToolBarHelper::title(JText::_('COM_CONTENT_PAGE_'.($checkedOut ? 'VIEW_ARTICLE' : ($isNew ? 'ADD_ARTICLE' : 'EDIT_ARTICLE'))), 'article-add.png');
 

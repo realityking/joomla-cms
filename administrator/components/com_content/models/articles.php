@@ -30,22 +30,22 @@ class ContentModelArticles extends JModelList
 	{
 		if (empty($config['filter_fields'])) {
 			$config['filter_fields'] = array(
-				'id', 'a.id',
+				'id', 'a.content_id',
 				'title', 'a.title',
 				'alias', 'a.alias',
-				'checked_out', 'a.checked_out',
+				'checked_out', 'a.checked_out_user_id',
 				'checked_out_time', 'a.checked_out_time',
-				'catid', 'a.catid', 'category_title',
+				'catid', 'b.catid', 'category_title',
 				'state', 'a.state',
 				'access', 'a.access', 'access_level',
-				'created', 'a.created',
-				'created_by', 'a.created_by',
-				'ordering', 'a.ordering',
+				'created', 'a.created_date',
+				'created_by', 'a.created_user_id',
+				'ordering', 'b.ordering',
 				'featured', 'a.featured',
-				'language', 'a.language',
-				'hits', 'a.hits',
-				'publish_up', 'a.publish_up',
-				'publish_down', 'a.publish_down',
+				'language', 'b.language',
+				'hits', 'b.hits',
+				'publish_up', 'a.publish_start_date',
+				'publish_down', 'a.publish_end_date',
 			);
 		}
 
@@ -139,20 +139,22 @@ class ContentModelArticles extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.title, a.alias, a.checked_out, a.checked_out_time, a.catid' .
-				', a.state, a.access, a.created, a.created_by, a.ordering, a.featured, a.language, a.hits' .
-				', a.publish_up, a.publish_down'
+				'a.content_id, a.title, a.alias, a.checked_out_user_id, a.temporary, a.checked_out_session, b.catid' .
+				', a.state, a.access, a.created_date, a.created_user_id, b.ordering, a.featured, b.language, b.hits' .
+				', a.publish_start_date, a.publish_end_date'
 			)
 		);
-		$query->from('#__content AS a');
+		$query->from('#__ucm AS a');
+		$query->innerJoin('#__content_articles AS b ON b.content_id = a.content_id');
+		$query->where('a.temporary != 1');
 
 		// Join over the language
 		$query->select('l.title AS language_title');
-		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = a.language');
+		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = b.language');
 
 		// Join over the users for the checked out user.
 		$query->select('uc.name AS editor');
-		$query->join('LEFT', '#__users AS uc ON uc.id=a.checked_out');
+		$query->join('LEFT', '#__users AS uc ON uc.id = a.checked_out_user_id');
 
 		// Join over the asset groups.
 		$query->select('ag.title AS access_level');
@@ -160,11 +162,11 @@ class ContentModelArticles extends JModelList
 
 		// Join over the categories.
 		$query->select('c.title AS category_title');
-		$query->join('LEFT', '#__categories AS c ON c.id = a.catid');
+		$query->join('LEFT', '#__categories AS c ON c.id = b.catid');
 
 		// Join over the users for the author.
 		$query->select('ua.name AS author_name');
-		$query->join('LEFT', '#__users AS ua ON ua.id = a.created_by');
+		$query->join('LEFT', '#__users AS ua ON ua.id = a.created_user_id');
 
 		// Filter by access level.
 		if ($access = $this->getState('filter.access')) {
@@ -235,7 +237,7 @@ class ContentModelArticles extends JModelList
 
 		// Filter on the language.
 		if ($language = $this->getState('filter.language')) {
-			$query->where('a.language = '.$db->quote($language));
+			$query->where('b.language = '.$db->quote($language));
 		}
 
 		// Add the list ordering clause.
@@ -251,7 +253,6 @@ class ContentModelArticles extends JModelList
 			$orderCol = 'ag.title';
 		$query->order($db->escape($orderCol.' '.$orderDirn));
 
-		// echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
 	}
 
@@ -269,7 +270,7 @@ class ContentModelArticles extends JModelList
 		// Construct the query
 		$query->select('u.id AS value, u.name AS text');
 		$query->from('#__users AS u');
-		$query->join('INNER', '#__content AS c ON c.created_by = u.id');
+		$query->join('INNER', '#__ucm AS c ON c.created_user_id = u.id');
 		$query->group('u.id, u.name');
 		$query->order('u.name');
 

@@ -33,14 +33,14 @@ if (!$editoroptions):
 endif;
 
 // Check if the article uses configuration settings besides global. If so, use them.
-if (!empty($this->item->attribs['show_publishing_options'])):
-		$params['show_publishing_options'] = $this->item->attribs['show_publishing_options'];
+if (!empty($this->item->config['show_publishing_options'])):
+		$params['show_publishing_options'] = $this->item->config['show_publishing_options'];
 endif;
-if (!empty($this->item->attribs['show_article_options'])):
-		$params['show_article_options'] = $this->item->attribs['show_article_options'];
+if (!empty($this->item->config['show_article_options'])):
+		$params['show_article_options'] = $this->item->config['show_article_options'];
 endif;
-if (!empty($this->item->attribs['show_urls_images_backend'])):
-		$params['show_urls_images_backend'] = $this->item->attribs['show_urls_images_backend'];
+if (!empty($this->item->config['show_urls_images_backend'])):
+		$params['show_urls_images_backend'] = $this->item->config['show_urls_images_backend'];
 endif;
 
 ?>
@@ -56,10 +56,10 @@ endif;
 	}
 </script>
 
-<form action="<?php echo JRoute::_('index.php?option=com_content&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_content&layout=edit&id='.(int) $this->item->content_id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
 	<div class="width-60 fltlft">
 		<fieldset class="adminform">
-			<legend><?php echo empty($this->item->id) ? JText::_('COM_CONTENT_NEW_ARTICLE') : JText::sprintf('COM_CONTENT_EDIT_ARTICLE', $this->item->id); ?></legend>
+			<legend><?php echo empty($this->item->temporary) ? JText::_('COM_CONTENT_NEW_ARTICLE') : JText::sprintf('COM_CONTENT_EDIT_ARTICLE', $this->item->content_id); ?></legend>
 			<ul class="adminformlist">
 				<li><?php echo $this->form->getLabel('title'); ?>
 				<?php echo $this->form->getInput('title'); ?></li>
@@ -92,8 +92,8 @@ endif;
 				<li><?php echo $this->form->getLabel('language'); ?>
 				<?php echo $this->form->getInput('language'); ?></li>
 
-				<li><?php echo $this->form->getLabel('id'); ?>
-				<?php echo $this->form->getInput('id'); ?></li>
+				<li><?php echo $this->form->getLabel('content_id'); ?>
+				<?php echo $this->form->getInput('content_id'); ?></li>
 			</ul>
 
 			<div class="clr"></div>
@@ -110,32 +110,32 @@ endif;
 			<?php echo JHtml::_('sliders.panel', JText::_('COM_CONTENT_FIELDSET_PUBLISHING'), 'publishing-details'); ?>
 			<fieldset class="panelform">
 				<ul class="adminformlist">
-					<li><?php echo $this->form->getLabel('created_by'); ?>
-					<?php echo $this->form->getInput('created_by'); ?></li>
+					<li><?php echo $this->form->getLabel('created_user_id'); ?>
+					<?php echo $this->form->getInput('created_user_id'); ?></li>
 
 					<li><?php echo $this->form->getLabel('created_by_alias'); ?>
 					<?php echo $this->form->getInput('created_by_alias'); ?></li>
 
-					<li><?php echo $this->form->getLabel('created'); ?>
-					<?php echo $this->form->getInput('created'); ?></li>
+					<li><?php echo $this->form->getLabel('created_date'); ?>
+					<?php echo $this->form->getInput('created_date'); ?></li>
 
-					<li><?php echo $this->form->getLabel('publish_up'); ?>
-					<?php echo $this->form->getInput('publish_up'); ?></li>
+					<li><?php echo $this->form->getLabel('publish_start_date'); ?>
+					<?php echo $this->form->getInput('publish_start_date'); ?></li>
 
-					<li><?php echo $this->form->getLabel('publish_down'); ?>
-					<?php echo $this->form->getInput('publish_down'); ?></li>
+					<li><?php echo $this->form->getLabel('publish_end_date'); ?>
+					<?php echo $this->form->getInput('publish_end_date'); ?></li>
 
-					<?php if ($this->item->modified_by) : ?>
-						<li><?php echo $this->form->getLabel('modified_by'); ?>
-						<?php echo $this->form->getInput('modified_by'); ?></li>
+					<?php if ($this->item->modified_user_id) : ?>
+						<li><?php echo $this->form->getLabel('modified_user_id'); ?>
+						<?php echo $this->form->getInput('modified_user_id'); ?></li>
 
-						<li><?php echo $this->form->getLabel('modified'); ?>
-						<?php echo $this->form->getInput('modified'); ?></li>
+						<li><?php echo $this->form->getLabel('modified_date'); ?>
+						<?php echo $this->form->getInput('modified_date'); ?></li>
 					<?php endif; ?>
 
-					<?php if ($this->item->version) : ?>
-						<li><?php echo $this->form->getLabel('version'); ?>
-						<?php echo $this->form->getInput('version'); ?></li>
+					<?php if ($this->item->revision) : ?>
+						<li><?php echo $this->form->getLabel('revision'); ?>
+						<?php echo $this->form->getInput('revision'); ?></li>
 					<?php endif; ?>
 
 					<?php if ($this->item->hits) : ?>
@@ -145,7 +145,7 @@ endif;
 				</ul>
 			</fieldset>
 		<?php  endif; ?>
-		<?php  $fieldSets = $this->form->getFieldsets('attribs'); ?>
+		<?php  $fieldSets = $this->form->getFieldsets('config'); ?>
 			<?php foreach ($fieldSets as $name => $fieldSet) : ?>
 				<?php // If the parameter says to show the article options or if the parameters have never been set, we will
 					  // show the article options. ?>
