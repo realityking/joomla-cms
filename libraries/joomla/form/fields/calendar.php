@@ -104,7 +104,7 @@ class JFormFieldCalendar extends JFormField
 			}
 		}
 
-		if ($this->value instanceof JDate)
+		if (isset($date))
 		{
 			// Transform the date string.
 			$this->value = $date->format('Y-m-d H:i:s', true, false);
