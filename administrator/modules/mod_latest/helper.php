@@ -33,19 +33,19 @@ abstract class modLatestHelper
 		$model = JModel::getInstance('Articles', 'ContentModel', array('ignore_request' => true));
 
 		// Set List SELECT
-		$model->setState('list.select', 'a.id, a.title, a.checked_out, a.checked_out_time, ' .
-				' a.access, a.created, a.created_by, a.created_by_alias, a.featured, a.state');
+		$model->setState('list.select', 'a.content_id, a.title, a.checked_out_user_id, ' .
+				' a.access, a.created_date, a.created_user_id, b.created_by_alias, a.featured, a.state');
 
 		// Set Ordering filter
 		switch ($params->get('ordering')) {
 			case 'm_dsc':
-				$model->setState('list.ordering', 'modified DESC, created');
+				$model->setState('list.ordering', 'modified DESC, created_date');
 				$model->setState('list.direction', 'DESC');
 				break;
 
 			case 'c_dsc':
 			default:
-				$model->setState('list.ordering', 'created');
+				$model->setState('list.ordering', 'created_date');
 				$model->setState('list.direction', 'DESC');
 				break;
 		}
