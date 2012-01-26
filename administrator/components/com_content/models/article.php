@@ -58,8 +58,6 @@ class ContentModelArticle extends JModelAdmin
 			$item->config = get_object_vars($item->config);
 		}
 
-		$item->articletext = trim($item->fulltext) != '' ? $item->body . "<hr id=\"system-readmore\" />" . $item->fulltext : $item->body;
-
 		return $item;
 	}
 
