@@ -559,14 +559,11 @@ class JControllerFormUcm extends JController
 	/**
 	 * Method to save a record.
 	 *
-	 * @param   string  $key     The name of the primary key of the URL variable.
-	 * @param   string  $urlVar  The name of the URL variable if different from the primary key (sometimes required to avoid router collisions).
-	 *
 	 * @return  boolean  True if successful, false otherwise.
 	 *
 	 * @since   11.1
 	 */
-	public function save($key = null, $urlVar = null)
+	public function save()
 	{
 		// Check for request forgeries.
 		JRequest::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
@@ -594,6 +591,19 @@ class JControllerFormUcm extends JController
 			case 'apply':
 				// Checkout the article again
 				$object->checkout();
+
+				// Redirect back to the edit screen.
+				$this->setRedirect(
+					JRoute::_(
+						'index.php?option=' . $this->option . '&view=' . $this->view_item
+						. $this->getRedirectToItemAppend($object->content_id, 'id'), false
+					)
+				);
+				break;
+
+			case 'save2new':
+				//Create a new temporary content object
+				$object = $factory->getContent($this->content_type)->create();
 
 				// Redirect back to the edit screen.
 				$this->setRedirect(
