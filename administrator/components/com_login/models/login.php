@@ -1,7 +1,6 @@
 <?php
 /**
- * @version		$Id$
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License, see LICENSE.php
  */
 
@@ -49,7 +48,7 @@ class LoginModelLogin extends JModel
 
 		$this->setState('return', $return);
 	}
-	
+
 	/**
 	 * Get the administrator login module by name (real, eg 'login' or folder, eg 'mod_login')
 	 *
@@ -57,7 +56,7 @@ class LoginModelLogin extends JModel
 	 * @param   string  $title  The title of the module, optional
 	 *
 	 * @return  object  The Module object
-	 * 
+	 *
 	 * @since   11.1
 	 */
 	public static function &getLoginModule($name = 'login', $title = null)
@@ -65,7 +64,7 @@ class LoginModelLogin extends JModel
 		$result		= null;
 		$modules	= LoginModelLogin::_load();
 		$total		= count($modules);
-		
+
 		for ($i = 0; $i < $total; $i++)
 		{
 			// Match the name of the module
@@ -98,7 +97,7 @@ class LoginModelLogin extends JModel
 	}
 	/**
 	 * Load login modules.
-	 * 
+	 *
 	 * Note that we load regardless of state or access level since access
 	 * for public is the only thing that makes sense since users are not logged in
 	 * and the module lets them log in.
@@ -106,7 +105,7 @@ class LoginModelLogin extends JModel
 	 * login module or by a module set to have a viewing access level that is not Public.
 	 *
 	 * @return  array
-	 * 
+	 *
 	 * @since   11.1
 	 */
 	protected static function &_load()
@@ -132,7 +131,7 @@ class LoginModelLogin extends JModel
 			$query->from('#__modules AS m');
 			$query->where('m.module =' . $db->Quote('mod_login') .' AND m.client_id = 1');
 
-			$query->join('LEFT','#__extensions AS e ON e.element = m.module AND e.client_id = m.client_id');
+			$query->join('LEFT', '#__extensions AS e ON e.element = m.module AND e.client_id = m.client_id');
 			$query->where('e.enabled = 1');
 
 			// Filter by language
@@ -152,7 +151,7 @@ class LoginModelLogin extends JModel
 				return $loginmodule;
 			}
 
-			
+
 			// Return to simple indexing that matches the query order.
 			$loginmodule = array_values($loginmodule);
 

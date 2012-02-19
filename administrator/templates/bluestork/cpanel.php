@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Administrator
  * @subpackage	Templates.bluestork
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -60,7 +59,7 @@ if ($this->params->get('highContrast')) {
 				if ($task == 'edit' || $task == 'editA' || JRequest::getInt('hidemainmenu')) {
 					$logoutLink = '';
 				} else {
-					$logoutLink = JRoute::_('index.php?option=com_login&task=logout&'. JUtility::getToken() .'=1');
+					$logoutLink = JRoute::_('index.php?option=com_login&task=logout&'. JSession::getFormToken() .'=1');
 				}
 				$hideLinks	= JRequest::getBool('hidemainmenu');
 				$output = array();
@@ -68,10 +67,6 @@ if ($this->params->get('highContrast')) {
 				$output[] = '<span class="viewsite"><a href="'.JURI::root().'" target="_blank">'.JText::_('JGLOBAL_VIEW_SITE').'</a></span>';
 				// Print the logout link.
 				$output[] = '<span class="logout">' .($hideLinks ? '' : '<a href="'.$logoutLink.'">').JText::_('JLOGOUT').($hideLinks ? '' : '</a>').'</span>';
-				// Reverse rendering order for rtl display.
-				if ($this->direction == "rtl") :
-					$output = array_reverse($output);
-				endif;
 				// Output the items.
 				foreach ($output as $item) :
 				echo $item;
@@ -113,7 +108,6 @@ if ($this->params->get('highContrast')) {
 		<p class="copyright">
 			<?php $joomla= '<a href="http://www.joomla.org">Joomla!&#174;</a>';
 				echo JText::sprintf('JGLOBAL_ISFREESOFTWARE', $joomla) ?>
-			<span class="version"><?php echo  JText::_('JVERSION') ?> <?php echo  JVERSION; ?></span>
 		</p>
 	</div>
 </body>

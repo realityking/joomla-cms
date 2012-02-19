@@ -1,8 +1,7 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Installation
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -78,7 +77,7 @@ class JInstallationModelFilesystem extends JModel
 		}
 
 		// Search through the segments of JPATH_SITE looking for root possibilities.
-		$parts = explode(DS, JPATH_SITE);
+		$parts = explode(DIRECTORY_SEPARATOR, JPATH_SITE);
 		$tmp = '';
 		for ($i = count($parts) - 1; $i >= 0; $i--)
 		{

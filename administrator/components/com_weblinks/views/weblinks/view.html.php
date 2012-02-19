@@ -1,7 +1,6 @@
 <?php
 /**
- * @version		$Id$
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -76,7 +75,7 @@ class WeblinksViewWeblinks extends JView
 		if ($state->get('filter.state') == -2 && $canDo->get('core.delete')) {
 			JToolBarHelper::deleteList('', 'weblinks.delete', 'JTOOLBAR_EMPTY_TRASH');
 			JToolBarHelper::divider();
-		} else if ($canDo->get('core.edit.state')) {
+		} elseif ($canDo->get('core.edit.state')) {
 			JToolBarHelper::trash('weblinks.trash');
 			JToolBarHelper::divider();
 		}

@@ -1,8 +1,7 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Installation
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -37,8 +36,7 @@ class JInstallation extends JApplication
 		$config['clientId'] = 2;
 		parent::__construct($config);
 
-		JError::setErrorHandling(E_ALL, 'Ignore');
-		$this->_createConfiguration();
+		$this->_createConfiguration('');
 
 		// Set the root in the URI based on the application name.
 		JURI::root(null, str_replace('/'.$this->getName(), '', JURI::base(true)));
@@ -111,7 +109,7 @@ class JInstallation extends JApplication
 	 *
 	 * @return	void
 	 */
-	public function initialise(array $options = array())
+	public function initialise($options = array())
 	{
 		//Get the localisation information provided in the localise.xml file.
 		$forced = $this->getLocalise();
@@ -137,7 +135,6 @@ class JInstallation extends JApplication
 			if (!empty($forced['language'])) {
 				$options['language'] = $forced['language'];
 			} else {
-				jimport('joomla.language.helper');
 				$options['language'] = JLanguageHelper::detectLanguage();
 				if (empty($options['language'])) {
 					$options['language'] = 'en-GB';
@@ -237,10 +234,8 @@ class JInstallation extends JApplication
 	 *
 	 * @return	void
 	 */
-	public function _createConfiguration()
+	public function _createConfiguration($file)
 	{
-		jimport('joomla.registry.registry');
-
 		// Create the registry with a default namespace of config which is read only
 		$this->_registry = new JRegistry('config');
 	}
@@ -333,9 +328,9 @@ class JInstallation extends JApplication
 
  		if ($db) {
  			$langfiles_disk = $langfiles;
- 			$langfiles = Array();
- 			$langfiles['admin'] = Array();
- 			$langfiles['site'] = Array();
+ 			$langfiles = array();
+ 			$langfiles['admin'] = array();
+ 			$langfiles['site'] = array();
  			$query = $db->getQuery(true);
  			$query->select('element,client_id');
  			$query->from('#__extensions');

@@ -1,8 +1,7 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Site
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -44,7 +43,7 @@ $app = JFactory::getApplication();
 		<div class="container">
 			<hr class="space" />
 			<div class="joomla-header span-16 append-1">
-				<h1><?php echo $app->getCfg('sitename'); ?></h1>
+				<h1><?php echo htmlspecialchars($app->getCfg('sitename')); ?></h1>
 			</div>
 			<?php if($this->countModules('atomic-search')) : ?>
 				<div class="joomla-search span-7 last">
@@ -84,7 +83,7 @@ $app = JFactory::getApplication();
 
 			<div class="joomla-footer span-16 append-1">
 				<hr />
-				&copy;<?php echo date('Y'); ?> <?php echo $app->getCfg('sitename'); ?>
+				&copy;<?php echo date('Y'); ?> <?php echo htmlspecialchars($app->getCfg('sitename')); ?>
 			</div>
 		</div>
 	</body>

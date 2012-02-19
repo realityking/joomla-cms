@@ -1,7 +1,6 @@
 <?php
 /**
- * @version		$Id$
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -110,7 +109,7 @@ class WeblinksModelCategory extends JModelList
 
 		// Select required fields from the categories.
 		$query->select($this->getState('list.select', 'a.*'));
-		$query->from('`#__weblinks` AS a');
+		$query->from($db->quoteName('#__weblinks').' AS a');
 		$query->where('a.access IN ('.$groups.')');
 
 		// Filter by category.
@@ -137,10 +136,13 @@ class WeblinksModelCategory extends JModelList
 		if (is_numeric($state)) {
 			$query->where('a.state = '.(int) $state);
 		}
+		// do not show trashed links on the front-end
+		$query->where('a.state != -2');
 
 		// Filter by start and end dates.
 		$nullDate = $db->Quote($db->getNullDate());
-		$nowDate = $db->Quote(JFactory::getDate()->toMySQL());
+		$date = JFactory::getDate();
+		$nowDate = $db->Quote($date->toSql());
 
 		if ($this->getState('filter.publish_date')){
 			$query->where('(a.publish_up = ' . $nullDate . ' OR a.publish_up <= ' . $nowDate . ')');
@@ -153,7 +155,7 @@ class WeblinksModelCategory extends JModelList
 		}
 
 		// Add the list ordering clause.
-		$query->order($db->getEscaped($this->getState('list.ordering', 'a.ordering')).' '.$db->getEscaped($this->getState('list.direction', 'ASC')));
+		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
 		return $query;
 	}
 
@@ -202,7 +204,7 @@ class WeblinksModelCategory extends JModelList
 			$this->setState('filter.publish_date', true);
 		}
 
-		$this->setState('filter.language',$app->getLanguageFilter());
+		$this->setState('filter.language', $app->getLanguageFilter());
 
 		// Load the parameters.
 		$this->setState('params', $params);

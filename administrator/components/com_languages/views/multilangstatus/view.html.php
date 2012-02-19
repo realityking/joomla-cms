@@ -1,7 +1,6 @@
 <?php
 /**
- * @version		$Id$
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -25,15 +24,16 @@ class LanguagesViewMultilangstatus extends JView
 	function display($tpl = null)
 	{
 		require_once JPATH_COMPONENT . '/helpers/multilangstatus.php';
-		
+
 		$this->homes			= multilangstatusHelper::getHomes();
-		$this->language_filter	= multilangstatusHelper::getLangfilter();
+		$this->language_filter	= JLanguageMultilang::isEnabled();
 		$this->switchers		= multilangstatusHelper::getLangswitchers();
+		$this->listUsersError	= multilangstatusHelper::getContacts();
 		$this->contentlangs		= multilangstatusHelper::getContentlangs();
 		$this->site_langs		= multilangstatusHelper::getSitelangs();
 		$this->statuses			= multilangstatusHelper::getStatus();
 		$this->homepages		= multilangstatusHelper::getHomepages();
-		
+
 		parent::display($tpl);
 	}
 }

@@ -1,7 +1,6 @@
 <?php
 /**
- * @version		$Id$
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -30,8 +29,6 @@ class TemplatesViewSource extends JView
 	 */
 	public function display($tpl = null)
 	{
-		jimport('joomla.client.helper');
-
 		// Initialise variables.
 		$this->form		= $this->get('Form');
 		$this->ftp		= JClientHelper::setCredentialsFromRequest('ftp');

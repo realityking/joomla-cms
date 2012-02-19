@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Administrator
  * @subpackage	com_contact
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -86,7 +85,7 @@ class ContactViewContacts extends JView
 			JToolBarHelper::deleteList('', 'contacts.delete', 'JTOOLBAR_EMPTY_TRASH');
 			JToolBarHelper::divider();
 		}
-		else if ($canDo->get('core.edit.state')) {
+		elseif ($canDo->get('core.edit.state')) {
 			JToolBarHelper::trash('contacts.trash');
 			JToolBarHelper::divider();
 		}

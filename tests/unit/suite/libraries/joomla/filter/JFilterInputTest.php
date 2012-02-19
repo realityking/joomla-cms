@@ -2,9 +2,8 @@
 /**
  * JFilterInputTest
  *
- * @version		$Id$
  * @package		Joomla.UnitTest
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
  * @license		GNU General Public License
  */
 
@@ -1138,6 +1137,19 @@ class JFilterInputTest extends PHPUnit_Framework_TestCase
 				"<img src=\"'&lt;img\" src=\"'///'/\" /> ",
 				'From specific cases'
 			),
+			'tracker26439a' => array(
+				'string',
+				'<p>equals quote =" inside valid tag</p>',
+				'<p>equals quote =" inside valid tag</p>',
+				'Test quote equals inside valid tag'
+			),
+			'tracker26439b' => array(
+				'string',
+				"<p>equals quote =' inside valid tag</p>",
+				"<p>equals quote =' inside valid tag</p>",
+				'Test single quote equals inside valid tag'
+		),
+
 		);
 		$tests = array_merge($this->casesGeneric(), $casesSpecific);
 

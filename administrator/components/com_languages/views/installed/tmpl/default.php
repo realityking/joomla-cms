@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Administrator
  * @subpackage	com_languages
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -35,6 +34,9 @@ $clientId	= $this->state->get('filter.client_id', 0);
 					<?php echo JText::_('COM_LANGUAGES_HEADING_LANGUAGE'); ?>
 				</th>
 				<th>
+					<?php echo JText::_('COM_LANGUAGES_FIELD_LANG_TAG_LABEL'); ?>
+				</th>
+				<th>
 					<?php echo JText::_('JCLIENT'); ?>
 				</th>
 				<th>
@@ -56,7 +58,7 @@ $clientId	= $this->state->get('filter.client_id', 0);
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="9">
+				<td colspan="10">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -72,10 +74,13 @@ $clientId	= $this->state->get('filter.client_id', 0);
 					<?php echo $this->pagination->getRowOffset($i); ?>
 				</td>
 				<td width="20">
-					<?php echo JHtml::_('languages.id',$i,$row->language);?>
+					<?php echo JHtml::_('languages.id', $i, $row->language);?>
 				</td>
 				<td width="25%">
 					<?php echo $this->escape($row->name); ?>
+				</td>
+				<td align="center">
+					<?php echo $this->escape($row->language); ?>
 				</td>
 				<td align="center">
 					<?php echo $client;?>

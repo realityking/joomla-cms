@@ -1,9 +1,8 @@
 <?php
 /**
- * @version		$Id$
  * @package		Joomla.Site
  * @subpackage	com_mailto
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -53,8 +52,6 @@ class MailtoController extends JController
 			JError::raiseNotice(500, JText:: _ ('COM_MAILTO_EMAIL_NOT_SENT'));
 			return $this->mailto();
 		}
-
-		jimport('joomla.mail.helper');
 
 		$SiteName	= $app->getCfg('sitename');
 		$MailFrom	= $app->getCfg('mailfrom');
@@ -141,7 +138,7 @@ class MailtoController extends JController
 		$sender	 = JMailHelper::cleanAddress($sender);
 
 		// Send the email
-		if (JUtility::sendMail($from, $sender, $email, $subject, $body) !== true)
+		if (JFactory::getMailer()->sendMail($from, $sender, $email, $subject, $body) !== true)
 		{
 			JError::raiseNotice(500, JText:: _ ('COM_MAILTO_EMAIL_NOT_SENT'));
 			return $this->mailto();
