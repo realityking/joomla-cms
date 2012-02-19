@@ -306,6 +306,7 @@ class ContentModelCategory extends JModelList
 				$options['countItems'] = 0;
 			}
 
+			jimport('joomla.application.categories');
 			$categories = JCategories::getInstance('Content', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 
