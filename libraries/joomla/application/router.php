@@ -84,7 +84,7 @@ class JRouter extends JObject
 	 */
 	public static function getInstance($client, $options = array())
 	{
-		if (empty(JRouter::$instances[$client]))
+		if (empty(self::$instances[$client]))
 		{
 			if (!class_exists('JRouter'.ucfirst($client)))
 			{
@@ -106,10 +106,10 @@ class JRouter extends JObject
 			// Create a JRouter object
 			$classname = 'JRouter'.ucfirst($client);
 
-			JRouter::$instances[$client] = new $classname($options);
+			self::$instances[$client] = new $classname($options);
 		}
 
-		return JRouter::$instances[$client];
+		return self::$instances[$client];
 	}
 
 	/**
@@ -123,7 +123,7 @@ class JRouter extends JObject
 	 */
 	public function __construct($options = array())
 	{
-		$this->options = (array) $options;
+		$this->setOptions((array) $options);
 	}
 
 	/**
