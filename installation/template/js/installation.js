@@ -21,7 +21,7 @@ var Installation = new Class({
     	this.addToggler();
 		// Attach the validator
 		$$('form.form-validate').each(function(form){ this.attachToForm(form); }, document.formvalidator);
-		
+
 		if (this.view == 'site' && this.sampleDataLoaded) {
 			var select = document.id('jform_sample_file');
 			var button = document.id('theDefault').children[0];
@@ -66,6 +66,8 @@ var Installation = new Class({
 				if (r) {
 					Joomla.replaceTokens(r.token);
 					alert(r.message);
+				} else {
+					alert("Decoding JSON failed. Maybe there's a PHP error?");
 				}
 			}.bind(this)
 		});
@@ -277,7 +279,7 @@ var Installation = new Class({
 		}).send();
 	},
 
-    addToggler: function() {
+	addToggler: function() {
 		new Fx.Accordion($$('h4.moofx-toggler'), $$('div.moofx-slider'), {
 			onActive: function(toggler, i) {
 				toggler.addClass('moofx-toggler-down');
