@@ -51,7 +51,6 @@ ENDSCRIPT;
 
 		// Load our Javascript
 		$document = JFactory::getDocument();
-		$document->addScript('../media/com_joomlaupdate/json2.js');
 		$document->addScript('../media/com_joomlaupdate/encryption.js');
 		$document->addScript('../media/com_joomlaupdate/update.js');
 		JHtml::_('script', 'system/progressbar.js', true, true);

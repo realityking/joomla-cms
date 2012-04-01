@@ -25,7 +25,7 @@ function dummy_error_handler(error)
  */
 function doAjax(data, successCallback, errorCallback)
 {
-	var json = JSON.stringify(data);
+	var json = JSON.encode(data);
 	if( joomlaupdate_password.length > 0 )
 	{
 		json = AesCtr.encrypt( json, joomlaupdate_password, 128 );
@@ -69,14 +69,14 @@ function doAjax(data, successCallback, errorCallback)
 			if( joomlaupdate_password.length > 0 )
 			{
 				try {
-					var data = JSON.parse(message);
+					var data = JSON.decode(message);
 				} catch(err) {
 					message = AesCtr.decrypt(message, joomlaupdate_password, 128);
 				}
 			}
 
 			try {
-				var data = JSON.parse(message);
+				var data = JSON.decode(message);
 			} catch(err) {
 				var msg = err.message + "\n<br/>\n<pre>\n" + message + "\n</pre>";
 				if(joomlaupdate_error_callback != null)
