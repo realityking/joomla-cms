@@ -1,7 +1,7 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_finder
+ * @package     Joomla.Libraries
+ * @subpackage  Language
  *
  * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
@@ -10,13 +10,14 @@
 defined('_JEXEC') or die;
 
 /**
- * Snowball stemmer class for the Finder indexer package.
+ * Snowball stemmer class.
  *
- * @package     Joomla.Administrator
- * @subpackage  com_finder
- * @since       2.5
+ * @package     Joomla.Libraries
+ * @subpackage  Language
+ * @since       2.5.5
+ * @deprecated  3.0    This class may be removed since snowball isn't activly developed anymore.
  */
-class FinderIndexerStemmerSnowball extends FinderIndexerStemmer
+class JLanguageStemmerSnowball extends JLanguageStemmer
 {
 	/**
 	 * Method to stem a token and return the root.
@@ -26,7 +27,7 @@ class FinderIndexerStemmerSnowball extends FinderIndexerStemmer
 	 *
 	 * @return  string  The root token.
 	 *
-	 * @since   2.5
+	 * @since   2.5.5
 	 */
 	public function stem($token, $lang)
 	{
@@ -34,7 +35,8 @@ class FinderIndexerStemmerSnowball extends FinderIndexerStemmer
 		static $defaultLang = '';
 
 		// If language is All then try to get site default language.
-		if ($lang == '*' && $defaultLang == '') {
+		if ($lang == '*' && $defaultLang == '')
+		{
 			$languages = JLanguageHelper::getLanguages();
 			$defaultLang = isset($languages[0]->sef) ? $languages[0]->sef : '*';
 			$lang = $defaultLang;

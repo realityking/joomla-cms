@@ -1135,9 +1135,9 @@ class FinderModelSearch extends JModelList
 		$this->setState('filter.language', $app->getLanguageFilter());
 
 		// Setup the stemmer.
-		if ($params->get('stem', 1) && $params->get('stemmer', 'porter_en'))
+		if ($params->get('stem', 1) && $params->get('stemmer', 'porteren'))
 		{
-			FinderIndexerHelper::$stemmer = FinderIndexerStemmer::getInstance($params->get('stemmer', 'porter_en'));
+			FinderIndexerHelper::$stemmer = JLanguageStemmer::getInstance($params->get('stemmer', 'porteren'));
 		}
 
 		// Initialize variables.

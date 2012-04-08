@@ -12,7 +12,6 @@ defined('_JEXEC') or die;
 // Register dependent classes.
 JLoader::register('FinderIndexerHelper', dirname(__FILE__) . '/helper.php');
 JLoader::register('FinderIndexerParser', dirname(__FILE__) . '/parser.php');
-JLoader::register('FinderIndexerStemmer', dirname(__FILE__) . '/stemmer.php');
 JLoader::register('FinderIndexerTaxonomy', dirname(__FILE__) . '/taxonomy.php');
 JLoader::register('FinderIndexerToken', dirname(__FILE__) . '/token.php');
 
@@ -145,9 +144,9 @@ class FinderIndexer
 		}
 
 		// Setup the stemmer.
-		if ($data->options->get('stem', 1) && $data->options->get('stemmer', 'porter_en'))
+		if ($data->options->get('stem', 1) && $data->options->get('stemmer', 'porteren'))
 		{
-			FinderIndexerHelper::$stemmer = FinderIndexerStemmer::getInstance($data->options->get('stemmer', 'porter_en'));
+			FinderIndexerHelper::$stemmer = JLanguageStemmer::getInstance($data->options->get('stemmer', 'porteren'));
 		}
 
 		// Set the state.

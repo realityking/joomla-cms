@@ -10,7 +10,6 @@
 defined('_JEXEC') or die;
 
 // Register dependent classes.
-JLoader::register('FinderIndexerStemmer', dirname(__FILE__) . '/stemmer.php');
 JLoader::register('FinderIndexerToken', dirname(__FILE__) . '/token.php');
 
 /**
@@ -24,9 +23,9 @@ class FinderIndexerHelper
 {
 	/**
 	 * The token stemmer object. The stemmer is set by whatever class
-	 * wishes to use it but it must be an instance of FinderIndexerStemmer.
+	 * wishes to use it but it must be an instance of JLanguageStemmer.
 	 *
-	 * @var		FinderIndexerStemmer
+	 * @var		JLanguageStemmer
 	 * @since	2.5
 	 */
 	public static $stemmer;
@@ -223,7 +222,7 @@ class FinderIndexerHelper
 		}
 
 		// Stem the token if we have a valid stemmer to use.
-		if (self::$stemmer instanceof FinderIndexerStemmer)
+		if (self::$stemmer instanceof JLanguageStemmer)
 		{
 			return self::$stemmer->stem($token, $lang);
 		}

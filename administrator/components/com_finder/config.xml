@@ -196,7 +196,7 @@
 			default="snowball"
 			label="COM_FINDER_CONFIG_STEMMER_LABEL"
 			description="COM_FINDER_CONFIG_STEMMER_DESCRIPTION" >
-			<option value="porter_en">COM_FINDER_CONFIG_STEMMER_PORTER_EN</option>
+			<option value="porteren">COM_FINDER_CONFIG_STEMMER_PORTER_EN</option>
 			<option value="snowball">COM_FINDER_CONFIG_STEMMER_SNOWBALL</option>
 		</field>
 	</fieldset>

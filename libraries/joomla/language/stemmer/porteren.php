@@ -1,38 +1,39 @@
 <?php
 /**
- * @package     Joomla.Administrator
- * @subpackage  com_finder
+ * @package     Joomla.Platform
+ * @subpackage  Language
  *
  * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 Richard Heyes (http://www.phpguru.org/). All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-defined('_JEXEC') or die;
+defined('JPATH_PLATFORM') or die;
 
 /**
- * Porter English stemmer class for the Finder indexer package.
+ * Porter English stemmer class.
  *
  * This class was adapted from one written by Richard Heyes.
  * See copyright and link information above.
  *
- * @package     Joomla.Administrator
- * @subpackage  com_finder
- * @since       2.5
+ * @package     Joomla.Platform
+ * @subpackage  Language
+ * @since       12.1
  */
-class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
+class JLanguageStemmerPorteren extends JLanguageStemmer
 {
 	/**
 	 * Regex for matching a consonant.
 	 *
 	 * @var    string
-	 * @since  2.5
+	 * @since  12.1
 	 */
 	private static $_regex_consonant = '(?:[bcdfghjklmnpqrstvwxz]|(?<=[aeiou])y|^y)';
 
 	/**
 	 * Regex for matching a vowel
 	 * @var    string
-	 * @since  2.5
+	 * @since  12.1
 	 */
 	private static $_regex_vowel = '(?:[aeiou]|(?<![aeiou])y)';
 
@@ -44,7 +45,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string  The root token.
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	public function stem($token, $lang)
 	{
@@ -55,7 +56,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 		}
 
 		// Check if the language is English or All.
-		if ($lang !== 'en' && $lang != '*')
+		if ($lang !== 'en')
 		{
 			return $token;
 		}
@@ -86,7 +87,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step1ab($word)
 	{
@@ -105,7 +106,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 			// First rule
 			$v = self::$_regex_vowel;
 
-			// ing and ed
+			// Check ing and ed
 			// Note use of && and OR, for precedence reasons
 			if (preg_match("#$v+#", substr($word, 0, -3)) && self::_replace($word, 'ing', '')
 				or preg_match("#$v+#", substr($word, 0, -2)) && self::_replace($word, 'ed', ''))
@@ -136,7 +137,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step1c($word)
 	{
@@ -157,7 +158,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step2($word)
 	{
@@ -212,7 +213,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step3($word)
 	{
@@ -249,7 +250,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step4($word)
 	{
@@ -316,7 +317,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  string
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _step5($word)
 	{
@@ -358,7 +359,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *                   of the $str string. True does not necessarily mean
 	 *                   that it was replaced.
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _replace(&$str, $check, $repl, $m = null)
 	{
@@ -390,7 +391,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  integer  The m count
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _m($str)
 	{
@@ -413,7 +414,7 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  boolean  Result
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _doubleConsonant($str)
 	{
@@ -429,13 +430,19 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 *
 	 * @return  boolean  Result
 	 *
-	 * @since   2.5
+	 * @since   12.1
 	 */
 	private static function _cvc($str)
 	{
 		$c = self::$_regex_consonant;
 		$v = self::$_regex_vowel;
 
-		return preg_match("#($c$v$c)$#", $str, $matches) and strlen($matches[1]) == 3 and $matches[1]{2} != 'w' and $matches[1]{2} != 'x' and $matches[1]{2} != 'y';
+		$result = preg_match("#($c$v$c)$#", $str, $matches)
+			and strlen($matches[1]) == 3
+			and $matches[1]{2} != 'w'
+			and $matches[1]{2} != 'x'
+			and $matches[1]{2} != 'y';
+		
+		return $result;
 	}
 }
