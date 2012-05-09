@@ -118,7 +118,7 @@ var Installation = new Class({
 		var req = new Request.JSON({
 			method: 'get',
 			url: 'index.php?'+document.id(el.form).toQueryString(),
-			data: {'task':'setup.loadSampleData', 'format':'json'},
+			data: {'task':'loadsampledata'},
 			onRequest: function() {
 				el.set('disabled', 'disabled');
 				filename.set('disabled', 'disabled');
@@ -172,7 +172,7 @@ var Installation = new Class({
 		var req = new Request.JSON({
 			method: 'get',
 			url: 'index.php?'+document.id(el.form).toQueryString(),
-			data: {'task':'setup.detectFtpRoot', 'format':'json'},
+			data: {'task':'detectftproot'},
 			onRequest: function() {
 				el.set('disabled', 'disabled');
 			},
@@ -205,7 +205,7 @@ var Installation = new Class({
 		var req = new Request.JSON({
 			method: 'get',
 			url: 'index.php?'+document.id(el.form).toQueryString(),
-			data: {'task':'setup.verifyFtpSettings', 'format':'json'},
+			data: {'task':'verifyftpsettings'},
 			onRequest: function() {
 				el.set('disabled', 'disabled'); },
 				onFailure: function(xhr) {
@@ -242,7 +242,7 @@ var Installation = new Class({
 		var req = new Request.JSON({
 			method: 'get',
 			url: 'index.php?'+document.id(el.form).toQueryString(),
-			data: {'task':'setup.removeFolder', 'format':'json'},
+			data: {'task':'removefolder'},
 			onRequest: function() {
 				el.set('disabled', 'disabled');
 				document.id('theDefaultError').setStyle('display','none');

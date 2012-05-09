@@ -16,18 +16,20 @@ jimport('joomla.application.router');
  * @package  Joomla.Installation
  * @since    1.5
  */
-class JRouterInstallation extends JObject
+class JRouterInstallation extends JRouter
 {
 	/**
 	 * Function to convert a route to an internal URI
 	 *
-	 * @return  boolean  $url
+	 * @param   JURI  $uri  The uri.
+	 *
+	 * @return  array
 	 *
 	 * @since   1.5
 	 */
-	public function parse($url)
+	public function parse($uri)
 	{
-		return true;
+		return array();
 	}
 
 	/**

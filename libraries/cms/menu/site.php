@@ -26,7 +26,7 @@ class JMenuSite extends JMenu
 	public function load()
 	{
 		$db    = JFactory::getDbo();
-		$app   = JApplication::getInstance('site');
+		$app   = JFactory::getApplication();
 		$query = $db->getQuery(true);
 
 		$query->select('m.id, m.menutype, m.title, m.alias, m.note, m.path AS route, m.link, m.type, m.level, m.language');
@@ -86,7 +86,7 @@ class JMenuSite extends JMenu
 	{
 		$attributes = (array) $attributes;
 		$values 	= (array) $values;
-		$app		= JApplication::getInstance('site');
+		$app		= JFactory::getApplication();
 
 		if ($app->isSite())
 		{
@@ -132,7 +132,7 @@ class JMenuSite extends JMenu
 	 */
 	public function getDefault($language = '*')
 	{
-		if (array_key_exists($language, $this->_default) && JApplication::getInstance('site')->getLanguageFilter())
+		if (array_key_exists($language, $this->_default) && JFactory::getApplication()->getLanguageFilter())
 		{
 			return $this->_items[$this->_default[$language]];
 		}

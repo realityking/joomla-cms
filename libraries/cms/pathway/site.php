@@ -29,7 +29,7 @@ class JPathwaySite extends JPathway
 	{
 		$this->_pathway = array();
 
-		$app  = JApplication::getInstance('site');
+		$app  = JFactory::getApplication();
 		$menu = $app->getMenu();
 
 		if ($item = $menu->getActive())
@@ -68,7 +68,7 @@ class JPathwaySite extends JPathway
 							break;
 
 						default:
-							$router = JSite::getRouter();
+							$router = SiteApplicationWeb::getRouter();
 							if ($router->getMode() == JROUTER_MODE_SEF)
 							{
 								$url = 'index.php?Itemid=' . $link->id;

@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
 
 // Include the component HTML helpers.
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
+JHtml::addIncludePath(JPATH_COMPONENT . '/helper/html');
 
 // Add Stylesheets
 $doc->addStyleSheet('../media/system/css/system.css');
@@ -69,7 +69,7 @@ JText::script('INSTL_FTP_SETTINGS_CORRECT');
 				</div>
 				<div id="right">
 					<div id="rightpad">
-						<jdoc:include type="installation" />
+						<jdoc:include type="component" />
 					</div>
 				</div>
 				<div class="clr"></div>
