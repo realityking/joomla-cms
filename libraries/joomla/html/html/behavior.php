@@ -236,8 +236,13 @@ abstract class JHtmlBehavior
 			return;
 		}
 
-		// Include MooTools framework
-		self::framework(true);
+		// Tips is part of MooTools more but in case More itself isn't yet loaded we only load the Tips module, not the complete thing.
+		// in rare cases this consumes more bandwith (about 4KB) but most of the time it saves bandwidth (> 200KB)
+		if (!isset(self::$loaded['framework']['more'])) {
+			// Include MooTools framework
+			self::framework();
+			JHtml::_('script', 'system/mootools-tips.js', false, true);
+		}
 
 		// Setup options object
 		$opt['maxTitleChars']	= (isset($params['maxTitleChars']) && ($params['maxTitleChars'])) ? (int) $params['maxTitleChars'] : 50;
