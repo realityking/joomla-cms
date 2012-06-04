@@ -9,12 +9,6 @@
 
 defined('JPATH_PLATFORM') or die;
 
-//Register the storage class with the loader
-JLoader::register('JCacheStorage', dirname(__FILE__) . '/storage.php');
-
-//Register the controller class with the loader
-JLoader::register('JCacheController', dirname(__FILE__) . '/controller.php');
-
 // Almost everything must be public here to allow overloading.
 
 /**
@@ -314,6 +308,7 @@ class JCache extends JObject
 	{
 		$returning = new stdClass;
 		$returning->locklooped = false;
+
 		// Get the default group
 		$group = ($group) ? $group : $this->_options['defaultgroup'];
 
@@ -398,6 +393,7 @@ class JCache extends JObject
 	public function unlock($id, $group = null)
 	{
 		$unlock = false;
+
 		// Get the default group
 		$group = ($group) ? $group : $this->_options['defaultgroup'];
 
@@ -438,7 +434,6 @@ class JCache extends JObject
 		}
 
 		self::$_handler[$hash] = JCacheStorage::getInstance($this->_options['storage'], $this->_options);
-
 		return self::$_handler[$hash];
 	}
 
@@ -635,6 +630,7 @@ class JCache extends JObject
 	public static function makeId()
 	{
 		$app = JFactory::getApplication();
+
 		// Get url parameters set by plugins
 		$registeredurlparams = $app->get('registeredurlparams');
 

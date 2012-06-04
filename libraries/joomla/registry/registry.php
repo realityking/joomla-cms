@@ -10,7 +10,6 @@
 defined('JPATH_PLATFORM') or die;
 
 jimport('joomla.utilities.arrayhelper');
-JLoader::register('JRegistryFormat', dirname(__FILE__) . '/format.php');
 
 /**
  * JRegistry class
@@ -163,6 +162,7 @@ class JRegistry
 		// Initialize the current node to be the registry root.
 		$node = $this->data;
 		$found = false;
+
 		// Traverse the registry to find the correct node for the result.
 		foreach ($nodes as $n)
 		{
@@ -194,7 +194,7 @@ class JRegistry
 	 *
 	 * @param   string  $id  An ID for the registry instance
 	 *
-	 * @return  object  The JRegistry object.
+	 * @return  JRegistry  The JRegistry object.
 	 *
 	 * @since   11.1
 	 */
@@ -293,19 +293,20 @@ class JRegistry
 	 */
 	public function merge(&$source)
 	{
-		if ($source instanceof JRegistry)
+		if (!$source instanceof JRegistry)
 		{
-			// Load the variables into the registry's default namespace.
-			foreach ($source->toArray() as $k => $v)
-			{
-				if (($v !== null) && ($v !== ''))
-				{
-					$this->data->$k = $v;
-				}
-			}
-			return true;
+			return false;
 		}
-		return false;
+
+		// Load the variables into the registry's default namespace.
+		foreach ($source->toArray() as $k => $v)
+		{
+			if (($v !== null) && ($v !== ''))
+			{
+				$this->data->$k = $v;
+			}
+		}
+		return true;
 	}
 
 	/**

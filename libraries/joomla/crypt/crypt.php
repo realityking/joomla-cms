@@ -61,6 +61,8 @@ class JCrypt
 		// Check if we can use /dev/urandom.
 		$urandom = false;
 		$handle = null;
+
+		// This is PHP 5.3.3 and up
 		if (function_exists('stream_set_read_buffer') && @is_readable('/dev/urandom'))
 		{
 			$handle = @fopen('/dev/urandom', 'rb');
@@ -79,7 +81,7 @@ class JCrypt
 			 * If we have ssl data that isn't strong, we use it once.
 			 */
 			$entropy = rand() . uniqid(mt_rand(), true) . $sslStr;
-			$entropy .= implode('', @fstat(fopen( __FILE__, 'r')));
+			$entropy .= implode('', @fstat(fopen(__FILE__, 'r')));
 			$entropy .= memory_get_usage();
 			$sslStr = '';
 			if ($urandom)
@@ -108,7 +110,8 @@ class JCrypt
 					}
 					$microEnd = microtime(true) * 1000000;
 					$entropy .= $microStart . $microEnd;
-					if ($microStart > $microEnd) {
+					if ($microStart > $microEnd)
+					{
 						$microEnd += 1000000;
 					}
 					$duration += $microEnd - $microStart;
@@ -119,7 +122,7 @@ class JCrypt
 				 * Based on the average time, determine the total rounds so that
 				 * the total running time is bounded to a reasonable number.
 				 */
-				$rounds = (int)(($maxTimeMicro / $duration) * 50);
+				$rounds = (int) (($maxTimeMicro / $duration) * 50);
 
 				/*
 				 * Take additional measurements. On average we can expect

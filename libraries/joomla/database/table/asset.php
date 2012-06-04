@@ -66,7 +66,7 @@ class JTableAsset extends JTableNested
 	}
 
 	/**
-	 * Method to load an asset by it's name.
+	 * Method to load an asset by its name.
 	 *
 	 * @param   string  $name  The name of the asset.
 	 *
@@ -99,7 +99,7 @@ class JTableAsset extends JTableNested
 	}
 
 	/**
-	 * Asset that the nested set data is valid.
+	 * Assert that the nested set data is valid.
 	 *
 	 * @return  boolean  True if the instance is sane and able to be stored in the database.
 	 *

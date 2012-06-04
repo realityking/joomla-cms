@@ -10,7 +10,7 @@
 defined('JPATH_PLATFORM') or die;
 
 /**
- * Base object class.
+ * Joomla Platform Object Class
  *
  * This class allows for simple but smart objects with get and set methods
  * and an internal error handler.

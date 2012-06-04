@@ -142,7 +142,7 @@ class JPathway extends JObject
 			$names[] = $item->name;
 		}
 
-		//Use array_values to reset the array keys numerically
+		// Use array_values to reset the array keys numerically
 		return array_values($names);
 	}
 

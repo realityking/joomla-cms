@@ -349,7 +349,7 @@ class JController extends JObject
 			}
 		}
 
-		//set the view name
+		// set the view name
 		if (empty($this->name))
 		{
 			if (array_key_exists('name', $config))
@@ -399,7 +399,7 @@ class JController extends JObject
 		// Set the default model search path
 		if (array_key_exists('model_path', $config))
 		{
-			// user-defined dirs
+			// User-defined dirs
 			$this->addModelPath($config['model_path'], $this->model_prefix);
 		}
 		else

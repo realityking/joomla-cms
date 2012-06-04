@@ -241,7 +241,7 @@ class JCategories
 
 		$query->order('c.lft');
 
-		// s for selected id
+		// Note: s for selected id
 		if ($id != 'root')
 		{
 			// Get the selected category
@@ -269,7 +269,7 @@ class JCategories
 		$query->leftJoin($subQuery . 'AS badcats ON badcats.id = c.id');
 		$query->where('badcats.id is null');
 
-		// i for item
+		// Note: i for item
 		if (isset($this->_options['countItems']) && $this->_options['countItems'] == 1)
 		{
 			if ($this->_options['published'] == 1)
@@ -383,7 +383,6 @@ class JCategories
  */
 class JCategoryNode extends JObject
 {
-
 	/**
 	 * Primary key
 	 *
@@ -443,7 +442,7 @@ class JCategoryNode extends JObject
 	/**
 	 * The menu title for the category (a short name)
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $title = null;
@@ -459,7 +458,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Description of the category.
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $description = null;
@@ -491,7 +490,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Access level for the category
 	 *
-	 * @var integer
+	 * @var    integer
 	 * @since  11.1
 	 */
 	public $access = null;
@@ -499,7 +498,7 @@ class JCategoryNode extends JObject
 	/**
 	 * JSON string of parameters
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $params = null;
@@ -507,7 +506,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Metadata description
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $metadesc = null;
@@ -515,7 +514,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Key words for meta data
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $metakey = null;
@@ -523,27 +522,39 @@ class JCategoryNode extends JObject
 	/**
 	 * JSON string of other meta data
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $metadata = null;
 
+	/**
+	 * The ID of the user who created the category
+	 *
+	 * @var    integer
+	 * @since  11.1
+	 */
 	public $created_user_id = null;
 
 	/**
 	 * The time at which the category was created
 	 *
-	 * @var    time
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $created_time = null;
 
+	/**
+	 * The ID of the user who last modified the category
+	 *
+	 * @var    integer
+	 * @since  11.1
+	 */
 	public $modified_user_id = null;
 
 	/**
 	 * The time at which the category was modified
 	 *
-	 * @var    time
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $modified_time = null;
@@ -559,7 +570,7 @@ class JCategoryNode extends JObject
 	/**
 	 * The language for the category in xx-XX format
 	 *
-	 * @var    time
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $language = null;
@@ -575,7 +586,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Number of children items
 	 *
-	 * @var
+	 * @var    integer
 	 * @since  11.1
 	 */
 	public $childrennumitems = null;
@@ -725,7 +736,7 @@ class JCategoryNode extends JObject
 	 *
 	 * If the child already has a parent, the link is unset
 	 *
-	 * @param   JNode  &$child  The child to be added.
+	 * @param   JCategoryNode  &$child  The child to be added.
 	 *
 	 * @return  void
 	 *
@@ -794,7 +805,7 @@ class JCategoryNode extends JObject
 	/**
 	 * Get the parent of this node
 	 *
-	 * @return  mixed  JNode or null
+	 * @return  mixed  JCategoryNode or null
 	 *
 	 * @since   11.1
 	 */
@@ -830,8 +841,8 @@ class JCategoryNode extends JObject
 	/**
 	 * Function to set the left or right sibling of a category
 	 *
-	 * @param   object   $sibling  JCategoryNode object for the sibling
-	 * @param   boolean  $right    If set to false, the sibling is the left one
+	 * @param   JCategoryNode  $sibling  JCategoryNode object for the sibling
+	 * @param   boolean        $right    If set to false, the sibling is the left one
 	 *
 	 * @return  void
 	 *

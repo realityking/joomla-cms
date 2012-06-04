@@ -35,15 +35,6 @@ abstract class JModel extends JObject
 	 * @var    object
 	 * @since  11.1
 	 */
-	protected $db;
-
-	/**
-	 * Database Connector
-	 *
-	 * @var    object
-	 * @since  11.1
-	 * @deprecated use $db declare as private
-	 */
 	protected $_db;
 
 	/**

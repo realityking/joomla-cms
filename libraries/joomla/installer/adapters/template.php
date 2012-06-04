@@ -250,7 +250,11 @@ class JInstallerTemplate extends JAdapterInstance
 			return false;
 		}
 
-		// Extension Registration
+		/**
+		 * ---------------------------------------------------------------------------------------------
+		 * Extension Registration
+		 * ---------------------------------------------------------------------------------------------
+		 */
 
 		$row = JTable::getInstance('extension');
 
@@ -262,6 +266,7 @@ class JInstallerTemplate extends JAdapterInstance
 		{
 			$row->type = 'template';
 			$row->element = $this->get('element');
+
 			// There is no folder for templates
 			$row->folder = '';
 			$row->enabled = 1;
@@ -269,9 +274,12 @@ class JInstallerTemplate extends JAdapterInstance
 			$row->access = 1;
 			$row->client_id = $clientId;
 			$row->params = $this->parent->getParams();
-			$row->custom_data = ''; // custom data
+
+			// Custom data
+			$row->custom_data = '';
 		}
-		$row->name = $this->get('name'); // name might change in an update
+		// Name might change in an update
+		$row->name = $this->get('name');
 		$row->manifest_cache = $this->parent->generateManifestCache();
 
 		if (!$row->store())
@@ -398,6 +406,7 @@ class JInstallerTemplate extends JAdapterInstance
 			// Kill the extension entry
 			$row->delete($row->extension_id);
 			unset($row);
+
 			// Make sure we delete the folders
 			JFolder::delete($this->parent->getPath('extension_root'));
 			JError::raiseWarning(100, JText::_('JLIB_INSTALLER_ERROR_TPL_UNINSTALL_INVALID_NOTFOUND_MANIFEST'));

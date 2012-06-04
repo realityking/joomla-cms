@@ -37,9 +37,9 @@ class JAdapterInstance extends JObject
 	/**
 	 * Constructor
 	 *
-	 * @param   object  &$parent  Parent object [JAdapter instance]
-	 * @param   object  &$db      Database object [JDatabase instance]
-	 * @param   array   $options  Configuration Options
+	 * @param   JAdapter   &$parent  Parent object
+	 * @param   JDatabase  &$db      Database object
+	 * @param   array      $options  Configuration Options
 	 *
 	 * @since   11.1
 	 */

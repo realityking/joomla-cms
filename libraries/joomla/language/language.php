@@ -14,7 +14,7 @@ defined('JPATH_PLATFORM') or die;
  */
 define('_QQ_', '"');
 
-// import some libraries
+// Import some libraries
 jimport('joomla.filesystem.stream');
 
 /**
@@ -766,14 +766,13 @@ class JLanguage extends JObject
 	 *
 	 * @param   string   $filename   The name of the file.
 	 * @param   string   $extension  The name of the extension.
-	 * @param   boolean  $overwrite  Not used??
 	 *
 	 * @return  boolean  True if new strings have been added to the language
 	 *
 	 * @see     JLanguage::load()
 	 * @since   11.1
 	 */
-	protected function loadLanguage($filename, $extension = 'unknown', $overwrite = true)
+	protected function loadLanguage($filename, $extension = 'unknown')
 	{
 		$this->counter++;
 

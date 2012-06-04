@@ -132,7 +132,7 @@ class JClientHelper
 			$session->set($client . '.pass', $pass, 'JClientHelper');
 
 			// Force re-creation of the data saved within JClientHelper::getCredentials()
-			JClientHelper::getCredentials($client, true);
+			self::getCredentials($client, true);
 		}
 
 		return $return;
@@ -211,7 +211,7 @@ class JClientHelper
 		if ($user != '' && $pass != '')
 		{
 			// Add credentials to the session
-			if (JClientHelper::setCredentials($client, $user, $pass))
+			if (self::setCredentials($client, $user, $pass))
 			{
 				$return = false;
 			}
@@ -223,7 +223,7 @@ class JClientHelper
 		else
 		{
 			// Just determine if the FTP input fields need to be shown
-			$return = !JClientHelper::hasCredentials('ftp');
+			$return = !self::hasCredentials('ftp');
 		}
 
 		return $return;

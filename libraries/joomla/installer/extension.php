@@ -92,7 +92,7 @@ class JExtension extends JObject
 	 */
 	public function __construct(JXMLElement $element = null)
 	{
-		if ($element && is_a($element, 'JXMLElement'))
+		if ($element)
 		{
 			$this->type = (string) $element->attributes()->type;
 			$this->id = (string) $element->attributes()->id;

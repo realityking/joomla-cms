@@ -33,7 +33,7 @@ abstract class JModuleHelper
 	public static function &getModule($name, $title = null)
 	{
 		$result = null;
-		$modules =& JModuleHelper::_load();
+		$modules =& self::_load();
 		$total = count($modules);
 
 		for ($i = 0; $i < $total; $i++)
@@ -46,7 +46,7 @@ abstract class JModuleHelper
 				{
 					// Found it
 					$result = &$modules[$i];
-					break; // Found it
+					break;
 				}
 			}
 		}
@@ -83,7 +83,7 @@ abstract class JModuleHelper
 		$position = strtolower($position);
 		$result = array();
 
-		$modules =& JModuleHelper::_load();
+		$modules =& self::_load();
 
 		$total = count($modules);
 		for ($i = 0; $i < $total; $i++)
@@ -98,7 +98,7 @@ abstract class JModuleHelper
 		{
 			if (JRequest::getBool('tp') && JComponentHelper::getParams('com_templates')->get('template_positions_display'))
 			{
-				$result[0] = JModuleHelper::getModule('mod_' . $position);
+				$result[0] = self::getModule('mod_' . $position);
 				$result[0]->title = $position;
 				$result[0]->content = $position;
 				$result[0]->position = $position;
@@ -119,7 +119,7 @@ abstract class JModuleHelper
 	 */
 	public static function isEnabled($module)
 	{
-		$result = JModuleHelper::getModule($module);
+		$result = self::getModule($module);
 
 		return !is_null($result);
 	}
@@ -164,6 +164,7 @@ abstract class JModuleHelper
 		if (empty($module->user) && file_exists($path))
 		{
 			$lang = JFactory::getLanguage();
+
 			// 1.5 or Core then 1.6 3PD
 			$lang->load($module->module, JPATH_BASE, null, false, false) ||
 				$lang->load($module->module, dirname($path), null, false, false) ||
@@ -224,7 +225,7 @@ abstract class JModuleHelper
 			}
 		}
 
-		//revert the scope
+		// Revert the scope
 		$app->scope = $scope;
 
 		if (constant('JDEBUG'))
@@ -400,7 +401,7 @@ abstract class JModuleHelper
 	 * To be set in XML:
 	 * 'static'      One cache file for all pages with the same module parameters
 	 * 'oldstatic'   1.5 definition of module caching, one cache file for all pages
-	 * with the same module id and user aid,
+	 *               with the same module id and user aid,
 	 * 'itemid'      Changes on itemid change, to be called from inside the module:
 	 * 'safeuri'     Id created from $cacheparams->modeparams array,
 	 * 'id'          Module sets own cache id's
@@ -437,7 +438,7 @@ abstract class JModuleHelper
 			$cache->setCaching(false);
 		}
 
-		// module cache is set in seconds, global cache in minutes, setLifeTime works in minutes
+		// Module cache is set in seconds, global cache in minutes, setLifeTime works in minutes
 		$cache->setLifeTime($moduleparams->get('cache_time', $conf->get('cachetime') * 60) / 60);
 
 		$wrkaroundoptions = array('nopathway' => 1, 'nohead' => 0, 'nomodules' => 1, 'modulemode' => 1, 'mergehead' => 1);
@@ -493,7 +494,8 @@ abstract class JModuleHelper
 				);
 				break;
 
-			case 'oldstatic': // provided for backward compatibility, not really usefull
+			// Provided for backward compatibility, not really usefull
+			case 'oldstatic':
 				$ret = $cache->get(
 					array($cacheparams->class, $cacheparams->method),
 					$cacheparams->methodparams,

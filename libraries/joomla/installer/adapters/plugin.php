@@ -276,10 +276,16 @@ class JInstallerPlugin extends JAdapterInstance
 				return false;
 			}
 		}
-		$msg = ob_get_contents(); // create msg object; first use here
+
+		// Create msg object; first use here
+		$msg = ob_get_contents();
 		ob_end_clean();
 
-		// Filesystem Processing Section
+		/*
+		 * ---------------------------------------------------------------------------------------------
+		 * Filesystem Processing Section
+		 * ---------------------------------------------------------------------------------------------
+		 */
 
 		// If the plugin directory does not exist, lets create it
 		$created = false;
@@ -303,7 +309,10 @@ class JInstallerPlugin extends JAdapterInstance
 		{
 			// Hunt for the original XML file
 			$old_manifest = null;
-			$tmpInstaller = new JInstaller; // create a new installer because findManifest sets stuff; side effects!
+
+			// Create a new installer because findManifest sets stuff; side effects!
+			$tmpInstaller = new JInstaller;
+
 			// Look in the extension root
 			$tmpInstaller->setPath('source', $this->parent->getPath('extension_root'));
 			if ($tmpInstaller->findManifest())
@@ -467,11 +476,16 @@ class JInstallerPlugin extends JAdapterInstance
 				return false;
 			}
 		}
+
 		// Append messages
 		$msg .= ob_get_contents();
 		ob_end_clean();
 
-		// Finalization and Cleanup Section
+		/**
+		 * ---------------------------------------------------------------------------------------------
+		 * Finalization and Cleanup Section
+		 * ---------------------------------------------------------------------------------------------
+		 */
 
 		// Lastly, we will copy the manifest file to its appropriate place.
 		if (!$this->parent->copyManifest(-1))
@@ -480,6 +494,7 @@ class JInstallerPlugin extends JAdapterInstance
 			$this->parent->abort(JText::sprintf('JLIB_INSTALLER_ABORT_PLG_INSTALL_COPY_SETUP', JText::_('JLIB_INSTALLER_' . $this->route)));
 			return false;
 		}
+
 		// And now we run the postflight
 		ob_start();
 		ob_implicit_flush(false);
@@ -487,6 +502,7 @@ class JInstallerPlugin extends JAdapterInstance
 		{
 			$this->parent->manifestClass->postflight($this->route, $this);
 		}
+
 		// Append messages
 		$msg .= ob_get_contents();
 		ob_end_clean();
@@ -725,6 +741,7 @@ class JInstallerPlugin extends JAdapterInstance
 			{
 				$manifest_details = JApplicationHelper::parseXMLInstallFile(JPATH_SITE . '/plugins/' . $folder . '/' . $file);
 				$file = JFile::stripExt($file);
+
 				// Ignore example plugins
 				if ($file == 'example')
 				{
@@ -757,7 +774,7 @@ class JInstallerPlugin extends JAdapterInstance
 						continue;
 					}
 
-					// ignore example plugins
+					// Ignore example plugins
 					$extension = JTable::getInstance('extension');
 					$extension->set('type', 'plugin');
 					$extension->set('client_id', 0);
@@ -782,9 +799,11 @@ class JInstallerPlugin extends JAdapterInstance
 	 */
 	public function discover_install()
 	{
-		// Plugins use the extensions table as their primary store
-		// Similar to modules and templates, rather easy
-		// If it's not in the extensions table we just add it
+		/*
+		 * Plugins use the extensions table as their primary store
+		 * Similar to modules and templates, rather easy
+		 * If it's not in the extensions table we just add it
+		 */
 		$client = JApplicationHelper::getClientInfo($this->parent->extension->client_id);
 		if (is_dir($client->path . '/plugins/' . $this->parent->extension->folder . '/' . $this->parent->extension->element))
 		{
@@ -832,9 +851,11 @@ class JInstallerPlugin extends JAdapterInstance
 	 */
 	public function refreshManifestCache()
 	{
-		// Plugins use the extensions table as their primary store
-		// Similar to modules and templates, rather easy
-		// If it's not in the extensions table we just add it
+		/*
+		 * Plugins use the extensions table as their primary store
+		 * Similar to modules and templates, rather easy
+		 * If it's not in the extensions table we just add it
+		 */
 		$client = JApplicationHelper::getClientInfo($this->parent->extension->client_id);
 		$manifestPath = $client->path . '/plugins/' . $this->parent->extension->folder . '/' . $this->parent->extension->element . '/'
 			. $this->parent->extension->element . '.xml';

@@ -94,7 +94,7 @@ class JEditor extends JObject
 	 *
 	 * @param   string  $editor  The editor to use.
 	 *
-	 * @return  object  JEditor  The Editor object.
+	 * @return  JEditor  The Editor object.
 	 *
 	 * @since   11.1
 	 */
@@ -234,7 +234,7 @@ class JEditor extends JObject
 	 */
 	public function initialise()
 	{
-		//check if editor is already loaded
+		// Check if editor is already loaded
 		if (is_null(($this->_editor)))
 		{
 			return;
@@ -249,7 +249,7 @@ class JEditor extends JObject
 		{
 			if (trim($result))
 			{
-				//$return .= $result;
+				// @todo remove code: $return .= $result;
 				$return = $result;
 			}
 		}

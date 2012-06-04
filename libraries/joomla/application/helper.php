@@ -352,7 +352,7 @@ class JApplicationHelper
 		/*
 		 * Check for a valid XML root tag.
 		 *
-		 * Should be 'langMetaData'.
+		 * Should be 'metafile'.
 		 */
 		if ($xml->getName() != 'metafile')
 		{

@@ -306,7 +306,7 @@ class JAuthentication extends JObject
 			$plugin->onUserAuthenticate($credentials, $options, $response);
 
 			// If authentication is successful break out of the loop
-			if ($response->status === JAuthentication::STATUS_SUCCESS)
+			if ($response->status === self::STATUS_SUCCESS)
 			{
 				if (empty($response->type))
 				{
@@ -370,7 +370,7 @@ class JAuthenticationResponse extends JObject
 	 * @var    string
 	 * @since  11.1
 	 */
-	public $status = JAuthentication::STATUS_FAILURE;
+	public $status = self::STATUS_FAILURE;
 
 	/**
 	 * The type of authentication that was successful
@@ -438,7 +438,7 @@ class JAuthenticationResponse extends JObject
 	/**
 	 * The End User's gender, "M" for male, "F" for female.
 	 *
-	 * @var  string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $gender = '';
@@ -446,7 +446,7 @@ class JAuthenticationResponse extends JObject
 	/**
 	 * UTF-8 string free text that SHOULD conform to the End User's country's postal system.
 	 *
-	 * @var postcode string
+	 * @var    postcode string
 	 * @since  11.1
 	 */
 	public $postcode = '';
@@ -454,7 +454,7 @@ class JAuthenticationResponse extends JObject
 	/**
 	 * The End User's country of residence as specified by ISO3166.
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  11.1
 	 */
 	public $country = '';

@@ -333,7 +333,8 @@ class JPagination extends JObject
 			$list['previous']['data'] = ($itemOverride) ? pagination_item_inactive($data->previous) : $this->_item_inactive($data->previous);
 		}
 
-		$list['pages'] = array(); //make sure it exists
+		// Make sure it exists
+		$list['pages'] = array();
 		foreach ($data->pages as $i => $page)
 		{
 			if ($page->base !== null)
@@ -601,7 +602,7 @@ class JPagination extends JObject
 	/**
 	 * Method to create an inactive pagination string
 	 *
-	 * @param   object  &$item  The item to be processed
+	 * @param   JPaginationObject  &$item  The item to be processed
 	 *
 	 * @return  string
 	 *

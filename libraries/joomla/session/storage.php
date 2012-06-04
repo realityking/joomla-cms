@@ -15,6 +15,7 @@ defined('JPATH_PLATFORM') or die;
  * @package     Joomla.Platform
  * @subpackage  Session
  * @see         http://www.php.net/manual/en/function.session-set-save-handler.php
+ * @todo        When dropping compatibility with PHP 5.3 use the SessionHandlerInterface and the SessionHandler class
  * @since       11.1
  */
 abstract class JSessionStorage extends JObject
@@ -87,7 +88,7 @@ abstract class JSessionStorage extends JObject
 	 */
 	public function register($options = array())
 	{
-		// use this object as the session handler
+		// Use this object as the session handler
 		session_set_save_handler(
 			array($this, 'open'), array($this, 'close'), array($this, 'read'), array($this, 'write'),
 			array($this, 'destroy'), array($this, 'gc')

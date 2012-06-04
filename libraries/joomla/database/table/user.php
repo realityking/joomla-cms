@@ -96,6 +96,7 @@ class JTableUser extends JTable
 		{
 			return false;
 		}
+
 		// Bind the data to the table.
 		$return = $this->bind($data);
 

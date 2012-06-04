@@ -180,6 +180,7 @@ class JFTP
 		{
 			// Import the generic buffer stream handler
 			jimport('joomla.utilities.buffer');
+
 			// Autoloading fails for JBuffer as the class is used as a stream handler
 			JLoader::load('JBuffer');
 		}
@@ -219,7 +220,7 @@ class JFTP
 	 *
 	 * @since   11.1
 	 */
-	public function getInstance($host = '127.0.0.1', $port = '21', $options = null, $user = null, $pass = null)
+	public static function getInstance($host = '127.0.0.1', $port = '21', $options = null, $user = null, $pass = null)
 	{
 		$signature = $user . ':' . $pass . '@' . $host . ":" . $port;
 

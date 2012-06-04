@@ -50,6 +50,14 @@ class JToolBar extends JObject
 	protected $_buttonPath = array();
 
 	/**
+	 * Stores the singleton instances of various toolbar.
+	 *
+	 * @var JToolbar
+	 * @since 11.3
+	 */
+	protected static $instances = array();
+
+	/**
 	 * Constructor
 	 *
 	 * @param   string  $name  The toolbar name.
@@ -64,14 +72,6 @@ class JToolBar extends JObject
 		$this->_buttonPath[] = dirname(__FILE__) . '/toolbar/button';
 
 	}
-
-	/**
-	 * Stores the singleton instances of various toolbar.
-	 *
-	 * @var JToolbar
-	 * @since 11.3
-	 */
-	protected static $instances = array();
 
 	/**
 	 * Returns the global JToolBar object, only creating it if it
