@@ -16,7 +16,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Plugin
  * @since       11.1
  */
-abstract class JPlugin extends JEvent
+abstract class JPlugin extends JObject
 {
 	/**
 	 * A JRegistry object holding the parameters for the plugin
@@ -41,6 +41,14 @@ abstract class JPlugin extends JEvent
 	 * @since  11.1
 	 */
 	protected $_type = null;
+
+	/**
+	 * Event object to observe.
+	 *
+	 * @var    object
+	 * @since  12.2
+	 */
+	protected $_subject = null;
 
 	/**
 	 * Constructor
@@ -79,8 +87,12 @@ abstract class JPlugin extends JEvent
 		{
 			$this->_type = $config['type'];
 		}
+		
+		// Register the observer ($this) so we can be notified
+		$subject->attach($this);
 
-		parent::__construct($subject);
+		// Set the subject to observe
+		$this->_subject = &$subject;
 	}
 
 	/**
@@ -105,5 +117,39 @@ abstract class JPlugin extends JEvent
 			|| $lang->load(strtolower($extension), JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name, null, false, false)
 			|| $lang->load(strtolower($extension), $basePath, $lang->getDefault(), false, false)
 			|| $lang->load(strtolower($extension), JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name, $lang->getDefault(), false, false);
+	}
+
+	/**
+	 * Method to trigger events.
+	 * The method first generates the even from the argument array. Then it unsets the argument
+	 * since the argument has no bearing on the event handler.
+	 * If the method exists it is called and returns its return value. If it does not exist it
+	 * returns null.
+	 *
+	 * @param   array  &$args  Arguments
+	 *
+	 * @return  mixed  Routine return value
+	 *
+	 * @since   12.2
+	 */
+	public function update(&$args)
+	{
+		// First let's get the event from the argument array.  Next we will unset the
+		// event argument as it has no bearing on the method to handle the event.
+		$event = $args['event'];
+		unset($args['event']);
+
+		/*
+		 * If the method to handle an event exists, call it and return its return
+		 * value.  If it does not exist, return null.
+		 */
+		if (method_exists($this, $event))
+		{
+			return call_user_func_array(array($this, $event), $args);
+		}
+		else
+		{
+			return null;
+		}
 	}
 }
