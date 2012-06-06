@@ -27,7 +27,7 @@ class plgSystemRedirect extends JPlugin
 	 * @return	void
 	 * @since	1.6
 	 */
-	public function __construct(&$subject, $config)
+	public function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 

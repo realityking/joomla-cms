@@ -125,12 +125,12 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to instantiate the indexer adapter.
 	 *
-	 * @param   object  &$subject  The object to observe.
+	 * @param   object  $subject  The object to observe.
 	 * @param   array   $config    An array that holds the plugin configuration.
 	 *
 	 * @since   2.5
 	 */
-	public function __construct(&$subject, $config)
+	public function __construct($subject, $config)
 	{
 		// Get the database object.
 		$this->db = JFactory::getDBO();

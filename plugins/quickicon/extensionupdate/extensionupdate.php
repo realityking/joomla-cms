@@ -26,7 +26,7 @@ class plgQuickiconExtensionupdate extends JPlugin
 	 *
 	 * @since       2.5
 	 */
-	public function __construct(& $subject, $config)
+	public function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();

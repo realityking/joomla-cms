@@ -16,7 +16,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Plugin
  * @since       11.1
  */
-abstract class JPlugin extends JObject
+abstract class JPlugin extends JObject implements JEventSubscriber
 {
 	/**
 	 * A JRegistry object holding the parameters for the plugin
@@ -53,14 +53,14 @@ abstract class JPlugin extends JObject
 	/**
 	 * Constructor
 	 *
-	 * @param   object  &$subject  The object to observe
-	 * @param   array   $config    An optional associative array of configuration settings.
-	 *                             Recognized key values include 'name', 'group', 'params', 'language'
-	 *                             (this list is not meant to be comprehensive).
+	 * @param   object  $subject  The object to observe
+	 * @param   array   $config   An optional associative array of configuration settings.
+	 *                            Recognized key values include 'name', 'group', 'params', 'language'
+	 *                            (this list is not meant to be comprehensive).
 	 *
 	 * @since   11.1
 	 */
-	public function __construct(&$subject, $config = array())
+	public function __construct($subject = null, $config = array())
 	{
 		// Get the parameters.
 		if (isset($config['params']))
@@ -88,11 +88,14 @@ abstract class JPlugin extends JObject
 			$this->_type = $config['type'];
 		}
 		
-		// Register the observer ($this) so we can be notified
-		$subject->attach($this);
+		if ($subject)
+		{
+			// Register the observer ($this) so we can be notified
+			$subject->attach($this);
 
-		// Set the subject to observe
-		$this->_subject = &$subject;
+			// Set the subject to observe
+			$this->_subject = $subject;
+		}
 	}
 
 	/**
@@ -151,5 +154,12 @@ abstract class JPlugin extends JObject
 		{
 			return null;
 		}
+	}
+
+	public static function getSubscribedEvents()
+	{
+		$class = get_called_class();
+		$methods = array_diff(get_class_methods($class), get_class_methods('JPlugin'));
+		return $methods;
 	}
 }

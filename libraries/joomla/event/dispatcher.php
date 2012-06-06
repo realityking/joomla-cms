@@ -21,7 +21,7 @@ defined('JPATH_PLATFORM') or die;
  * @see         JPlugin
  * @since       12.1
  */
-class JEventDispatcher extends JObject
+class JEventDispatcher
 {
 	/**
 	 * An array of Observer objects to notify
@@ -107,6 +107,7 @@ class JEventDispatcher extends JObject
 		}
 		elseif (class_exists($handler))
 		{
+			JLog::add('JEventDispatcher::register() should only be used with values for $handler that are callable.', JLog::WARNING, 'deprecated');
 			// Ok, class type event handler... let's instantiate and attach it.
 			$this->attach(new $handler($this));
 		}
@@ -182,6 +183,7 @@ class JEventDispatcher extends JObject
 	 * @return  void
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function attach($observer)
 	{
@@ -242,6 +244,68 @@ class JEventDispatcher extends JObject
 		}
 	}
 
+	public function addSubscriber(JEventSubscriber $subscriber)
+	{
+		// Make sure we haven't already attached this object as an observer
+		$class = get_class($subscriber);
+
+		foreach ($this->_observers as $check)
+		{
+			if ($check instanceof $class)
+			{
+				return;
+			}
+		}
+
+		$this->_observers[] = $subscriber;
+		$methods = $subscriber::getSubscribedEvents();
+
+		$key = key($this->_observers);
+
+		foreach ($methods as $method)
+		{
+			$method = strtolower($method);
+
+			if (!isset($this->_methods[$method]))
+			{
+				$this->_methods[$method] = array();
+			}
+
+			$this->_methods[$method][] = $key;
+		}
+	}
+	
+	/**
+     * Removes an event subscriber.
+     *
+     * @param EventSubscriberInterface $subscriber The subscriber
+     */
+    function removeSubscriber(JEventSubscriber $subscriber)
+    {
+    	// Initialise variables.
+		$retval = false;
+
+		$key = array_search($subscriber, $this->_observers);
+
+		if ($key !== false)
+		{
+			unset($this->_observers[$key]);
+			$retval = true;
+
+			foreach ($this->_methods as &$method)
+			{
+				$k = array_search($key, $method);
+
+				if ($k !== false)
+				{
+					unset($method[$k]);
+				}
+			}
+		}
+
+		return $retval;
+    }
+
 	/**
 	 * Detach an observer object
 	 *
@@ -250,6 +314,7 @@ class JEventDispatcher extends JObject
 	 * @return  boolean  True if the observer object was detached.
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function detach($observer)
 	{
