@@ -26,7 +26,7 @@ class plgSystemLogout extends JPlugin
 	 * @return	void
 	 * @since	1.5
 	 */
-	function __construct(&$subject, $config)
+	function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();

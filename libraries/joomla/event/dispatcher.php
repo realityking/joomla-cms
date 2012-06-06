@@ -32,14 +32,6 @@ class JEventDispatcher extends JObject
 	protected $_observers = array();
 
 	/**
-	 * The state of the observable object
-	 *
-	 * @var    mixed
-	 * @since  11.3
-	 */
-	protected $_state = null;
-
-	/**
 	 * A multi dimensional array of [function][] = key for observers
 	 *
 	 * @var    array
@@ -71,49 +63,6 @@ class JEventDispatcher extends JObject
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Get the state of the JEventDispatcher object
-	 *
-	 * @return  mixed    The state of the object.
-	 *
-	 * @since   11.3
-	 */
-	public function getState()
-	{
-		return $this->_state;
-	}
-
-	/**
-	 * Registers an event handler to the event dispatcher
-	 *
-	 * @param   string  $event    Name of the event to register handler for
-	 * @param   string  $handler  Name of the event handler
-	 *
-	 * @return  void
-	 *
-	 * @since   11.1
-	 * @throws InvalidArgumentException
-	 */
-	public function register($event, $handler)
-	{
-		// Are we dealing with a class or callback type handler?
-		if (is_callable($handler))
-		{
-			// Ok, function type event handler... let's attach it.
-			$method = array('event' => $event, 'handler' => $handler);
-			$this->attach($method);
-		}
-		elseif (class_exists($handler))
-		{
-			// Ok, class type event handler... let's instantiate and attach it.
-			$this->attach(new $handler($this));
-		}
-		else
-		{
-			throw new InvalidArgumentException('Invalid event handler.');
-		}
 	}
 
 	/**
@@ -158,8 +107,23 @@ class JEventDispatcher extends JObject
 			// Fire the event for an object based observer.
 			if (is_object($this->_observers[$key]))
 			{
-				$args['event'] = $event;
-				$value = $this->_observers[$key]->update($args);
+				if ($this->_observers[$key] instanceof JEventSubscriber)
+				{
+					if (method_exists($this->_observers[$key], $event))
+					{
+						$value = call_user_func_array(array($this->_observers[$key], $event), $args);
+					}
+					else
+					{
+						$value = null;
+					}
+				}
+				else
+				{
+					JLog::add('JEvent based subscribers are deprecated.', JLog::WARNING, 'deprecated');
+					$args['event'] = $event;
+					$value = $this->_observers[$key]->update($args);
+				}
 			}
 			// Fire the event for a function based observer.
 			elseif (is_array($this->_observers[$key]))
@@ -176,6 +140,151 @@ class JEventDispatcher extends JObject
 	}
 
 	/**
+     * Adds an event listener.
+     *
+     * @param   string   $eventName  The name of the event to attach to.
+     * @param   callable  $listener  The function that will respond to the event.
+     *
+     * @return  void
+     */
+	public function addListener($eventName, $listener)
+	{
+		if (!is_callable($listener))
+		{
+			throw new InvalidArgumentException('Invalid event listener.');
+		}
+
+		$observer = array('event' => $eventName, 'handler' => $listener);
+
+		// Make sure we haven't already attached this array as an observer
+		foreach ($this->_observers as $check)
+		{
+			if (is_array($check) && $check['event'] == $observer['event'] && $check['handler'] == $observer['handler'])
+			{
+				return;
+			}
+		}
+
+		$this->_observers[] = $observer;
+		end($this->_observers);
+		$key     = key($this->_observers);
+		$methods = array($observer['event']);
+		$method  = strtolower($observer['event']);
+
+		if (!isset($this->_methods[$method]))
+		{
+			$this->_methods[$method] = array();
+		}
+
+		$this->_methods[$method][] = $key;
+	}
+
+	/**
+     * Adds an event subscriber.
+     *
+     * @param   JEventSubscriber  $subscriber  The subscriber
+     *
+     * @return  void
+     */
+	public function addSubscriber(JEventSubscriber $subscriber)
+	{
+		// Make sure we haven't already attached this object as an observer
+		$class = get_class($subscriber);
+
+		foreach ($this->_observers as $check)
+		{
+			if ($check instanceof $class)
+			{
+				return;
+			}
+		}
+
+		$this->_observers[] = $subscriber;
+		$methods = $subscriber::getSubscribedEvents();
+
+		$key = key($this->_observers);
+
+		foreach ($methods as $method)
+		{
+			$method = strtolower($method);
+
+			if (!isset($this->_methods[$method]))
+			{
+				$this->_methods[$method] = array();
+			}
+
+			$this->_methods[$method][] = $key;
+		}
+	}
+
+	/**
+     * Removes an event subscriber.
+     *
+     * @param   JEventSubscriber  $subscriber  The subscriber
+     *
+     * @return  boolean
+     */
+    function removeSubscriber(JEventSubscriber $subscriber)
+    {
+    	// Initialise variables.
+		$retval = false;
+
+		$key = array_search($subscriber, $this->_observers);
+
+		if ($key !== false)
+		{
+			unset($this->_observers[$key]);
+			$retval = true;
+
+			foreach ($this->_methods as &$method)
+			{
+				$k = array_search($key, $method);
+
+				if ($k !== false)
+				{
+					unset($method[$k]);
+				}
+			}
+		}
+
+		return $retval;
+    }
+
+    // Deprecated Methods
+
+    /**
+	 * Registers an event handler to the event dispatcher
+	 *
+	 * @param   string  $event    Name of the event to register handler for
+	 * @param   string  $handler  Name of the event handler
+	 *
+	 * @return  void
+	 *
+	 * @since   11.1
+	 * @deprecated  13.3
+	 * @throws InvalidArgumentException
+	 */
+	public function register($event, $handler)
+	{
+		// Are we dealing with a class or callback type handler?
+		if (is_callable($handler))
+		{
+			// Ok, function type event handler... let's attach it.
+			$method = array('event' => $event, 'handler' => $handler);
+			$this->attach($method);
+		}
+		elseif (class_exists($handler))
+		{
+			// Ok, class type event handler... let's instantiate and attach it.
+			$this->attach(new $handler($this));
+		}
+		else
+		{
+			throw new InvalidArgumentException('Invalid event handler.');
+		}
+	}
+
+    /**
 	 * Attach an observer object
 	 *
 	 * @param   object  $observer  An observer object to attach
@@ -183,6 +292,7 @@ class JEventDispatcher extends JObject
 	 * @return  void
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function attach($observer)
 	{
@@ -251,6 +361,7 @@ class JEventDispatcher extends JObject
 	 * @return  boolean  True if the observer object was detached.
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function detach($observer)
 	{

@@ -36,7 +36,7 @@ class plgSystemLanguageFilter extends JPlugin
 
 	private static $_user_lang_code;
 
-	public function __construct(&$subject, $config)
+	public function __construct($subject, $config)
 	{
 		// Ensure that constructor is called one time
 		self::$cookie = SID == '';

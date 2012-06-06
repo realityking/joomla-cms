@@ -15,6 +15,7 @@ defined('JPATH_PLATFORM') or die;
  * @package     Joomla.Platform
  * @subpackage  Event
  * @since       11.1
+ * @deprecated  13.3  Use JEventSubscriber instead.
  */
 abstract class JEvent extends JObject
 {
@@ -23,6 +24,7 @@ abstract class JEvent extends JObject
 	 *
 	 * @var    object
 	 * @since  11.3
+	 * @deprecated  13.3 
 	 */
 	protected $_subject = null;
 
@@ -32,14 +34,17 @@ abstract class JEvent extends JObject
 	 * @param   object  &$subject  The object to observe.
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3 
 	 */
-	public function __construct(&$subject)
+	public function __construct($subject)
 	{
+		JLog::add('JEvent has been deprecated. Use JEventSubscriber instead.', JLog::WARNING, 'deprecated');
+
 		// Register the observer ($this) so we can be notified
 		$subject->attach($this);
 
 		// Set the subject to observe
-		$this->_subject = &$subject;
+		$this->_subject = $subject;
 	}
 
 	/**
@@ -54,6 +59,7 @@ abstract class JEvent extends JObject
 	 * @return  mixed  Routine return value
 	 *
 	 * @since   11.1
+	 * @deprecated  13.3 
 	 */
 	public function update(&$args)
 	{

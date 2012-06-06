@@ -31,7 +31,7 @@ class plgEditorTinymce extends JPlugin
 	 *
 	 * @since       1.5
 	 */
-	public function __construct(&$subject, $config)
+	public function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();
