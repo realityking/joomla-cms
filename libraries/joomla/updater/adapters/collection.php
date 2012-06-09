@@ -57,18 +57,6 @@ class JUpdaterCollection extends JUpdateAdapter
 	protected $updates;
 
 	/**
-	 * Gets the reference to the current direct parent
-	 *
-	 * @return  object
-	 *
-	 * @since   11.1
-	 */
-	protected function _getStackLocation()
-	{
-		return implode('->', $this->stack);
-	}
-
-	/**
 	 * Get the parent tag
 	 *
 	 * @return  string   parent
@@ -93,7 +81,7 @@ class JUpdaterCollection extends JUpdateAdapter
 	 */
 	public function _startElement($parser, $name, $attrs = array())
 	{
-		array_push($this->stack, $name);
+		$this->stack->push($name);
 		$tag = $this->_getStackLocation();
 
 		// Reset the data
@@ -185,7 +173,7 @@ class JUpdaterCollection extends JUpdateAdapter
 	 */
 	protected function _endElement($parser, $name)
 	{
-		array_pop($this->stack);
+		$this->stack->pop
 		switch ($name)
 		{
 			case 'CATEGORY':

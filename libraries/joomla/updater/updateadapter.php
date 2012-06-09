@@ -27,10 +27,10 @@ class JUpdateAdapter extends JAdapterInstance
 	protected $xmlParser;
 
 	/**
-	 * @var    array
+	 * @var    SplStack
 	 * @since  12.1
 	 */
-	protected $stack = array('base');
+	protected $stack = null;
 
 	/**
 	 * ID of update site
@@ -47,6 +47,12 @@ class JUpdateAdapter extends JAdapterInstance
 	 * @since  12.1
 	 */
 	protected $updatecols = array('NAME', 'ELEMENT', 'TYPE', 'FOLDER', 'CLIENT', 'VERSION', 'DESCRIPTION', 'INFOURL');
+
+	protected function __construct()
+	{
+		$this->stack = new SplStack();
+		$this->stack->push('base');
+	}
 
 	/**
 	 * Gets the reference to the current direct parent

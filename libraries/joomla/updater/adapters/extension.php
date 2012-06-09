@@ -32,7 +32,7 @@ class JUpdaterExtension extends JUpdateAdapter
 	 */
 	protected function _startElement($parser, $name, $attrs = array())
 	{
-		array_push($this->stack, $name);
+		$this->stack->push($name);
 		$tag = $this->_getStackLocation();
 
 		// Reset the data
@@ -77,7 +77,7 @@ class JUpdaterExtension extends JUpdateAdapter
 	 */
 	protected function _endElement($parser, $name)
 	{
-		array_pop($this->stack);
+		$this->stack->pop();
 
 		// @todo remove code: echo 'Closing: '. $name .'<br />';
 		switch ($name)
