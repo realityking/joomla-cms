@@ -187,7 +187,6 @@ abstract class JPluginHelper
 						}
 
 						// Instantiate and register the plugin.
-						// new $className($dispatcher, (array) ($plugin));
 						$instance = new $className(null, (array) ($plugin));
 						$dispatcher->addSubscriber($instance);
 					}
@@ -224,7 +223,7 @@ abstract class JPluginHelper
 			$db = JFactory::getDbo();
 			$query = $db->getQuery(true);
 
-			$query->select('folder AS type, element AS name, params')
+			$query->select('folder AS type, element AS name, params, ordering AS priority')
 				->from('#__extensions')
 				->where('enabled >= 1')
 				->where('type =' . $db->Quote('plugin'))

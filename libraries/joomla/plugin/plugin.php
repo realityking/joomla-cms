@@ -60,7 +60,7 @@ abstract class JPlugin extends JObject implements JEventSubscriber
 	 *
 	 * @since   11.1
 	 */
-	public function __construct($subject = null, $config = array())
+	public function __construct($subject = null, array $config = array())
 	{
 		// Get the parameters.
 		if (isset($config['params']))
@@ -120,40 +120,6 @@ abstract class JPlugin extends JObject implements JEventSubscriber
 			|| $lang->load(strtolower($extension), JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name, null, false, false)
 			|| $lang->load(strtolower($extension), $basePath, $lang->getDefault(), false, false)
 			|| $lang->load(strtolower($extension), JPATH_PLUGINS . '/' . $this->_type . '/' . $this->_name, $lang->getDefault(), false, false);
-	}
-
-	/**
-	 * Method to trigger events.
-	 * The method first generates the even from the argument array. Then it unsets the argument
-	 * since the argument has no bearing on the event handler.
-	 * If the method exists it is called and returns its return value. If it does not exist it
-	 * returns null.
-	 *
-	 * @param   array  &$args  Arguments
-	 *
-	 * @return  mixed  Routine return value
-	 *
-	 * @since   12.2
-	 */
-	public function update(&$args)
-	{
-		// First let's get the event from the argument array.  Next we will unset the
-		// event argument as it has no bearing on the method to handle the event.
-		$event = $args['event'];
-		unset($args['event']);
-
-		/*
-		 * If the method to handle an event exists, call it and return its return
-		 * value.  If it does not exist, return null.
-		 */
-		if (method_exists($this, $event))
-		{
-			return call_user_func_array(array($this, $event), $args);
-		}
-		else
-		{
-			return null;
-		}
 	}
 
 	public static function getSubscribedEvents()

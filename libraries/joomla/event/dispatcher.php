@@ -32,20 +32,14 @@ class JEventDispatcher
 	protected $_observers = array();
 
 	/**
-	 * The state of the observable object
-	 *
-	 * @var    mixed
-	 * @since  11.3
-	 */
-	protected $_state = null;
-
-	/**
 	 * A multi dimensional array of [function][] = key for observers
 	 *
 	 * @var    array
 	 * @since  11.3
 	 */
 	protected $_methods = array();
+
+	private $listeners = array();
 
 	/**
 	 * Stores the singleton instance of the dispatcher.
@@ -71,18 +65,6 @@ class JEventDispatcher
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Get the state of the JEventDispatcher object
-	 *
-	 * @return  mixed    The state of the object.
-	 *
-	 * @since   11.3
-	 */
-	public function getState()
-	{
-		return $this->_state;
 	}
 
 	/**
@@ -158,8 +140,22 @@ class JEventDispatcher
 			// Fire the event for an object based observer.
 			if (is_object($this->_observers[$key]))
 			{
-				$args['event'] = $event;
-				$value = $this->_observers[$key]->update($args);
+				if ($this->_observers[$key] instanceof JEventSubscriber)
+				{
+					if (method_exists($this->_observers[$key], $event))
+					{
+						$value = call_user_func_array(array($this->_observers[$key], $event), $args);
+					}
+					else
+					{
+						$value = null;
+					}
+				}
+				else
+				{
+					$args['event'] = $event;
+					$value = $this->_observers[$key]->update($args);
+				}
 			}
 			// Fire the event for a function based observer.
 			elseif (is_array($this->_observers[$key]))
@@ -175,7 +171,76 @@ class JEventDispatcher
 		return $result;
 	}
 
+	function addListener($eventName, $listener, $priority = 0)
+	{
+		
+	}
+
+	public function addSubscriber(JEventSubscriber $subscriber)
+	{
+		// Make sure we haven't already attached this object as an observer
+		$class = get_class($subscriber);
+
+		foreach ($this->_observers as $check)
+		{
+			if ($check instanceof $class)
+			{
+				return;
+			}
+		}
+
+		$this->_observers[] = $subscriber;
+		$methods = $subscriber::getSubscribedEvents();
+
+		$key = key($this->_observers);
+
+		foreach ($methods as $method)
+		{
+			$method = strtolower($method);
+
+			if (!isset($this->_methods[$method]))
+			{
+				$this->_methods[$method] = array();
+			}
+
+			$this->_methods[$method][] = $key;
+		}
+	}
+	
 	/**
+     * Removes an event subscriber.
+     *
+     * @param EventSubscriberInterface $subscriber The subscriber
+     */
+    function removeSubscriber(JEventSubscriber $subscriber)
+    {
+    	// Initialise variables.
+		$retval = false;
+
+		$key = array_search($subscriber, $this->_observers);
+
+		if ($key !== false)
+		{
+			unset($this->_observers[$key]);
+			$retval = true;
+
+			foreach ($this->_methods as &$method)
+			{
+				$k = array_search($key, $method);
+
+				if ($k !== false)
+				{
+					unset($method[$k]);
+				}
+			}
+		}
+
+		return $retval;
+    }
+    
+    // Deprecated Methods
+    
+    /**
 	 * Attach an observer object
 	 *
 	 * @param   object  $observer  An observer object to attach
@@ -243,68 +308,6 @@ class JEventDispatcher
 			$this->_methods[$method][] = $key;
 		}
 	}
-
-	public function addSubscriber(JEventSubscriber $subscriber)
-	{
-		// Make sure we haven't already attached this object as an observer
-		$class = get_class($subscriber);
-
-		foreach ($this->_observers as $check)
-		{
-			if ($check instanceof $class)
-			{
-				return;
-			}
-		}
-
-		$this->_observers[] = $subscriber;
-		$methods = $subscriber::getSubscribedEvents();
-
-		$key = key($this->_observers);
-
-		foreach ($methods as $method)
-		{
-			$method = strtolower($method);
-
-			if (!isset($this->_methods[$method]))
-			{
-				$this->_methods[$method] = array();
-			}
-
-			$this->_methods[$method][] = $key;
-		}
-	}
-	
-	/**
-     * Removes an event subscriber.
-     *
-     * @param EventSubscriberInterface $subscriber The subscriber
-     */
-    function removeSubscriber(JEventSubscriber $subscriber)
-    {
-    	// Initialise variables.
-		$retval = false;
-
-		$key = array_search($subscriber, $this->_observers);
-
-		if ($key !== false)
-		{
-			unset($this->_observers[$key]);
-			$retval = true;
-
-			foreach ($this->_methods as &$method)
-			{
-				$k = array_search($key, $method);
-
-				if ($k !== false)
-				{
-					unset($method[$k]);
-				}
-			}
-		}
-
-		return $retval;
-    }
 
 	/**
 	 * Detach an observer object
