@@ -271,7 +271,7 @@ class ContentModelArticle extends JModelItem
             $db = $this->getDbo();
 
             $db->setQuery(
-                    'SELECT *' .
+                    'SELECT lastip' .
                     ' FROM #__content_rating' .
                     ' WHERE content_id = '.(int) $pk
             );

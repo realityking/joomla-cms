@@ -1385,7 +1385,7 @@ CREATE TABLE `#__redirect_links` (
   `new_url` varchar(255) NOT NULL,
   `referer` varchar(150) NOT NULL,
   `comment` varchar(255) NOT NULL,
-  `hits` int(10) unsigned NOT NULL default '0',
+  `hits` mediumint unsigned NOT NULL default '0',
   `published` tinyint(4) NOT NULL,
   `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modified_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -1422,7 +1422,6 @@ CREATE TABLE `#__session` (
   `username` varchar(150) default '',
   `usertype` varchar(50) default '',
   PRIMARY KEY  (`session_id`),
-  KEY `whosonline` (`guest`,`usertype`),
   KEY `userid` (`userid`),
   KEY `time` (`time`)
 )  DEFAULT CHARSET=utf8;
@@ -1569,7 +1568,7 @@ CREATE TABLE `#__users` (
   `activation` varchar(100) NOT NULL default '',
   `params` text NOT NULL,
   `lastResetTime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Date of last password reset',
-  `resetCount` int(11) NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
+  `resetCount` tinyint unsigned NOT NULL DEFAULT '0' COMMENT 'Count of password resets since lastResetTime',
   PRIMARY KEY  (`id`),
   KEY `usertype` (`usertype`),
   KEY `idx_name` (`name`),
