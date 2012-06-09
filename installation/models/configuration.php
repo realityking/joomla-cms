@@ -239,7 +239,6 @@ class JInstallationModelConfiguration extends JModelLegacy
 			$query->set('username = '.$db->quote($options->admin_user));
 			$query->set('email = '.$db->quote($options->admin_email));
 			$query->set('password = '.$db->quote($cryptpass));
-			$query->set('usertype = '.$db->quote('deprecated'));
 			$query->set('block = 0');
 			$query->set('sendEmail = 1');
 			$query->set('registerDate = '.$db->quote($installdate));
@@ -253,7 +252,6 @@ class JInstallationModelConfiguration extends JModelLegacy
 			$query = $db->getQuery(true);
 			$columns =  array($db->quoteName('id'), $db->quoteName('name'), $db->quoteName('username'),
 							$db->quoteName('email'), $db->quoteName('password'),
-							$db->quoteName('usertype'),
 							$db->quoteName('block'),
 							$db->quoteName('sendEmail'), $db->quoteName('registerDate'),
 							$db->quoteName('lastvisitDate'), $db->quoteName('activation'), $db->quoteName('params'));
