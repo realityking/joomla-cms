@@ -4,7 +4,6 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
 defined('_JEXEC') or die;
 
 /**
@@ -24,7 +23,7 @@ class plgButtonImage extends JPlugin
 	 * @param       array   $config  An array that holds the plugin configuration
 	 * @since       1.5
 	 */
-	public function __construct(& $subject, $config)
+	public function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 		$this->loadLanguage();

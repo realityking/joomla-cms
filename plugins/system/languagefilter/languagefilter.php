@@ -4,9 +4,9 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
 defined('_JEXEC') or die;
 JLoader::register('MenusHelper', JPATH_ADMINISTRATOR . '/components/com_menus/helpers/menus.php');
+
 /**
  * Joomla! Language Filter Plugin
  *
@@ -28,7 +28,7 @@ class plgSystemLanguageFilter extends JPlugin
 
 	private static $_user_lang_code;
 
-	public function __construct(&$subject, $config)
+	public function __construct($subject, $config)
 	{
 		// Ensure that constructor is called one time
 		self::$cookie = SID == '';

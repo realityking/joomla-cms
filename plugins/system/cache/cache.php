@@ -4,7 +4,6 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
 defined('_JEXEC') or die;
 
 /**
@@ -26,7 +25,7 @@ class plgSystemCache extends JPlugin
 	 * @param	array	$config  An array that holds the plugin configuration
 	 * @since	1.0
 	 */
-	function __construct(& $subject, $config)
+	function __construct($subject, $config)
 	{
 		parent::__construct($subject, $config);
 
