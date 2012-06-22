@@ -264,7 +264,9 @@ class JSession implements IteratorAggregate
 	{
 		$user    = JFactory::getUser();
 		$session = JFactory::getSession();
+		$app     = JFactory::getApplication();
 
+		$app->startSession();
 		// TODO: Decouple from legacy JApplication class.
 		if (is_callable(array('JApplication', 'getHash')))
 		{

@@ -939,7 +939,7 @@ class JApplication extends JApplicationBase
 	 *
 	 * @since   11.1
 	 */
-	protected function _createSession($name)
+	protected function _createSession($name, $autoStart = false)
 	{
 		$options = array();
 		$options['name'] = $name;
@@ -963,11 +963,29 @@ class JApplication extends JApplicationBase
 
 		$session = JFactory::getSession($options);
 		$session->initialise($this->input);
-		$session->start();
+		if (!$session->isActive())
+		{
+			if ($autoStart || $this->input->cookie->get($session->getName(), null))
+			{
+				$this->startSession();
+			}
+			else
+			{
+				$session->set('registry', new JRegistry('session'));
+				$session->set('user', new JUser);
+			}
+		}
 
 		// TODO: At some point we need to get away from having session data always in the db.
+		$this->purgeSessions();
 
-		$db = JFactory::getDBO();
+		return $session;
+	}
+
+	public function purgeSessions()
+	{
+		$db      = JFactory::getDBO();
+		$session = JFactory::getSession();
 
 		// Remove expired sessions from the database.
 		$time = time();
@@ -980,8 +998,28 @@ class JApplication extends JApplicationBase
 				->where($query->qn('time') . ' < ' . $query->q((int) ($time - $session->getExpire())));
 
 			$db->setQuery($query);
-			$db->execute();
+			try
+			{
+				$db->execute();
+			}
+			catch (RunTimeException $e)
+			{
+				return false;
+			}
+			return true;
 		}
+	}
+
+	public function startSession()
+	{
+		$session = JFactory::getSession();
+		if ($session->isActive())
+		{
+			return;
+		}
+
+		$session->start();
+		$handler = $this->getCfg('session_handler');
 
 		// Check to see the the session already exists.
 		$handler = $this->getCfg('session_handler');
@@ -990,8 +1028,6 @@ class JApplication extends JApplicationBase
 		{
 			$this->checkSession();
 		}
-
-		return $session;
 	}
 
 	/**
@@ -1006,8 +1042,13 @@ class JApplication extends JApplicationBase
 	 */
 	public function checkSession()
 	{
-		$db = JFactory::getDBO();
 		$session = JFactory::getSession();
+		if(!$session->isActive())
+		{
+			return;
+		}
+
+		$db   = JFactory::getDBO();
 		$user = JFactory::getUser();
 
 		$query = $db->getQuery(true);
