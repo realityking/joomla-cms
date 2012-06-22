@@ -92,6 +92,14 @@ class JSession implements IteratorAggregate
 	private $_input = null;
 
 	/**
+	 * Holds the dispatcher object
+	 *
+	 * @var    JEventDispatcher
+	 * @since  12.2
+	 */
+	private $_dispatcher = null;
+
+	/**
 	 * Constructor
 	 *
 	 * @param   string  $store    The type of storage for the session.
@@ -265,6 +273,7 @@ class JSession implements IteratorAggregate
 		$user    = JFactory::getUser();
 		$session = JFactory::getSession();
 
+		$session->start();
 		// TODO: Decouple from legacy JApplication class.
 		if (is_callable(array('JApplication', 'getHash')))
 		{
@@ -433,15 +442,17 @@ class JSession implements IteratorAggregate
 	/**
 	 * Check whether this session is currently created
 	 *
-	 * @param   JInput  $input  JInput object for the session to use.
+	 * @param   JInput            $input       JInput object for the session to use.
+	 * @param   JEventDispatcher  $dispatcher  Dispatcher object for the session to use.
 	 *
 	 * @return  void.
 	 *
 	 * @since   12.2
 	 */
-	public function initialise(JInput $input)
+	public function initialise(JInput $input, JEventDispatcher $dispatcher)
 	{
 		$this->_input = $input;
+		$this->_dispatcher = $dispatcher;
 	}
 
 	/**
@@ -477,9 +488,11 @@ class JSession implements IteratorAggregate
 	/**
 	 * Set data into the session store.
 	 *
-	 * @param   string  $name       Name of a variable.
-	 * @param   mixed   $value      Value of a variable.
-	 * @param   string  $namespace  Namespace to use, default to 'default'.
+	 * If a session has not been started it will be started.
+	 *
+	 * @param   string   $name       Name of a variable.
+	 * @param   mixed    $value      Value of a variable.
+	 * @param   string   $namespace  Namespace to use, default to 'default'.
 	 *
 	 * @return  mixed  Old value of a variable.
 	 *
@@ -492,8 +505,7 @@ class JSession implements IteratorAggregate
 
 		if ($this->_state !== 'active')
 		{
-			// @TODO :: generated error here
-			return null;
+			$this->start();
 		}
 
 		$old = isset($_SESSION[$namespace][$name]) ? $_SESSION[$namespace][$name] : null;
@@ -589,6 +601,16 @@ class JSession implements IteratorAggregate
 
 		// Perform security checks
 		$this->_validate();
+
+		if ($this->isNew())
+		{
+			$this->set('registry', new JRegistry('session'));
+			$this->set('user', new JUser);
+		}
+
+		$this->_dispatcher->trigger('onAfterSessionStart');
+
+		return;
 	}
 
 	/**

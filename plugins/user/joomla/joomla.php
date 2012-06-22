@@ -163,10 +163,6 @@ class plgUserJoomla extends JPlugin
 
 		$db = JFactory::getDBO();
 
-		// Check to see the the session already exists.
-		$app = JFactory::getApplication();
-		$app->checkSession();
-
 		// Update the user related fields for the Joomla sessions table.
 		$db->setQuery(
 			'UPDATE '.$db->quoteName('#__session') .
