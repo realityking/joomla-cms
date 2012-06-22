@@ -184,6 +184,18 @@ class JSession implements IteratorAggregate
 	}
 
 	/**
+	 * Shorthand to check if the session is active
+	 *
+	 * @return  boolean
+	 *
+	 * @since   12.2
+	 */
+	public function isActive()
+	{
+		return (bool) ($this->_state == 'active');
+	}
+
+	/**
 	 * Get expiration time in minutes
 	 *
 	 * @return  integer  The session expiration time in minutes
@@ -264,7 +276,9 @@ class JSession implements IteratorAggregate
 	{
 		$user    = JFactory::getUser();
 		$session = JFactory::getSession();
+		$app     = JFactory::getApplication();
 
+		$app->startSession();
 		// TODO: Decouple from legacy JApplication class.
 		if (is_callable(array('JApplication', 'getHash')))
 		{
@@ -567,6 +581,8 @@ class JSession implements IteratorAggregate
 
 	/**
 	 * Start a session.
+	 *
+	 * @return  boolean  true on success
 	 *
 	 * @return  void
 	 *
