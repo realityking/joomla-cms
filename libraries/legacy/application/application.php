@@ -197,7 +197,7 @@ class JApplication extends JApplicationBase
 		JPluginHelper::importPlugin('system');
 		if ($this->session)
 		{
-			$this->_createSession(self::getHash($this->sessionName));
+			$this->createSession(self::getHash($this->sessionName));
 		}
 
 		// Set the language in the class.
@@ -928,20 +928,15 @@ class JApplication extends JApplicationBase
 	}
 
 	/**
-	 * Create the user session.
-	 *
-	 * Old sessions are flushed based on the configuration value for the cookie
-	 * lifetime. If an existing session, then the last access time is updated.
-	 * If a new session, a session id is generated and a record is created in
-	 * the #__sessions table.
+	 * Creates a session object. Note the session is not yet started.
 	 *
 	 * @param   string  $name  The sessions name.
 	 *
-	 * @return  JSession  JSession on success. May call exit() on database error.
+	 * @return  JSession  JSession on success.
 	 *
 	 * @since   11.1
 	 */
-	protected function _createSession($name)
+	protected function createSession($name)
 	{
 		$options = array();
 		$options['name'] = $name;
@@ -967,9 +962,20 @@ class JApplication extends JApplicationBase
 
 		$session = JFactory::getSession($options);
 		$session->initialise($this->input, $this->dispatcher);
-		$session->start();
 
 		return $session;
+	}
+
+	protected function startSession($autoStart = false)
+	{
+		$session = JFactory::getSession();
+		if (!$session->isActive())
+		{
+			if ($autoStart || $this->input->cookie->get($session->getName(), null))
+			{
+				$session->start();
+			}
+		}
 	}
 
 	/**

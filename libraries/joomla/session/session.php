@@ -273,6 +273,7 @@ class JSession implements IteratorAggregate
 		$user    = JFactory::getUser();
 		$session = JFactory::getSession();
 
+		$session->start();
 		// TODO: Decouple from legacy JApplication class.
 		if (is_callable(array('JApplication', 'getHash')))
 		{
@@ -487,9 +488,11 @@ class JSession implements IteratorAggregate
 	/**
 	 * Set data into the session store.
 	 *
-	 * @param   string  $name       Name of a variable.
-	 * @param   mixed   $value      Value of a variable.
-	 * @param   string  $namespace  Namespace to use, default to 'default'.
+	 * If a session has not been started it will be started.
+	 *
+	 * @param   string   $name       Name of a variable.
+	 * @param   mixed    $value      Value of a variable.
+	 * @param   string   $namespace  Namespace to use, default to 'default'.
 	 *
 	 * @return  mixed  Old value of a variable.
 	 *
@@ -502,8 +505,7 @@ class JSession implements IteratorAggregate
 
 		if ($this->_state !== 'active')
 		{
-			// @TODO :: generated error here
-			return null;
+			$this->start();
 		}
 
 		$old = isset($_SESSION[$namespace][$name]) ? $_SESSION[$namespace][$name] : null;
