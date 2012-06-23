@@ -34,8 +34,9 @@ class JUpdaterExtension extends JUpdateAdapter
 	{
 		array_push($this->_stack, $name);
 		$tag = $this->_getStackLocation();
-		// reset the data
-		eval('$this->' . $tag . '->_data = "";');
+
+		// Reset the data
+		$this->$tag->_data = "";
 
 		switch ($name)
 		{
@@ -46,6 +47,7 @@ class JUpdaterExtension extends JUpdateAdapter
 				$this->current_update->folder = "";
 				$this->current_update->client_id = 1;
 				break;
+
 			// Don't do anything
 			case 'UPDATES':
 				break;

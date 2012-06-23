@@ -166,8 +166,9 @@ class JUpdate extends JObject
 	{
 		array_push($this->_stack, $name);
 		$tag = $this->_getStackLocation();
+
 		// Reset the data
-		eval('$this->' . $tag . '->_data = "";');
+		$this->$tag->_data = "";
 
 		switch ($name)
 		{
@@ -175,9 +176,11 @@ class JUpdate extends JObject
 			case 'UPDATE':
 				$this->_current_update = new stdClass;
 				break;
+
 			// Don't do anything
 			case 'UPDATES':
 				break;
+
 			// For everything else there's...the default!
 			default:
 				$name = strtolower($name);
