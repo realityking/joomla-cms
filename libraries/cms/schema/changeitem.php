@@ -27,7 +27,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Schema
  * @since       2.5
  */
-abstract class JSchemaChangeitem extends JObject
+abstract class JSchemaChangeitem
 {
 	/**
 	 * Update file: full path file name where query was found
@@ -143,16 +143,17 @@ abstract class JSchemaChangeitem extends JObject
 
 		// Get the class name (mysql and mysqli both use mysql)
 		$dbname = (substr($db->name, 0, 5) == 'mysql') ? 'mysql' : $db->name;
-		$path = __DIR__ . '/' . 'changeitem' . $dbname . '.php';
-		$class = 'JSchemaChangeitem' . $dbname;
+		$path = __DIR__ . '/' . 'changeitem' . $dbname . '.php'  ;
+		$class = 'JSchemaChangeitem' . ucfirst($dbname);
 
-		// If the file exists register the class with our class loader.
-		if (file_exists($path))
+		if (class_exists($class))
 		{
-			JLoader::register($class, $path);
-			$instance = new $class($db, $file, $query);
+			return $instance;
 		}
-		return $instance;
+		else
+		{
+			throw new
+		}
 	}
 
 	/**

@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  * @subpackage  Schema
  * @since       2.5
  */
-class JSchemaChangeitemsqlazure extends JSchemaChangeitemsqlsrv
+class JSchemaChangeitemSqlazure extends JSchemaChangeitemsqlsrv
 {
 	public $name = 'sqlazure';
 }
