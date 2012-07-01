@@ -85,6 +85,12 @@ class JApplication extends JApplicationBase
 	protected static $instances = array();
 
 	/**
+	 * @var    array
+	 * @since  12.2
+	 */
+	protected $config = array();
+
+	/**
 	 * Class constructor.
 	 *
 	 * @param   array  $config  A configuration array including optional elements such as session
@@ -137,8 +143,10 @@ class JApplication extends JApplicationBase
 		// Create the session if a session name is passed.
 		if ($config['session'] !== false)
 		{
-			$this->_createSession(self::getHash($config['session_name']));
+			$this->createSession(self::getHash($config['session_name']));
 		}
+
+		$this->config = $config;
 
 		$this->requestTime = gmdate('Y-m-d H:i');
 
@@ -197,6 +205,13 @@ class JApplication extends JApplicationBase
 	 */
 	public function initialise($options = array())
 	{
+		JPluginHelper::importPlugin('system');
+		// Start the session if this is enabled
+		if ($this->config['session'] !== false)
+		{
+			$this->startSession();
+		}
+
 		// Set the language in the class.
 		$config = JFactory::getConfig();
 
@@ -221,7 +236,6 @@ class JApplication extends JApplicationBase
 		$config->set('editor', $editor);
 
 		// Trigger the onAfterInitialise event.
-		JPluginHelper::importPlugin('system');
 		$this->triggerEvent('onAfterInitialise');
 	}
 
@@ -926,20 +940,15 @@ class JApplication extends JApplicationBase
 	}
 
 	/**
-	 * Create the user session.
-	 *
-	 * Old sessions are flushed based on the configuration value for the cookie
-	 * lifetime. If an existing session, then the last access time is updated.
-	 * If a new session, a session id is generated and a record is created in
-	 * the #__sessions table.
+	 * Creates a session object. Note the session is not yet started.
 	 *
 	 * @param   string  $name  The sessions name.
 	 *
-	 * @return  JSession  JSession on success. May call exit() on database error.
+	 * @return  JSession  JSession on success.
 	 *
 	 * @since   11.1
 	 */
-	protected function _createSession($name, $autoStart = false)
+	protected function createSession($name)
 	{
 		$options = array();
 		$options['name'] = $name;
@@ -962,144 +971,19 @@ class JApplication extends JApplicationBase
 		}
 
 		$session = JFactory::getSession($options);
-		$session->initialise($this->input);
-		if (!$session->isActive())
-		{
-			if ($autoStart || $this->input->cookie->get($session->getName(), null))
-			{
-				$this->startSession();
-			}
-			else
-			{
-				$session->set('registry', new JRegistry('session'));
-				$session->set('user', new JUser);
-			}
-		}
-
-		// TODO: At some point we need to get away from having session data always in the db.
-		$this->purgeSessions();
+		$session->initialise($this->input, $this->dispatcher);
 
 		return $session;
 	}
 
-	public function purgeSessions()
-	{
-		$db      = JFactory::getDBO();
-		$session = JFactory::getSession();
-
-		// Remove expired sessions from the database.
-		$time = time();
-		if ($time % 2)
-		{
-			// The modulus introduces a little entropy, making the flushing less accurate
-			// but fires the query less than half the time.
-			$query = $db->getQuery(true);
-			$query->delete($query->qn('#__session'))
-				->where($query->qn('time') . ' < ' . $query->q((int) ($time - $session->getExpire())));
-
-			$db->setQuery($query);
-			try
-			{
-				$db->execute();
-			}
-			catch (RunTimeException $e)
-			{
-				return false;
-			}
-			return true;
-		}
-	}
-
-	public function startSession()
+	protected function startSession($autoStart = false)
 	{
 		$session = JFactory::getSession();
-		if ($session->isActive())
+		if (!$session->isActive())
 		{
-			return;
-		}
-
-		$session->start();
-		$handler = $this->getCfg('session_handler');
-
-		// Check to see the the session already exists.
-		$handler = $this->getCfg('session_handler');
-		if (($handler != 'database' && ($time % 2 || $session->isNew()))
-			|| ($handler == 'database' && $session->isNew()))
-		{
-			$this->checkSession();
-		}
-	}
-
-	/**
-	 * Checks the user session.
-	 *
-	 * If the session record doesn't exist, initialise it.
-	 * If session is new, create session variables
-	 *
-	 * @return  void
-	 *
-	 * @since   11.1
-	 */
-	public function checkSession()
-	{
-		$session = JFactory::getSession();
-		if(!$session->isActive())
-		{
-			return;
-		}
-
-		$db   = JFactory::getDBO();
-		$user = JFactory::getUser();
-
-		$query = $db->getQuery(true);
-		$query->select($query->qn('session_id'))
-			->from($query->qn('#__session'))
-			->where($query->qn('session_id') . ' = ' . $query->q($session->getId()));
-
-		$db->setQuery($query, 0, 1);
-		$exists = $db->loadResult();
-
-		// If the session record doesn't exist initialise it.
-		if (!$exists)
-		{
-			$query->clear();
-			if ($session->isNew())
+			if ($autoStart || $this->input->cookie->get($session->getName(), null))
 			{
-				$query->insert($query->qn('#__session'))
-					->columns($query->qn('session_id') . ', ' . $query->qn('client_id') . ', ' . $query->qn('time'))
-					->values($query->q($session->getId()) . ', ' . (int) $this->getClientId() . ', ' . $query->q((int) time()));
-				$db->setQuery($query);
-			}
-			else
-			{
-				$query->insert($query->qn('#__session'))
-					->columns(
-						$query->qn('session_id') . ', ' . $query->qn('client_id') . ', ' . $query->qn('guest') . ', ' .
-						$query->qn('time') . ', ' . $query->qn('userid') . ', ' . $query->qn('username')
-					)
-					->values(
-						$query->q($session->getId()) . ', ' . (int) $this->getClientId() . ', ' . (int) $user->get('guest') . ', ' .
-						$query->q((int) $session->get('session.timer.start')) . ', ' . (int) $user->get('id') . ', ' . $query->q($user->get('username'))
-					);
-
-				$db->setQuery($query);
-			}
-
-			// If the insert failed, exit the application.
-			try
-			{
-				$db->execute();
-			}
-			catch (RuntimeException $e)
-			{
-				jexit($e->getMessage());
-			}
-
-			// Session doesn't exist yet, so create session variables
-			if ($session->isNew())
-			{
-				$session->set('registry', new JRegistry('session'));
-				$session->set('user', new JUser);
+				$session->start();
 			}
 		}
 	}
