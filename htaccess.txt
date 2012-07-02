@@ -4,6 +4,23 @@
 # @license		GNU General Public License version 2 or later; see LICENSE.txt
 ##
 
+# Disallow directory listing. Can be commented out if causes errors.
+Options -Indexes
+
+# Prevent access to certain folders a client should never access
+<IfModule mod_alias.c>
+	RedirectMatch 403 ^/administrator/cache
+	RedirectMatch 403 ^/administrator/includes
+	RedirectMatch 403 ^/administrator/language
+	RedirectMatch 403 ^/administrator/manifests
+	RedirectMatch 403 ^/cache
+	RedirectMatch 403 ^/cli
+	RedirectMatch 403 ^/includes
+	RedirectMatch 403 ^/language
+	RedirectMatch 403 ^/libraries
+	RedirectMatch 403 ^/logs
+</IfModule>
+
 ##
 # READ THIS COMPLETELY IF YOU CHOOSE TO USE THIS FILE!
 #
