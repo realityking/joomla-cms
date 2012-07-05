@@ -37,17 +37,17 @@ JError::$legacy = true;
 /**
  * Cron job to trash expired cache data
  *
- * @package  Joomla.CLI
- * @since    2.5
+ * @package     Joomla.CLI
+ * @since       2.5
  */
 class GarbageCron extends JApplicationCli
 {
 	/**
 	 * Entry point for the script
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function doExecute()
 	{

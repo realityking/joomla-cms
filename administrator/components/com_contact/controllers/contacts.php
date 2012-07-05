@@ -14,20 +14,20 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Articles list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_contact
- * @since	1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_contact
+ * @since       1.6
  */
 class ContactControllerContacts extends JControllerAdmin
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	$config	An optional associative array of configuration settings.
+	 * @param       array	$config	An optional associative array of configuration settings.
 	 *
-	 * @return	ContactControllerContacts
-	 * @see		JController
-	 * @since	1.6
+	 * @return      ContactControllerContacts
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -39,8 +39,8 @@ class ContactControllerContacts extends JControllerAdmin
 	/**
 	 * Method to toggle the featured setting of a list of contacts.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	function featured()
 	{
@@ -82,11 +82,11 @@ class ContactControllerContacts extends JControllerAdmin
 	/**
 	 * Proxy for getModel.
 	 *
-	 * @param	string	$name	The name of the model.
-	 * @param	string	$prefix	The prefix for the PHP class name.
+	 * @param       string	$name	The name of the model.
+	 * @param       string	$prefix	The prefix for the PHP class name.
 	 *
-	 * @return	JModel
-	 * @since	1.6
+	 * @return      JModel
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Contact', $prefix = 'ContactModel', $config = array('ignore_request' => true))
 	{

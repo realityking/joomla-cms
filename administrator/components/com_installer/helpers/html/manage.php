@@ -10,25 +10,25 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       2.5
  */
 abstract class InstallerHtmlManage
 {
 	/**
 	 * Returns a published state on a grid
 	 *
-	 * @param   integer       $value			The state value.
-	 * @param   integer       $i				The row index
-	 * @param   boolean       $enabled			An optional setting for access control on the action.
-	 * @param   string        $checkbox			An optional prefix for checkboxes.
+	 * @param       integer       $value			The state value.
+	 * @param       integer       $i				The row index
+	 * @param       boolean       $enabled			An optional setting for access control on the action.
+	 * @param       string        $checkbox			An optional prefix for checkboxes.
 	 *
-	 * @return  string        The Html code
+	 * @return      string        The Html code
 	 *
-	 * @see JHtmlJGrid::state
+	 * @see         JHtmlJGrid::state
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function state($value, $i, $enabled = true, $checkbox = 'cb')
 	{

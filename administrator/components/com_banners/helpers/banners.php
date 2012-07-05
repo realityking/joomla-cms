@@ -12,19 +12,19 @@ defined('_JEXEC') or die;
 /**
  * Banners component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -61,10 +61,10 @@ class BannersHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @param	int		The category ID.
+	 * @param       int		The category ID.
 	 *
-	 * @return	JObject
-	 * @since	1.6
+	 * @return      JObject
+	 * @since       1.6
 	 */
 	public static function getActions($categoryId = 0)
 	{
@@ -89,8 +89,8 @@ class BannersHelper
 	}
 
 	/**
-	 * @return	boolean
-	 * @since	1.6
+	 * @return      boolean
+	 * @since       1.6
 	 */
 	public static function updateReset()
 	{

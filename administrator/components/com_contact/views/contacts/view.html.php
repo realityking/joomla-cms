@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of contacts.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_contact
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_contact
+ * @since       1.6
  */
 class ContactViewContacts extends JViewLegacy
 {
@@ -25,7 +25,7 @@ class ContactViewContacts extends JViewLegacy
 	/**
 	 * Display the view
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	public function display($tpl = null)
 	{
@@ -53,7 +53,7 @@ class ContactViewContacts extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

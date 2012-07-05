@@ -15,19 +15,19 @@ jimport('joomla.application.component.helper');
  *
  * Provide many supporting API functions
  *
- * @package		Joomla.Administrator
+ * @package     Joomla.Administrator
  * @final
- * @since		1.5
+ * @since       1.5
  */
 class JAdministrator extends JApplication
 {
 	/**
 	 * Class constructor
 	 *
-	 * @param	array	An optional associative array of configuration settings.
+	 * @param       array	An optional associative array of configuration settings.
 	 * Recognized key values include 'clientId' (this list is not meant to be comprehensive).
 	 *
-	 * @since	1.5
+	 * @since       1.5
 	 */
 	public function __construct($config = array())
 	{
@@ -41,10 +41,10 @@ class JAdministrator extends JApplication
 	/**
 	 * Initialise the application.
 	 *
-	 * @param	array	$options	An optional associative array of configuration settings.
+	 * @param       array	$options	An optional associative array of configuration settings.
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public function initialise($options = array())
 	{
@@ -88,8 +88,8 @@ class JAdministrator extends JApplication
 	/**
 	 * Route the application
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public function route()
 	{
@@ -109,8 +109,8 @@ class JAdministrator extends JApplication
 	/**
 	 * Return a reference to the JRouter object.
 	 *
-	 * @return	JRouter
-	 * @since	1.5
+	 * @return      JRouter
+	 * @since       1.5
 	 */
 	static public function getRouter($name = null, array $options = array())
 	{
@@ -121,10 +121,10 @@ class JAdministrator extends JApplication
 	/**
 	 * Dispatch the application
 	 *
-	 * @param	string	$component	The component to dispatch.
+	 * @param       string	$component	The component to dispatch.
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public function dispatch($component = null)
 	{
@@ -168,8 +168,8 @@ class JAdministrator extends JApplication
 	/**
 	 * Display the application.
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public function render()
 	{
@@ -208,12 +208,12 @@ class JAdministrator extends JApplication
 	/**
 	 * Login authentication function
 	 *
-	 * @param	array	Array('username' => string, 'password' => string)
-	 * @param	array	Array('remember' => boolean)
+	 * @param       array	Array('username' => string, 'password' => string)
+	 * @param       array	Array('remember' => boolean)
 	 *
-	 * @return	boolean True on success.
-	 * @see		JApplication::login
-	 * @since	1.5
+	 * @return      boolean True on success.
+	 * @see         JApplication::login
+	 * @since       1.5
 	 */
 	public function login($credentials, $options = array())
 	{
@@ -248,8 +248,8 @@ class JAdministrator extends JApplication
 	/**
 	 * Get the template
 	 *
-	 * @return	string	The template name
-	 * @since	1.0
+	 * @return      string	The template name
+	 * @since       1.0
 	 */
 	public function getTemplate($params = false)
 	{
@@ -292,8 +292,8 @@ class JAdministrator extends JApplication
 	/**
 	 * Purge the jos_messages table of old messages
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public static function purgeMessages()
 	{

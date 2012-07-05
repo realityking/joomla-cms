@@ -43,7 +43,7 @@ $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
 
-            <select name="filter_access" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_access" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
 			</select>

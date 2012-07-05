@@ -12,20 +12,20 @@ defined('_JEXEC') or die;
 /**
  * Base controller class for Users.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.5
  */
 class UsersController extends JControllerLegacy
 {
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	1.5
+	 * @return      JController		This object to support chaining.
+	 * @since       1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
@@ -33,9 +33,9 @@ class UsersController extends JControllerLegacy
 		$document	= JFactory::getDocument();
 
 		// Set the default view name and format from the Request.
-		$vName	 = JRequest::getCmd('view', 'login');
+		$vName   = JRequest::getCmd('view', 'login');
 		$vFormat = $document->getType();
-		$lName	 = JRequest::getCmd('layout', 'default');
+		$lName   = JRequest::getCmd('layout', 'default');
 
 		if ($view = $this->getView($vName, $vFormat)) {
 			// Do any specific processing by view.

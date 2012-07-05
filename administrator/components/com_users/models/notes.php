@@ -23,9 +23,9 @@ class UsersModelNotes extends JModelList
 	/**
 	 * Class constructor.
 	 *
-	 * @param  array  $config  An optional associative array of configuration settings.
+	 * @param       array  $config  An optional associative array of configuration settings.
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	public function __construct($config = array())
 	{
@@ -57,9 +57,9 @@ class UsersModelNotes extends JModelList
 	/**
 	 * Build an SQL query to load the list data.
 	 *
-	 * @return  JDatabaseQuery  A JDatabaseQuery object to retrieve the data set.
+	 * @return      JDatabaseQuery  A JDatabaseQuery object to retrieve the data set.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getListQuery()
 	{
@@ -153,11 +153,11 @@ class UsersModelNotes extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param   string  $id  A prefix for the store id.
+	 * @param       string  $id  A prefix for the store id.
 	 *
-	 * @return  string  A store id.
+	 * @return      string  A store id.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -172,9 +172,9 @@ class UsersModelNotes extends JModelList
 	/**
 	 * Gets a user object if the user filter is set.
 	 *
-	 * @return  JUser  The JUser object
+	 * @return      JUser  The JUser object
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getUser()
 	{
@@ -195,9 +195,9 @@ class UsersModelNotes extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{

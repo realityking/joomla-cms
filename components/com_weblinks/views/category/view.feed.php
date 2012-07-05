@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
  * HTML View class for the WebLinks component
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_weblinks
+ * @package     Joomla.Site
+ * @subpackage  com_weblinks
  * @since 1.0
  */
 class WeblinksViewCategory extends JViewLegacy

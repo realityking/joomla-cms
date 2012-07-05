@@ -24,27 +24,27 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Regex for matching a consonant.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	private static $_regex_consonant = '(?:[bcdfghjklmnpqrstvwxz]|(?<=[aeiou])y|^y)';
 
 	/**
 	 * Regex for matching a vowel
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	private static $_regex_vowel = '(?:[aeiou]|(?<![aeiou])y)';
 
 	/**
 	 * Method to stem a token and return the root.
 	 *
-	 * @param   string  $token  The token to stem.
-	 * @param   string  $lang   The language of the token.
+	 * @param       string  $token  The token to stem.
+	 * @param       string  $lang   The language of the token.
 	 *
-	 * @return  string  The root token.
+	 * @return      string  The root token.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function stem($token, $lang)
 	{
@@ -82,11 +82,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 1
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step1ab($word)
 	{
@@ -132,11 +132,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 1c
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step1c($word)
 	{
@@ -153,11 +153,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 2
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step2($word)
 	{
@@ -208,11 +208,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 3
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step3($word)
 	{
@@ -245,11 +245,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 4
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step4($word)
 	{
@@ -312,11 +312,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Step 5
 	 *
-	 * @param   string  $word  The token to stem.
+	 * @param       string  $word  The token to stem.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _step5($word)
 	{
@@ -349,16 +349,16 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 * Replaces the first string with the second, at the end of the string. If third
 	 * arg is given, then the preceding string must match that m count at least.
 	 *
-	 * @param   string   &$str   String to check
-	 * @param   string   $check  Ending to check for
-	 * @param   string   $repl   Replacement string
-	 * @param   integer  $m      Optional minimum number of m() to meet
+	 * @param       string   &$str   String to check
+	 * @param       string   $check  Ending to check for
+	 * @param       string   $repl   Replacement string
+	 * @param       integer  $m      Optional minimum number of m() to meet
 	 *
-	 * @return  boolean  Whether the $check string was at the end
+	 * @return      boolean  Whether the $check string was at the end
 	 *                   of the $str string. True does not necessarily mean
 	 *                   that it was replaced.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _replace(&$str, $check, $repl, $m = null)
 	{
@@ -386,11 +386,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 * <c>vcvc<v>   gives 2
 	 * <c>vcvcvc<v> gives 3
 	 *
-	 * @param   string  $str  The string to return the m count for
+	 * @param       string  $str  The string to return the m count for
 	 *
-	 * @return  integer  The m count
+	 * @return      integer  The m count
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _m($str)
 	{
@@ -409,11 +409,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	 * Returns true/false as to whether the given string contains two
 	 * of the same consonant next to each other at the end of the string.
 	 *
-	 * @param   string  $str  String to check
+	 * @param       string  $str  String to check
 	 *
-	 * @return  boolean  Result
+	 * @return      boolean  Result
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _doubleConsonant($str)
 	{
@@ -425,11 +425,11 @@ class FinderIndexerStemmerPorter_En extends FinderIndexerStemmer
 	/**
 	 * Checks for ending CVC sequence where second C is not W, X or Y
 	 *
-	 * @param   string  $str  String to check
+	 * @param       string  $str  String to check
 	 *
-	 * @return  boolean  Result
+	 * @return      boolean  Result
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private static function _cvc($str)
 	{

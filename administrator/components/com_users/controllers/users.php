@@ -21,20 +21,20 @@ jimport('joomla.application.component.controlleradmin');
 class UsersControllerUsers extends JControllerAdmin
 {
 	/**
-	 * @var    string  The prefix to use with controller messages.
-	 * @since  1.6
+	 * @var         string  The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_USERS_USERS';
 
 	/**
 	 * Constructor.
 	 *
-	 * @param   array  $config  An optional associative array of configuration settings.
+	 * @param       array  $config  An optional associative array of configuration settings.
 	 *
-	 * @return  UsersControllerUsers
+	 * @return      UsersControllerUsers
 	 *
-	 * @since   1.6
-	 * @see     JController
+	 * @since       1.6
+	 * @see         JController
 	 */
 	public function __construct($config = array())
 	{
@@ -47,13 +47,13 @@ class UsersControllerUsers extends JControllerAdmin
 	/**
 	 * Proxy for getModel.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'User', $prefix = 'UsersModel', $config = array('ignore_request' => true))
 	{
@@ -63,9 +63,9 @@ class UsersControllerUsers extends JControllerAdmin
 	/**
 	 * Method to change the block status on a record.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function changeBlock()
 	{
@@ -111,9 +111,9 @@ class UsersControllerUsers extends JControllerAdmin
 	/**
 	 * Method to activate a record.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function activate()
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Users mail view.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
  */
 class UsersViewMail extends JViewLegacy
 {
@@ -37,7 +37,7 @@ class UsersViewMail extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

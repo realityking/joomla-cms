@@ -110,12 +110,12 @@ class JoomlaupdateControllerUpdate extends JControllerLegacy
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean  $cachable   If true, the view output will be cached
-	 * @param	array    $urlparams  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean  $cachable   If true, the view output will be cached
+	 * @param       array    $urlparams  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
+	 * @return      JController		This object to support chaining.
 	 *
-	 * @since	2.5.4
+	 * @since       2.5.4
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
@@ -149,7 +149,7 @@ class JoomlaupdateControllerUpdate extends JControllerLegacy
 	 *
 	 * @return void
 	 *
-	 * @since	2.5.4
+	 * @since       2.5.4
 	 */
 	protected function _applyCredentials()
 	{

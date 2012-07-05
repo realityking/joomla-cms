@@ -1,9 +1,10 @@
 <?php
 /**
- * @package    Joomla.Site
+ * @package     Joomla.Site
+ * @subpackage  Version
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
 defined('_JEXEC') or die;
@@ -11,8 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Version information class for the Joomla CMS.
  *
- * @package  Joomla.Site
- * @since    1.0
+ * @package     Joomla.Site
+ * @subpackage  Version
+ * @since       1.0
  */
 final class JVersion
 {
@@ -54,7 +56,7 @@ final class JVersion
 	 *
 	 * @param   string  $minimum  The minimum version of the Joomla which is compatible.
 	 *
-	 * @return  bool    True if the version is compatible.
+	 * @return  bool  True if the version is compatible.
 	 *
 	 * @see     http://www.php.net/version_compare
 	 * @since   1.0

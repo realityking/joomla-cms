@@ -18,7 +18,7 @@ FinderFilter = new Class({
 		this.elements = elements || [];
 		this.container = document.id(container);
 		this.frame = document.id(frame);
-		
+
 		this.effects = {};
 		if (this.options.opacity) this.effects.opacity = 'fullOpacity';
 		if (this.options.width) this.effects.width = this.options.fixedWidth ? 'fullWidth' : 'offsetWidth';

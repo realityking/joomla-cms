@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
@@ -77,6 +77,5 @@ div#upload-flash ul li {
 	margin-right: 10px;
 }
 .swiff-uploader-box {
-        right:auto!important;
+	right:auto!important;
 }
-

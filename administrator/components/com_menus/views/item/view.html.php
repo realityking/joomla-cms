@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * The HTML Menus Menu Item View.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @since       1.6
  */
 class MenusViewItem extends JViewLegacy
 {
@@ -46,7 +46,7 @@ class MenusViewItem extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Joomla! udpate notification plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Quickicon.Joomlaupdate
- * @since		2.5
+ * @package     Joomla.Plugin
+ * @subpackage  Quickicon.Joomlaupdate
+ * @since       2.5
  */
 class plgQuickiconJoomlaupdate extends JPlugin
 {
@@ -37,10 +37,10 @@ class plgQuickiconJoomlaupdate extends JPlugin
 	 * of icons. You can return an array which defines a single icon and it will
 	 * be rendered right after the stock Quick Icons.
 	 *
-	 * @param  $context  The calling context
+	 * @param       $context  The calling context
 	 *
 	 * @return array A list of icon definition associative arrays, consisting of the
-	 *				 keys link, image, text and access.
+	 *               keys link, image, text and access.
 	 *
 	 * @since       2.5
 	 */

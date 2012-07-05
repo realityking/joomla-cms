@@ -11,8 +11,8 @@ defined('_JEXEC') or die;
 /**
  * Joomla! SEF Plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	System.sef
+ * @package     Joomla.Plugin
+ * @subpackage  System.sef
  */
 class plgSystemSef extends JPlugin
 {
@@ -97,8 +97,8 @@ class plgSystemSef extends JPlugin
 	/**
 	 * Replaces the matched tags
 	 *
-	 * @param	array	An array of matches (see preg_match_all)
-	 * @return	string
+	 * @param       array	An array of matches (see preg_match_all)
+	 * @return      string
 	 */
 	protected static function route(&$matches)
 	{

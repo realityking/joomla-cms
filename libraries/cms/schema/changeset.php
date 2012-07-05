@@ -28,21 +28,21 @@ class JSchemaChangeset extends JObject
 	/**
 	 * Array of JSchemaChangeItem objects
 	 *
-	 * @var    string
+	 * @var  string
 	 */
 	protected $changeItems = array();
 
 	/**
 	* JDatabase object
 	*
-	* @var    string
+	* @var  string
 	*/
 	protected $db = null;
 
 	/**
 	* Folder where SQL update files will be found
 	*
-	* @var    string
+	* @var  string
 	*/
 	protected $folder = null;
 
@@ -93,9 +93,9 @@ class JSchemaChangeset extends JObject
 	 * Note these are not database errors but rather situations where
 	 * the current schema is not up to date.
 	 *
-	 * @return   array Array of errors if any.
+	 * @return  array Array of errors if any.
 	 *
-	 * @since    2.5
+	 * @since   2.5
 	 */
 	public function check()
 	{
@@ -205,8 +205,8 @@ class JSchemaChangeset extends JObject
 	 * @param   array  $sqlfiles  Array of .sql update filenames.
 	 *
 	 * @return  array  Array of stdClass objects where:
-	 *                    file=filename,
-	 *                    update_query = text of SQL update query
+	 *                 file=filename,
+	 *                 update_query = text of SQL update query
 	 *
 	 * @since   2.5
 	 */
@@ -233,5 +233,4 @@ class JSchemaChangeset extends JObject
 		}
 		return $result;
 	}
-
 }

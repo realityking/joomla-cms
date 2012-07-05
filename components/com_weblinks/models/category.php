@@ -14,9 +14,9 @@ jimport('joomla.application.component.modellist');
 /**
  * Weblinks Component Weblink Model
  *
- * @package		Joomla.Site
- * @subpackage	com_weblinks
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_weblinks
+ * @since       1.5
  */
 class WeblinksModelCategory extends JModelList
 {
@@ -38,9 +38,9 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -60,7 +60,7 @@ class WeblinksModelCategory extends JModelList
 	 * The category that applies.
 	 *
 	 * @access	protected
-	 * @var		object
+	 * @var         object
 	 */
 	protected $_category = null;
 
@@ -68,14 +68,14 @@ class WeblinksModelCategory extends JModelList
 	 * The list of other weblink categories.
 	 *
 	 * @access	protected
-	 * @var		array
+	 * @var         array
 	 */
 	protected $_categories = null;
 
 	/**
 	 * Method to get a list of items.
 	 *
-	 * @return	mixed	An array of objects on success, false on failure.
+	 * @return      mixed	An array of objects on success, false on failure.
 	 */
 	public function getItems()
 	{
@@ -97,8 +97,8 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Method to build an SQL query to load the list data.
 	 *
-	 * @return	string	An SQL query
-	 * @since	1.6
+	 * @return      string	An SQL query
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -166,7 +166,7 @@ class WeblinksModelCategory extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -214,10 +214,10 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Method to get category data for the current category
 	 *
-	 * @param	int		An optional ID
+	 * @param       int		An optional ID
 	 *
-	 * @return	object
-	 * @since	1.5
+	 * @return      object
+	 * @since       1.5
 	 */
 	public function getCategory()
 	{
@@ -259,9 +259,9 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Get the parent categorie.
 	 *
-	 * @param	int		An optional category id. If not supplied, the model state 'category.id' will be used.
+	 * @param       int		An optional category id. If not supplied, the model state 'category.id' will be used.
 	 *
-	 * @return	mixed	An array of categories or false if an error occurs.
+	 * @return      mixed	An array of categories or false if an error occurs.
 	 */
 	public function getParent()
 	{
@@ -275,7 +275,7 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Get the sibling (adjacent) categories.
 	 *
-	 * @return	mixed	An array of categories or false if an error occurs.
+	 * @return      mixed	An array of categories or false if an error occurs.
 	 */
 	function &getLeftSibling()
 	{
@@ -298,9 +298,9 @@ class WeblinksModelCategory extends JModelList
 	/**
 	 * Get the child categories.
 	 *
-	 * @param	int		An optional category id. If not supplied, the model state 'category.id' will be used.
+	 * @param       int		An optional category id. If not supplied, the model state 'category.id' will be used.
 	 *
-	 * @return	mixed	An array of categories or false if an error occurs.
+	 * @return      mixed	An array of categories or false if an error occurs.
 	 */
 	function &getChildren()
 	{

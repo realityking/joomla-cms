@@ -14,17 +14,17 @@ JFormHelper::loadFieldClass('list');
 /**
  * Form Field class for the Joomla Framework.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @since       1.6
  */
 class JFormFieldMenuOrdering extends JFormFieldList
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.7
+	 * @var         string
+	 * @since       1.7
 	 */
 	protected $type = 'MenuOrdering';
 
@@ -32,8 +32,8 @@ class JFormFieldMenuOrdering extends JFormFieldList
 	 * Method to get the list of siblings in a menu.
 	 * The method requires that parent be set.
 	 *
-	 * @return	array	The field option objects or false if the parent field has not been set
-	 * @since	1.7
+	 * @return      array	The field option objects or false if the parent field has not been set
+	 * @since       1.7
 	 */
 	protected function getOptions()
 	{
@@ -87,8 +87,8 @@ class JFormFieldMenuOrdering extends JFormFieldList
 	/**
 	 * Method to get the field input markup
 	 *
-	 * @return  string  The field input markup.
-	 * @since   1.7
+	 * @return      string  The field input markup.
+	 * @since       1.7
 	 */
 	protected function getInput()
 	{

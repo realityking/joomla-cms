@@ -15,25 +15,25 @@ JLoader::register('JFormFieldRadio', JPATH_LIBRARIES.'/joomla/form/fields/radio.
 /**
  * Sample data Form Field class.
  *
- * @package  Joomla.Installation
- * @since    1.6
+ * @package     Joomla.Installation
+ * @since       1.6
  */
 class JFormFieldSample extends JFormFieldRadio
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $type = 'Sample';
 
 	/**
 	 * Method to get the field options.
 	 *
-	 * @return	array	The field option objects.
+	 * @return      array	The field option objects.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function getOptions()
 	{
@@ -70,9 +70,9 @@ class JFormFieldSample extends JFormFieldRadio
 	/**
 	 * Method to get the field input markup.
 	 *
-	 * @return	string	The field input markup.
+	 * @return      string	The field input markup.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{

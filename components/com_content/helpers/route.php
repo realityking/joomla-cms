@@ -16,8 +16,8 @@ jimport('joomla.application.categories');
  * Content Component Route Helper
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_content
+ * @package     Joomla.Site
+ * @subpackage  com_content
  * @since 1.5
  */
 abstract class ContentHelperRoute
@@ -25,7 +25,7 @@ abstract class ContentHelperRoute
 	protected static $lookup;
 
 	/**
-	 * @param	int	The route of the content item
+	 * @param       int	The route of the content item
 	 */
 	public static function getArticleRoute($id, $catid = 0, $language = 0)
 	{

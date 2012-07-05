@@ -15,18 +15,18 @@ jimport('joomla.application.component.modellist');
  * Extension Manager Abstract Extension Model
  *
  * @abstract
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.5
  */
 class InstallerModel extends JModelList
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -47,10 +47,10 @@ class InstallerModel extends JModelList
 	/**
 	 * Returns an object list
 	 *
-	 * @param	string The query
-	 * @param	int Offset
-	 * @param	int The number of records
-	 * @return	array
+	 * @param       string The query
+	 * @param       int Offset
+	 * @param       int The number of records
+	 * @return      array
 	 */
 	protected function _getList($query, $limitstart = 0, $limit = 0)
 	{
@@ -91,8 +91,8 @@ class InstallerModel extends JModelList
 	/**
 	 * Translate a list of objects
 	 *
-	 * @param	array The array of objects
-	 * @return	array The array of translated objects
+	 * @param       array The array of objects
+	 * @return      array The array of translated objects
 	 */
 	private function translate(&$items)
 	{

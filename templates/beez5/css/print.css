@@ -1,7 +1,7 @@
 /**
  * @author Design & Accessible Team ( Angie Radtke / Robert Deutz )
  * @package Joomla
- * @subpackage Accessible-Template-Beez
+ * @subpackage  Accessible-Template-Beez
  * @copyright Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
  * @license GNU/GPL, see LICENSE.php
  * Joomla! is free software. This version may have been modified pursuant to the
@@ -15,42 +15,37 @@
 /* not ready */
 
 h1,
-#main h1
-{
-      font-size: 16pt;
-      font-weight: bold;
-      margin: 0.4em 0 0.5em 0;
-      padding:0;
+#main h1 {
+	font-size: 16pt;
+	font-weight: bold;
+	margin: 0.4em 0 0.5em 0;
+	padding:0;
 }
 
 h2,
-#main h2
-{
-      font-size: 14pt;
-      font-weight: bold;
-      margin: 0.2em 0 0.5em 0;
-      padding: 0.3em 0.3em 0.3em 0;
+#main h2 {
+	font-size: 14pt;
+	font-weight: bold;
+	margin: 0.2em 0 0.5em 0;
+	padding: 0.3em 0.3em 0.3em 0;
 }
 
-h3
-{
-      font-size: 12pt;
-      font-weight: bold;
-      margin: 0.4em 0 0.2em 0;
+h3 {
+	font-size: 12pt;
+	font-weight: bold;
+	margin: 0.4em 0 0.2em 0;
 }
 
 /* Vermeidung von Seitenumbr�chen direkt nach einer �berschrift */
 h1,
 h2,
-h3
-{
-      page-break-after: avoid;
+h3 {
+	page-break-after: avoid;
 }
 
-body
-{
-  line-height:150%;
-  font-family:Arial, Verdana, Helvetica, sans-serif;
+body {
+	line-height:150%;
+	font-family:Arial, Verdana, Helvetica, sans-serif;
 }
 
 p,
@@ -60,25 +55,20 @@ address,
 table,
 label,
 dt,
-dd
-{
-  font-size:10pt
+dd {
+	font-size:10pt;
 }
 
-address
-{
-	font-style:normal
+address {
+	font-style:normal;
 }
 
-.contact-address address span
-{
-	display:block
+.contact-address address span {
+	display:block;
 }
 
-a
-{
-
-      font-weight: bold;
+a {
+	font-weight: bold;
 }
 
 .unseen,
@@ -95,129 +85,106 @@ ul.actions,
 #bottom,
 .pagination,
 #footer,
-#header-image
-
-{
-      display: none;
+#header-image {
+	display: none;
 }
 
-.skiplinks, #suckerfish
-{
-	display:none !important
+.skiplinks, #suckerfish {
+	display:none !important;
 }
 
-#header .logoheader
-{
-	border:0
+#header .logoheader {
+	border:0;
 }
 
-#header
-{
-      width: auto;
+#header {
+	width: auto;
 }
 
-#all #back #header
-{
-padding-top:0
+#all #back #header {
+	padding-top:0;
 }
 
 
-#all
-{
-      text-align:left;
-      border:solid 0px #000
+#all {
+	text-align:left;
+	border:solid 0px #000;
 }
 
-#back
-{
-  border:solid 0px #000;
-  padding:0
+#back {
+	border:solid 0px #000;
+	padding:0;
 }
 
-#right
-{
-      display: block;
+#right {
+	display: block;
 }
 
-#header h1#logo
-{
-  font-size:20pt;
-  font-weight:normal
+#header h1#logo {
+	font-size:20pt;
+	font-weight:normal;
 }
 
 #contentarea2,
-#contentarea
-{
+#contentarea {
 	border: solid 0px #000;
-	padding:0 !important
+	padding:0 !important;
 }
 
-#main .blog-featured h1
-{
-  padding:0 !important;
+#main .blog-featured h1 {
+	padding:0 !important;
 }
 
-#main #top
-{
-  overflow:hidden;
-  margin-bottom:25pt;
-  border:0
+#main #top {
+	overflow:hidden;
+	margin-bottom:25pt;
+	border:0;
 }
 
-#main .categories-listalphabet ul
-{
-	padding-left:0
+#main .categories-listalphabet ul {
+	padding-left:0;
 }
 
-#main .categories-listalphabet ul li
-{
+#main .categories-listalphabet ul li {
 	display:inline;
 	padding:5pt;
-	border-right:solid 1pt #ddd
+	border-right:solid 1pt #ddd;
 }
 
-#wrapper
-{
+#wrapper {
 	display:block;
 	width:100% !important;
 }
 
-.item
-{
-  margin-bottom:30pt
+.item {
+	margin-bottom:30pt;
 }
 
-.category-desc
-{
-	margin:15pt 0
+.category-desc {
+	margin:15pt 0;
 }
 
-.items-leading
-{
-	margin-bottom:30pt
+.items-leading {
+	margin-bottom:30pt;
 }
 
 #main .items-leading h2,
-#main .item h2
-{
-      font-size: 14pt;
-      font-weight: bold;
+#main .item h2 {
+	font-size: 14pt;
+	font-weight: bold;
 }
 
-h2 a
-{
-	text-decoration:none
+h2 a {
+	text-decoration:none;
 }
 
-#main h1
-{
-	padding:5pt
+#main h1 {
+	padding:5pt;
 }
 
-#main .readmore a
-{
-  border:0 !important;
-  padding-left:0 !important
+#main .readmore a {
+	border:0 !important;
+	padding-left:0 !important;
 }
 
 .image-left {
@@ -225,240 +192,201 @@ h2 a
 	margin:0 15pt 5pt 0;
 }
 
-table
-{
-  margin:20pt 0;
-  border-collapse:collapse;
-  width:90%;
+table {
+	margin:20pt 0;
+	border-collapse:collapse;
+	width:90%;
 }
 
 table td,
-table th
-{
-  padding:2pt 5pt;
-  border:solid 1pt #ddd
+table th {
+	padding:2pt 5pt;
+	border:solid 1pt #ddd;
 }
 
-.items-more h3
-{
+.items-more h3 {
 	padding: 5pt 0;
-	font-size:14pt
+	font-size:14pt;
 }
 
-.items-more ol li a
-{
-	font-weight:normal
+.items-more ol li a {
+	font-weight:normal;
 }
 
-#nav a.readmore
-{
-  font-size:10pt
+#nav a.readmore {
+	font-size:10pt;
 }
 
-#nav .module_content
-{
-  margin-bottom:20pt;
-  border:0 !important;
-  padding:0 !important
+#nav .module_content {
+	margin-bottom:20pt;
+	border:0 !important;
+	padding:0 !important;
 }
 
-#nav .moduletable ul.menu
-{
+#nav .moduletable ul.menu {
 	border:0;
 	list-style-type:none;
-	padding:0
+	padding:0;
 }
 
 #nav .moduletable ul.menu,
 #nav .moduletable ul.menu ul,
-#nav .moduletable ul.menu ul ul
-{
+#nav .moduletable ul.menu ul ul {
 	border:0;
-	list-style-type:none
+	list-style-type:none;
 }
 
 #nav .moduletable ul.menu ul,
-#nav .moduletable ul.menu ul ul
-{
-	padding-left:15pt
+#nav .moduletable ul.menu ul ul {
+	padding-left:15pt;
 }
 
-#nav .moduletable ul.menu li
-{
-  border:0
+#nav .moduletable ul.menu li {
+	border:0;
 }
 
 #nav .moduletable ul.menu li a,
 #nav .moduletable ul.menu li.active ul li a,
-#nav .moduletable ul.menu li.active ul li.active ul li a
-{
+#nav .moduletable ul.menu li.active ul li.active ul li a {
 	text-decoration:none;
-	border:solid 0px #000
+	border:solid 0px #000;
 }
 
-ul#archive-items
-{
+ul#archive-items {
 	list-style-type:none;
-	padding-left:0
+	padding-left:0;
 }
 
-.moduletable
-{
-  margin:20pt 0
+.moduletable {
+	margin:20pt 0;
 }
 
-dl.article-info
-{
+dl.article-info {
 	line-height:120%;
-	font-size:9pt
+	font-size:9pt;
 }
 
-dl.article-info dd
-{
-	margin-left:0
+dl.article-info dd {
+	margin-left:0;
 }
 
-h3.js_heading a img
-{
-  border:0
+h3.js_heading a img {
+	border:0;
 }
 
 h3.js_heading,
 #bottom h3,
 .moduletable h3,
-#nav h3
-{
-  font-size:12pt !important;
+#nav h3 {
+	font-size:12pt !important;
 }
 
-.category-list
-{
+.category-list {
 	padding:0 !important;
 }
 
-.moduletable_js
-{
-  margin-bottom:20pt
+.moduletable_js {
+	margin-bottom:20pt;
 }
 
-.tabouter
-{
-  border:solid 0px ;
-  overflow:hidden;
-  margin:20pt 0
+.tabouter {
+	border:solid 0px;
+	overflow:hidden;
+	margin:20pt 0;
 }
 
-ul.tabs
-{
-  padding:0;
+ul.tabs {
+	padding:0;
 }
 
-ul.tabs li.tab
-{
-  list-style-type:none;
-  text-transform:uppercase;
-  display:inline;
-  border-right:solid 1pt #ddd;
-  padding:2pt 10pt
+ul.tabs li.tab {
+	list-style-type:none;
+	text-transform:uppercase;
+	display:inline;
+	border-right:solid 1pt #ddd;
+	padding:2pt 10pt;
 }
 
-ul.tabs li.tab a
-{
-  text-decoration:none;
+ul.tabs li.tab a {
+	text-decoration:none;
 }
 
-.tabcontent
-{
-  padding:10pt
+.tabcontent {
+	padding:10pt;
 }
 
-.contact-email div
-{
-	overflow:hidden
+.contact-email div {
+	overflow:hidden;
 }
 
-.contact-email label
-{
+.contact-email label {
 	border:solid 0px #000;
 	float:left;
-	width:10em
+	width:10em;
 }
 
-.login div
-{
-	overflow:hidden
+.login div {
+	overflow:hidden;
 }
 
-.login label
-{
+.login label {
 	float:left;
-	width:10em
+	width:10em;
 }
 
-form fieldset dt
-{
+form fieldset dt {
 	clear:left;
 	float:left;
 	width:12em;
 }
 
-legend
-{
+legend {
 	background:#fff;
-	font-size:.85em
+	font-size:.85em;
 }
 
 .phrases,
-.only
-{
-	margin-bottom:15pt
+.only {
+	margin-bottom:15pt;
 }
 
-.newsflash a.readmore:link
-{
-	border: solid 0pt ;
+.newsflash a.readmore:link {
+	border: solid 0pt;
 	font-weight:normal;
 	font-size:0.8em;
-	text-decoration:none
+	text-decoration:none;
 }
 
-.stats dt
-{
+.stats dt {
 	float:left;
-	width:10em
+	width:10em;
 }
 
-#footer-outer
-{
-  border:solid 0px;
-  padding:0;
-  background:none
+#footer-outer {
+	border:solid 0px;
+	padding:0;
+	background:none;
 }
 
-#bottom
-{
-  text-align:left
+#bottom {
+	text-align:left;
 }
 
-#footer-outer #bottom .box .moduletable
-{
-  border-bottom:solid 1px #ddd;
-  padding:10pt 0
+#footer-outer #bottom .box .moduletable {
+	border-bottom:solid 1px #ddd;
+	padding:10pt 0;
 }
 
 #footer-outer #bottom .box1,
-#footer-outer #bottom .box3
-{
-  border:0;
+#footer-outer #bottom .box3 {
+	border:0;
 }
 
-#bottom ul
-{
-  list-style-type:none;
-  padding:0 !important
+#bottom ul {
+	list-style-type:none;
+	padding:0 !important;
 }
 
-#bottom ul li
-{
-  border:solid 0px #c00
+#bottom ul li {
+	border:solid 0px #c00;
 }

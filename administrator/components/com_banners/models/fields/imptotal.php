@@ -12,25 +12,25 @@ defined('JPATH_BASE') or die;
 /**
  * Impressions Field class for the Joomla Framework.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class JFormFieldImpTotal extends JFormField
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $type = 'ImpTotal';
 
 	/**
 	 * Method to get the field input markup.
 	 *
-	 * @return	string	The field input markup.
-	 * @since	1.6
+	 * @return      string	The field input markup.
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{

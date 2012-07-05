@@ -32,13 +32,13 @@ $data	= $this->get('data');
 	</h2>
 	<div class="mailto-close">
 		<a href="javascript: void window.close()" title="<?php echo JText::_('COM_MAILTO_CLOSE_WINDOW'); ?>">
-		 <span><?php echo JText::_('COM_MAILTO_CLOSE_WINDOW'); ?> </span></a>
+		<span><?php echo JText::_('COM_MAILTO_CLOSE_WINDOW'); ?> </span></a>
 	</div>
 
 	<form action="<?php echo JURI::base() ?>index.php" id="mailtoForm" method="post">
 		<div class="formelm">
 			<label for="mailto_field"><?php echo JText::_('COM_MAILTO_EMAIL_TO'); ?></label>
-			<input type="text" id="mailto_field" name="mailto" class="inputbox" size="25" value="<?php echo $this->escape($data->mailto); ?>"/>
+			<input type="text" id="mailto_field" name="mailto" class="inputbox" size="25" value="<?php echo $this->escape($data->mailto); ?>" />
 		</div>
 		<div class="formelm">
 			<label for="sender_field">

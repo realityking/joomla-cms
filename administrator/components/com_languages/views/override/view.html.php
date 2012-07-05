@@ -12,44 +12,44 @@ defined('_JEXEC') or die;
 /**
  * View to edit an language override
  *
- * @package			Joomla.Administrator
- * @subpackage	com_languages
- * @since				2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       2.5
  */
 class LanguagesViewOverride extends JViewLegacy
 {
 	/**
 	 * The form to use for the view
 	 *
-	 * @var		object
-	 * @since	2.5
+	 * @var         object
+	 * @since       2.5
 	 */
 	protected $form;
 
 	/**
 	 * The item to edit
 	 *
-	 * @var		object
-	 * @since	2.5
+	 * @var         object
+	 * @since       2.5
 	 */
 	protected $item;
 
 	/**
 	 * The model state
 	 *
-	 * @var		object
-	 * @since	2.5
+	 * @var         object
+	 * @since       2.5
 	 */
 	protected $state;
 
 	/**
 	 * Displays the view
 	 *
-	 * @param		string	$tpl	The name of the template file to parse
+	 * @param       string	$tpl	The name of the template file to parse
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function display($tpl = null)
 	{
@@ -90,7 +90,7 @@ class LanguagesViewOverride extends JViewLegacy
 	 *
 	 * @return void
 	 *
-	 * @since	2.5
+	 * @since       2.5
 	 */
 	protected function addToolbar()
 	{

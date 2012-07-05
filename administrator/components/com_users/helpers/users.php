@@ -19,19 +19,19 @@ defined('_JEXEC') or die;
 class UsersHelper
 {
 	/**
-	 * @var    JObject  A cache for the available actions.
-	 * @since  1.6
+	 * @var         JObject  A cache for the available actions.
+	 * @since       1.6
 	 */
 	protected static $actions;
 
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param   string  $vName  The name of the active view.
+	 * @param       string  $vName  The name of the active view.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -74,9 +74,9 @@ class UsersHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return  JObject
+	 * @return      JObject
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 * @todo    Refactor to work with notes
 	 */
 	public static function getActions()
@@ -100,9 +100,9 @@ class UsersHelper
 	/**
 	 * Get a list of filter options for the blocked state of a user.
 	 *
-	 * @return  array  An array of JHtmlOption elements.
+	 * @return      array  An array of JHtmlOption elements.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	static function getStateOptions()
 	{
@@ -117,9 +117,9 @@ class UsersHelper
 	/**
 	 * Get a list of filter options for the activated state of a user.
 	 *
-	 * @return  array  An array of JHtmlOption elements.
+	 * @return      array  An array of JHtmlOption elements.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	static function getActiveOptions()
 	{
@@ -134,9 +134,9 @@ class UsersHelper
 	/**
 	 * Get a list of the user groups for filtering.
 	 *
-	 * @return  array  An array of JHtmlOption elements.
+	 * @return      array  An array of JHtmlOption elements.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	static function getGroups()
 	{
@@ -169,9 +169,9 @@ class UsersHelper
 	 * Creates a list of range options used in filter select list
 	 * used in com_users on users view
 	 *
-	 * @return  array
+	 * @return      array
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function getRangeOptions()
 	{

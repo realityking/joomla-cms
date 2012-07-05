@@ -14,20 +14,20 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Languages Strings JSON Controller
  *
- * @package			Joomla.Administrator
- * @subpackage	com_languages
- * @since				2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       2.5
  */
 class LanguagesControllerStrings extends JControllerAdmin
 {
 	/**
 	 * Constructor
 	 *
-	 * @param		array	An optional associative array of configuration settings
+	 * @param       array	An optional associative array of configuration settings
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function __construct($config = array())
 	{
@@ -39,9 +39,9 @@ class LanguagesControllerStrings extends JControllerAdmin
 	/**
 	 * Method for refreshing the cache in the database with the known language strings
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function refresh()
 	{
@@ -51,9 +51,9 @@ class LanguagesControllerStrings extends JControllerAdmin
 	/**
 	 * Method for searching language strings
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function search()
 	{

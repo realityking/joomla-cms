@@ -12,17 +12,17 @@ defined('_JEXEC') or die;
 /**
  * Weblinks helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_weblinks
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_weblinks
+ * @since       1.6
  */
 class WeblinksHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
-	 * @since	1.6
+	 * @param       string	The name of the active view.
+	 * @since       1.6
 	 */
 	public static function addSubmenu($vName = 'weblinks')
 	{
@@ -46,9 +46,9 @@ class WeblinksHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @param	int		The category ID.
-	 * @return	JObject
-	 * @since	1.6
+	 * @param       int		The category ID.
+	 * @return      JObject
+	 * @since       1.6
 	 */
 	public static function getActions($categoryId = 0)
 	{

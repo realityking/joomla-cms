@@ -14,18 +14,18 @@ jimport('joomla.application.component.modellist');
 /**
  * Methods supporting a list of tracks.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersModelTracks extends JModelList
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -44,7 +44,7 @@ class BannersModelTracks extends JModelList
 	}
 
 	/**
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected $basename;
 
@@ -53,7 +53,7 @@ class BannersModelTracks extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -87,8 +87,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Build an SQL query to load the list data.
 	 *
-	 * @return	JDatabaseQuery
-	 * @since	1.6
+	 * @return      JDatabaseQuery
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -162,9 +162,9 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Method to delete rows.
 	 *
-	 * @param	array	An array of item ids.
+	 * @param       array	An array of item ids.
 	 *
-	 * @return	boolean	Returns true on success, false on failure.
+	 * @return      boolean	Returns true on success, false on failure.
 	 */
 	public function delete()
 	{
@@ -238,8 +238,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get file name
 	 *
-	 * @return	string	The file name
-	 * @since	1.6
+	 * @return      string	The file name
+	 * @since       1.6
 	 */
 	public function getBaseName()
 	{
@@ -314,8 +314,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get the category name.
 	 *
-	 * @return	string	The category name
-	 * @since	1.6
+	 * @return      string	The category name
+	 * @since       1.6
 	 */
 	protected function getCategoryName()
 	{
@@ -344,8 +344,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get the category name
 	 *
-	 * @return	string	The category name.
-	 * @since	1.6
+	 * @return      string	The category name.
+	 * @since       1.6
 	 */
 	protected function getClientName()
 	{
@@ -373,8 +373,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get the file type.
 	 *
-	 * @return	string	The file type
-	 * @since	1.6
+	 * @return      string	The file type
+	 * @since       1.6
 	 */
 	public function getFileType()
 	{
@@ -384,8 +384,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get the mime type.
 	 *
-	 * @return	string	The mime type.
-	 * @since	1.6
+	 * @return      string	The mime type.
+	 * @since       1.6
 	 */
 	public function getMimeType()
 	{
@@ -395,8 +395,8 @@ class BannersModelTracks extends JModelList
 	/**
 	 * Get the content
 	 *
-	 * @return	string	The content.
-	 * @since	1.6
+	 * @return      string	The content.
+	 * @since       1.6
 	 */
 	public function getContent()
 	{

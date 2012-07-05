@@ -10,15 +10,15 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_messages
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_messages
+ * @since       1.6
  */
 class JHtmlMessages
 {
 	/**
-	 * @param	int $value	The state value
-	 * @param	int $i
+	 * @param       int $value	The state value
+	 * @param       int $i
 	 */
 	public static function state($value = 0, $i, $canChange)
 	{

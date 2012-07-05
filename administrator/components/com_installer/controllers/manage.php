@@ -10,17 +10,17 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_installer
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
  */
 class InstallerControllerManage extends JControllerLegacy
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -33,7 +33,7 @@ class InstallerControllerManage extends JControllerLegacy
 	/**
 	 * Enable/Disable an extension (if supported).
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function publish()
 	{
@@ -72,8 +72,8 @@ class InstallerControllerManage extends JControllerLegacy
 	/**
 	 * Remove an extension (Uninstall).
 	 *
-	 * @return	void
-	 * @since	1.5
+	 * @return      void
+	 * @since       1.5
 	 */
 	public function remove()
 	{
@@ -93,7 +93,7 @@ class InstallerControllerManage extends JControllerLegacy
 	 *
 	 * Useful for debugging and testing purposes when the XML file might change.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function refresh()
 	{

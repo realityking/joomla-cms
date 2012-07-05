@@ -14,18 +14,18 @@ jimport('joomla.application.component.modellist');
 /**
  * Methods supporting a list of banner records.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersModelClients extends JModelList
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -49,7 +49,7 @@ class BannersModelClients extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -78,9 +78,9 @@ class BannersModelClients extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
+	 * @return      string		A store id.
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -95,7 +95,7 @@ class BannersModelClients extends JModelList
 	/**
 	 * Build an SQL query to load the list data.
 	 *
-	 * @return	JDatabaseQuery
+	 * @return      JDatabaseQuery
 	 */
 	protected function getListQuery()
 	{

@@ -12,20 +12,20 @@ defined('_JEXEC') or die;
 /**
  * The Menu List Controller
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @since       1.6
  */
 class MenusControllerMenus extends JControllerLegacy
 {
 	/**
 	 * Display the view
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	1.6
+	 * @return      JController		This object to support chaining.
+	 * @since       1.6
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
@@ -34,13 +34,13 @@ class MenusControllerMenus extends JControllerLegacy
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Menu', $prefix = 'MenusModel', $config = array('ignore_request' => true))
 	{
@@ -83,7 +83,7 @@ class MenusControllerMenus extends JControllerLegacy
 	/**
 	 * Rebuild the menu tree.
 	 *
-	 * @return	bool	False on failure or error, true on success.
+	 * @return      bool	False on failure or error, true on success.
 	 */
 	public function rebuild()
 	{

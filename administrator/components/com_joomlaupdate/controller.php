@@ -12,20 +12,20 @@ defined('_JEXEC') or die;
 /**
  * Joomla! Update Controller
  *
- * @package		Joomla.Administrator
- * @subpackage	com_joomlaupdate
- * @since		2.5.4
+ * @package     Joomla.Administrator
+ * @subpackage  com_joomlaupdate
+ * @since       2.5.4
  */
 class JoomlaupdateController extends JControllerLegacy
 {
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	2.5.4
+	 * @return      JController		This object to support chaining.
+	 * @since       2.5.4
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{

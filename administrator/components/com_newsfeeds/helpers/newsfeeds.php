@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Newsfeeds component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_newsfeeds
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_newsfeeds
+ * @since       1.6
  */
 class NewsfeedsHelper
 {
@@ -23,7 +23,7 @@ class NewsfeedsHelper
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -47,9 +47,9 @@ class NewsfeedsHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @param	int		The category ID.
+	 * @param       int		The category ID.
 	 *
-	 * @return	JObject
+	 * @return      JObject
 	 */
 	public static function getActions($categoryId = 0, $newsfeedId = 0)
 	{

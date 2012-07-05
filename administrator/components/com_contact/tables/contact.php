@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_contact
+ * @package     Joomla.Administrator
+ * @subpackage  com_contact
  */
 class ContactTableContact extends JTable
 {
@@ -29,9 +29,9 @@ class ContactTableContact extends JTable
 	/**
 	 * Overloaded bind function
 	 *
-	 * @param	array		Named array
-	 * @return	null|string	null is operation was satisfactory, otherwise returns an error
-	 * @since	1.6
+	 * @param       array		Named array
+	 * @return      null|string	null is operation was satisfactory, otherwise returns an error
+	 * @since       1.6
 	 */
 	public function bind($array, $ignore = '')
 	{
@@ -53,9 +53,9 @@ class ContactTableContact extends JTable
 	/**
 	 * Stores a contact
 	 *
-	 * @param	boolean	True to update fields even if they are null.
-	 * @return	boolean	True on success, false on failure.
-	 * @since	1.6
+	 * @param       boolean	True to update fields even if they are null.
+	 * @return      boolean	True on success, false on failure.
+	 * @since       1.6
 	 */
 	public function store($updateNulls = false)
 	{
@@ -96,9 +96,9 @@ class ContactTableContact extends JTable
 	/**
 	 * Overloaded check function
 	 *
-	 * @return boolean
-	 * @see JTable::check
-	 * @since 1.5
+	 * @return      boolean
+	 * @see         JTable::check
+	 * @since       1.5
 	 */
 	function check()
 	{

@@ -47,17 +47,17 @@ require_once JPATH_CONFIGURATION . '/configuration.php';
  * This script will fetch the update information for all extensions and store
  * them in the database, speeding up your administrator.
  *
- * @package  Joomla.CLI
- * @since    2.5
+ * @package     Joomla.CLI
+ * @since       2.5
  */
 class Updatecron extends JApplicationCli
 {
 	/**
 	 * Entry point for the script
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function doExecute()
 	{

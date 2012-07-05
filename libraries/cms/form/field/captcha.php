@@ -12,16 +12,16 @@ defined('JPATH_BASE') or die;
 /**
  * Form Field class for the Joomla Framework.
  *
- * @package		Joomla.Libraries
- * @subpackage	Form
- * @since		2.5
+ * @package     Joomla.Libraries
+ * @subpackage  Form
+ * @since       2.5
  */
 class JFormFieldCaptcha extends JFormField
 {
 	/**
 	 * The field type.
 	 *
-	 * @var		string
+	 * @var  string
 	 */
 	protected $type = 'Captcha';
 
@@ -65,7 +65,7 @@ class JFormFieldCaptcha extends JFormField
 	/**
 	 * Method to get the field input.
 	 *
-	 * @return	string		The field input.
+	 * @return  string  The field input.
 	 *
 	 * @since   2.5
 	 */
@@ -82,7 +82,6 @@ class JFormFieldCaptcha extends JFormField
 		}
 		else
 		{
-
 			if (($captcha = JCaptcha::getInstance($plugin, array('namespace' => $namespace))) == null)
 			{
 				return '';

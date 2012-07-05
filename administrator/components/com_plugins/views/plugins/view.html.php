@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of plugins.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_plugins
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_plugins
+ * @since       1.5
  */
 class PluginsViewPlugins extends JViewLegacy
 {
@@ -52,7 +52,7 @@ class PluginsViewPlugins extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

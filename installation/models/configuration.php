@@ -213,9 +213,9 @@ class InstallationModelConfiguration extends JModelLegacy
 	}
 
 	/**
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	function _createRootUser($options)
 	{

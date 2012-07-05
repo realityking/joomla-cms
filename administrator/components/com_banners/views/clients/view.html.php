@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of clients.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersViewClients extends JViewLegacy
 {
@@ -45,7 +45,7 @@ class BannersViewClients extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

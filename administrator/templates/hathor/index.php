@@ -86,14 +86,14 @@ $file = 'language/'.$lang->getTag().'/'.$lang->getTag().'.css';
 	<div id="nav">
 		<div id="module-menu">
 			<h2 class="element-invisible"><?php echo JText::_('TPL_HATHOR_MAIN_MENU'); ?></h2>
-			<jdoc:include type="modules" name="menu"/>
+			<jdoc:include type="modules" name="menu" />
 		</div>
 		<div class="clr"></div>
 	</div><!-- end nav -->
 
 	<!-- Status Module -->
 	<div id="module-status">
-		<jdoc:include type="modules" name="status"/>
+		<jdoc:include type="modules" name="status" />
 		<?php
 			//Display an harcoded logout
 			$task = JRequest::getCmd('task');
@@ -164,7 +164,7 @@ $file = 'language/'.$lang->getTag().'/'.$lang->getTag().'.css';
 
 <!-- Footer -->
 <div id="footer">
-	<jdoc:include type="modules" name="footer" style="none"  />
+	<jdoc:include type="modules" name="footer" style="none" />
 	<p class="copyright">
 		<?php $joomla= '<a href="http://www.joomla.org">Joomla!&#174;</a>';
 			echo JText::sprintf('JGLOBAL_ISFREESOFTWARE', $joomla) ?>

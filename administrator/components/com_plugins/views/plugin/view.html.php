@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View to edit a plugin.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_plugins
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_plugins
+ * @since       1.5
  */
 class PluginsViewPlugin extends JViewLegacy
 {
@@ -44,7 +44,7 @@ class PluginsViewPlugin extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

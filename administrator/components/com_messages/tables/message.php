@@ -14,9 +14,9 @@ jimport('joomla.database.table');
 /**
  * Message Table class
  *
- * @package		Joomla.Administrator
- * @subpackage	com_messages
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_messages
+ * @since       1.5
  */
 class MessagesTableMessage extends JTable
 {
@@ -68,12 +68,12 @@ class MessagesTableMessage extends JTable
 	 * table.  The method respects checked out rows by other users and will attempt
 	 * to checkin rows that it can after adjustments are made.
 	 *
-	 * @param	mixed	An optional array of primary key values to update.  If not
+	 * @param       mixed	An optional array of primary key values to update.  If not
 	 *					set the instance property value is used.
-	 * @param	integer The publishing state. eg. [0 = unpublished, 1 = published]
-	 * @param	integer The user id of the user performing the operation.
-	 * @return	boolean	True on success.
-	 * @since	1.6
+	 * @param       integer The publishing state. eg. [0 = unpublished, 1 = published]
+	 * @param       integer The user id of the user performing the operation.
+	 * @return      boolean	True on success.
+	 * @since       1.6
 	 */
 	public function publish($pks = null, $state = 1, $userId = 0)
 	{

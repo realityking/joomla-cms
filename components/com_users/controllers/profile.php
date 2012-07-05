@@ -14,16 +14,16 @@ require_once JPATH_COMPONENT.'/controller.php';
 /**
  * Profile controller class for Users.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersControllerProfile extends UsersController
 {
 	/**
 	 * Method to check out a user for editing and redirect to the edit form.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function edit()
 	{
@@ -64,8 +64,8 @@ class UsersControllerProfile extends UsersController
 	/**
 	 * Method to save a user's profile data.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public function save()
 	{

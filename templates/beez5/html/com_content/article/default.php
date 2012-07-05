@@ -168,7 +168,7 @@ if ($params->get('show_title')) : ?>
 		<?php if ($images->image_fulltext_caption):
 			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) .'"';
 		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
+		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>" />
 	</div>
 	<?php endif; ?>
 <?php

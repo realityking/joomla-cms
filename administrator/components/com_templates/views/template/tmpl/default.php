@@ -121,8 +121,8 @@ $canDo	= TemplatesHelper::getActions();
 		method="post" name="adminForm" id="adminForm">
 	<fieldset class="adminform" id="template-manager-css">
 		<legend><?php echo JText::_('COM_TEMPLATES_TEMPLATE_COPY');?></legend>
-		<label id="new_name" class="hasTip"  title="<?php echo JText::_('COM_TEMPLATES_TEMPLATE_NEW_NAME_DESC'); ?>"><?php echo JText::_('COM_TEMPLATES_TEMPLATE_NEW_NAME_LABEL')?></label>
-		<input class="inputbox" type="text" id="new_name" name="new_name"  />
+		<label id="new_name" class="hasTip" title="<?php echo JText::_('COM_TEMPLATES_TEMPLATE_NEW_NAME_DESC'); ?>"><?php echo JText::_('COM_TEMPLATES_TEMPLATE_NEW_NAME_LABEL')?></label>
+		<input class="inputbox" type="text" id="new_name" name="new_name" />
 		<button type="submit"><?php echo JText::_('COM_TEMPLATES_TEMPLATE_COPY'); ?></button>
 	</fieldset>
 	<?php echo JHtml::_('form.token'); ?>

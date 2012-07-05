@@ -23,10 +23,10 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Constructor.
 	 *
-	 * @param   array  $config  An associative array of configuration settings. [optional]
+	 * @param       array  $config  An associative array of configuration settings. [optional]
 	 *
-	 * @since   2.5
-	 * @see     JController
+	 * @since       2.5
+	 * @see         JController
 	 */
 	public function __construct($config = array())
 	{
@@ -44,11 +44,11 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to test whether a record can be deleted.
 	 *
-	 * @param   object  $record  A record object.
+	 * @param       object  $record  A record object.
 	 *
-	 * @return  boolean  True if allowed to delete the record. Defaults to the permission for the component.
+	 * @return      boolean  True if allowed to delete the record. Defaults to the permission for the component.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function canDelete($record)
 	{
@@ -59,11 +59,11 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to test whether a record can be deleted.
 	 *
-	 * @param   object  $record  A record object.
+	 * @param       object  $record  A record object.
 	 *
-	 * @return  boolean  True if allowed to change the state of the record. Defaults to the permission for the component.
+	 * @return      boolean  True if allowed to change the state of the record. Defaults to the permission for the component.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function canEditState($record)
 	{
@@ -74,11 +74,11 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to delete one or more records.
 	 *
-	 * @param   array  &$pks  An array of record primary keys.
+	 * @param       array  &$pks  An array of record primary keys.
 	 *
-	 * @return  boolean  True if successful, false if an error occurs.
+	 * @return      boolean  True if successful, false if an error occurs.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function delete(&$pks)
 	{
@@ -148,9 +148,9 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Build an SQL query to load the list data.
 	 *
-	 * @return  JDatabaseQuery  A JDatabaseQuery object
+	 * @return      JDatabaseQuery  A JDatabaseQuery object
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getListQuery()
 	{
@@ -209,11 +209,11 @@ class FinderModelMaps extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param   string  $id  A prefix for the store id. [optional]
+	 * @param       string  $id  A prefix for the store id. [optional]
 	 *
-	 * @return  string  A store id.
+	 * @return      string  A store id.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -228,13 +228,13 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Returns a JTable object, always creating it.
 	 *
-	 * @param   string  $type    The table type to instantiate. [optional]
-	 * @param   string  $prefix  A prefix for the table class name. [optional]
-	 * @param   array   $config  Configuration array for model. [optional]
+	 * @param       string  $type    The table type to instantiate. [optional]
+	 * @param       string  $prefix  A prefix for the table class name. [optional]
+	 * @param       array   $config  Configuration array for model. [optional]
 	 *
-	 * @return  JTable  A database object
+	 * @return      JTable  A database object
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getTable($type = 'Map', $prefix = 'FinderTable', $config = array())
 	{
@@ -244,12 +244,12 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to auto-populate the model state.  Calling getState in this method will result in recursion.
 	 *
-	 * @param   string  $ordering   An optional ordering field. [optional]
-	 * @param   string  $direction  An optional direction. [optional]
+	 * @param       string  $ordering   An optional ordering field. [optional]
+	 * @param       string  $direction  An optional direction. [optional]
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -274,12 +274,12 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to change the published state of one or more records.
 	 *
-	 * @param   array    &$pks   A list of the primary keys to change.
-	 * @param   integer  $value  The value of the published state. [optional]
+	 * @param       array    &$pks   A list of the primary keys to change.
+	 * @param       integer  $value  The value of the published state. [optional]
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function publish(&$pks, $value = 1)
 	{
@@ -336,9 +336,9 @@ class FinderModelMaps extends JModelList
 	/**
 	 * Method to purge all maps from the taxonomy.
 	 *
-	 * @return  boolean  Returns true on success, false on failure.
+	 * @return      boolean  Returns true on success, false on failure.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function purge()
 	{

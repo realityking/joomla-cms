@@ -11,17 +11,17 @@ defined('_JEXEC') or die;
 /**
  * Setup model for the Joomla Core Installer.
  *
- * @package  Joomla.Installation
- * @since    3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationModelSetup extends JModelLegacy
 {
 	/**
 	 * Get the current setup options from the session.
 	 *
-	 * @return	array
+	 * @return      array
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getOptions()
 	{
@@ -34,11 +34,11 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Store the current setup options in the session.
 	 *
-	 * @param   array   $options
+	 * @param       array   $options
 	 *
-	 * @return  array
+	 * @return      array
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function storeOptions($options)
 	{
@@ -63,9 +63,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Method to get the link form.
 	 *
-	 * @return	mixed	JForm object on success, false on failure.
+	 * @return      mixed	JForm object on success, false on failure.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getForm($view = null)
 	{
@@ -106,9 +106,9 @@ class InstallationModelSetup extends JModelLegacy
 
 	/**
 	 *
-	 * @return	array
+	 * @return      array
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getDboptions()
 	{
@@ -153,9 +153,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Generate a panel of language choices for the user to select their language
 	 *
-	 * @return	boolean True if successful
+	 * @return      boolean True if successful
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getLanguages()
 	{
@@ -192,9 +192,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Checks the availability of the parse_ini_file and parse_ini_string functions.
 	 *
-	 * @return	boolean
+	 * @return      boolean
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getIniParserAvailability()
 	{
@@ -223,9 +223,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Gets PHP options.
 	 *
-	 * @return	array
+	 * @return      array
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getPhpOptions()
 	{
@@ -308,9 +308,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Checks if all of the mandatory PHP options are met
 	 *
-	 * @return	boolean
+	 * @return      boolean
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getPhpOptionsSufficient()
 	{
@@ -331,9 +331,9 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Gets PHP Settings.
 	 *
-	 * @return	array
+	 * @return      array
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function getPhpSettings()
 	{
@@ -409,12 +409,12 @@ class InstallationModelSetup extends JModelLegacy
 	/**
 	 * Method to validate the form data.
 	 *
-	 * @param   array   $data  The form data.
-	 * @param   string  $view  The view.
+	 * @param       array   $data  The form data.
+	 * @param       string  $view  The view.
 	 *
-	 * @return	mixed	Array of filtered data if valid, false otherwise.
+	 * @return      mixed	Array of filtered data if valid, false otherwise.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function validate($data, $view = null)
 	{

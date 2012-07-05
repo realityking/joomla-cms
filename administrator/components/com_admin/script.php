@@ -19,8 +19,8 @@ class joomlaInstallerScript
 	/**
 	 * method to preflight the update of Joomla!
 	 *
-	 * @param	string          $route      'update' or 'install'
-	 * @param	JInstallerFile  $installer  The class calling this method
+	 * @param       string          $route      'update' or 'install'
+	 * @param       JInstallerFile  $installer  The class calling this method
 	 *
 	 * @return void
 	 */
@@ -46,7 +46,7 @@ class joomlaInstallerScript
 	/**
 	 * method to update Joomla!
 	 *
-	 * @param	JInstallerFile	$installer	The class calling this method
+	 * @param       JInstallerFile	$installer	The class calling this method
 	 *
 	 * @return void
 	 */

@@ -786,7 +786,6 @@ INSERT INTO `#__template_styles` (`id`, `template`, `client_id`, `home`, `title`
 (114, 'beez_20', 0, 0, 'Beez2 - Parks Site', '{"wrapperSmall":"53","wrapperLarge":"72","logo":"","sitetitle":"Australian Parks","sitedescription":"Parks Sample Site","navposition":"center","templatecolor":"nature"}');
 
 
-
 DELETE FROM `#__usergroups`;
 --
 -- Dumping data for table `#__usergroups`

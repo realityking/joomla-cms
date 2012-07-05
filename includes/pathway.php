@@ -11,19 +11,19 @@ defined('_JEXEC') or die;
 /**
  * Class to manage the site application pathway.
  *
- * @package		Joomla.Site
- * @subpackage	Application
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  Application
+ * @since       1.5
  */
 class JPathwaySite extends JPathway
 {
 	/**
 	 * Class constructor.
 	 *
-	 * @param	array
+	 * @param       array
 	 *
-	 * @return	JPathwaySite
-	 * @since	1.5
+	 * @return      JPathwaySite
+	 * @since       1.5
 	 */
 	public function __construct($options = array())
 	{

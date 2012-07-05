@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
@@ -8,9 +8,9 @@
  *
  * Used for displaying image captions
  *
- * @package		Joomla
- * @since		1.5
- * @version	 1.0
+ * @package     Joomla
+ * @since       1.5
+ * @version     1.0
  */
 var JCaption = new Class({
 	initialize: function(selector)
@@ -59,4 +59,3 @@ var JCaption = new Class({
 
 	}
 });
-

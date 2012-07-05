@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Frontpage View class
  *
- * @package		Joomla.Site
- * @subpackage	com_contact
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_contact
+ * @since       1.6
  */
 class ContactViewFeatured extends JViewLegacy
 {
@@ -27,7 +27,7 @@ class ContactViewFeatured extends JViewLegacy
 	/**
 	 * Display the view
 	 *
-	 * @return	mixed	False on error, null otherwise.
+	 * @return      mixed	False on error, null otherwise.
 	 */
 	function display($tpl = null)
 	{

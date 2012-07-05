@@ -22,8 +22,8 @@ class FinderIndexerToken
 	 * This is the term that will be referenced in the terms table and the
 	 * mapping tables.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $term;
 
@@ -31,8 +31,8 @@ class FinderIndexerToken
 	 * The stem is used to match the root term and produce more potential
 	 * matches when searching the index.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $stem;
 
@@ -40,8 +40,8 @@ class FinderIndexerToken
 	 * If the token is numeric, it is likely to be short and uncommon so the
 	 * weight is adjusted to compensate for that situation.
 	 *
-	 * @var    boolean
-	 * @since  2.5
+	 * @var         boolean
+	 * @since       2.5
 	 */
 	public $numeric;
 
@@ -49,24 +49,24 @@ class FinderIndexerToken
 	 * If the token is a common term, the weight is adjusted to compensate for
 	 * the higher frequency of the term in relation to other terms.
 	 *
-	 * @var    boolean
-	 * @since  2.5
+	 * @var         boolean
+	 * @since       2.5
 	 */
 	public $common;
 
 	/**
 	 * Flag for phrase tokens.
 	 *
-	 * @var    boolean
-	 * @since  2.5
+	 * @var         boolean
+	 * @since       2.5
 	 */
 	public $phrase;
 
 	/**
 	 * The length is used to calculate the weight of the token.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	public $length;
 
@@ -74,19 +74,19 @@ class FinderIndexerToken
 	 * The weight is calculated based on token size and whether the token is
 	 * considered a common term.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	public $weight;
 
 	/**
 	 * Method to construct the token object.
 	 *
-	 * @param   mixed   $term    The term as a string for words or an array for phrases.
-	 * @param   string  $lang    The simple language identifier.
-	 * @param   string  $spacer  The space separator for phrases. [optional]
+	 * @param       mixed   $term    The term as a string for words or an array for phrases.
+	 * @param       string  $lang    The simple language identifier.
+	 * @param       string  $spacer  The space separator for phrases. [optional]
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function __construct($term, $lang, $spacer = ' ')
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * HTML View class for the Media component
  *
- * @package		Joomla.Administrator
- * @subpackage	com_media
+ * @package     Joomla.Administrator
+ * @subpackage  com_media
  * @since 1.0
  */
 class MediaViewMedia extends JViewLegacy
@@ -117,7 +117,7 @@ class MediaViewMedia extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * View to edit a template style.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_templates
+ * @package     Joomla.Administrator
+ * @subpackage  com_templates
  * @since 1.6
  */
 class TemplatesViewSource extends JViewLegacy
@@ -49,7 +49,7 @@ class TemplatesViewSource extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

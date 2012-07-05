@@ -21,29 +21,29 @@ class FinderIndexerTaxonomy
 	/**
 	 * An internal cache of taxonomy branch data.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public static $branches = array();
 
 	/**
 	 * An internal cache of taxonomy node data.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public static $nodes = array();
 
 	/**
 	 * Method to add a branch to the taxonomy tree.
 	 *
-	 * @param   string   $title   The title of the branch.
-	 * @param   integer  $state   The published state of the branch. [optional]
-	 * @param   integer  $access  The access state of the branch. [optional]
+	 * @param       string   $title   The title of the branch.
+	 * @param       integer  $state   The published state of the branch. [optional]
+	 * @param       integer  $access  The access state of the branch. [optional]
 	 *
-	 * @return  integer  The id of the branch.
+	 * @return      integer  The id of the branch.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function addBranch($title, $state = 1, $access = 1)
@@ -117,14 +117,14 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to add a node to the taxonomy tree.
 	 *
-	 * @param   string   $branch  The title of the branch to store the node in.
-	 * @param   string   $title   The title of the node.
-	 * @param   integer  $state   The published state of the node. [optional]
-	 * @param   integer  $access  The access state of the node. [optional]
+	 * @param       string   $branch  The title of the branch to store the node in.
+	 * @param       string   $title   The title of the node.
+	 * @param       integer  $state   The published state of the node. [optional]
+	 * @param       integer  $access  The access state of the node. [optional]
 	 *
-	 * @return  integer  The id of the node.
+	 * @return      integer  The id of the node.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function addNode($branch, $title, $state = 1, $access = 1)
@@ -201,12 +201,12 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to add a map entry between a link and a taxonomy node.
 	 *
-	 * @param   integer  $linkId  The link to map to.
-	 * @param   integer  $nodeId  The node to map to.
+	 * @param       integer  $linkId  The link to map to.
+	 * @param       integer  $nodeId  The node to map to.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function addMap($linkId, $nodeId)
@@ -247,9 +247,9 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to get the title of all taxonomy branches.
 	 *
-	 * @return  array  An array of branch titles.
+	 * @return      array  An array of branch titles.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function getBranchTitles()
@@ -285,12 +285,12 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to find a taxonomy node in a branch.
 	 *
-	 * @param   string  $branch  The branch to search.
-	 * @param   string  $title   The title of the node.
+	 * @param       string  $branch  The branch to search.
+	 * @param       string  $title   The title of the node.
 	 *
-	 * @return  mixed  Integer id on success, null on no match.
+	 * @return      mixed  Integer id on success, null on no match.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function getNodeByTitle($branch, $title)
@@ -330,11 +330,11 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to remove map entries for a link.
 	 *
-	 * @param   integer  $linkId  The link to remove.
+	 * @param       integer  $linkId  The link to remove.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function removeMaps($linkId)
@@ -361,9 +361,9 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to remove orphaned taxonomy nodes and branches.
 	 *
-	 * @return  integer  The number of deleted rows.
+	 * @return      integer  The number of deleted rows.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public static function removeOrphanNodes()
@@ -398,11 +398,11 @@ class FinderIndexerTaxonomy
 	/**
 	 * Method to store a node to the database.  This method will accept either a branch or a node.
 	 *
-	 * @param   object  $item  The item to store.
+	 * @param       object  $item  The item to store.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected static function storeNode($item)

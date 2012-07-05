@@ -102,7 +102,8 @@ appendix {
 	display: block;
 }
 
-appendix > title { /* in a book or in a part */
+appendix > title {
+/* in a book or in a part */
 	font-size: 2em;
 	margin: 0.5ex 0;
 	border-width: 1px;
@@ -286,7 +287,7 @@ example > title {
 	font-style: italic;
 	font-weight: normal;
 	text-align: center;
-	margin: 0; /* content of figure generally already has a margin */
+	margin: 0; /* content of figure generally already has a margin */;
 }
 
 mediaobject {
@@ -306,7 +307,7 @@ caption {
 	font-style: italic;
 	font-weight: normal;
 	text-align: center;
-	/* content of caption already has a margin */
+/* content of caption already has a margin */;
 }
 
 audioobject,
@@ -373,7 +374,7 @@ table > title {
 	font-style: italic;
 	font-weight: normal;
 	text-align: center;
-	/* keep margin because tgroup has no margin */
+/* keep margin because tgroup has no margin */;
 }
 
 colspec,
@@ -453,7 +454,7 @@ blockquote > title {
 	font-style: italic;
 	font-weight: normal;
 	text-align: center;
-	margin: 0; /* content of blockquote already has a margin */
+	margin: 0; /* content of blockquote already has a margin */;
 }
 
 attribution {
@@ -531,7 +532,7 @@ sidebar {
 }
 
 sidebar > title {
-	margin: 0; /* content of sidebar already has a margin */
+	margin: 0; /* content of sidebar already has a margin */;
 }
 
 /* =====================================
@@ -545,7 +546,7 @@ sidebar > title {
 qandaset,
 qandadiv {
 	display: block;
-	/* content of qandaset has a margin */
+/* content of qandaset has a margin */;
 }
 
 qandaentry {
@@ -630,7 +631,7 @@ sect5info,
 sectioninfo,
 setindexinfo,
 setinfo,
-sidebarinfo  {
+sidebarinfo {
 	display: block;
 	margin: 0;
 	border: 0px;
@@ -639,7 +640,7 @@ sidebarinfo  {
 
 authorgroup {
 	display: block;
-	/* content of authorgroup has a margin */
+/* content of authorgroup has a margin */;
 }
 
 author,
@@ -676,13 +677,13 @@ contrib {
 authorblurb,
 personblurb {
 	display: block;
-	/* content of authorblurb has a margin */
+/* content of authorblurb has a margin */;
 }
 
 corpauthor,
 corpname {
-	/* Could be block but inline is safer when used in strange places
-	   and when used in meta-info, display is forced to be block. */
+/* Could be block but inline is safer when used in strange places
+		and when used in meta-info, display is forced to be block. */
 	display: inline;
 }
 
@@ -750,7 +751,7 @@ subjectterm:after {
 
 legalnotice {
 	display: block;
-	/* content of legalnotice has a margin */
+/* content of legalnotice has a margin */;
 }
 
 publishername {
@@ -796,7 +797,7 @@ revision > authorinitials:after {
 
 revdescription {
 	display: block;
-	/* content of revdescription has a margin */
+/* content of revdescription has a margin */;
 }
 
 volumenum {
@@ -867,7 +868,7 @@ option {
 
 lineannotation {
 	font-style: italic;
-	font-size: medium; /* occurs in verbatim, fixed font, blocks */
+	font-size: medium; /* occurs in verbatim, fixed font, blocks */;
 }
 
 replaceable {
@@ -1058,7 +1059,8 @@ sect5info > *:first-child,
 sectioninfo > *:first-child,
 setindexinfo > *:first-child,
 setinfo > *:first-child,
-sidebarinfo > *:first-child { /* nicer */
+sidebarinfo > *:first-child {
+/* nicer */
 	margin-top: 0;
 	margin-bottom: 0;
 }

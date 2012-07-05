@@ -15,8 +15,8 @@ jimport('joomla.application.component.helper');
  *
  * Provide many supporting API functions
  *
- * @package		Joomla.Site
- * @subpackage	Application
+ * @package     Joomla.Site
+ * @subpackage  Application
  */
 final class JSite extends JApplication
 {
@@ -39,7 +39,7 @@ final class JSite extends JApplication
 	/**
 	 * Class constructor
 	 *
-	 * @param	array An optional associative array of configuration settings.
+	 * @param       array An optional associative array of configuration settings.
 	 * Recognized key values include 'clientId' (this list is not meant to be comprehensive).
 	 */
 	public function __construct($config = array())
@@ -51,7 +51,7 @@ final class JSite extends JApplication
 	/**
 	 * Initialise the application.
 	 *
-	 * @param	array
+	 * @param       array
 	 */
 	public function initialise($options = array())
 	{
@@ -142,7 +142,7 @@ final class JSite extends JApplication
 	/**
 	 * Dispatch the application
 	 *
-	 * @param	string
+	 * @param       string
 	 */
 	public function dispatch($component = null)
 	{
@@ -278,8 +278,8 @@ final class JSite extends JApplication
 	/**
 	 * Login authentication function
 	 *
-	 * @param	array	Array('username' => string, 'password' => string)
-	 * @param	array	Array('remember' => boolean)
+	 * @param       array	Array('username' => string, 'password' => string)
+	 * @param       array	Array('remember' => boolean)
 	 *
 	 * @see JApplication::login
 	 */
@@ -329,9 +329,9 @@ final class JSite extends JApplication
 	/**
 	 * Get the appliaction parameters
 	 *
-	 * @param	string	The component option
-	 * @return	object	The parameters object
-	 * @since	1.5
+	 * @param       string	The component option
+	 * @return      object	The parameters object
+	 * @since       1.5
 	 */
 	public function getParams($option = null)
 	{
@@ -392,10 +392,10 @@ final class JSite extends JApplication
 	/**
 	 * Get the application parameters
 	 *
-	 * @param	string	The component option
+	 * @param       string	The component option
 	 *
-	 * @return	object	The parameters object
-	 * @since	1.5
+	 * @return      object	The parameters object
+	 * @since       1.5
 	 */
 	public function getPageParameters($option = null)
 	{
@@ -519,11 +519,11 @@ final class JSite extends JApplication
 	/**
 	 * Return a reference to the JPathway object.
 	 *
-	 * @param	string	$name		The name of the application/client.
-	 * @param	array	$options	An optional associative array of configuration settings.
+	 * @param       string	$name		The name of the application/client.
+	 * @param       array	$options	An optional associative array of configuration settings.
 	 *
-	 * @return	object	JMenu.
-	 * @since	1.5
+	 * @return      object	JMenu.
+	 * @since       1.5
 	 */
 	public function getMenu($name = null, $options = array())
 	{
@@ -535,11 +535,11 @@ final class JSite extends JApplication
 	/**
 	 * Return a reference to the JPathway object.
 	 *
-	 * @param	string	$name		The name of the application.
-	 * @param	array	$options	An optional associative array of configuration settings.
+	 * @param       string	$name		The name of the application.
+	 * @param       array	$options	An optional associative array of configuration settings.
 	 *
-	 * @return	object JPathway.
-	 * @since	1.5
+	 * @return      object JPathway.
+	 * @since       1.5
 	 */
 	public function getPathway($name = null, $options = array())
 	{
@@ -551,11 +551,11 @@ final class JSite extends JApplication
 	/**
 	 * Return a reference to the JRouter object.
 	 *
-	 * @param	string	$name		The name of the application.
-	 * @param	array	$options	An optional associative array of configuration settings.
+	 * @param       string	$name		The name of the application.
+	 * @param       array	$options	An optional associative array of configuration settings.
 	 *
-	 * @return	JRouter
-	 * @since	1.5
+	 * @return      JRouter
+	 * @since       1.5
 	 */
 	static public function getRouter($name = null, array $options = array())
 	{
@@ -568,8 +568,8 @@ final class JSite extends JApplication
 	/**
 	 * Return the current state of the language filter.
 	 *
-	 * @return	boolean
-	 * @since	1.6
+	 * @return      boolean
+	 * @since       1.6
 	 */
 	public function getLanguageFilter()
 	{
@@ -579,8 +579,8 @@ final class JSite extends JApplication
 	/**
 	 * Set the current state of the language filter.
 	 *
-	 * @return	boolean	The old state
-	 * @since	1.6
+	 * @return      boolean	The old state
+	 * @since       1.6
 	 */
 	public function setLanguageFilter($state=false)
 	{
@@ -591,8 +591,8 @@ final class JSite extends JApplication
 	/**
 	 * Return the current state of the detect browser option.
 	 *
-	 * @return	boolean
-	 * @since	1.6
+	 * @return      boolean
+	 * @since       1.6
 	 */
 	public function getDetectBrowser()
 	{
@@ -602,8 +602,8 @@ final class JSite extends JApplication
 	/**
 	 * Set the current state of the detect browser option.
 	 *
-	 * @return	boolean	The old state
-	 * @since	1.6
+	 * @return      boolean	The old state
+	 * @since       1.6
 	 */
 	public function setDetectBrowser($state=false)
 	{
@@ -621,14 +621,14 @@ final class JSite extends JApplication
 	 * code in the header pointing to the new location. If the headers have already been
 	 * sent this will be accomplished using a JavaScript statement.
 	 *
-	 * @param	string	The URL to redirect to. Can only be http/https URL
-	 * @param	string	An optional message to display on redirect.
-	 * @param	string  An optional message type.
-	 * @param	boolean	True if the page is 301 Permanently Moved, otherwise 303 See Other is assumed.
-	 * @param	boolean	True if the enqueued messages are passed to the redirection, false else.
-	 * @return	none; calls exit().
-	 * @since	1.5
-	 * @see		JApplication::enqueueMessage()
+	 * @param       string	The URL to redirect to. Can only be http/https URL
+	 * @param       string	An optional message to display on redirect.
+	 * @param       string  An optional message type.
+	 * @param       boolean	True if the page is 301 Permanently Moved, otherwise 303 See Other is assumed.
+	 * @param       boolean	True if the enqueued messages are passed to the redirection, false else.
+	 * @return      none; calls exit().
+	 * @since       1.5
+	 * @see         JApplication::enqueueMessage()
 	 */
 	public function redirect($url, $msg='', $msgType='message', $moved = false, $persistMsg = true)
 	{

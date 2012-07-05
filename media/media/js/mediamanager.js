@@ -1,14 +1,14 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
  * JMediaManager behavior for media component
  *
- * @package		Joomla.Extensions
+ * @package     Joomla.Extensions
  * @subpackage  Media
- * @since		1.5
+ * @since       1.5
  */
 (function() {
 var MediaManager = this.MediaManager = {
@@ -116,8 +116,8 @@ var MediaManager = this.MediaManager = {
 
 	getFolder: function()
 	{
-		var url	 = this.frame.location.search.substring(1);
-		var args	= this.parseQuery(url);
+		var url = this.frame.location.search.substring(1);
+		var args = this.parseQuery(url);
 
 		if (args['folder'] == "undefined") {
 			args['folder'] = "";

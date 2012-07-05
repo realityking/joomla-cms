@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Content Component Controller
  *
- * @package		Joomla.Site
- * @subpackage	com_content
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_content
+ * @since       1.5
  */
 class ContentController extends JControllerLegacy
 {
@@ -36,11 +36,11 @@ class ContentController extends JControllerLegacy
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	1.5
+	 * @return      JController		This object to support chaining.
+	 * @since       1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{

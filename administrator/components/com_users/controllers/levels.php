@@ -14,22 +14,22 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * User view levels list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersControllerLevels extends JControllerAdmin
 {
 	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
+	 * @var         string	The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_USERS_LEVELS';
 
 	/**
 	 * Proxy for getModel.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Level', $prefix = 'UsersModel')
 	{

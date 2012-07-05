@@ -12,17 +12,17 @@ defined('_JEXEC') or die;
 /**
  * Users component debugging helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersHelperDebug
 {
 	/**
 	 * Get a list of the components.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	static function getComponents()
 	{
@@ -64,10 +64,10 @@ class UsersHelperDebug
 	/**
 	 * Get a list of the actions for the component or code actions.
 	 *
-	 * @param	string	The name of the component.
+	 * @param       string	The name of the component.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	public static function getDebugActions($component = null)
 	{
@@ -131,7 +131,7 @@ class UsersHelperDebug
 	/**
 	 * Get a list of filter options for the levels.
 	 *
-	 * @return	array	An array of JHtmlOption elements.
+	 * @return      array	An array of JHtmlOption elements.
 	 */
 	static function getLevelsOptions()
 	{

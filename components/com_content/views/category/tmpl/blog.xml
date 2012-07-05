@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_CONTENT_CATEGORY_VIEW_BLOG_TITLE" option="COM_CONTENT_CATEGORY_VIEW_BLOG_OPTION">
-		<help
-			key = "JHELP_MENUS_MENU_ITEM_ARTICLE_CATEGORY_BLOG"
-		/>
+		<help key="JHELP_MENUS_MENU_ITEM_ARTICLE_CATEGORY_BLOG" />
 		<message>
 			<![CDATA[COM_CONTENT_CATEGORY_VIEW_BLOG_DESC]]>
 		</message>
@@ -12,7 +10,7 @@
 	<!-- Add fields to the request variables for the layout. -->
 	<fields name="request">
 		<fieldset name="request"
-		 >
+		>
 
 			<field name="id" type="category"
 				description="JGLOBAL_CHOOSE_CATEGORY_DESC"

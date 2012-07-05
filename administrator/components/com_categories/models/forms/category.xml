@@ -5,36 +5,36 @@
 		type="text"
 		default="0"
 		label="JGLOBAL_FIELD_ID_LABEL"
-		description ="JGLOBAL_FIELD_ID_DESC"
+		description="JGLOBAL_FIELD_ID_DESC"
 		class="readonly"
-		readonly="true"/>
+		readonly="true" />
 
 	<field
 		name="asset_id"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="parent_id"
 		type="categoryedit"
 		label="COM_CATEGORIES_FIELD_PARENT_LABEL"
 		description="COM_CATEGORIES_FIELD_PARENT_DESC"
-		class="inputbox"/>
+		class="inputbox" />
 
 	<field
 		name="lft"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="rgt"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="level"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="path"
@@ -43,11 +43,11 @@
 		description="CATEGORIES_PATH_DESC"
 		class="readonly"
 		size="40"
-		readonly="true"/>
+		readonly="true" />
 
 	<field
 		name="extension"
-		type="hidden"/>
+		type="hidden" />
 
 	<field
 		name="title"
@@ -56,7 +56,7 @@
 		description="JFIELD_TITLE_DESC"
 		class="inputbox"
 		size="40"
-		required="true"/>
+		required="true" />
 
 	<field
 		name="alias"
@@ -64,7 +64,7 @@
 		label="JFIELD_ALIAS_LABEL"
 		description="JFIELD_ALIAS_DESC"
 		class="inputbox"
-		size="40"/>
+		size="40" />
 
 	<field
 		name="note"
@@ -72,7 +72,7 @@
 		label="JFIELD_NOTE_LABEL"
 		description="JFIELD_NOTE_DESC"
 		class="inputbox"
-		size="40"/>
+		size="40" />
 
 	<field
 		name="description"
@@ -82,7 +82,7 @@
 		class="inputbox"
 		filter="JComponentHelper::filterText"
 		buttons="true"
-		hide="readmore,pagebreak"/>
+		hide="readmore,pagebreak" />
 
 	<field
 		name="published"
@@ -113,19 +113,19 @@
 	<field
 		name="checked_out"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="checked_out_time"
 		type="hidden"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="access"
 		type="accesslevel"
 		label="JFIELD_ACCESS_LABEL"
 		description="JFIELD_ACCESS_DESC"
-		class="inputbox"/>
+		class="inputbox" />
 
 	<field
 		name="metadesc"
@@ -133,7 +133,7 @@
 		label="JFIELD_META_DESCRIPTION_LABEL"
 		description="JFIELD_META_DESCRIPTION_DESC"
 		rows="3"
-		cols="40"/>
+		cols="40" />
 
 	<field
 		name="metakey"
@@ -141,7 +141,7 @@
 		label="JFIELD_META_KEYWORDS_LABEL"
 		description="JFIELD_META_KEYWORDS_DESC"
 		rows="3"
-		cols="40"/>
+		cols="40" />
 
 	<field
 		name="created_user_id"
@@ -164,7 +164,7 @@
 		label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
 		class="readonly"
 		readonly="true"
-		filter="unset"/>
+		filter="unset" />
 
 	<field
 		name="modified_time"
@@ -193,7 +193,7 @@
 		validate="rules"
 		class="inputbox"
 		component="com_content"
-		section="category"/>
+		section="category" />
 
 	<fields name="params">
 		<fieldset
@@ -223,7 +223,7 @@
 			type="text"
 			label="JAUTHOR"
 			description="JFIELD_METADATA_AUTHOR_DESC"
-			size="30"/>
+			size="30" />
 
 		<field name="robots"
 			type="list"

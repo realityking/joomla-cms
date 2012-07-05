@@ -12,14 +12,14 @@ defined('_JEXEC') or die;
 /**
  * Extension Manager Default View
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.5
  */
 class InstallerViewDefault extends JViewLegacy
 {
 	/**
-	 * @since	1.5
+	 * @since       1.5
 	 */
 	function __construct($config = null)
 	{
@@ -30,7 +30,7 @@ class InstallerViewDefault extends JViewLegacy
 	}
 
 	/**
-	 * @since	1.5
+	 * @since       1.5
 	 */
 	function display($tpl=null)
 	{
@@ -56,7 +56,7 @@ class InstallerViewDefault extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

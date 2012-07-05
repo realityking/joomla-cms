@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Cache component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_cache
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_cache
+ * @since       1.6
  */
 class CacheHelper
 {
@@ -22,7 +22,7 @@ class CacheHelper
 	/**
 	 * Get a list of filter options for the application clients.
 	 *
-	 * @return	array	An array of JHtmlOption elements.
+	 * @return      array	An array of JHtmlOption elements.
 	 */
 	static function getClientOptions()
 	{
@@ -36,10 +36,10 @@ class CacheHelper
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public static function addSubmenu($vName)
 	{

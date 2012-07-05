@@ -12,18 +12,18 @@ defined('_JEXEC') or die;
 /**
  * Languages Strings Model
  *
- * @package			Joomla.Administrator
- * @subpackage	com_languages
- * @since				2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       2.5
  */
 class LanguagesModelStrings extends JModelLegacy
 {
 	/**
 	 * Method for refreshing the cache in the database with the known language strings
 	 *
-	 * @return	boolean	True on success, Exception object otherwise
+	 * @return      boolean	True on success, Exception object otherwise
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function refresh()
 	{
@@ -112,9 +112,9 @@ class LanguagesModelStrings extends JModelLegacy
 	/**
 	 * Method for searching language strings
 	 *
-	 * @return	array	Array of resuls on success, Exception object otherwise
+	 * @return      array	Array of resuls on success, Exception object otherwise
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function search()
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 require_once dirname(__FILE__).'/articles.php';
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_content
+ * @package     Joomla.Administrator
+ * @subpackage  com_content
  */
 class ContentControllerFeatured extends ContentControllerArticles
 {
@@ -59,8 +59,8 @@ class ContentControllerFeatured extends ContentControllerArticles
 	/**
 	 * Method to publish a list of articles.
 	 *
-	 * @return	void
-	 * @since	1.0
+	 * @return      void
+	 * @since       1.0
 	 */
 	function publish()
 	{
@@ -72,13 +72,13 @@ class ContentControllerFeatured extends ContentControllerArticles
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Feature', $prefix = 'ContentModel', $config = array('ignore_request' => true))
 	{

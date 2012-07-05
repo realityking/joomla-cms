@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Content categories view.
  *
- * @package		Joomla.Site
- * @subpackage	com_newsfeeds
+ * @package     Joomla.Site
+ * @subpackage  com_newsfeeds
  * @since 1.5
  */
 class NewsfeedsViewCategories extends JViewLegacy
@@ -25,7 +25,7 @@ class NewsfeedsViewCategories extends JViewLegacy
 	/**
 	 * Display the view
 	 *
-	 * @return	mixed	False on error, null otherwise.
+	 * @return      mixed	False on error, null otherwise.
 	 */
 	function display($tpl = null)
 	{

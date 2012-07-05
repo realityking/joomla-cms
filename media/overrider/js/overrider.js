@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
@@ -19,9 +19,9 @@ Joomla.overrider = {
 /**
  * Method for refreshing the database cache of known language strings via Ajax
  *
- * @return	void
+ * @return      void
  *
- * @since		2.5
+ * @since       2.5
  */
 Joomla.overrider.refreshCache = function()
 {
@@ -63,11 +63,11 @@ Joomla.overrider.refreshCache = function()
 /**
  * Method for searching known language strings via Ajax
  *
- * @param		int		 	more	Determines the limit start of the results
+ * @param       int			more	Determines the limit start of the results
  *
- * @return	void
+ * @return      void
  *
- * @since		2.5
+ * @since       2.5
  */
 Joomla.overrider.searchStrings = function(more)
 {
@@ -165,11 +165,11 @@ Joomla.overrider.searchStrings = function(more)
 /**
  * Method inserting the received results into the results container
  *
- * @param		array results An array of search result objects
+ * @param       array results An array of search result objects
  *
- * @return	void
+ * @return      void
  *
- * @since		2.5
+ * @since       2.5
  */
 Joomla.overrider.insertResults = function(results)
 {
@@ -222,11 +222,11 @@ Joomla.overrider.insertResults = function(results)
 /**
  * Inserts a specific constant/value pair into the form and scrolls the page back to the top
  *
- * @param		int		id	The ID of the element which was selected for insertion
+ * @param       int		id	The ID of the element which was selected for insertion
  *
- * @return	void
+ * @return      void
  *
- * @since		2.5
+ * @since       2.5
  */
 Joomla.overrider.selectString = function(id)
 {

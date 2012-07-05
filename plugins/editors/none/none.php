@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Plain Textarea Editor Plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Editors.none
- * @since		1.5
+ * @package     Joomla.Plugin
+ * @subpackage  Editors.none
+ * @since       1.5
  */
 class plgEditorNone extends JPlugin
 {
@@ -22,7 +22,7 @@ class plgEditorNone extends JPlugin
 	 * Method to handle the onInitEditor event.
 	 *  - Initialises the Editor
 	 *
-	 * @return	string	JavaScript Initialization string
+	 * @return      string	JavaScript Initialization string
 	 * @since 1.5
 	 */
 	public function onInit()
@@ -55,7 +55,7 @@ class plgEditorNone extends JPlugin
 	 *
 	 * Not applicable in this editor.
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	function onSave()
 	{
@@ -65,9 +65,9 @@ class plgEditorNone extends JPlugin
 	/**
 	 * Get the editor content.
 	 *
-	 * @param	string	$id		The id of the editor field.
+	 * @param       string	$id		The id of the editor field.
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function onGetContent($id)
 	{
@@ -77,10 +77,10 @@ class plgEditorNone extends JPlugin
 	/**
 	 * Set the editor content.
 	 *
-	 * @param	string	$id		The id of the editor field.
-	 * @param	string	$html	The content to set.
+	 * @param       string	$id		The id of the editor field.
+	 * @param       string	$html	The content to set.
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function onSetContent($id, $html)
 	{
@@ -88,9 +88,9 @@ class plgEditorNone extends JPlugin
 	}
 
 	/**
-	 * @param	string	$id
+	 * @param       string	$id
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function onGetInsertMethod($id)
 	{
@@ -111,19 +111,19 @@ class plgEditorNone extends JPlugin
 	/**
 	 * Display the editor area.
 	 *
-	 * @param	string	$name		The control name.
-	 * @param	string	$html		The contents of the text area.
-	 * @param	string	$width		The width of the text area (px or %).
-	 * @param	string	$height		The height of the text area (px or %).
-	 * @param	int		$col		The number of columns for the textarea.
-	 * @param	int		$row		The number of rows for the textarea.
-	 * @param	boolean	$buttons	True and the editor buttons will be displayed.
-	 * @param	string	$id			An optional ID for the textarea (note: since 1.6). If not supplied the name is used.
-	 * @param	string	$asset
-	 * @param	object	$author
-	 * @param	array	$params		Associative array of editor parameters.
+	 * @param       string	$name		The control name.
+	 * @param       string	$html		The contents of the text area.
+	 * @param       string	$width		The width of the text area (px or %).
+	 * @param       string	$height		The height of the text area (px or %).
+	 * @param       int		$col		The number of columns for the textarea.
+	 * @param       int		$row		The number of rows for the textarea.
+	 * @param       boolean	$buttons	True and the editor buttons will be displayed.
+	 * @param       string	$id			An optional ID for the textarea (note: since 1.6). If not supplied the name is used.
+	 * @param       string	$asset
+	 * @param       object	$author
+	 * @param       array	$params		Associative array of editor parameters.
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function onDisplay($name, $content, $width, $height, $col, $row, $buttons = true, $id = null, $asset = null, $author = null, $params = array())
 	{

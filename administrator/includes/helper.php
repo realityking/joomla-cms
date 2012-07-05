@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
  * Joomla! Administrator Application helper class.
  * Provide many supporting API functions.
  *
- * @package		Joomla.Administrator
- * @subpackage	Application
+ * @package     Joomla.Administrator
+ * @subpackage  Application
  */
 class JAdministratorHelper
 {
 	/**
 	 * Return the application option string [main component].
 	 *
-	 * @return	string		Option.
-	 * @since	1.5
+	 * @return      string		Option.
+	 * @since       1.5
 	 */
 	public static function findOption()
 	{

@@ -1,13 +1,13 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
  * Switcher behavior
  *
- * @package		Joomla
- * @since		1.5
+ * @package     Joomla
+ * @since       1.5
  */
 var JSwitcher = new Class({
 	Implements: [Options, Events],

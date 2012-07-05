@@ -12,17 +12,17 @@ defined('JPATH_BASE') or die;
 /**
  * Text Filters form field.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_config
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_config
+ * @since       1.6
  */
 class JFormFieldFilters extends JFormField
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	public $type = 'Filters';
 
@@ -31,8 +31,8 @@ class JFormFieldFilters extends JFormField
 	 *
 	 * TODO: Add access check.
 	 *
-	 * @return	string	The field input markup.
-	 * @since	1.6
+	 * @return      string	The field input markup.
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{
@@ -85,10 +85,10 @@ class JFormFieldFilters extends JFormField
 			$html[] = '				</select>';
 			$html[] = '		</td>';
 			$html[] = '		<td>';
-			$html[] = '				<input name="'.$this->name.'['.$group->value.'][filter_tags]" id="'.$this->id.$group->value.'_filter_tags" title="'.JText::_('JGLOBAL_FILTER_TAGS_LABEL').'" value="'.$group_filter['filter_tags'].'"/>';
+			$html[] = '				<input name="'.$this->name.'['.$group->value.'][filter_tags]" id="'.$this->id.$group->value.'_filter_tags" title="'.JText::_('JGLOBAL_FILTER_TAGS_LABEL').'" value="'.$group_filter['filter_tags'].'" />';
 			$html[] = '		</td>';
 			$html[] = '		<td>';
-			$html[] = '				<input name="'.$this->name.'['.$group->value.'][filter_attributes]" id="'.$this->id.$group->value.'_filter_attributes" title="'.JText::_('JGLOBAL_FILTER_ATTRIBUTES_LABEL').'" value="'.$group_filter['filter_attributes'].'"/>';
+			$html[] = '				<input name="'.$this->name.'['.$group->value.'][filter_attributes]" id="'.$this->id.$group->value.'_filter_attributes" title="'.JText::_('JGLOBAL_FILTER_ATTRIBUTES_LABEL').'" value="'.$group_filter['filter_attributes'].'" />';
 			$html[] = '		</td>';
 			$html[] = '	</tr>';
 		}
@@ -102,8 +102,8 @@ class JFormFieldFilters extends JFormField
 	/**
 	 * A helper to get the list of user groups.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	protected function getUserGroups()
 	{

@@ -37,7 +37,7 @@
 					<option value="0">JHIDE</option>
 					<option value="1">JSHOW</option>
 				</field>
-				<field name="article_index_text"  type="text" default=""
+				<field name="article_index_text" type="text" default=""
 					label="PLG_CONTENT_PAGEBREAK_SITE_ARTICLEINDEXTEXT"
 					description="PLG_CONTENT_PAGEBREAK_SITE_ARTICLEINDEXTEXT_DESC" />
 

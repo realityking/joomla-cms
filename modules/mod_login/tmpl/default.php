@@ -40,16 +40,16 @@ JHtml::_('behavior.keepalive');
 	<fieldset class="userdata">
 	<p id="form-login-username">
 		<label for="modlgn-username"><?php echo JText::_('MOD_LOGIN_VALUE_USERNAME') ?></label>
-		<input id="modlgn-username" type="text" name="username" class="inputbox"  size="18" />
+		<input id="modlgn-username" type="text" name="username" class="inputbox" size="18" />
 	</p>
 	<p id="form-login-password">
 		<label for="modlgn-passwd"><?php echo JText::_('JGLOBAL_PASSWORD') ?></label>
-		<input id="modlgn-passwd" type="password" name="password" class="inputbox" size="18"  />
+		<input id="modlgn-passwd" type="password" name="password" class="inputbox" size="18" />
 	</p>
 	<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
 	<p id="form-login-remember">
 		<label for="modlgn-remember"><?php echo JText::_('MOD_LOGIN_REMEMBER_ME') ?></label>
-		<input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes"/>
+		<input id="modlgn-remember" type="checkbox" name="remember" class="inputbox" value="yes" />
 	</p>
 	<?php endif; ?>
 	<input type="submit" name="Submit" class="button" value="<?php echo JText::_('JLOGIN') ?>" />

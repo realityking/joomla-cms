@@ -28,11 +28,11 @@ defined('_JEXEC') or die;
  *  along with GeSHi; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * @package    geshi
- * @subpackage core
- * @author     Nigel McNie <nigel@geshi.org>, Benny Baumann <BenBE@omorphia.de>
- * @copyright  (C) 2004 - 2007 Nigel McNie, (C) 2007 - 2008 Benny Baumann
- * @license    http://gnu.org/copyleft/gpl.html GNU GPL
+ * @package     geshi
+ * @subpackage  core
+ * @author      Nigel McNie <nigel@geshi.org>, Benny Baumann <BenBE@omorphia.de>
+ * @copyright   (C) 2004 - 2007 Nigel McNie, (C) 2007 - 2008 Benny Baumann
+ * @license     http://gnu.org/copyleft/gpl.html GNU GPL
  *
  */
 
@@ -255,8 +255,8 @@ define('GESHI_ERROR_INVALID_LINE_NUMBER_TYPE', 5);
  * at http://qbnz.com/highlighter/documentation.php for more information
  * about how to use this class.
  *
- * @package   geshi
- * @author    Nigel McNie <nigel@geshi.org>, Benny Baumann <BenBE@omorphia.de>
+ * @package     geshi
+ * @author      Nigel McNie <nigel@geshi.org>, Benny Baumann <BenBE@omorphia.de>
  * @copyright (C) 2004 - 2007 Nigel McNie, (C) 2007 - 2008 Benny Baumann
  */
 class GeSHi {
@@ -612,7 +612,7 @@ class GeSHi {
      * or false if no error has occured
      *
      * @return string|false An error message if there has been an error, else false
-     * @since  1.0.0
+     * @since       1.0.0
      */
     function error() {
         if ($this->error) {
@@ -636,7 +636,7 @@ class GeSHi {
      * for the idea :))
      *
      * @return string The name for the current language
-     * @since  1.0.2
+     * @since       1.0.2
      */
     function get_language_name() {
         if (GESHI_ERROR_NO_SUCH_LANG == $this->error) {
@@ -3106,8 +3106,8 @@ class GeSHi {
      * Swaps out spaces and tabs for HTML indentation. Not needed if
      * the code is in a pre block...
      *
-     * @param  string The source to indent (reference!)
-     * @since  1.0.0
+     * @param       string The source to indent (reference!)
+     * @since       1.0.0
      * @access private
      */
     function indent(&$result) {
@@ -3205,9 +3205,9 @@ class GeSHi {
     /**
      * Changes the case of a keyword for those languages where a change is asked for
      *
-     * @param  string The keyword to change the case of
+     * @param       string The keyword to change the case of
      * @return string The keyword with its case changed
-     * @since  1.0.0
+     * @since       1.0.0
      * @access private
      */
     function change_case($instr) {
@@ -3224,9 +3224,9 @@ class GeSHi {
     /**
      * Handles replacements of keywords to include markup and links if requested
      *
-     * @param  string The keyword to add the Markup to
+     * @param       string The keyword to add the Markup to
      * @return The HTML for the match found
-     * @since  1.0.8
+     * @since       1.0.8
      * @access private
      *
      * @todo   Get rid of ender in keyword links
@@ -3670,7 +3670,7 @@ class GeSHi {
      * Gets the time taken to parse the code
      *
      * @return double The time taken to parse the code
-     * @since  1.0.2
+     * @since       1.0.2
      */
     function get_time() {
         return $this->time;
@@ -3818,8 +3818,8 @@ class GeSHi {
      * Takes the parsed code and various options, and creates the HTML
      * surrounding it to make it look nice.
      *
-     * @param  string The code already parsed (reference!)
-     * @since  1.0.0
+     * @param       string The code already parsed (reference!)
+     * @since       1.0.0
      * @access private
      */
     function finalise(&$parsed_code) {
@@ -4067,7 +4067,7 @@ class GeSHi {
      * Creates the header for the code block (with correct attributes)
      *
      * @return string The header for the code block
-     * @since  1.0.0
+     * @since       1.0.0
      * @access private
      */
     function header() {
@@ -4134,7 +4134,7 @@ class GeSHi {
             }
         } else {
             if ($this->header_type == GESHI_HEADER_PRE) {
-                return "<pre$attributes>$header"  .
+                return "<pre$attributes>$header" .
                     ($this->force_code_block ? '<div>' : '');
             } else {
                 return "<div$attributes>$header" .
@@ -4147,7 +4147,7 @@ class GeSHi {
      * Returns the footer for the code block.
      *
      * @return string The footer for the code block
-     * @since  1.0.0
+     * @since       1.0.0
      * @access private
      */
     function footer() {
@@ -4201,9 +4201,9 @@ class GeSHi {
      * Replaces certain keywords in the header and footer with
      * certain configuration values
      *
-     * @param  string The header or footer content to do replacement on
+     * @param       string The header or footer content to do replacement on
      * @return string The header or footer with replaced keywords
-     * @since  1.0.2
+     * @since       1.0.2
      * @access private
      */
     function replace_keywords($instr) {
@@ -4331,9 +4331,9 @@ class GeSHi {
      * is true, we only return the stylesheet declarations that matter for
      * this code block instead of the whole thing
      *
-     * @param  boolean Whether to use economy mode or not
+     * @param       boolean Whether to use economy mode or not
      * @return string A stylesheet built on the data for the current language
-     * @since  1.0.0
+     * @since       1.0.0
      */
     function get_stylesheet($economy_mode = true) {
         // If there's an error, chances are that the language file

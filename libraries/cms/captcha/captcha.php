@@ -14,10 +14,9 @@ jimport('joomla.filesystem.file');
 /**
  * Joomla! Captcha base object
  *
- * @abstract
- * @package		Joomla.Libraries
- * @subpackage	Captcha
- * @since		2.5
+ * @package     Joomla.Libraries
+ * @subpackage  Captcha
+ * @since       2.5
  */
 class JCaptcha extends JObject
 {
@@ -48,7 +47,7 @@ class JCaptcha extends JObject
 	/**
 	 * Captcha Plugin object
 	 *
-	 * @var	object
+	 * @var    object
 	 * @since  2.5
 	 */
 	private $_captcha;
@@ -56,7 +55,7 @@ class JCaptcha extends JObject
 	/**
 	 * Editor Plugin name
 	 *
-	 * @var string
+	 * @var    string
 	 * @since  2.5
 	 */
 	private $_name;
@@ -64,17 +63,17 @@ class JCaptcha extends JObject
 	/**
 	 * Captcha Plugin object
 	 *
-	 * @var	array
+	 * @var  array
 	 */
 	private static $_instances = array();
 
 	/**
 	 * Class constructor.
 	 *
-	 * @param	string	$editor  The editor to use.
-	 * @param	array	$options  Associative array of options.
+	 * @param   string  $editor   The editor to use.
+	 * @param   array   $options  Associative array of options.
 	 *
-	 * @since 2.5
+	 * @since   2.5
 	 */
 	public function __construct($captcha, $options)
 	{
@@ -86,12 +85,12 @@ class JCaptcha extends JObject
 	 * Returns the global Captcha object, only creating it
 	 * if it doesn't already exist.
 	 *
-	 * @param	string	$captcha  The plugin to use.
-	 * @param	array	$options  Associative array of options.
+	 * @param   string  $captcha  The plugin to use.
+	 * @param   array   $options  Associative array of options.
 	 *
-	 * @return	object	The JCaptcha object.
+	 * @return  object  The JCaptcha object.
 	 *
-	 * @since 2.5
+	 * @since   2.5
 	 */
 	public static function getInstance($captcha, array $options = array())
 	{
@@ -114,9 +113,9 @@ class JCaptcha extends JObject
 	}
 
 	/**
-	 * @return boolean True on success
+	 * @return  boolean  True on success
 	 *
-	 * @since	2.5
+	 * @since   2.5
 	 */
 	public function initialise($id)
 	{
@@ -139,9 +138,9 @@ class JCaptcha extends JObject
 	/**
 	 * Get the HTML for the captcha.
 	 *
-	 * @return 	the return value of the function "onDisplay" of the selected Plugin.
+	 * @return  The return value of the function "onDisplay" of the selected Plugin.
 	 *
-	 * @since	2.5
+	 * @since   2.5
 	 */
 	public function display($name, $id, $class = '')
 	{
@@ -168,9 +167,9 @@ class JCaptcha extends JObject
 	/**
 	 * Checks if the answer is correct.
 	 *
-	 * @return 	the return value of the function "onCheckAnswer" of the selected Plugin.
+	 * @return  The return value of the function "onCheckAnswer" of the selected Plugin.
 	 *
-	 * @since	2.5
+	 * @since   2.5
 	 */
 	public function checkAnswer($code)
 	{
@@ -189,11 +188,11 @@ class JCaptcha extends JObject
 	/**
 	 * Load the Captcha plug-in.
 	 *
-	 * @param	array	$options  Associative array of options.
+	 * @param   array  $options  Associative array of options.
 	 *
 	 * @return  void
 	 *
-	 * @since	2.5
+	 * @since   2.5
 	 * @throws  RuntimeException
 	 */
 	private function _load(array $options = array())
@@ -224,10 +223,10 @@ class JCaptcha extends JObject
 		$this->_captcha = new $name($this, (array)$plugin, $options);
 	}
 
-		/**
+	/**
 	 * Get the state of the JEditor object
 	 *
-	 * @return  mixed    The state of the object.
+	 * @return  mixed  The state of the object.
 	 *
 	 * @since   2.5
 	 */

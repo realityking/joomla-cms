@@ -56,7 +56,7 @@ $n			= count($this->items);
 			</select>
 
 			<label class="selectlabel" for="filter_author_id"><?php echo JText::_('JOPTION_SELECT_AUTHOR'); ?></label>
-			<select name="filter_author_id" class="inputbox"  id="filter_author_id">
+			<select name="filter_author_id" class="inputbox" id="filter_author_id">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR');?></option>
 				<?php echo JHtml::_('select.options', $this->authors, 'value', 'text', $this->state->get('filter.author_id'));?>
 			</select>

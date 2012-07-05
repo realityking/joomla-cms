@@ -10,19 +10,19 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Site
- * @subpackage	mod_search
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  mod_search
+ * @since       1.5
  */
 class modSearchHelper
 {
 	/**
 	 * Display the search button as an image.
 	 *
-	 * @param	string	$button_text	The alt text for the button.
+	 * @param       string	$button_text	The alt text for the button.
 	 *
-	 * @return	string	The HTML for the image.
-	 * @since	1.5
+	 * @return      string	The HTML for the image.
+	 * @since       1.5
 	 */
 	public static function getSearchImage($button_text)
 	{

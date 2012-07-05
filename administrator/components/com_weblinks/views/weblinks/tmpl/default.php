@@ -42,7 +42,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 				<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_weblinks'), 'value', 'text', $this->state->get('filter.category_id'));?>
 			</select>
 
-            <select name="filter_access" class="inputbox" onchange="this.form.submit()">
+			<select name="filter_access" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
 			</select>

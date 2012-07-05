@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Login view class for Users.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.5
  */
 class UsersViewLogin extends JViewLegacy
 {
@@ -26,8 +26,8 @@ class UsersViewLogin extends JViewLegacy
 	/**
 	 * Method to display the view.
 	 *
-	 * @param	string	The template file to include
-	 * @since	1.5
+	 * @param       string	The template file to include
+	 * @since       1.5
 	 */
 	public function display($tpl = null)
 	{
@@ -59,7 +59,7 @@ class UsersViewLogin extends JViewLegacy
 
 	/**
 	 * Prepares the document
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function prepareDocument()
 	{

@@ -10,19 +10,19 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Site
- * @subpackage	mod_menu
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  mod_menu
+ * @since       1.5
  */
 class modMenuHelper
 {
 	/**
 	 * Get a list of the menu items.
 	 *
-	 * @param	JRegistry	$params	The module options.
+	 * @param       JRegistry	$params	The module options.
 	 *
-	 * @return	array
-	 * @since	1.5
+	 * @return      array
+	 * @since       1.5
 	 */
 	static function getList(&$params)
 	{

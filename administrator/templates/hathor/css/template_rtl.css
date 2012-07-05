@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.hathor
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  templates.hathor
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @since       1.6
  *
  * RTL CSS file for the template
  */
@@ -35,7 +35,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 /* new styles */
-
 
 
 /* end new styles */
@@ -310,7 +309,7 @@ p.tab-description {
 
 #form-login div.button1 a {
 	padding: 0 15px 0 15px;
-	/* padding: 0 6px 0 30px; use this if you use images */
+/* padding: 0 6px 0 30px; use this if you use images */;
 }
 
 /**
@@ -360,15 +359,25 @@ div.col2 {
 	float: left;
 }
 
-	/* Avoid using the width divs. They are here for 3PD Extensions if needed
-	 * Use the specific layout divs listed after. See also the th.width entries */
-.clrlft { clear: right; }
-.clrrt { clear: left; }
-.fltlft { float: right; }
-.fltrt { float: left; }
-.fltnone { float: none; }
+/* Avoid using the width divs. They are here for 3PD Extensions if needed
+	* Use the specific layout divs listed after. See also the th.width entries */
+.clrlft {
+	clear: right;
+}
+.clrrt {
+	clear: left;
+}
+.fltlft {
+	float: right;
+}
+.fltrt {
+	float: left;
+}
+.fltnone {
+	float: none;
+}
 
-	/* Layout Divs */
+/* Layout Divs */
 div.options-section {
 	margin: 10px 0 10px 10px;
 }
@@ -395,7 +404,7 @@ fieldset p {
 
 fieldset.adminform fieldset.radio,
 fieldset.panelform fieldset.radio,
-fieldset.adminform-legacy fieldset.radio  {
+fieldset.adminform-legacy fieldset.radio {
 	float:right;
 	margin: 0 0 5px 0;
 	clear:left;
@@ -412,7 +421,6 @@ fieldset.adminform-legacy label,
 fieldset.panelform-legacy span.faux-label,
 fieldset.adminform-legacy span.faux-label {
 	float:right;
-
 }
 /* JParameter classes on radio button labels  */
 
@@ -448,13 +456,13 @@ fieldset#filter-bar .filter-select {
 }
 
 
-	/* Note: these visual cues should be augmented by aria */
+/* Note: these visual cues should be augmented by aria */
 
-	/* must be augmented by aria at the same time if changed dynamically by js
+/* must be augmented by aria at the same time if changed dynamically by js
 	aria-invalid=true or aria-invalid=false */
 
 
-	/* augmented by aria in template javascript */
+/* augmented by aria in template javascript */
 
 span.readonly {
 	float: right;
@@ -498,7 +506,7 @@ fieldset.adminform {
 	margin: 0 10px 10px 10px;
 }
 
-	/* Table styles are for use with tabular data */
+/* Table styles are for use with tabular data */
 table.adminform {
 	margin: 8px 0 10px 0;
 }
@@ -532,10 +540,10 @@ table.adminform tr {
  * Table formating styles
  */
 
-	/* Avoid using the width classes. They are here for 3PD Extensions if needed
-	 * Use the specific layout table headers listed after. See also the div.width entries */
+/* Avoid using the width classes. They are here for 3PD Extensions if needed
+	* Use the specific layout table headers listed after. See also the div.width entries */
 
-	/* Table header layout classes */
+/* Table header layout classes */
 
 th.ordering-col a {
 	float:right;
@@ -551,7 +559,7 @@ th.ordering-col a img {
  * Adminlist Table layout
  */
 
-	/* Table row styles */
+/* Table row styles */
 table.adminlist tr {
 	padding-left: 30px;
 	padding-right: 30px;
@@ -561,7 +569,7 @@ table.adminlist tbody tr {
 	text-align: right;
 }
 
-	/* Table td/th styles */
+/* Table td/th styles */
 table.adminlist td.order span {
 	float: right;
 }
@@ -569,16 +577,36 @@ table.adminlist td.order span {
 /**
  * Tree indentation & nesting - Up to 10 levels deep so don't go crazy :
  */
-table.adminlist td.indent-4 	{ padding-right:4px; }
-table.adminlist td.indent-19 	{ padding-right:19px; }
-table.adminlist td.indent-34 	{ padding-right:34px; }
-table.adminlist td.indent-49 	{ padding-right:49px; }
-table.adminlist td.indent-64 	{ padding-right:64px; }
-table.adminlist td.indent-79 	{ padding-right:79px; }
-table.adminlist td.indent-94 	{ padding-right:94px; }
-table.adminlist td.indent-109 	{ padding-right:109px; }
-table.adminlist td.indent-124 	{ padding-right:124px; }
-table.adminlist td.indent-139 	{ padding-right:139px; }
+table.adminlist td.indent-4 {
+	padding-right:4px;
+}
+table.adminlist td.indent-19 {
+	padding-right:19px;
+}
+table.adminlist td.indent-34 {
+	padding-right:34px;
+}
+table.adminlist td.indent-49 {
+	padding-right:49px;
+}
+table.adminlist td.indent-64 {
+	padding-right:64px;
+}
+table.adminlist td.indent-79 {
+	padding-right:79px;
+}
+table.adminlist td.indent-94 {
+	padding-right:94px;
+}
+table.adminlist td.indent-109 {
+	padding-right:109px;
+}
+table.adminlist td.indent-124 {
+	padding-right:124px;
+}
+table.adminlist td.indent-139 {
+	padding-right:139px;
+}
 
 /**
  * Adminlist buttons
@@ -598,15 +626,15 @@ ul#new-modules-list {
 /**
  * Utility styles
  */
-	/* General Clearing Class */
+/* General Clearing Class */
 .menu-module-list {
 	padding-right: 10px;
 	margin-right: 5px;
 }
 
-	/* stu nicholls solution for centering divs */
+/* stu nicholls solution for centering divs */
 
-	/* table solution for global config */
+/* table solution for global config */
 
 table.noshow fieldset {
 	margin: 15px 7px 7px 7px;
@@ -632,14 +660,14 @@ a.saveorder {
 	float: left;
 }
 
-	/* Use this if you add images to the buttons such as directional arrows */
+/* Use this if you add images to the buttons such as directional arrows */
 
 .button1 a {
 	float: right;
 	padding: 0 6px 0 6px;
 }
 
-	/* Button 2 Type */
+/* Button 2 Type */
 .button2-left,.button2-right {
 	float: right;
 }
@@ -651,7 +679,7 @@ a.saveorder {
 	float: right;
 }
 
-	/* these are inactive buttons */
+/* these are inactive buttons */
 
 .button2-left .page a,
 .button2-right .page a,
@@ -688,7 +716,7 @@ a.saveorder {
  * Pagination styles
  */
 
-	/* Normal pagination styles */
+/* Normal pagination styles */
 div.containerpg {
 	position: relative;
 	right: 50%;
@@ -706,12 +734,12 @@ div.pagination {
 	margin: 0 10px;
 }
 
-	/* The Go submittal button */
+/* The Go submittal button */
 .pagination button {
 	margin-left: 20px;
 }
 
-	/* Style if pagination is part of the table (old style) */
+/* Style if pagination is part of the table (old style) */
 table.adminlist .pagination {
 	margin: 0 auto;
 }
@@ -724,7 +752,7 @@ table.adminlist .pagination button {
  * Pagination styles
  */
 
-	/* Normal pagination styles */
+/* Normal pagination styles */
 div.containerpg {
 	right: 50%;
 	float: right;
@@ -741,16 +769,16 @@ div.pagination {
 	margin: 0 10px;
 }
 
-	/* The Go submittal button */
+/* The Go submittal button */
 .pagination button {
 	margin-left: 20px;
 }
 
 
-	/* Grey out the current page number */
+/* Grey out the current page number */
 
 
-	/* Style if pagination is part of the table (old style) */
+/* Style if pagination is part of the table (old style) */
 
 table.adminlist .pagination button {
 	margin-left: 20px;
@@ -842,7 +870,7 @@ ul#new-modules-list li {
  * User Accessibility
  */
 
-	/* Skip to Content Structural Styling */
+/* Skip to Content Structural Styling */
 #skiplinkholder a,
 #skiplinkholder a:link,
 #skiplinkholder a:visited {
@@ -864,24 +892,24 @@ ul#new-modules-list li {
 	right: -200%;
 }
 
-	/* Skip to Content Visual Styling */
+/* Skip to Content Visual Styling */
 #skiplinkholder a, #skiplinkholder a:link, #skiplinkholder a:visited {
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
-	/* For elements that aren't to be seen by users unless the user does something
-	 * like clicking on a header to see the collapsed section. */
+/* For elements that aren't to be seen by users unless the user does something
+	* like clicking on a header to see the collapsed section. */
 
-	/* For elements that aren't to be seen by visual users but do need to be read by screenreaders.
-	 * Cannot be used for elements that can get focus such as links and form elements */
+/* For elements that aren't to be seen by visual users but do need to be read by screenreaders.
+	* Cannot be used for elements that can get focus such as links and form elements */
 
-	/* Firefox has issues styling legend so this is a universal fix
+/* Firefox has issues styling legend so this is a universal fix
 	for making the legend invisible (i.e. visually it's not there, but screen readers see it */
 
 legend.element-invisible {
 	/*margin: 0;
-	margin-right: -10000px; */
+	margin-right: -10000px; */;
 }
 
 fieldset.adminform label,
@@ -904,7 +932,7 @@ fieldset.panelform fieldset.radio span.faux-label {
 /* checkboxes */
 fieldset.adminform fieldset.checkboxes,
 fieldset.panelform fieldset.checkboxes,
-fieldset.adminform-legacy fieldset.checkboxes  {
+fieldset.adminform-legacy fieldset.checkboxes {
 	float:right;
 	margin: 0 0 5px 0;
 	clear:left;
@@ -956,8 +984,7 @@ select#batch-user-id {
 }
 select#batch-category-id,
 select#batch-menu-id,
-select#batch-position-id
-{
+select#batch-position-id {
 	margin-left: 30px;
 	margin-right: 0;
 }
@@ -1052,8 +1079,8 @@ span.icon-16-locked {
 
 #permissions-sliders ul#rules,
 #permissions-sliders ul#rules ul {
-    margin: 0 !important;
-    padding: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 #permissions-sliders ul#rules li {
@@ -1062,14 +1089,14 @@ span.icon-16-locked {
 }
 
 #permissions-sliders ul#rules table.group-rules td {
-    padding:4px;
-    vertical-align:middle;
-    text-align:right;
+	padding:4px;
+	vertical-align:middle;
+	text-align:right;
 }
 
 #permissions-sliders .panel {
-    margin-bottom: 3px;
-    margin-right: 0;
+	margin-bottom: 3px;
+	margin-right: 0;
 }
 
 ul#rules table.group-rules td label {
@@ -1089,8 +1116,8 @@ table.group-rules td select {
 }
 
 #permissions-sliders  ul#rules  table.group-rules th {
-    text-align: right;
-    padding: 4px;
+	text-align: right;
+	padding: 4px;
 }
 
 #permissions-sliders .pane-toggler  span {
@@ -1121,14 +1148,16 @@ ul.helpmenu li {
 	float: right;
 }
 
-#menu li ul { /* second-level lists */
+#menu li ul {
+/* second-level lists */
 	margin-right: -1000em;
-	/* using right instead of display to hide menus because display: none isn't read by screen readers */
+/* using right instead of display to hide menus because display: none isn't read by screen readers */;
 }
 
-#menu li ul ul { /* third-and-above-level lists */
+#menu li ul ul {
+/* third-and-above-level lists */
 	margin: -2.3em -1000em 0 0;
-	/* top margin is equal to parent line height+bottom padding */
+/* top margin is equal to parent line height+bottom padding */;
 }
 
 #menu li:hover ul ul,#menu li.sfhover ul ul {
@@ -1136,7 +1165,7 @@ ul.helpmenu li {
 }
 
 #menu li:hover ul,#menu li.sfhover ul {
-	/* lists nested under hovered list items */
+/* lists nested under hovered list items */
 	margin-right: 0;
 }
 
@@ -1196,12 +1225,12 @@ ul.helpmenu li {
 /* Installer Database */
 #installer-database p.warning {
 	padding-left: 0;
-	padding-right: 20px
+	padding-right: 20px;
 }
 
 #installer-database p.nowarning {
 	padding-left: 0;
-	padding-right: 20px
+	padding-right: 20px;
 }
 
 p.nowarning {

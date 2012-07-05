@@ -66,22 +66,22 @@
 		</field>
 
 		<field name="show_description"
-	 		type="radio"
-	 		default="1"
-	 		label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
-	 		description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC">
-	 			<option value="0">JHIDE</option>
-	 			<option value="1">JSHOW</option>
-	 	</field>
+			type="radio"
+			default="1"
+			label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
+			description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC">
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+		</field>
 
 		<field name="show_description_image"
 			type="radio"
 			default="1"
 			label="JGLOBAL_SHOW_CATEGORY_IMAGE_LABEL"
 			description="JGLOBAL_SHOW_CATEGORY_IMAGE_DESC">
-	 			<option value="0">JHIDE</option>
-	 			<option value="1">JSHOW</option>
-	 	</field>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+		</field>
 
 		<field name="maxLevel" type="list"
 				description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"

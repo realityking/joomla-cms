@@ -2,15 +2,11 @@
 
 <metadata>
 	<layout title="com_contact_featured_view_default_title" option="com_contact_featured_view_default_option">
-		<help
-			key = "JHELP_MENUS_MENU_ITEM_CONTACT_FEATURED"
-		/>
+		<help key="JHELP_MENUS_MENU_ITEM_CONTACT_FEATURED" />
 		<message>
 			<![CDATA[COM_CONTACT_FEATURED_VIEW_DEFAULT_DESC]]>
 		</message>
 	</layout>
-
-
 
 
 	<!-- Add fields to the parameters object for the layout. -->

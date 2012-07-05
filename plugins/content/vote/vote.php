@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Vote plugin.
  *
- * @package		Joomla.Plugin
- * @subpackage	Content.vote
+ * @package     Joomla.Plugin
+ * @subpackage  Content.vote
  */
 class plgContentVote extends JPlugin
 {
@@ -32,7 +32,7 @@ class plgContentVote extends JPlugin
 	}
 
 	/**
-	* @since	1.6
+	* @since       1.6
 	*/
 	public function onContentBeforeDisplay($context, &$row, &$params, $page=0)
 	{

@@ -205,15 +205,14 @@ abstract class modArticlesCategoryHelper
 				$app	= JFactory::getApplication();
 				$menu	= $app->getMenu();
 				$menuitems	= $menu->getItems('link', 'index.php?option=com_users&view=login');
-			if (isset($menuitems[0]))
-			{
+				if(isset($menuitems[0])) {
 					$Itemid = $menuitems[0]->id;
 				} elseif (JRequest::getInt('Itemid') > 0) { //use Itemid from requesting page only if there is no existing menu
 					$Itemid = JRequest::getInt('Itemid');
 				}
 
 				$item->link = JRoute::_('index.php?option=com_users&view=login&Itemid='.$Itemid);
-				}
+			}
 
 			// Used for styling the active article
 			$item->active = $item->id == $active_article_id ? 'active' : '';

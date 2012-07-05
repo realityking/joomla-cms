@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_CONTENT_FEATURED_VIEW_DEFAULT_TITLE" option="COM_CONTENT_FEATURED_VIEW_DEFAULT_OPTION">
-		<help
-			key = "JHELP_MENUS_MENU_ITEM_ARTICLE_FEATURED"
-		/>
+		<help key="JHELP_MENUS_MENU_ITEM_ARTICLE_FEATURED" />
 		<message>
 			<![CDATA[COM_CONTENT_CATEGORY_VIEW_FEATURED_DESC]]>
 		</message>
@@ -23,7 +21,7 @@
 			description="COM_CONTENT_FEATURED_CATEGORIES_DESC" >
 			<option value="">JOPTION_ALL_CATEGORIES</option>
 			</field>
-			
+
 			<field name="layout_type"
 				type="hidden"
 				default="blog"

@@ -21,35 +21,35 @@ class UsersViewNote extends JViewLegacy
 	/**
 	 * The edit form.
 	 *
-	 * @var    JForm
-	 * @since  2.5
+	 * @var         JForm
+	 * @since       2.5
 	 */
 	protected $form;
 
 	/**
 	 * The item data.
 	 *
-	 * @var    object
-	 * @since  2.5
+	 * @var         object
+	 * @since       2.5
 	 */
 	protected $item;
 
 	/**
 	 * The model state.
 	 *
-	 * @var    JObject
-	 * @since  2.5
+	 * @var         JObject
+	 * @since       2.5
 	 */
 	protected $state;
 
 	/**
 	 * Override the display method for the view.
 	 *
-	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 * @param       string  $tpl  The name of the template file to parse; automatically searches through the template paths.
 	 *
-	 * @return  mixed  A string if successful, otherwise a JError object.
+	 * @return      mixed  A string if successful, otherwise a JError object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function display($tpl = null)
 	{
@@ -74,9 +74,9 @@ class UsersViewNote extends JViewLegacy
 	/**
 	 * Display the toolbar.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function addToolbar()
 	{

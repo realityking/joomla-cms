@@ -14,21 +14,21 @@ jimport('joomla.application.component.controllerform');
 /**
  * Languages Override Controller
  *
- * @package			Joomla.Administrator
- * @subpackage	com_languages
- * @since				2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       2.5
  */
 class LanguagesControllerOverride extends JControllerForm
 {
 	/**
 	 * Method to edit an existing override
 	 *
-	 * @param		string	$key		The name of the primary key of the URL variable (not used here).
-	 * @param		string	$urlVar	The name of the URL variable if different from the primary key (not used here).
+	 * @param       string	$key		The name of the primary key of the URL variable (not used here).
+	 * @param       string	$urlVar	The name of the URL variable if different from the primary key (not used here).
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function edit($key = null, $urlVar = null)
 	{
@@ -57,12 +57,12 @@ class LanguagesControllerOverride extends JControllerForm
 	/**
 	 * Method to save an override
 	 *
-	 * @param		string	$key		The name of the primary key of the URL variable (not used here).
-	 * @param		string	$urlVar	The name of the URL variable if different from the primary key (not used here).
+	 * @param       string	$key		The name of the primary key of the URL variable (not used here).
+	 * @param       string	$urlVar	The name of the URL variable if different from the primary key (not used here).
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function save($key = null, $urlVar = null)
 	{
@@ -182,11 +182,11 @@ class LanguagesControllerOverride extends JControllerForm
 	/**
 	 * Method to cancel an edit
 	 *
-	 * @param		string	$key	The name of the primary key of the URL variable (not used here).
+	 * @param       string	$key	The name of the primary key of the URL variable (not used here).
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function cancel($key = null, $test = null)
 	{

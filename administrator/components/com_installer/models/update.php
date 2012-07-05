@@ -14,18 +14,18 @@ jimport('joomla.application.component.modellist');
 jimport('joomla.updater.update');
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class InstallerModelUpdate extends JModelList
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -49,7 +49,7 @@ class InstallerModelUpdate extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -64,8 +64,8 @@ class InstallerModelUpdate extends JModelList
 	/**
 	 * Method to get the database query
 	 *
-	 * @return	JDatabaseQuery	The database query
-	 * @since	1.6
+	 * @return      JDatabaseQuery	The database query
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -89,9 +89,9 @@ class InstallerModelUpdate extends JModelList
 	/**
 	 * Finds updates for an extension.
 	 *
-	 * @param	int		Extension identifier to look for
-	 * @return	boolean Result
-	 * @since	1.6
+	 * @param       int		Extension identifier to look for
+	 * @return      boolean Result
+	 * @since       1.6
 	 */
 	public function findUpdates($eid=0, $cache_timeout = 0)
 	{
@@ -103,8 +103,8 @@ class InstallerModelUpdate extends JModelList
 	/**
 	 * Removes all of the updates from the table.
 	 *
-	 * @return	boolean result of operation
-	 * @since	1.6
+	 * @return      boolean result of operation
+	 * @since       1.6
 	 */
 	public function purge()
 	{
@@ -131,8 +131,8 @@ class InstallerModelUpdate extends JModelList
 	/**
 	 * Enables any disabled rows in #__update_sites table
 	 *
-	 * @return	boolean result of operation
-	 * @since	1.6
+	 * @return      boolean result of operation
+	 * @since       1.6
 	 */
 	public function enableSites()
 	{
@@ -154,8 +154,8 @@ class InstallerModelUpdate extends JModelList
 	 *
 	 * Sets the "result" state with the result of the operation.
 	 *
-	 * @param	Array[int] List of updates to apply
-	 * @since	1.6
+	 * @param       Array[int] List of updates to apply
+	 * @since       1.6
 	 */
 	public function update($uids)
 	{
@@ -182,9 +182,9 @@ class InstallerModelUpdate extends JModelList
 	/**
 	 * Handles the actual update installation.
 	 *
-	 * @param	JUpdate	An update definition
-	 * @return	boolean	Result of install
-	 * @since	1.6
+	 * @param       JUpdate	An update definition
+	 * @return      boolean	Result of install
+	 * @since       1.6
 	 */
 	private function install($update)
 	{

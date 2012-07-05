@@ -24,11 +24,11 @@ abstract class JHtmlFilter
 	 * Method to generate filters using the slider widget and decorated
 	 * with the FinderFilter JavaScript behaviors.
 	 *
-	 * @param   array  $options  An array of configuration options. [optional]
+	 * @param       array  $options  An array of configuration options. [optional]
 	 *
-	 * @return  mixed  A rendered HTML widget on success, null otherwise.
+	 * @return      mixed  A rendered HTML widget on success, null otherwise.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function slider($options = array())
 	{
@@ -139,7 +139,7 @@ abstract class JHtmlFilter
 
 			$html .= '<dd>';
 			$html .= '<label for="tax-' . $bk . '">';
-			$html .= '<input type="checkbox" class="toggler" id="tax-' . $bk . '"/>';
+			$html .= '<input type="checkbox" class="toggler" id="tax-' . $bk . '" />';
 			$html .= JText::sprintf('COM_FINDER_FILTER_BRANCH_LABEL', JText::_(FinderHelperLanguage::branchSingular($bv->title)));
 			$html .= '</label>';
 			$html .= '</dd>';
@@ -223,12 +223,12 @@ abstract class JHtmlFilter
 	/**
 	 * Method to generate filters using select box drop down controls.
 	 *
-	 * @param   FinderIndexerQuery  $query    A FinderIndexerQuery object.
-	 * @param   array               $options  An array of options.
+	 * @param       FinderIndexerQuery  $query    A FinderIndexerQuery object.
+	 * @param       array               $options  An array of options.
 	 *
-	 * @return  mixed  A rendered HTML widget on success, null otherwise.
+	 * @return      mixed  A rendered HTML widget on success, null otherwise.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function select($query, $options)
 	{
@@ -416,12 +416,12 @@ abstract class JHtmlFilter
 	/**
 	 * Method to generate fields for filtering dates
 	 *
-	 * @param   FinderIndexerQuery  $query    A FinderIndexerQuery object.
-	 * @param   array               $options  An array of options.
+	 * @param       FinderIndexerQuery  $query    A FinderIndexerQuery object.
+	 * @param       array               $options  An array of options.
 	 *
-	 * @return  mixed  A rendered HTML widget on success, null otherwise.
+	 * @return      mixed  A rendered HTML widget on success, null otherwise.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function dates($query, $options)
 	{

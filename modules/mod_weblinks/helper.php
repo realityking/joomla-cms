@@ -82,8 +82,8 @@ class modWeblinksHelper
 		 */
 
 		/*
-		 $query->where('(a.checked_out = 0 OR a.checked_out = '.$user->id.')');
-		 */
+		$query->where('(a.checked_out = 0 OR a.checked_out = '.$user->id.')');
+		*/
 		for ($i =0, $count = count($items); $i < $count; $i++) {
 			$item = &$items[$i];
 			if ($item->params->get('count_clicks', $params->get('count_clicks')) == 1) {

@@ -23,18 +23,18 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * The extension for which the categories apply.
 	 *
-	 * @var    string
-	 * @since  1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $extension;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param  array  $config  An optional associative array of configuration settings.
+	 * @param       array  $config  An optional associative array of configuration settings.
 	 *
-	 * @since  1.6
-	 * @see    JController
+	 * @since       1.6
+	 * @see         JController
 	 */
 	public function __construct($config = array())
 	{
@@ -50,11 +50,11 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * Method to check if you can add a new record.
 	 *
-	 * @param   array  $data  An array of input data.
+	 * @param       array  $data  An array of input data.
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function allowAdd($data = array())
 	{
@@ -65,12 +65,12 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * Method to check if you can edit a record.
 	 *
-	 * @param   array   $data  An array of input data.
-	 * @param   string  $key   The name of the key for the primary key.
+	 * @param       array   $data  An array of input data.
+	 * @param       string  $key   The name of the key for the primary key.
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function allowEdit($data = array(), $key = 'parent_id')
 	{
@@ -122,11 +122,11 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * Method to run batch operations.
 	 *
-	 * @param   object  $model  The model.
+	 * @param       object  $model  The model.
 	 *
-	 * @return  boolean	 True if successful, false otherwise and internal error is set.
+	 * @return      boolean  True if successful, false otherwise and internal error is set.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function batch($model = null)
 	{
@@ -144,12 +144,12 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * Gets the URL arguments to append to an item redirect.
 	 *
-	 * @param   integer  $recordId  The primary key id for the item.
-	 * @param   string   $urlVar    The name of the URL variable for the id.
+	 * @param       integer  $recordId  The primary key id for the item.
+	 * @param       string   $urlVar    The name of the URL variable for the id.
 	 *
-	 * @return  string  The arguments to append to the redirect URL.
+	 * @return      string  The arguments to append to the redirect URL.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function getRedirectToItemAppend($recordId = null, $urlVar = 'id')
 	{
@@ -162,9 +162,9 @@ class CategoriesControllerCategory extends JControllerForm
 	/**
 	 * Gets the URL arguments to append to a list redirect.
 	 *
-	 * @return  string  The arguments to append to the redirect URL.
+	 * @return      string  The arguments to append to the redirect URL.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function getRedirectToListAppend()
 	{

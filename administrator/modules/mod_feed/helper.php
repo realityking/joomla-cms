@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_feed
+ * @package     Joomla.Administrator
+ * @subpackage  mod_feed
  */
 abstract class modFeedHelper
 {
@@ -92,7 +92,7 @@ abstract class modFeedHelper
 				<tr>
 					<td align="center">
 						<img src="<?php echo htmlspecialchars($iUrl); ?>"
-						     alt="<?php echo htmlspecialchars(@$iTitle); ?>"/>
+							 alt="<?php echo htmlspecialchars(@$iTitle); ?>" />
 					</td>
 				</tr>
 			<?php
@@ -109,7 +109,7 @@ abstract class modFeedHelper
 			?>
 			<tr>
 			<td>
-				<ul class="newsfeed<?php echo htmlspecialchars($moduleclass_sfx); ?>"  >
+				<ul class="newsfeed<?php echo htmlspecialchars($moduleclass_sfx); ?>" >
 				<?php
 				for ($j = 0; $j < $totalItems; $j ++)
 				{

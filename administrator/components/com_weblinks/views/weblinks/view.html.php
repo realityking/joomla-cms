@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of weblinks.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_weblinks
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_weblinks
+ * @since       1.5
  */
 class WeblinksViewWeblinks extends JViewLegacy
 {
@@ -44,7 +44,7 @@ class WeblinksViewWeblinks extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

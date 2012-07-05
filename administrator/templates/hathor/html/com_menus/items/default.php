@@ -49,7 +49,7 @@ $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 				<?php echo JHtml::_('select.options', $this->f_levels, 'value', 'text', $this->state->get('filter.level'));?>
 			</select>
 
-            <label class="selectlabel" for="filter_published">
+			<label class="selectlabel" for="filter_published">
 				<?php echo JText::_('JOPTION_SELECT_PUBLISHED'); ?>
 			</label>
 			<select name="filter_published" class="inputbox" id="filter_published">
@@ -57,7 +57,7 @@ $saveOrder 	= ($listOrder == 'a.lft' && $listDirn == 'asc');
 				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions', array('archived' => false)), 'value', 'text', $this->state->get('filter.published'), true);?>
 			</select>
 
-            <label class="selectlabel" for="filter_access">
+			<label class="selectlabel" for="filter_access">
 				<?php echo JText::_('JOPTION_SELECT_ACCESS'); ?>
 			</label>
 			<select name="filter_access" class="inputbox" id="filter_access">

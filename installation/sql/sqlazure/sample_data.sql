@@ -171,15 +171,12 @@ INSERT INTO [#__assets] ( [id], [parent_id], [lft], [rgt], [level], [name], [tit
  SET IDENTITY_INSERT [#__assets] OFF;
 
 
-
-
 SET IDENTITY_INSERT [#__banner_clients] ON;
 INSERT INTO [#__banner_clients] ( [id], [name], [contact], [email], [extrainfo], [state], [checked_out], [checked_out_time], [metakey], [own_prefix], [metakey_prefix], [purchase_type], [track_clicks], [track_impressions]) VALUES ( '1', 'Joomla!', 'Administrator', 'email@email.com', '', '1', '0', '1900-01-01T00:00:00.000', '', '0', '', '-1', '-1', '-1');
 INSERT INTO [#__banner_clients] ( [id], [name], [contact], [email], [extrainfo], [state], [checked_out], [checked_out_time], [metakey], [own_prefix], [metakey_prefix], [purchase_type], [track_clicks], [track_impressions]) VALUES ('2', 'Shop', 'Example', 'example@example.com', '', '1', '0', '1900-01-01T00:00:00.000', '', '0', '', '-1', '0', '0');
 INSERT INTO [#__banner_clients] ( [id], [name], [contact], [email], [extrainfo], [state], [checked_out], [checked_out_time], [metakey], [own_prefix], [metakey_prefix], [purchase_type], [track_clicks], [track_impressions]) VALUES ('3', 'Bookstore', 'Bookstore Example', 'example@example.com', '', '1', '0', '1900-01-01T00:00:00.000', '', '0', '', '-1', '0', '0');
 
  SET IDENTITY_INSERT [#__banner_clients] OFF;
-
 
 
 SET IDENTITY_INSERT [#__banners] ON;
@@ -189,7 +186,6 @@ INSERT INTO [#__banners] ( [id], [cid], [type], [name], [alias], [imptotal], [im
 INSERT INTO [#__banners] ( [id], [cid], [type], [name], [alias], [imptotal], [impmade], [clicks], [clickurl], [state], [catid], [description], [custombannercode], [sticky], [ordering], [metakey], [params], [own_prefix], [metakey_prefix], [purchase_type], [track_clicks], [track_impressions], [checked_out], [checked_out_time], [publish_up], [publish_down], [reset], [created], [language]) VALUES ( '4', '1', '0', 'Support Joomla!', 'support-joomla', '0', '59', '1', 'http://contribute.joomla.org', '1', '15', 'Your contributions of time, talent and money make Joomla! possible.', '', '0', '3', '', '{"imageurl":"images\\/banners\\/white.png","width":"","height":"","alt":""}', '0', '', '-1', '0', '0', '0', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', 'en-GB');
 
  SET IDENTITY_INSERT [#__banners] OFF;
-
 
 
 TRUNCATE TABLE #__categories;
@@ -272,7 +268,6 @@ SET @max_rgt = (SELECT MAX(rgt)+1 FROM #__categories WHERE id <> 1)
 UPDATE #__categories SET rgt = @max_rgt WHERE id = 1;
 
  SET IDENTITY_INSERT [#__categories] OFF;
-
 
 
 SET IDENTITY_INSERT [#__contact_details] ON;
@@ -366,7 +361,6 @@ INSERT INTO [#__content_frontpage] ( [content_id], [ordering]) VALUES ( '8', '2'
 INSERT INTO [#__content_frontpage] ( [content_id], [ordering]) VALUES ( '24', '1');
 INSERT INTO [#__content_frontpage] ( [content_id], [ordering]) VALUES ( '35', '4');
 INSERT INTO [#__content_frontpage] ( [content_id], [ordering]) VALUES ( '50', '3');
-
 
 
 TRUNCATE TABLE #__menu;
@@ -531,8 +525,6 @@ INSERT INTO [#__menu_types] ( [id], [menutype], [title], [description]) VALUES (
 INSERT INTO [#__menu_types] ( [id], [menutype], [title], [description]) VALUES ( '7', 'fruitshop', 'Fruit Shop', 'Menu for the sample shop site.');
 
  SET IDENTITY_INSERT [#__menu_types] OFF;
-
-
 
 
 SET IDENTITY_INSERT [#__modules] ON;
@@ -753,7 +745,6 @@ INSERT INTO [#__modules_menu] ( [moduleid], [menuid]) VALUES('84', '467');
 INSERT INTO [#__modules_menu] ( [moduleid], [menuid]) VALUES ( '86', '0');
 
 
-
 SET IDENTITY_INSERT [#__newsfeeds] ON;
 
 INSERT INTO [#__newsfeeds] ( [catid], [id], [name], [alias], [link], [filename], [published], [numarticles], [cache_time], [checked_out], [checked_out_time], [ordering], [rtl], [access], [language], [params], [created], [created_by], [created_by_alias], [modified], [modified_by], [metakey], [metadesc], [metadata], [xreference], [publish_up], [publish_down]) VALUES('17','1','Joomla! Announcements','joomla-announcements','http://www.joomla.org/announcements.feed?type=rss',NULL,'1','5','3600','0','1900-01-01T00:00:00.000','1','1','1','en-GB','{"show_feed_image":"","show_feed_description":"","show_item_description":"","feed_character_count":"0","newsfeed_layout":"","feed_display_order":""}','2011-01-01T00:00:01.000','0','','2011-12-27 12:25:05','42','','','{"robots":"","rights":""}','','1900-01-01T00:00:00.000','1900-01-01T00:00:00.000');
@@ -809,6 +800,5 @@ INSERT INTO [#__weblinks] ( [id], [catid], [sid], [title], [alias], [url], [desc
 
 
  SET IDENTITY_INSERT [#__weblinks] OFF;
-
 
 

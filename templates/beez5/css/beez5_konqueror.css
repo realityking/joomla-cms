@@ -1,8 +1,7 @@
 /* ++++++++++++++  login  ++++++++++++++ */
 
-#login-form .inputbox
-{
-        -webkit-border-radius: 4px;
+#login-form .inputbox {
+		-webkit-border-radius: 4px;
 }
 
 

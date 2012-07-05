@@ -50,7 +50,7 @@ defined('_JEXEC') or die;
 							<?php echo JText::_('COM_MENUS_TYPE_ALIAS'); ?>
 						</a>
 					</li>
-					<li><a class="choose_type" href="#"  title="<?php echo JText::_('COM_MENUS_TYPE_SEPARATOR_DESC'); ?>"
+					<li><a class="choose_type" href="#" title="<?php echo JText::_('COM_MENUS_TYPE_SEPARATOR_DESC'); ?>"
 							onclick="javascript:setmenutype('<?php echo base64_encode(json_encode(array('id' => $this->recordId, 'title'=>'separator'))); ?>')">
 							<?php echo JText::_('COM_MENUS_TYPE_SEPARATOR'); ?>
 						</a>

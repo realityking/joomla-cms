@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 html, body {
@@ -101,7 +101,7 @@ a:hover {
 }
 
 #upload-flash p {
-	font-size:11px
+	font-size:11px;
 }
 
 #upload-flash ul {
@@ -177,14 +177,14 @@ a:hover {
 div#upload-flash ul{
 	margin:5px 0 5px 0;
 	overflow:hidden;
-	padding:0
+	padding:0;
 }
 
 div#upload-flash ul li {
 	float:left;
 	clear:right;
 	margin-right: 10px;
-	list-style-type:none
+	list-style-type:none;
 }
 
 li a#upload-browse:link,
@@ -197,7 +197,7 @@ li a#upload-start:visited {
 	padding: 3px;
 	border: 1px solid #ccc;
 	background-color: #efefef;
-	color:#0B55C4
+	color:#0B55C4;
 }
 li a#upload-browse:hover,
 li a#upload-clear:hover,
@@ -206,7 +206,7 @@ li a#upload-start:hover {
 	padding: 3px;
 	border: 1px solid #ccc;
 	background: #E8F6FE;
-	color:#333
+	color:#333;
 }
 
 /* added Angie */
@@ -218,10 +218,10 @@ li a#upload-start:hover {
 	border: 1px #ccc solid;
 	padding: 5px !important;
 	text-align: left;
-	font-size:11px
+	font-size:11px;
 }
 #upload-noflash {
-		border:0
+		border:0;
 }
 .fltrt {
 	float: right;
@@ -240,32 +240,31 @@ table.properties td {
 
 .properties label {
 	color:#000;
-	padding:0 4px
+	padding:0 4px;
 }
 
 legend {
-    color: #146295;
-    font-size: 1.2em;
-    font-weight: bold;
-    font-size:11px
+	color: #146295;
+	font-size: 1.2em;
+	font-weight: bold;
+	font-size:11px;
 }
 
-#uploadform legend
-{
+#uploadform legend {
 	font-size:12px;
-	color:#0B55C4
+	color:#0B55C4;
 }
 
 
 input, select {
-    font-size: 0.909em;
-    border: 1px solid silver;
-    background: #fff;
+	font-size: 0.909em;
+	border: 1px solid silver;
+	background: #fff;
 }
 
 
 .hide {
-	display:none
+	display:none;
 }
 
 fieldset input,
@@ -273,9 +272,9 @@ fieldset textarea,
 fieldset select,
 fieldset img,
 fieldset button {
-    float: left;
-    width: auto;
-    margin: 5px 5px 5px 0px;
+	float: left;
+	width: auto;
+	margin: 5px 5px 5px 0px;
 }
 
  label.hidelabeltxt {
@@ -283,9 +282,9 @@ fieldset button {
 }
 #imageForm fieldset label,
 #uploadform fieldset label {
-    float: left;
-    clear: left;
-    display:block;
-    margin: 5px 0;
-    font-size:11px
+	float: left;
+	clear: left;
+	display:block;
+	margin: 5px 0;
+	font-size:11px;
 }

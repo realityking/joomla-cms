@@ -12,18 +12,18 @@ defined('_JEXEC') or die;
 /**
  * Utility class working with languages
  *
- * @package		Joomla.Administrator
- * @subpackage	com_languages
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       1.6
  */
 abstract class JHtmlLanguages
 {
 	/**
 	 * method to generate an information about the default language
 	 *
-	 * @param	boolean	$published is the language the default?
+	 * @param       boolean	$published is the language the default?
 	 *
-	 * @return	string	html code
+	 * @return      string	html code
 	 */
 	public static function published($published)
 	{
@@ -38,14 +38,14 @@ abstract class JHtmlLanguages
 	/**
 	 * method to generate an input radio button
 	 *
-	 * @param	int		$rowNum the row number
-	 * @param	string	language tag
+	 * @param       int		$rowNum the row number
+	 * @param       string	language tag
 	 *
-	 * @return	string	html code
+	 * @return      string	html code
 	 */
 	public static function id($rowNum, $language)
 	{
-		return '<input type="radio" id="cb'.$rowNum.'" name="cid" value="'.htmlspecialchars($language).'" onclick="Joomla.isChecked(this.checked);" title="'.($rowNum+1).'"/>';
+		return '<input type="radio" id="cb'.$rowNum.'" name="cid" value="'.htmlspecialchars($language).'" onclick="Joomla.isChecked(this.checked);" title="'.($rowNum+1).'" />';
 	}
 
 	public static function clients()
@@ -59,8 +59,8 @@ abstract class JHtmlLanguages
 	/**
 	 * Returns an array of published state filter options.
 	 *
-	 * @return	string			The HTML code for the select tag
-	 * @since	1.6
+	 * @return      string			The HTML code for the select tag
+	 * @since       1.6
 	 */
 	public static function publishedOptions()
 	{

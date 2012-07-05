@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.Installation
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Installation
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -107,11 +107,8 @@ Viet Hoang Vu
 Zachary Draper.
 
 
-
 Documentation Contributors:
 ---------------------------
-
-
 
 
 Translation Contributors:
@@ -174,7 +171,6 @@ Turkish (tr-TR) - Joomla! Turkiye - Ümit Kenan Gönüllü
 Ukrainian (uk-UA) - Ukrainian Translation Team - Denys Nosov
 Urdu Pakistan (ur-PK) - Basim
 Uyghur China (ug-CN) - Uyghur Translation Team - Ekber Tursun, Osmanjan Hasen, Abdulla Bisir
-
 
 
 -------------------- Joomla! 1.5 Credits ---------------------
@@ -478,7 +474,6 @@ Print & Email Front End Icons
 -----------------------------
 Copyright:	Copyright (C) 2005 Plone Foundation
 License:	GNU Lesser General Public License (LGPL)
-
 
 
 -------------------- Joomla! 1.0 Credits ---------------------

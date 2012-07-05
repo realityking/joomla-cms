@@ -21,11 +21,11 @@ class JHtmlUsers
 	/**
 	 * Display an image.
 	 *
-	 * @param   string	$src  The source of the image
+	 * @param       string	$src  The source of the image
 	 *
-	 * @return  string  A <img> element if the specified file exists, otherwise, a null string
+	 * @return      string  A <img> element if the specified file exists, otherwise, a null string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function image($src)
 	{
@@ -46,11 +46,11 @@ class JHtmlUsers
 	/**
 	 * Displays an icon to add a note for this user.
 	 *
-	 * @param   integer  $userId  The user ID
+	 * @param       integer  $userId  The user ID
 	 *
-	 * @return  string  A link to add a note
+	 * @return      string  A link to add a note
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function addNote($userId)
 	{
@@ -63,12 +63,12 @@ class JHtmlUsers
 	/**
 	 * Displays an icon to filter the notes list on this user.
 	 *
-	 * @param   integer  $count   The number of notes for the user
-	 * @param   integer  $userId  The user ID
+	 * @param       integer  $count   The number of notes for the user
+	 * @param       integer  $userId  The user ID
 	 *
-	 * @return	string  A link to apply a filter
+	 * @return      string  A link to apply a filter
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function filterNotes($count, $userId)
 	{
@@ -86,12 +86,12 @@ class JHtmlUsers
 	/**
 	 * Displays a note icon.
 	 *
-	 * @param   integer  $count   The number of notes for the user
-	 * @param   integer  $userId  The user ID
+	 * @param       integer  $count   The number of notes for the user
+	 * @param       integer  $userId  The user ID
 	 *
-	 * @return	string  A link to a modal window with the user notes
+	 * @return      string  A link to a modal window with the user notes
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function notes($count, $userId)
 	{

@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
  * HTML View class for the Cache component
  *
  * @static
- * @package		Joomla.Administrator
- * @subpackage	com_cache
+ * @package     Joomla.Administrator
+ * @subpackage  com_cache
  * @since 1.6
  */
 class CacheViewCache extends JViewLegacy
@@ -44,7 +44,7 @@ class CacheViewCache extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

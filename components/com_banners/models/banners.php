@@ -17,9 +17,9 @@ JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 /**
  * Banners model for the Joomla Banners component.
  *
- * @package		Joomla.Site
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersModelBanners extends JModelList
 {
@@ -30,10 +30,10 @@ class BannersModelBanners extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
-	 * @since	1.6
+	 * @return      string		A store id.
+	 * @since       1.6
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -50,8 +50,8 @@ class BannersModelBanners extends JModelList
 	/**
 	 * Gets a list of banners
 	 *
-	 * @return	array	An array of banner objects.
-	 * @since	1.6
+	 * @return      array	An array of banner objects.
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -169,8 +169,8 @@ class BannersModelBanners extends JModelList
 	/**
 	 * Get a list of banners.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	public function getItems()
 	{
@@ -190,8 +190,8 @@ class BannersModelBanners extends JModelList
 	/**
 	 * Makes impressions on a list of banners
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public function impress()
 	{

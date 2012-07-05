@@ -419,7 +419,7 @@ CREATE TABLE [#__users](
 	[activation] [nvarchar](100) NOT NULL,
 	[params] [nvarchar](max) NOT NULL,
 	[lastResetTime] [datetime] NOT NULL,
-	[resetCount] [int] NOT NULL,	
+	[resetCount] [int] NOT NULL,
  CONSTRAINT [PK_#__users_id] PRIMARY KEY CLUSTERED
 (
 	[id] ASC
@@ -1189,11 +1189,11 @@ SET QUOTED_IDENTIFIER ON;
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__overrider]') AND type in (N'U'))
 BEGIN
 CREATE TABLE [#__overrider] (
-  [id] [int] IDENTITY(1,1) NOT NULL,
-  [constant] [nvarchar](max) NOT NULL,
-  [string] [nvarchar] NOT NULL,
-  [file] [nvarchar](max) NOT NULL,
-   CONSTRAINT [PK_#__overrider_id] PRIMARY KEY CLUSTERED
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[constant] [nvarchar](max) NOT NULL,
+	[string] [nvarchar] NOT NULL,
+	[file] [nvarchar](max) NOT NULL,
+	CONSTRAINT [PK_#__overrider_id] PRIMARY KEY CLUSTERED
 (
 	[id] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF)
@@ -1257,7 +1257,6 @@ END
 
 
 End;
-
 
 
 /****** Object:  Table [#__newsfeeds]    Script Date: 11/08/2010 18:41:22 ******/
@@ -1651,8 +1650,6 @@ UNION ALL
 SELECT 85,0
 
 
-
-
 SET QUOTED_IDENTIFIER ON;
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__modules]') AND type in (N'U'))
@@ -1948,7 +1945,6 @@ END
 End;
 
 
-
 SET QUOTED_IDENTIFIER ON;
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__messages]') AND type in (N'U'))
@@ -2053,7 +2049,6 @@ END
 
 
 End;
-
 
 
 /****** Object:  Table [#__menu_types]    Script Date: 11/08/2010 18:41:22 ******/
@@ -2616,7 +2611,6 @@ END
 End;
 
 
-
 SET IDENTITY_INSERT #__extensions  ON;
 INSERT INTO #__extensions (extension_id, name, type, element, folder, client_id, enabled, access, protected, manifest_cache, params, custom_data, system_data, checked_out, checked_out_time, ordering, state)
 SELECT 1, 'com_mailto', 'component', 'com_mailto', '', 0, 1, 1, 1, '', '', '', '', 0, '1900-01-01 00:00:00', 0, 0
@@ -2761,7 +2755,6 @@ UNION ALL
 SELECT 314, 'mod_version', 'module', 'mod_version', '', 1, 1, 1, 0, '{"legacy":false,"name":"mod_version","type":"module","creationDate":"January 2012","author":"Joomla! Project","copyright":"Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.","authorEmail":"admin@joomla.org","authorUrl":"www.joomla.org","version":"2.5.0","description":"MOD_VERSION_XML_DESCRIPTION","group":""}', '{"format":"short","product":"1","cache":"0"}', '', '', 0, '1900-01-01 00:00:00', 0, 0
 
 
-
 INSERT INTO #__extensions (extension_id, name, type, element, folder, client_id, enabled, access, protected, manifest_cache, params, custom_data, system_data, checked_out, checked_out_time, ordering, state)
 SELECT 400, 'plg_authentication_gmail', 'plugin', 'gmail', 'authentication', 0, 0, 1, 0, '', '{"applysuffix":"0","suffix":"","verifypeer":"1","user_blacklist":""}', '', '', 0, '1900-01-01 00:00:00', 1, 0
 UNION ALL
@@ -2856,8 +2849,6 @@ UNION ALL
 SELECT 446, 'plg_finder_weblinks', 'plugin', 'weblinks', 'finder', 0, 1, 1, 0, '', '{}', '', '', 0, '1900-01-01 00:00:00', 5, 0;
 
 
-
-
 INSERT INTO #__extensions (extension_id, name, type, element, folder, client_id, enabled, access, protected, manifest_cache, params, custom_data, system_data, checked_out, checked_out_time, ordering, state)
 SELECT 500, 'atomic', 'template', 'atomic', '', 0, 1, 1, 0, 'a:11:{s:6:"legacy";b:0;s:4:"name";s:6:"atomic";s:4:"type";s:8:"template";s:12:"creationDate";s:8:"10/10/09";s:6:"author";s:12:"Joomla! Project";s:9:"copyright";s:72:"Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.";s:11:"authorEmail";s:25:"contact@kontentdesign.com";s:9:"authorUrl";s:28:"http://www.kontentdesign.com";s:7:"version";s:5:"1.6.0";s:11:"description";s:26:"TPL_ATOMIC_XML_DESCRIPTION";s:5:"group";s:0:"";}', '{}', '', '', 0, '1900-01-01 00:00:00', 0, 0
 UNION ALL
@@ -2881,7 +2872,6 @@ VALUES (700, 'Joomla! CMS', 'file', 'joomla', '', 0, 1, 1, 1, '{"legacy":false,"
 INSERT INTO #__extensions (extension_id, name,type, element, folder, client_id, enabled, access, protected, manifest_cache, params, custom_data, system_data, checked_out, checked_out_time, ordering, state) VALUES
 (800, 'joomla', 'package', 'pkg_joomla', '', 0, 1, 1, 1, '', '', '', '', 0, '1900-01-01 00:00:00', 0, 0);
 SET IDENTITY_INSERT #__extensions  OFF;
-
 
 
 SET QUOTED_IDENTIFIER ON
@@ -2933,7 +2923,6 @@ CREATE NONCLUSTERED INDEX [token] ON [#__finder_tokens_aggregate]
 (
 	[term] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
 
 
 IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[DF__#__finde__commo__3587F3E0]') AND parent_object_id = OBJECT_ID(N'[#__finder_tokens_aggregate]'))
@@ -2991,8 +2980,6 @@ CREATE NONCLUSTERED INDEX [idx_word] ON [#__finder_tokens]
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 
 
-
-
 IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[DF__#__finde__commo__30C33EC3]') AND parent_object_id = OBJECT_ID(N'[#__finder_tokens]'))
 Begin
 IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF__#__finde__commo__30C33EC3]') AND type = 'D')
@@ -3041,7 +3028,7 @@ BEGIN
 CREATE TABLE [#__finder_terms_common](
 	[term] [nvarchar](75)  NOT NULL,
 	[language] [nvarchar](3) NOT NULL,
-		 CONSTRAINT [PK_#__finder_terms_common] PRIMARY KEY CLUSTERED
+	CONSTRAINT [PK_#__finder_terms_common] PRIMARY KEY CLUSTERED
 (
 	[term] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF)
@@ -3061,7 +3048,6 @@ CREATE NONCLUSTERED INDEX [idx_word_lang] ON [#__finder_terms_common]
 	[term] ASC,
 	[language] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
 
 
 INSERT INTO[#__finder_terms_common] ([term], [language]) VALUES ('a', 'e');
@@ -3290,7 +3276,6 @@ CREATE NONCLUSTERED INDEX [node_id] ON [#__finder_taxonomy_map]
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 
 
-
 SET QUOTED_IDENTIFIER ON
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__finder_taxonomy]') AND type in (N'U'))
@@ -3383,7 +3368,6 @@ INSERT INTO[#__finder_taxonomy] ([id], [parent_id], [title], [state], [access], 
 SET IDENTITY_INSERT [#__finder_taxonomy] OFF;
 
 
-
 SET QUOTED_IDENTIFIER ON
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__finder_links_termsf]') AND type in (N'U'))
@@ -3417,7 +3401,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [#__finder_links_termsf]
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 
 
-
 SET QUOTED_IDENTIFIER ON
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__finder_links_termse]') AND type in (N'U'))
 BEGIN
@@ -3447,7 +3430,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [dbo].[#__finder_links_termse]
 	[term_id] ASC,
 	[weight] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
 
 
 SET QUOTED_IDENTIFIER ON
@@ -3513,8 +3495,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [#__finder_links_termsc]
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 
 
-
-
 SET QUOTED_IDENTIFIER ON
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__finder_links_termsb]') AND type in (N'U'))
 BEGIN
@@ -3544,7 +3524,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [#__finder_links_termsb]
 	[term_id] ASC,
 	[weight] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
 
 
 SET QUOTED_IDENTIFIER ON
@@ -3577,8 +3556,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [#__finder_links_termsa]
 	[term_id] ASC,
 	[weight] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
-
 
 
 SET QUOTED_IDENTIFIER ON
@@ -3902,8 +3879,6 @@ CREATE NONCLUSTERED INDEX [idx_term_weight] ON [#__finder_links_terms0]
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
 
 
-
-
 SET QUOTED_IDENTIFIER ON
 
 IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[#__finder_links]') AND type in (N'U'))
@@ -3980,7 +3955,6 @@ CREATE NONCLUSTERED INDEX [idx_url] ON [#__finder_links]
 (
 	[url] ASC
 )WITH (STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF)
-
 
 
 IF Not EXISTS (SELECT * FROM sys.default_constraints WHERE object_id = OBJECT_ID(N'[DF__#__finde__title__08B54D69]') AND parent_object_id = OBJECT_ID(N'[#__finder_links]'))
@@ -6461,10 +6435,3 @@ UNION ALL
 SELECT 8, 1, 18, 19, 'Super Users';
 
 SET IDENTITY_INSERT #__usergroups  OFF;
-
-
-
-
-
-
-

@@ -12,17 +12,17 @@ defined('_JEXEC') or die;
 /**
  * Users Route Helper
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersHelperRoute
 {
 	/**
 	 * Method to get the menu items for the component.
 	 *
-	 * @return	array		An array of menu items.
-	 * @since	1.6
+	 * @return      array		An array of menu items.
+	 * @since       1.6
 	 */
 	public static function &getItems()
 	{
@@ -50,8 +50,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the login view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 * @static
 	 */
 	public static function getLoginRoute()
@@ -74,8 +74,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the profile view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 */
 	public static function getProfileRoute()
 	{
@@ -99,8 +99,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the registration view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 */
 	public static function getRegistrationRoute()
 	{
@@ -122,8 +122,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the remind view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 */
 	public static function getRemindRoute()
 	{
@@ -145,8 +145,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the resend view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 */
 	public static function getResendRoute()
 	{
@@ -168,8 +168,8 @@ class UsersHelperRoute
 	/**
 	 * Method to get a route configuration for the reset view.
 	 *
-	 * @return	mixed		Integer menu id on success, null on failure.
-	 * @since	1.6
+	 * @return      mixed		Integer menu id on success, null on failure.
+	 * @since       1.6
 	 */
 	public static function getResetRoute()
 	{

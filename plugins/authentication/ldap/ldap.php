@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * LDAP Authentication Plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Authentication.ldap
+ * @package     Joomla.Plugin
+ * @subpackage  Authentication.ldap
  * @since 1.5
  */
 class plgAuthenticationLdap extends JPlugin
@@ -22,10 +22,10 @@ class plgAuthenticationLdap extends JPlugin
 	 * This method should handle any authentication and report back to the subject
 	 *
 	 * @access	public
-	 * @param   array	$credentials Array holding the user credentials
-	 * @param	array   $options	Array of extra options
-	 * @param	object	$response	Authentication response object
-	 * @return	object	boolean
+	 * @param       array	$credentials Array holding the user credentials
+	 * @param       array   $options	Array of extra options
+	 * @param       object	$response	Authentication response object
+	 * @return      object	boolean
 	 * @since 1.5
 	 */
 	function onUserAuthenticate($credentials, $options, &$response)

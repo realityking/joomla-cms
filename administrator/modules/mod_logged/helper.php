@@ -10,16 +10,16 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_logged
+ * @package     Joomla.Administrator
+ * @subpackage  mod_logged
  */
 abstract class modLoggedHelper
 {
 	/**
 	 * Get a list of logged users.
 	 *
-	 * @param	JObject	The module parameters.
-	 * @return	mixed	An array of articles, or false on error.
+	 * @param       JObject	The module parameters.
+	 * @return      mixed	An array of articles, or false on error.
 	 */
 	public static function getList($params)
 	{
@@ -61,8 +61,8 @@ abstract class modLoggedHelper
 	/**
 	 * Get the alternate title for the module
 	 *
-	 * @param	JObject	The module parameters.
-	 * @return	string	The alternate title for the module.
+	 * @param       JObject	The module parameters.
+	 * @return      string	The alternate title for the module.
 	 */
 	public static function getTitle($params)
 	{

@@ -10,14 +10,14 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_content
+ * @package     Joomla.Administrator
+ * @subpackage  com_content
  */
 abstract class JHtmlContentAdministrator
 {
 	/**
-	 * @param	int $value	The state value
-	 * @param	int $i
+	 * @param       int $value	The state value
+	 * @param       int $i
 	 */
 	static function featured($value = 0, $i, $canChange = true)
 	{

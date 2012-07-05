@@ -23,11 +23,11 @@ class FinderViewSearch extends JViewLegacy
 	/**
 	 * Method to display the view.
 	 *
-	 * @param   string  $tpl  A template file to load. [optional]
+	 * @param       string  $tpl  A template file to load. [optional]
 	 *
-	 * @return  mixed  JError object on failure, void on success.
+	 * @return      mixed  JError object on failure, void on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function display($tpl = null)
 	{

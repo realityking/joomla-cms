@@ -14,9 +14,9 @@ jimport('joomla.application.component.controllerform');
 /**
  * Languages list actions controller.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_languages
- * @version		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @version     1.6
  */
 class LanguagesControllerLanguage extends JControllerForm
 {
@@ -24,11 +24,11 @@ class LanguagesControllerLanguage extends JControllerForm
 	/**
 	 * Gets the URL arguments to append to an item redirect.
 	 *
-	 * @param	int		$recordId	The primary key id for the item.
-	 * @param	string	$key		The name of the primary key variable.
+	 * @param       int		$recordId	The primary key id for the item.
+	 * @param       string	$key		The name of the primary key variable.
 	 *
-	 * @return	string	The arguments to append to the redirect URL.
-	 * @since	1.6
+	 * @return      string	The arguments to append to the redirect URL.
+	 * @since       1.6
 	 */
 	protected function getRedirectToItemAppend($recordId = null, $key = 'lang_id')
 	{

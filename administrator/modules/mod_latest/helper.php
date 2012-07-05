@@ -14,17 +14,17 @@ JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_content/models
 jimport('joomla.application.categories');
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_latest
+ * @package     Joomla.Administrator
+ * @subpackage  mod_latest
  */
 abstract class modLatestHelper
 {
 	/**
 	 * Get a list of articles.
 	 *
-	 * @param	JObject		The module parameters.
+	 * @param       JObject		The module parameters.
 	 *
-	 * @return	mixed		An array of articles, or false on error.
+	 * @return      mixed		An array of articles, or false on error.
 	 */
 	public static function getList($params)
 	{
@@ -97,8 +97,8 @@ abstract class modLatestHelper
 	/**
 	 * Get the alternate title for the module
 	 *
-	 * @param	JObject	The module parameters.
-	 * @return	string	The alternate title for the module.
+	 * @param       JObject	The module parameters.
+	 * @return      string	The alternate title for the module.
 	 */
 	public static function getTitle($params)
 	{

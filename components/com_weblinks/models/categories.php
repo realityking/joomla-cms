@@ -12,23 +12,23 @@ defined('_JEXEC') or die;
 /**
  * This models supports retrieving lists of article categories.
  *
- * @package		Joomla.Site
- * @subpackage	com_weblinks
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_weblinks
+ * @since       1.6
  */
 class WeblinksModelCategories extends JModelLegacy
 {
 	/**
 	 * Model context string.
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	public $_context = 'com_weblinks.categories';
 
 	/**
 	 * The category context (allows other extensions to derived from this model).
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	protected $_extension = 'com_weblinks';
 
@@ -41,7 +41,7 @@ class WeblinksModelCategories extends JModelLegacy
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState()
 	{
@@ -66,9 +66,9 @@ class WeblinksModelCategories extends JModelLegacy
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
+	 * @return      string		A store id.
 	 */
 	protected function getStoreId($id = '')
 	{

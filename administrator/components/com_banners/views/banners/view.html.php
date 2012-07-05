@@ -26,11 +26,11 @@ class BannersViewBanners extends JViewLegacy
 	/**
 	 * Method to display the view.
 	 *
-	 * @param   string  $tpl  A template file to load. [optional]
+	 * @param       string  $tpl  A template file to load. [optional]
 	 *
-	 * @return  mixed  A string if successful, otherwise a JError object.
+	 * @return      mixed  A string if successful, otherwise a JError object.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function display($tpl = null)
 	{
@@ -58,9 +58,9 @@ class BannersViewBanners extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{
