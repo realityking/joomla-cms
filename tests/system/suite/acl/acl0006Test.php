@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests manage permissions.
  *
  * Set global permissions for "ManageTestGroup" to deny all except manage permission
@@ -32,7 +32,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 		$login = 'TestManageUser' . $salt;
 		$email = $login . '@test.com';
 		$group = $groupName;
-	    $this->createUser($username, $login, 'password', $email, $group);
+		$this->createUser($username, $login, 'password', $email, $group);
 
     	echo "Set global permissions for ". $groupName." to allowed\n";
  		$actions = array('Site Login', 'Admin Login', 'Configure', 'Access Component', 'Create', 'Delete', 'Edit', 'Edit State', 'Edit Own');
@@ -57,7 +57,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
 		echo "Testng Contacts access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Contacts");
     	$this->waitForPageToLoad("30000");
     	$this->assertTrue($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -71,7 +71,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
 		echo "Testng Messaging access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Messaging");
     	$this->waitForPageToLoad("30000");
      	$this->assertTrue($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -83,7 +83,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
      	echo "Testng Newsfeeds access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Newsfeeds");
     	$this->waitForPageToLoad("30000");
    		$this->assertTrue($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -96,7 +96,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
     	echo "Testng Redirect access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Redirect");
     	$this->waitForPageToLoad("30000");
     	$this->assertTrue($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -146,7 +146,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
 		echo "Testng Contacts access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Contacts");
     	$this->waitForPageToLoad("30000");
     	$this->assertFalse($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -160,7 +160,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
 		echo "Testng Messaging access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Messaging");
     	$this->waitForPageToLoad("30000");
      	$this->assertFalse($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -172,7 +172,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
      	echo "Testng Newsfeeds access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Newsfeeds");
     	$this->waitForPageToLoad("30000");
    		$this->assertFalse($this->isElementPresent("//li[@id='toolbar-new']"));
@@ -185,7 +185,7 @@ class Acl0006Test extends SeleniumJoomlaTestCase
 
     	echo "Testng Redirect access of ". $login.".\n";
     	$this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
+		$this->waitForPageToLoad("30000");
     	$this->click("link=Redirect");
     	$this->waitForPageToLoad("30000");
    		$this->assertFalse($this->isElementPresent("//li[@id='toolbar-new']"));

@@ -12,19 +12,19 @@ defined('_JEXEC') or die;
 /**
  * Categories helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_categories
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_categories
+ * @since       1.6
  */
 class CategoriesHelper
 {
 	/**
 	 * Configure the Submenu links.
 	 *
-	 * @param	string	The extension being used for the categories.
+	 * @param       string	The extension being used for the categories.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public static function addSubmenu($extension)
 	{
@@ -70,11 +70,11 @@ class CategoriesHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @param	string	$extension	The extension.
-	 * @param	int		$categoryId	The category ID.
+	 * @param       string	$extension	The extension.
+	 * @param       int		$categoryId	The category ID.
 	 *
-	 * @return	JObject
-	 * @since	1.6
+	 * @return      JObject
+	 * @since       1.6
 	 */
 	public static function getActions($extension, $categoryId = 0)
 	{

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.hathor
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  templates.hathor
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @since       1.6
  *
  * RTL CSS file for the color standard
  */
@@ -58,7 +58,7 @@
  */
 
 div.checkin-tick {
-		background: url(../images/admin/tick.png) 20px 50% no-repeat;
+	background: url(../images/admin/tick.png) 20px 50% no-repeat;
 }
 
 /**
@@ -166,14 +166,14 @@ a.saveorder.inactive {
 
 /* Button 1 Type */
 
-	/* Use this if you add images to the buttons such as directional arrows */
+/* Use this if you add images to the buttons such as directional arrows */
 
 .button1 a {
-	/* add padding if you are using the directional images */
-	/* padding: 0 6px 0 30px; */
+/* add padding if you are using the directional images */
+/* padding: 0 6px 0 30px; */;
 }
 
-	/* Button 2 Type */
+/* Button 2 Type */
 
 .button2-right .prev {
 	background-image: url(../images/j_button2_prev.png);
@@ -194,7 +194,8 @@ a.saveorder.inactive {
 	background-position: left center;
 }
 
-.button2-left.off .next { /* @TODO check the x position */
+.button2-left.off .next {
+/* @TODO check the x position */
 	background: url(../images/j_button2_next_off.png) 100% 0 no-repeat;
 }
 
@@ -203,7 +204,8 @@ a.saveorder.inactive {
 	background-position: left center;
 }
 
-.button2-left.off .end { /* @TODO check the x position */
+.button2-left.off .end {
+/* @TODO check the x position */
 	background: url(../images/j_button2_last_off.png) 100% 0 no-repeat;
 }
 
@@ -223,7 +225,8 @@ a.saveorder.inactive {
  * Tooltips
  */
 
-.tip-title { /* @TODO is there a different image */
+.tip-title {
+/* @TODO is there a different image */
 	background: url(../images/selector-arrow-rtl.png) no-repeat right top;
 }
 
@@ -363,16 +366,14 @@ span.icon-16-locked {
 * Permission Rules
 */
 
-#permissions-sliders ul#rules table.group-rules td
-{
-    border-left: solid 1px #738498;
-    border-right: solid 0 #738498;
+#permissions-sliders ul#rules table.group-rules td {
+	border-left: solid 1px #738498;
+	border-right: solid 0 #738498;
 }
 
-#permissions-sliders ul#rules table.group-rules th
-{
-    border-left: solid 1px #738498;
-    border-right: solid 0 #738498;
+#permissions-sliders ul#rules table.group-rules th {
+	border-left: solid 1px #738498;
+	border-right: solid 0 #738498;
 }
 
 /**

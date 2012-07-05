@@ -58,9 +58,9 @@ class JHtmlTest extends JoomlaTestCase
 
 		// two sets of test data
 		$test_data = array('date' => '2010-05-28', 'friendly_date' => 'Friday, 28 May 2010',
-					  'name' => 'cal1_name', 'id' => 'cal1_id', 'format' => '%Y-%m-%d',
-					  'attribs' => array()
-				);
+			'name' => 'cal1_name', 'id' => 'cal1_id', 'format' => '%Y-%m-%d',
+			'attribs' => array()
+		);
 
 		$test_data_ro = array_merge($test_data, array('attribs' => array('readonly' => 'readonly')));
 

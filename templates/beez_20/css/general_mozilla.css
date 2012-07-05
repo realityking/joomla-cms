@@ -7,11 +7,8 @@
 .contact .inputbox,
 .login-fields input,
 .remind input,
-.reset input
-
-{
-        -moz-border-radius: 5px;
+.reset input {
+		-moz-border-radius: 5px;
 }
-
 
 

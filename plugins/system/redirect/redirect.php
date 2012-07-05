@@ -12,8 +12,8 @@ defined('JPATH_BASE') or die;
 /**
  * Plugin class for redirect handling.
  *
- * @package		Joomla.Plugin
- * @subpackage	System.redirect
+ * @package     Joomla.Plugin
+ * @subpackage  System.redirect
  */
 class plgSystemRedirect extends JPlugin
 {
@@ -21,10 +21,10 @@ class plgSystemRedirect extends JPlugin
 	 * Object Constructor.
 	 *
 	 * @access	public
-	 * @param	object	The object to observe -- event dispatcher.
-	 * @param	object	The configuration object for the plugin.
-	 * @return	void
-	 * @since	1.0
+	 * @param       object	The object to observe -- event dispatcher.
+	 * @param       object	The configuration object for the plugin.
+	 * @return      void
+	 * @since       1.0
 	 */
 	function __construct(&$subject, $config)
 	{

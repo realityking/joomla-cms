@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 Object.append(Browser.Features, {
@@ -16,9 +16,9 @@ Object.append(Browser.Features, {
  *
  * Inspired by: Chris Campbell <www.particletree.com>
  *
- * @package		Joomla.Framework
- * @subpackage	Forms
- * @since		1.5
+ * @package     Joomla.Framework
+ * @subpackage  Forms
+ * @since       1.5
  */
 var JFormValidator = new Class({
 	initialize: function()

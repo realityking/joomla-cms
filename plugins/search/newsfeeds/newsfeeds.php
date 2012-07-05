@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Newsfeeds Search plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Search.newsfeeds
- * @since		1.6
+ * @package     Joomla.Plugin
+ * @subpackage  Search.newsfeeds
+ * @since       1.6
  */
 class plgSearchNewsfeeds extends JPlugin
 {

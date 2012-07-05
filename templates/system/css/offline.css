@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 body {
@@ -10,7 +10,7 @@ body {
 	text-align: center;
 }
 
-img  {
+img {
 	border: 0 none;
 	margin-left: auto;
 	margin-right: auto;
@@ -31,31 +31,55 @@ img  {
 /* -- class styles ---------------------------------- */
 
 .outline {
-  border: 1px solid #cccccc;
-  background: #ffffff;
-  padding: 2px;
+	border: 1px solid #cccccc;
+	background: #ffffff;
+	padding: 2px;
 }
 
 /* -- form styles ----------------------------------- */
 
-form    { margin: auto; }
-form p  { margin: 0; padding: 0; }
-form fieldset { border: 0 none; margin: 0em; padding: 0.2em;}
-label         { display: block; float: left; }
-input 		  { padding: 1px; }
-input.button  { width: auto; height: 1.8em; cursor: pointer; }
+form {
+	margin: auto;
+}
+form p {
+	margin: 0; padding: 0;
+}
+form fieldset {
+	border: 0 none; margin: 0em; padding: 0.2em;
+}
+label {
+	display: block; float: left;
+}
+input {
+	padding: 1px;
+}
+input.button {
+	width: auto; height: 1.8em; cursor: pointer;
+}
 
-label   { margin: 5px 0px 2px 0px; width: 10em;}
-form p  { padding: 0.2em 0 0.2em 0; }
-form br  { display: none; }
-input    { border: 1px solid #0E67A1; }
-input.button 		 { background-color: white; }
-input.button:hover { border-color:  #FC902E; }
+label {
+	margin: 5px 0px 2px 0px; width: 10em;
+}
+form p {
+	padding: 0.2em 0 0.2em 0;
+}
+form br {
+	display: none;
+}
+input {
+	border: 1px solid #0E67A1;
+}
+input.button {
+	background-color: white;
+}
+input.button:hover {
+	border-color:  #FC902E;
+}
 
 
-
-#frmlogin	      { margin: 0 10px 0 10px;  }
-#frmlogin fieldset.button { text-align: right; }
-
-
-
+#frmlogin {
+	margin: 0 10px 0 10px;
+}
+#frmlogin fieldset.button {
+	text-align: right;
+}

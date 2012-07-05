@@ -12,22 +12,22 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.controlleradmin');
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_languages
- * @since	1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       1.6
  */
 class LanguagesControllerLanguages extends JControllerAdmin
 {
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Language', $prefix = 'LanguagesModel', $config = array('ignore_request' => true))
 	{

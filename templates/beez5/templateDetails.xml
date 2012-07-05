@@ -58,7 +58,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="advanced">
-				 <field name="wrapperSmall" type="text" default="53"
+				<field name="wrapperSmall" type="text" default="53"
 					label="TPL_BEEZ5_FIELD_WRAPPERSMALL_LABEL"
 					description="TPL_BEEZ5_FIELD_WRAPPERSMALL_DESC"
 					filter="integer" />
@@ -68,14 +68,14 @@
 					description="TPL_BEEZ5_FIELD_WRAPPERLARGE_DESC"
 					filter="integer" />
 				<field name="logo" type="media"
-					   label="TPL_BEEZ5_FIELD_LOGO_LABEL" description="TPL_BEEZ5_FIELD_LOGO_DESC" />
+						label="TPL_BEEZ5_FIELD_LOGO_LABEL" description="TPL_BEEZ5_FIELD_LOGO_DESC" />
 
-				<field name="sitetitle"  type="text" default=""
+				<field name="sitetitle" type="text" default=""
 					label="TPL_BEEZ5_FIELD_SITETITLE_LABEL"
 					description="TPL_BEEZ5_FIELD_SITETITLE_DESC"
 					filter="string" />
 
-				<field name="sitedescription"  type="text" default=""
+				<field name="sitedescription" type="text" default=""
 					label="TPL_BEEZ5_FIELD_DESCRIPTION_LABEL"
 					description="TPL_BEEZ5_FIELD_DESCRIPTION_DESC"
 					filter="string" />

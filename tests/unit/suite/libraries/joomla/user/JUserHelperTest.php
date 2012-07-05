@@ -17,9 +17,9 @@ class JUserHelperTest extends JoomlaDatabaseTestCase
 	/**
 	 * Receives the callback from JError and logs the required error information for the test.
 	 *
-	 * @param	JException	The JException object from JError
+	 * @param       JException	The JException object from JError
 	 *
-	 * @return	bool	To not continue with JError processing
+	 * @return      bool	To not continue with JError processing
 	 */
 	static function errorCallback( $error )
 	{
@@ -93,9 +93,9 @@ class JUserHelperTest extends JoomlaDatabaseTestCase
 	/**
 	 * TestingGetUserGroups().
 	 *
-	 * @param	integer	User ID
-	 * @param	mixed	User object or empty array if unknown
-	 * @param	array	Expected error info
+	 * @param       integer	User ID
+	 * @param       mixed	User object or empty array if unknown
+	 * @param       array	Expected error info
 	 *
 	 * @return void
 	 * @dataProvider casesGetUserGroups
@@ -136,9 +136,9 @@ class JUserHelperTest extends JoomlaDatabaseTestCase
 	/**
 	 * TestingGetUserGroups().
 	 *
-	 * @param	string	User name
-	 * @param	int 	Expected user id
-	 * @param	array	Expected error info
+	 * @param       string	User name
+	 * @param       int 	Expected user id
+	 * @param       array	Expected error info
 	 *
 	 * @return void
 	 * @dataProvider casesGetUserId

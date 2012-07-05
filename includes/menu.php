@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Site
+ * @package     Joomla.Site
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -11,9 +11,9 @@ defined('_JEXEC') or die;
 /**
  * JMenu class
  *
- * @package		Joomla.Site
- * @subpackage	Application
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  Application
+ * @since       1.5
  */
 class JMenuSite extends JMenu
 {
@@ -68,11 +68,11 @@ class JMenuSite extends JMenu
 	/**
 	 * Gets menu items by attribute
 	 *
-	 * @param	string	$attributes	The field name
-	 * @param	string	$values		The value of the field
-	 * @param	boolean	$firstonly	If true, only returns the first item found
+	 * @param       string	$attributes	The field name
+	 * @param       string	$values		The value of the field
+	 * @param       boolean	$firstonly	If true, only returns the first item found
 	 *
-	 * @return	array
+	 * @return      array
 	 */
 	public function getItems($attributes, $values, $firstonly = false)
 	{
@@ -116,10 +116,10 @@ class JMenuSite extends JMenu
 	/**
 	 * Get menu item by id
 	 *
-	 * @param	string	$language	The language code.
+	 * @param       string	$language	The language code.
 	 *
-	 * @return	object	The item object
-	 * @since	1.5
+	 * @return      object	The item object
+	 * @since       1.5
 	 */
 	public function getDefault($language = '*')
 	{

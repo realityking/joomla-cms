@@ -14,16 +14,16 @@ require_once JPATH_COMPONENT.'/controller.php';
 /**
  * Reset controller class for Users.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @version		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @version     1.6
  */
 class UsersControllerReset extends UsersController
 {
 	/**
 	 * Method to request a password reset.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function request()
 	{
@@ -82,7 +82,7 @@ class UsersControllerReset extends UsersController
 	 * Method to confirm the password request.
 	 *
 	 * @access	public
-	 * @since	1.0
+	 * @since       1.0
 	 */
 	function confirm()
 	{
@@ -141,7 +141,7 @@ class UsersControllerReset extends UsersController
 	/**
 	 * Method to complete the password reset process.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function complete()
 	{

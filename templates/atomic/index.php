@@ -49,8 +49,8 @@ $app = JFactory::getApplication();
 			</div>
 			<?php if($this->countModules('atomic-search') or $this->countModules('position-0')) : ?>
 				<div class="joomla-search span-7 last">
-	  	 			<jdoc:include type="modules" name="atomic-search" style="none" />
-	  	 			<jdoc:include type="modules" name="position-0" style="none" />
+					<jdoc:include type="modules" name="atomic-search" style="none" />
+					<jdoc:include type="modules" name="position-0" style="none" />
 				</div>
 			<?php endif; ?>
 		</div>
@@ -70,17 +70,17 @@ $app = JFactory::getApplication();
 				<jdoc:include type="component" />
 				<hr />
 			<?php if($this->countModules('atomic-bottomleft') or $this->countModules('position-11')) : ?>
-			 	<div class="span-7 colborder">
+				<div class="span-7 colborder">
 					<jdoc:include type="modules" name="atomic-bottomleft" style="bottommodule" />
 					<jdoc:include type="modules" name="position-11" style="bottommodule" />
 
-	        	</div>
-	        <?php endif; ?>
+				</div>
+			<?php endif; ?>
 
-	        <?php if($this->countModules('atomic-bottommiddle') or $this->countModules('position-9')
+			<?php if($this->countModules('atomic-bottommiddle') or $this->countModules('position-9')
 				or $this->countModules('position-10')) : ?>
 				<div class="span-7 last">
-	        		<jdoc:include type="modules" name="atomic-bottommiddle" style="bottommodule" />
+					<jdoc:include type="modules" name="atomic-bottommiddle" style="bottommodule" />
 					<jdoc:include type="modules" name="position-9" style="bottommodule" />
 					<jdoc:include type="modules" name="position-10" style="bottommodule" />
 

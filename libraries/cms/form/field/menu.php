@@ -26,17 +26,17 @@ class JFormFieldMenu extends JFormFieldList
 	/**
 	 * The form field type.
 	 *
-	 * @var    string
-	 * @since  1.6.0
+	 * @var         string
+	 * @since       1.6.0
 	 */
 	public $type = 'Menu';
 
 	/**
 	 * Method to get the list of menus for the field options.
 	 *
-	 * @return  array  The field option objects.
+	 * @return      array  The field option objects.
 	 *
-	 * @since   1.6.0
+	 * @since       1.6.0
 	 */
 	protected function getOptions()
 	{

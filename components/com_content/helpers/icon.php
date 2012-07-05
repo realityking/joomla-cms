@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
  * Content Component HTML Helper
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_content
+ * @package     Joomla.Site
+ * @subpackage  com_content
  * @since 1.5
  */
 class JHtmlIcon
@@ -67,12 +67,12 @@ class JHtmlIcon
 	 * This icon will not display in a popup window, nor if the article is trashed.
 	 * Edit access checks must be performed in the calling code.
 	 *
-	 * @param	object	$article	The article in question.
-	 * @param	object	$params		The article parameters
-	 * @param	array	$attribs	Not used??
+	 * @param       object	$article	The article in question.
+	 * @param       object	$params		The article parameters
+	 * @param       array	$attribs	Not used??
 	 *
-	 * @return	string	The HTML for the article edit icon.
-	 * @since	1.6
+	 * @return      string	The HTML for the article edit icon.
+	 * @since       1.6
 	 */
 	static function edit($article, $params, $attribs = array())
 	{

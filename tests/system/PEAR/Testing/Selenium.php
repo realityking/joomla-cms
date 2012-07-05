@@ -20,13 +20,13 @@
  *
  *
  * @category   Testing
- * @package    Selenium
- * @author     Shin Ohno <ganchiku at gmail dot com>
- * @author     Bjoern Schotte <schotte at mayflower dot de>
- * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License, Version 2.0
- * @version    @package_version@
- * @see        http://www.openqa.org/selenium-rc/
- * @since      0.1
+ * @package     Selenium
+ * @author      Shin Ohno <ganchiku at gmail dot com>
+ * @author      Bjoern Schotte <schotte at mayflower dot de>
+ * @license     http://www.apache.org/licenses/LICENSE-2.0  Apache License, Version 2.0
+ * @version     @package_version@
+ * @see         http://www.openqa.org/selenium-rc/
+ * @since       0.1
  */
 
 /**
@@ -291,37 +291,37 @@ require_once 'Testing/Selenium/Exception.php';
 class Testing_Selenium
 {
     /**
-     * @var    string
+     * @var         string
      * @access private
      */
     private $browser;
 
     /**
-     * @var    string
+     * @var         string
      * @access private
      */
     private $browserUrl;
 
     /**
-     * @var    string
+     * @var         string
      * @access private
      */
     private $host;
 
     /**
-     * @var    int
+     * @var         int
      * @access private
      */
     private $port;
 
     /**
-     * @var    string
+     * @var         string
      * @access private
      */
     private $sessionId;
 
     /**
-     * @var    string
+     * @var         string
      * @access private
      */
     private $timeout;

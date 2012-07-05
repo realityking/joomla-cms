@@ -7,7 +7,7 @@
 			type="hidden"
 			default="0"
 			filter="int"
-			readonly="true"/>
+			readonly="true" />
 
 		<field
 			id="menutype"

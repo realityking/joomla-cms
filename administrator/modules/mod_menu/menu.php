@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 jimport('joomla.base.tree');
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_menu
+ * @package     Joomla.Administrator
+ * @subpackage  mod_menu
  */
 class JAdminCssMenu extends JTree
 {
@@ -142,9 +142,9 @@ class JAdminCssMenu extends JTree
 	 * a custom image path is passed as the identifier
 	 *
 	 * @access	public
-	 * @param	string	$identifier	Icon identification string
-	 * @return	string	CSS class name
-	 * @since	1.5
+	 * @param       string	$identifier	Icon identification string
+	 * @return      string	CSS class name
+	 * @since       1.5
 	 */
 	function getIconClass($identifier)
 	{
@@ -184,8 +184,8 @@ class JAdminCssMenu extends JTree
 }
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_menu
+ * @package     Joomla.Administrator
+ * @subpackage  mod_menu
  */
 class JMenuNode extends JNode
 {

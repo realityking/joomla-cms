@@ -32,7 +32,7 @@ $class = ' class="first"';
 					<?php echo JHtml::_('content.prepare', $child->description, '', 'com_content.category'); ?>
 				</div>
 			<?php endif; ?>
-            <?php endif; ?>
+			<?php endif; ?>
 
 			<?php if ( $this->params->get('show_cat_num_articles', 1)) : ?>
 			<dl>

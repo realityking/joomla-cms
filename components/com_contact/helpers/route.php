@@ -17,15 +17,15 @@ jimport('joomla.application.categories');
  * Contact Component Route Helper
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_contact
+ * @package     Joomla.Site
+ * @subpackage  com_contact
  * @since 1.5
  */
 abstract class ContactHelperRoute
 {
 	protected static $lookup;
 	/**
-	 * @param	int	The route of the newsfeed
+	 * @param       int	The route of the newsfeed
 	 */
 	public static function getContactRoute($id, $catid)
 	{

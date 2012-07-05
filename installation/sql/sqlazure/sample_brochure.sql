@@ -63,13 +63,11 @@ INSERT INTO [#__categories] ( [id], [asset_id], [parent_id], [lft], [rgt], [leve
 SET IDENTITY_INSERT [#__categories] OFF;
 
 
-
 SET IDENTITY_INSERT [#__contact_details] ON;
 INSERT INTO [#__contact_details] ( [id], [name], [alias], [con_position], [address], [suburb], [state], [country], [postcode], [telephone], [fax], [misc], [image], [imagepos], [email_to], [default_con], [published], [checked_out], [checked_out_time], [ordering], [params], [user_id], [catid], [access], [mobile], [webpage], [sortname1], [sortname2], [sortname3], [language], [created], [created_by], [created_by_alias], [modified], [modified_by], [metakey], [metadesc], [metadata], [featured], [xreference], [publish_up], [publish_down]) VALUES
 (1, 'Your Name', 'your-name', '', 'This is a contact form which you can edit in the contact manager.Put your address or other information here. This can be a good place to put things like business hours too.Don''t forget to put a real email address.You also may want to enable Captcha in the global configurationto prevent spam submissions of contact forms. ', '', '', '', '', '', '', '', '', NULL, 'email@email.com', 0, 1, 0, '1900-01-01T00:00:00.000', 1, '{"show_contact_category":"","show_contact_list":"","presentation_style":"","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"","linka_name":"","linka":"","linkb_name":"","linkb":"","linkc_name":"","linkc":"","linkd_name":"","linkd":"","linke_name":"","linke":"","contact_layout":"","show_email_form":"","show_email_copy":"","banned_email":"","banned_subject":"","banned_text":"","validate_session":"","custom_reply":"","redirect":""}', 0, 4, 1, '', '', '', '', '', '*', '2012-01-04 03:46:36', 42, '', '2012-01-17 15:03:45', 42, '', '', '{"robots":"","rights":""}', 0, '', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000');
 
 SET IDENTITY_INSERT [#__contact_details] OFF;
-
 
 
 SET IDENTITY_INSERT [#__content] ON;
@@ -188,7 +186,6 @@ INSERT INTO[#__menu_types] ([id], [menutype], [title], [description]) VALUES (1,
 SET IDENTITY_INSERT [#__menu_types] OFF;
 
 
-
 SET IDENTITY_INSERT [#__modules] ON;
 INSERT INTO [#__modules] ( [id], [title], [note], [content], [ordering], [position], [checked_out], [checked_out_time], [publish_up], [publish_down], [published], [module], [access], [showtitle], [params], [client_id], [language]) VALUES ('1', 'Main Menu', '', '', '1', 'position-1', '0', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', '1900-01-01T00:00:00.000', '1', 'mod_menu', '1', '1', '{"menutype":"mainmenu","startLevel":"1","endLevel":"0","showAllChildren":"0","tag_id":"","class_sfx":"","window_open":"","layout":"_:default","moduleclass_sfx":"_menu","cache":"1","cache_time":"900","cachemode":"itemid"}', '0', '*');
 
@@ -212,8 +209,6 @@ INSERT INTO [#__modules] ( [id], [title], [note], [content], [ordering], [positi
 SET IDENTITY_INSERT [#__modules] OFF;
 
 
-
-
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (1, 0);
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (2, 0);
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (3, 0);
@@ -235,7 +230,6 @@ INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (81, 0);
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (82, 103);
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (83, 0);
 INSERT INTO [#__modules_menu] ([moduleid], [menuid]) VALUES (85, 0);
-
 
 
 SET IDENTITY_INSERT [#__template_styles] ON

@@ -17,8 +17,8 @@ jimport('joomla.application.categories');
  * Content Component Category Tree
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_newsfeeds
+ * @package     Joomla.Site
+ * @subpackage  com_newsfeeds
  * @since 1.6
  */
 class NewsfeedsCategories extends JCategories

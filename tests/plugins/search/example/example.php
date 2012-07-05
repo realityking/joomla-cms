@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  *
  * This example search plugin searches banner description for the search text.
  * To aid understanding, I've avoided some complexity found in other plugins.  PN 25-Mar-11
@@ -14,9 +14,9 @@ defined('_JEXEC') or die;
 /**
  * Example Search plugin
  *
- * @package		Joomla
- * @subpackage	Search
- * @since		1.6
+ * @package     Joomla
+ * @subpackage  Search
+ * @since       1.6
  */
 class plgSearchExample extends JPlugin
 {
@@ -151,18 +151,18 @@ class plgSearchExample extends JPlugin
 		/*
 		The resulting executed query will be similar to this...
 			SELECT
-			  b.name AS title,
-			  b.clickurl as href,
-			  "1" AS browsernav,
-			  c.title AS section,
-			  b.description AS text,
-			  b.created AS created
+				b.name AS title,
+				b.clickurl as href,
+				"1" AS browsernav,
+				c.title AS section,
+				b.description AS text,
+				b.created AS created
 			FROM j16_banners AS b
 			INNER JOIN j16_categories AS c
-			  ON c.id = b.catid
+				ON c.id = b.catid
 			WHERE ((b.description LIKE '%yourstring%'))
-			  AND (b.state=1)
-			  AND (c.published=1)
+				AND (b.state=1)
+				AND (c.published=1)
 			ORDER BY b.created DESC
 			LIMIT 0, 50
 		*/

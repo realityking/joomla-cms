@@ -17,8 +17,8 @@ jimport('joomla.application.categories');
  * Banners Component Category Tree
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_banners
+ * @package     Joomla.Site
+ * @subpackage  com_banners
  * @since 1.6
  */
 class BannersCategories extends JCategories

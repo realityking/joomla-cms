@@ -8,7 +8,7 @@ var joomlaupdate_progress_bar = null;
 
 /**
  * An extremely simple error handler, dumping error messages to screen
- * 
+ *
  * @param error The error message string
  */
 function dummy_error_handler(error)
@@ -18,7 +18,7 @@ function dummy_error_handler(error)
 
 /**
  * Performs an AJAX request and returns the parsed JSON output.
- * 
+ *
  * @param data An object with the query data, e.g. a serialized form
  * @param successCallback A function accepting a single object parameter, called on success
  * @param errorCallback A function accepting a single string parameter, called on failure
@@ -165,9 +165,9 @@ function processUpdateStep(data)
 			// Add data to variables
 			joomlaupdate_stat_inbytes += data.bytesIn;
 			joomlaupdate_stat_percent = (joomlaupdate_stat_inbytes * 100) / joomlaupdate_totalsize;
-			
+
 			// Create progress bar once
-			if (joomlaupdate_progress_bar == null) 
+			if (joomlaupdate_progress_bar == null)
 			{
 				joomlaupdate_progress_bar = new Fx.ProgressBar(document.id('progress'));
 			}
@@ -179,7 +179,7 @@ function processUpdateStep(data)
 			document.getElementById('extpercent').innerHTML = new Number(joomlaupdate_stat_percent).formatPercentage(1);
 			document.getElementById('extbytesin').innerHTML = new Number(joomlaupdate_stat_inbytes).format();
 			document.getElementById('extbytesout').innerHTML = new Number(joomlaupdate_stat_outbytes).format();
-			document.getElementById('extfiles').innerHTML = new Number(joomlaupdate_stat_files).format(); 
+			document.getElementById('extfiles').innerHTML = new Number(joomlaupdate_stat_files).format();
 
 			// Do AJAX post
 			post = {

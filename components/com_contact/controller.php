@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Contact Component Controller
  *
- * @package		Joomla.Site
- * @subpackage	com_contact
+ * @package     Joomla.Site
+ * @subpackage  com_contact
  * @since 1.5
  */
 class ContactController extends JControllerLegacy
@@ -21,11 +21,11 @@ class ContactController extends JControllerLegacy
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	1.5
+	 * @return      JController		This object to support chaining.
+	 * @since       1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{

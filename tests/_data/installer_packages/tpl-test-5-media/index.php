@@ -1,9 +1,9 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Test Template for Joomla! 1.6
-* @author		Joomla Engineering http://joomlaengineering.com
-* @copyright	Copyright (C) 2010 Matt Thomas | Joomla Engineering. All rights reserved.
-* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+* @package     Test Template for Joomla! 1.6
+* @author      Joomla Engineering http://joomlaengineering.com
+* @copyright   Copyright (C) 2010 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license     GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 // To enable use of site configuration

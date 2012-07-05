@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -14,19 +14,19 @@ jimport('joomla.filesystem.path');
 /**
  * Filesystem configuration model for the Joomla Core Installer.
  *
- * @package  Joomla.Installation
- * @since    3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationModelFilesystem extends JModelLegacy
 {
 	/**
 	 * Find the ftp filesystem root for a given user/pass pair.
 	 *
-	 * @param   array  $options  Configuration options.
+	 * @param       array  $options  Configuration options.
 	 *
-	 * @return  mixed  Filesystem root for given FTP user, or boolean false if not found.
+	 * @return      mixed  Filesystem root for given FTP user, or boolean false if not found.
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function detectFtpRoot($options)
 	{
@@ -125,11 +125,11 @@ class InstallationModelFilesystem extends JModelLegacy
 	/**
 	 * Verify the FTP settings as being functional and correct.
 	 *
-	 * @param   array  $options  Configuration options.
+	 * @param       array  $options  Configuration options.
 	 *
-	 * @return  mixed  Filesystem root for given FTP user, or boolean false if not found.
+	 * @return      mixed  Filesystem root for given FTP user, or boolean false if not found.
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function verifyFtpSettings($options)
 	{
@@ -264,9 +264,9 @@ class InstallationModelFilesystem extends JModelLegacy
 	/**
 	 * Check the webserver user permissions for writing files/folders
 	 *
-	 * @return  boolean  True if correct permissions exist
+	 * @return      boolean  True if correct permissions exist
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public static function checkPermissions()
 	{
@@ -301,15 +301,15 @@ class InstallationModelFilesystem extends JModelLegacy
 	/**
 	 * Verify the FTP configuration values are valid
 	 *
-	 * @param   string  $user  Username of the ftp user to determine root for
-	 * @param   string  $pass  Password of the ftp user to determine root for
-	 * @param   string  $root
-	 * @param   string  $host
-	 * @param   string  $port
+	 * @param       string  $user  Username of the ftp user to determine root for
+	 * @param       string  $pass  Password of the ftp user to determine root for
+	 * @param       string  $root
+	 * @param       string  $host
+	 * @param       string  $port
 	 *
-	 * @return  mixed   Boolean true on success or JError object on fail
+	 * @return      mixed   Boolean true on success or JError object on fail
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function checkSettings($user, $pass, $root, $host = '127.0.0.1', $port = '21')
 	{
@@ -439,12 +439,12 @@ class InstallationModelFilesystem extends JModelLegacy
 	/**
 	 * Set default folder permissions
 	 *
-	 * @param   string  $folder
-	 * @param   string  $options
+	 * @param       string  $folder
+	 * @param       string  $options
 	 *
-	 * @return  boolean  True on success
+	 * @return      boolean  True on success
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function setFolderPermissions($folder, $options)
 	{
@@ -509,11 +509,11 @@ class InstallationModelFilesystem extends JModelLegacy
 	 * Inserts ftp variables to mainframe registry
 	 * Needed to activate ftp layer for file operations in safe mode
 	 *
-	 * @param   array  $vars  The post values
+	 * @param       array  $vars  The post values
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function setFTPCfg($vars)
 	{
@@ -530,7 +530,7 @@ class InstallationModelFilesystem extends JModelLegacy
 	}
 
 	/**
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	function _chmod($path, $mode)
 	{

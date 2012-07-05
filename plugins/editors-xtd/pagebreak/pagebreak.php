@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Editor Pagebreak buton
  *
- * @package		Joomla.Plugin
- * @subpackage	Editors-xtd.pagebreak
+ * @package     Joomla.Plugin
+ * @subpackage  Editors-xtd.pagebreak
  * @since 1.5
  */
 class plgButtonPagebreak extends JPlugin

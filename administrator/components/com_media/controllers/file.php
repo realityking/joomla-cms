@@ -15,9 +15,9 @@ jimport('joomla.filesystem.folder');
 /**
  * Media File Controller
  *
- * @package		Joomla.Administrator
- * @subpackage	com_media
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_media
+ * @since       1.5
  */
 class MediaControllerFile extends JControllerLegacy
 {
@@ -145,13 +145,13 @@ class MediaControllerFile extends JControllerLegacy
 	 * Used as a callback for array_map, turns the multi-file input array into a sensible array of files
 	 * Also, removes illegal characters from the 'name' and sets a 'filepath' as the final destination of the file
 	 *
-	 * @param	string	- file name			($files['name'])
-	 * @param	string	- file type			($files['type'])
-	 * @param	string	- temporary name	($files['tmp_name'])
-	 * @param	string	- error info		($files['error'])
-	 * @param	string	- file size			($files['size'])
+	 * @param       string	- file name			($files['name'])
+	 * @param       string	- file type			($files['type'])
+	 * @param       string	- temporary name	($files['tmp_name'])
+	 * @param       string	- error info		($files['error'])
+	 * @param       string	- file size			($files['size'])
 	 *
-	 * @return	array
+	 * @return      array
 	 * @access	protected
 	 */
 	protected function reformatFilesArray($name, $type, $tmp_name, $error, $size)
@@ -170,9 +170,9 @@ class MediaControllerFile extends JControllerLegacy
 	/**
 	 * Check that the user is authorized to perform this action
 	 *
-	 * @param   string   $action - the action to be peformed (create or delete)
+	 * @param       string   $action - the action to be peformed (create or delete)
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 * @access  protected
 	 */
 	protected function authoriseUser($action)

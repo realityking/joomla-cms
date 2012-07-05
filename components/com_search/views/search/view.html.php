@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
  * HTML View class for the search component
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_search
+ * @package     Joomla.Site
+ * @subpackage  com_search
  * @since 1.0
  */
 class SearchViewSearch extends JViewLegacy

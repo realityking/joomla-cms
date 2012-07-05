@@ -77,7 +77,7 @@ $file = 'language/'.$lang->getTag().'/'.$lang->getTag().'.css';
 		<div class="title-ua">
 			<h1 class="title"><?php echo $this->params->get('showSiteName') ? $app->getCfg('sitename') . " " . JText::_('JADMINISTRATION') : JText::_('JADMINISTRATION'); ?></h1>
 			<div id="skiplinkholder"><p><a id="skiplink" href="#skiptarget"><?php echo JText::_('TPL_HATHOR_SKIP_TO_MAIN_CONTENT'); ?></a></p></div>
-      	</div>
+		</div>
 
 	</div><!-- end header -->
 
@@ -92,7 +92,7 @@ $file = 'language/'.$lang->getTag().'/'.$lang->getTag().'.css';
 
 	<!-- Status Module -->
 	<div id="module-status">
-		<jdoc:include type="modules" name="status"/>
+		<jdoc:include type="modules" name="status" />
 			<?php
 			//Display an harcoded logout
 			$task = JRequest::getCmd('task');
@@ -124,7 +124,7 @@ $file = 'language/'.$lang->getTag().'/'.$lang->getTag().'.css';
 		<jdoc:include type="message" />
 		<!-- Sub Menu Navigation -->
 		<div id="no-submenu"></div>
-   		<div class="clr"></div>
+		<div class="clr"></div>
 
 		<!-- Beginning of Actual Content -->
 		<div id="element-box">

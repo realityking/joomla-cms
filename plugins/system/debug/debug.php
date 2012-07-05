@@ -23,8 +23,8 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Constructor.
 	 *
-	 * @param   object  &$subject  The object to observe
-	 * @param   array   $config    An array that holds the plugin configuration
+	 * @param       object  &$subject  The object to observe
+	 * @param       array   $config    An array that holds the plugin configuration
 	 *
 	 * @since 1.5
 	 */
@@ -53,9 +53,9 @@ class plgSystemDebug extends JPlugin
 	 * Add the CSS for debug. We can't do this in the constructor because
 	 * stuff breaks.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function onAfterDispatch()
 	{
@@ -69,7 +69,7 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Show the debug info
 	 *
-	 * @since  1.6
+	 * @since       1.6
 	 */
 	public function __destruct()
 	{
@@ -182,12 +182,12 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * General display method.
 	 *
-	 * @param   string  $item    The item to display
-	 * @param   array   $errors  Errors occured during execution
+	 * @param       string  $item    The item to display
+	 * @param       array   $errors  Errors occured during execution
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function display($item, array $errors = array())
 	{
@@ -230,13 +230,13 @@ class plgSystemDebug extends JPlugin
 	 *
 	 * Called recursive.
 	 *
-	 * @param   string   $key      A session key
-	 * @param   mixed    $session  The session array, initially null
-	 * @param   integer  $id       The id is used for JS toggling the div
+	 * @param       string   $key      A session key
+	 * @param       mixed    $session  The session array, initially null
+	 * @param       integer  $id       The id is used for JS toggling the div
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displaySession($key = '', $session = null, $id = 0)
 	{
@@ -311,9 +311,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display errors.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayErrors()
 	{
@@ -347,9 +347,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display profile information.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayProfileInformation()
 	{
@@ -366,9 +366,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display memory usage
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayMemoryUsage()
 	{
@@ -387,9 +387,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display logged queries.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayQueries()
 	{
@@ -515,9 +515,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Displays errors in language files.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayLanguageFilesInError()
 	{
@@ -547,9 +547,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display loaded language files.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayLanguageFilesLoaded()
 	{
@@ -581,9 +581,9 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Display untranslated language strings.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function displayUntranslatedStrings()
 	{
@@ -674,11 +674,11 @@ class plgSystemDebug extends JPlugin
 	/**
 	 * Simple highlight for SQL queries.
 	 *
-	 * @param   string  $sql  The query to highlight
+	 * @param       string  $sql  The query to highlight
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function highlightQuery($sql)
 	{
@@ -716,11 +716,11 @@ class plgSystemDebug extends JPlugin
 	 *
 	 * Stolen from JError to prevent it's removal.
 	 *
-	 * @param   integer  $error  The error
+	 * @param       integer  $error  The error
 	 *
-	 * @return  string  Contents of the backtrace
+	 * @return      string  Contents of the backtrace
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function renderBacktrace($error)
 	{
@@ -782,12 +782,12 @@ class plgSystemDebug extends JPlugin
 	 * Formats a link with a special value xdebug.file_link_format
 	 * from the php.ini file.
 	 *
-	 * @param   string  $file  The full path to the file.
-	 * @param   string  $line  The line number.
+	 * @param       string  $file  The full path to the file.
+	 * @param       string  $line  The line number.
 	 *
-	 * @return  string
+	 * @return      string
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function formatLink($file, $line = '')
 	{

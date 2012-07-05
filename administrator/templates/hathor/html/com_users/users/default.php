@@ -63,7 +63,7 @@ $loggeduser = JFactory::getUser();
 			<label class="selectlabel" for="filter_range">
 				<?php echo JText::_('COM_USERS_FILTER_FILTER_DATE'); ?>
 			</label>
-			<select name="filter_range" class="inputbox"  id="filter_range" >
+			<select name="filter_range" class="inputbox" id="filter_range" >
 				<option value=""><?php echo JText::_('COM_USERS_OPTION_FILTER_DATE');?></option>
 				<?php echo JHtml::_('select.options', Usershelper::getRangeOptions(), 'value', 'text', $this->state->get('filter.range'));?>
 			</select>

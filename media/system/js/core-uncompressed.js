@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // Only define the Joomla namespace if not defined.
@@ -97,8 +97,8 @@ Joomla.isEmail = function(text) {
  *
  * Checkboxes must have an id attribute in the form cb0, cb1...
  *
- * @param	mixed	The number of box to 'check', for a checkbox element
- * @param	string	An alternative field name
+ * @param       mixed	The number of box to 'check', for a checkbox element
+ * @param       string	An alternative field name
  */
 Joomla.checkAll = function(checkbox, stub) {
 	if (!stub) {
@@ -126,8 +126,8 @@ Joomla.checkAll = function(checkbox, stub) {
 /**
  * Render messages send via JSON
  *
- * @param	object	messages	JavaScript object containing the messages to render
- * @return	void
+ * @param       object	messages	JavaScript object containing the messages to render
+ * @return      void
  */
 Joomla.renderMessages = function(messages) {
 	Joomla.removeMessages();
@@ -165,7 +165,7 @@ Joomla.renderMessages = function(messages) {
 /**
  * Remove messages
  *
- * @return	void
+ * @return      void
  */
 Joomla.removeMessages = function() {
 	var children = $$('#system-message-container > *');
@@ -374,8 +374,8 @@ function getSelectedValue(frmName, srcListName) {
  *
  * Checkboxes must have an id attribute in the form cb0, cb1...
  *
- * @param	mixed	The number of box to 'check', for a checkbox element
- * @param	string	An alternative field name
+ * @param       mixed	The number of box to 'check', for a checkbox element
+ * @param       string	An alternative field name
  *
  * @deprecated	12.1 This function will be removed in a future version. Use Joomla.checkAll() instead.
  */

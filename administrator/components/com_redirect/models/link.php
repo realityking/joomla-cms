@@ -14,25 +14,25 @@ jimport('joomla.application.component.modeladmin');
 /**
  * Redirect link model.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_redirect
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_redirect
+ * @since       1.6
  */
 class RedirectModelLink extends JModelAdmin
 {
 	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
+	 * @var         string	The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_REDIRECT';
 
 	/**
 	 * Method to test whether a record can be deleted.
 	 *
-	 * @param	object	$record	A record object.
+	 * @param       object	$record	A record object.
 	 *
-	 * @return	boolean	True if allowed to delete the record. Defaults to the permission set in the component.
-	 * @since	1.6
+	 * @return      boolean	True if allowed to delete the record. Defaults to the permission set in the component.
+	 * @since       1.6
 	 */
 	protected function canDelete($record)
 	{
@@ -48,10 +48,10 @@ class RedirectModelLink extends JModelAdmin
 	/**
 	 * Method to test whether a record can have its state edited.
 	 *
-	 * @param	object	$record	A record object.
+	 * @param       object	$record	A record object.
 	 *
-	 * @return	boolean	True if allowed to change the state of the record. Defaults to the permission set in the component.
-	 * @since	1.6
+	 * @return      boolean	True if allowed to change the state of the record. Defaults to the permission set in the component.
+	 * @since       1.6
 	 */
 	protected function canEditState($record)
 	{
@@ -65,11 +65,11 @@ class RedirectModelLink extends JModelAdmin
 	/**
 	 * Returns a reference to the a Table object, always creating it.
 	 *
-	 * @param	type	The table type to instantiate
-	 * @param	string	A prefix for the table class name. Optional.
-	 * @param	array	Configuration array for model. Optional.
-	 * @return	JTable	A database object
-	 * @since	1.6
+	 * @param       type	The table type to instantiate
+	 * @param       string	A prefix for the table class name. Optional.
+	 * @param       array	Configuration array for model. Optional.
+	 * @return      JTable	A database object
+	 * @since       1.6
 	*/
 	public function getTable($type = 'Link', $prefix = 'RedirectTable', $config = array())
 	{
@@ -79,10 +79,10 @@ class RedirectModelLink extends JModelAdmin
 	/**
 	 * Method to get the record form.
 	 *
-	 * @param	array	$data		Data for the form.
-	 * @param	boolean	$loadData	True if the form is to load its own data (default case), false if not.
-	 * @return	JForm	A JForm object on success, false on failure
-	 * @since	1.6
+	 * @param       array	$data		Data for the form.
+	 * @param       boolean	$loadData	True if the form is to load its own data (default case), false if not.
+	 * @return      JForm	A JForm object on success, false on failure
+	 * @since       1.6
 	 */
 	public function getForm($data = array(), $loadData = true)
 	{
@@ -108,8 +108,8 @@ class RedirectModelLink extends JModelAdmin
 	/**
 	 * Method to get the data that should be injected in the form.
 	 *
-	 * @return	mixed	The data for the form.
-	 * @since	1.6
+	 * @return      mixed	The data for the form.
+	 * @since       1.6
 	 */
 	protected function loadFormData()
 	{
@@ -126,11 +126,11 @@ class RedirectModelLink extends JModelAdmin
 	/**
 	 * Method to activate links.
 	 *
-	 * @param	array	An array of link ids.
-	 * @param	string	The new URL to set for the redirect.
-	 * @param	string	A comment for the redirect links.
-	 * @return	boolean	Returns true on success, false on failure.
-	 * @since	1.6
+	 * @param       array	An array of link ids.
+	 * @param       string	The new URL to set for the redirect.
+	 * @param       string	A comment for the redirect links.
+	 * @return      boolean	Returns true on success, false on failure.
+	 * @since       1.6
 	 */
 	public function activate(&$pks, $url, $comment = null)
 	{

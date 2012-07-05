@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Frontpage View class
  *
- * @package		Joomla.Site
- * @subpackage	com_content
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_content
+ * @since       1.5
  */
 class ContentViewFeatured extends JViewLegacy
 {
@@ -31,7 +31,7 @@ class ContentViewFeatured extends JViewLegacy
 	/**
 	 * Display the view
 	 *
-	 * @return	mixed	False on error, null otherwise.
+	 * @return      mixed	False on error, null otherwise.
 	 */
 	function display($tpl = null)
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Joomla Authentication plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Authentication.joomla
+ * @package     Joomla.Plugin
+ * @subpackage  Authentication.joomla
  * @since 1.5
  */
 class plgAuthenticationJoomla extends JPlugin
@@ -22,10 +22,10 @@ class plgAuthenticationJoomla extends JPlugin
 	 * This method should handle any authentication and report back to the subject
 	 *
 	 * @access	public
-	 * @param	array	Array holding the user credentials
-	 * @param	array	Array of extra options
-	 * @param	object	Authentication response object
-	 * @return	boolean
+	 * @param       array	Array holding the user credentials
+	 * @param       array	Array of extra options
+	 * @param       object	Authentication response object
+	 * @return      boolean
 	 * @since 1.5
 	 */
 	function onUserAuthenticate($credentials, $options, &$response)

@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_users
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
  */
 class UsersViewUser extends JViewLegacy
 {
@@ -48,7 +48,7 @@ class UsersViewUser extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -56,10 +56,10 @@ JHtml::_('behavior.keepalive');
 				<?php if ($this->canDo->get('core.admin')): ?>
 					<li><span class="faux-label"><?php echo JText::_('JGLOBAL_ACTION_PERMISSIONS_LABEL'); ?></span>
 					<div class="button2-left"><div class="blank">
-		      			<button type="button" onclick="document.location.href='#access-rules';">
-		      			<?php echo JText::_('JGLOBAL_PERMISSIONS_ANCHOR'); ?></button>
-		      		</div></div>
-		    		</li>
+			  			<button type="button" onclick="document.location.href='#access-rules';">
+			  			<?php echo JText::_('JGLOBAL_PERMISSIONS_ANCHOR'); ?></button>
+			  		</div></div>
+					</li>
 				<?php endif; ?>
 
 				<li><?php echo $this->form->getLabel('language'); ?>

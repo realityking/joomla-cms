@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests deleting a User Group that does not exist.
  */
 require_once 'SeleniumJoomlaTestCase.php';
@@ -42,4 +42,3 @@ class Group0003Test extends SeleniumJoomlaTestCase
 		$this->deleteAllVisibleCookies();
   }
 }
-

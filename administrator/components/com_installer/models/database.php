@@ -16,9 +16,9 @@ JLoader::register('joomlaInstallerScript', JPATH_ADMINISTRATOR . '/components/co
 /**
  * Installer Manage Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class InstallerModelDatabase extends InstallerModel
 {
@@ -29,7 +29,7 @@ class InstallerModelDatabase extends InstallerModel
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -60,7 +60,7 @@ class InstallerModelDatabase extends InstallerModel
 	 *
 	 * Gets the changeset object
 	 *
-	 * @return  JSchemaChangeset
+	 * @return      JSchemaChangeset
 	 */
 	public function getItems()
 	{
@@ -77,7 +77,7 @@ class InstallerModelDatabase extends InstallerModel
 	/**
 	 * Get version from #__schemas table
 	 *
-	 * @return  mixed  the return value from the query, or null if the query fails
+	 * @return      mixed  the return value from the query, or null if the query fails
 	 * @throws Exception
 	 */
 
@@ -99,7 +99,7 @@ class InstallerModelDatabase extends InstallerModel
 	 *
 	 * @param JSchemaChangeSet
 	 *
-	 * @return   mixed  string schema version if success, false if fail
+	 * @return      mixed  string schema version if success, false if fail
 	 */
 	public function fixSchemaVersion($changeSet)
 	{
@@ -139,7 +139,7 @@ class InstallerModelDatabase extends InstallerModel
 	/**
 	 * Get current version from #__extensions table
 	 *
-	 * @return  mixed   version if successful, false if fail
+	 * @return      mixed   version if successful, false if fail
 	 */
 
 	public function getUpdateVersion()
@@ -153,7 +153,7 @@ class InstallerModelDatabase extends InstallerModel
 	/**
 	 * Fix Joomla version in #__extensions table if wrong (doesn't equal JVersion short version)
 	 *
-	 * @return   mixed  string update version if success, false if fail
+	 * @return      mixed  string update version if success, false if fail
 	 */
 	public function fixUpdateVersion()
 	{
@@ -186,7 +186,7 @@ class InstallerModelDatabase extends InstallerModel
 	 * For version 2.5.x only
 	 * Check if com_config parameters are blank.
 	 *
-	 * @return  string  default text filters (if any)
+	 * @return      string  default text filters (if any)
 	 */
 	public function getDefaultTextFilters()
 	{
@@ -198,7 +198,7 @@ class InstallerModelDatabase extends InstallerModel
 	 * For version 2.5.x only
 	 * Check if com_config parameters are blank. If so, populate with com_content text filters.
 	 *
-	 * @return  mixed  boolean true if params are updated, null otherwise
+	 * @return      mixed  boolean true if params are updated, null otherwise
 	 */
 	public function fixDefaultTextFilters()
 	{

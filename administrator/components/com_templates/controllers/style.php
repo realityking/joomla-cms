@@ -14,15 +14,15 @@ jimport('joomla.application.component.controllerform');
 /**
  * Template style controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_templates
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_templates
+ * @since       1.6
  */
 class TemplatesControllerStyle extends JControllerForm
 {
 	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
+	 * @var         string	The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_TEMPLATES_STYLE';
 

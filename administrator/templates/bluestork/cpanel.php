@@ -52,7 +52,7 @@ if ($this->params->get('highContrast')) {
 	</div>
 	<div id="header-box">
 		<div id="module-status">
-			<jdoc:include type="modules" name="status"/>
+			<jdoc:include type="modules" name="status" />
 			<?php
 				//Display an harcoded logout
 				$task = JRequest::getCmd('task');
@@ -74,7 +74,7 @@ if ($this->params->get('highContrast')) {
 			?>
 		</div>
 		<div id="module-menu">
-			<jdoc:include type="modules" name="menu"/>
+			<jdoc:include type="modules" name="menu" />
 		</div>
 		<div class="clr"></div>
 	</div>
@@ -103,7 +103,7 @@ if ($this->params->get('highContrast')) {
 			<?php echo  JText::_('JGLOBAL_WARNJAVASCRIPT') ?>
 		</noscript>
 	</div>
-	<jdoc:include type="modules" name="footer" style="none"  />
+	<jdoc:include type="modules" name="footer" style="none" />
 	<div id="footer">
 		<p class="copyright">
 			<?php $joomla= '<a href="http://www.joomla.org">Joomla!&#174;</a>';

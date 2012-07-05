@@ -21,43 +21,43 @@ class UsersViewNotes extends JViewLegacy
 	/**
 	 * A list of user note objects.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	protected $items;
 
 	/**
 	 * The pagination object.
 	 *
-	 * @var    JPagination
-	 * @since  2.5
+	 * @var         JPagination
+	 * @since       2.5
 	 */
 	protected $pagination;
 
 	/**
 	 * The model state.
 	 *
-	 * @var    JObject
-	 * @since  2.5
+	 * @var         JObject
+	 * @since       2.5
 	 */
 	protected $state;
 
 	/**
 	 * The model state.
 	 *
-	 * @var    JUser
-	 * @since  2.5
+	 * @var         JUser
+	 * @since       2.5
 	 */
 	protected $user;
 
 	/**
 	 * Override the display method for the view.
 	 *
-	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 * @param       string  $tpl  The name of the template file to parse; automatically searches through the template paths.
 	 *
-	 * @return  mixed  A string if successful, otherwise a JError object.
+	 * @return      mixed  A string if successful, otherwise a JError object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function display($tpl = null)
 	{
@@ -89,9 +89,9 @@ class UsersViewNotes extends JViewLegacy
 	/**
 	 * Display the toolbar.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function addToolbar()
 	{

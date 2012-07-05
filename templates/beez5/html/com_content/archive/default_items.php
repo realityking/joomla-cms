@@ -92,11 +92,11 @@ $params = &$this->params;
 <?php endif; ?>
 <?php if ($params->get('show_hits')) : ?>
 		<dd class="hits">
-		<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $item->hits); ?>
+			<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $item->hits); ?>
 		</dd>
 <?php endif; ?>
 <?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date'))  or ($params->get('show_hits'))) :?>
-	 </dl>
+	</dl>
 <?php endif; ?>
 
 <?php  if ($params->get('show_intro')) :?>

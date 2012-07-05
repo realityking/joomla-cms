@@ -1,9 +1,9 @@
 <?php
 /**
- * @package		Joomla
- * @subpackage	system
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla
+ * @subpackage  system
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  *
  * This example system plugin makes a log entry for each of the system triggers.  PN 28-Mar-11
  */
@@ -14,9 +14,9 @@ defined('_JEXEC') or die;
 /**
  * Example system Plugin
  *
- * @package		Joomla
- * @subpackage	system
- * @since		1.5
+ * @package     Joomla
+ * @subpackage  system
+ * @since       1.5
  */
 class plgSystemExample extends JPlugin
 {
@@ -26,9 +26,9 @@ class plgSystemExample extends JPlugin
 	 * Constructor
 	 *
 	 * @access	protected
-	 * @param	object	$subject The object to observe
-	 * @param	array	$config  An array that holds the plugin configuration
-	 * @since	1.0
+	 * @param       object	$subject The object to observe
+	 * @param       array	$config  An array that holds the plugin configuration
+	 * @since       1.0
 	 */
 	function __construct(& $subject, $config)
 	{

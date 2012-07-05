@@ -16,8 +16,8 @@ JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 /**
  * Banner model for the Joomla Banners component.
  *
- * @package		Joomla.Site
- * @subpackage	com_banners
+ * @package     Joomla.Site
+ * @subpackage  com_banners
  */
 class BannersModelBanner extends JModelLegacy
 {
@@ -26,7 +26,7 @@ class BannersModelBanner extends JModelLegacy
 	/**
 	 * Clicks the URL, incrementing the counter
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	function click()
 	{
@@ -108,7 +108,7 @@ class BannersModelBanner extends JModelLegacy
 	/**
 	 * Get the data for a banner.
 	 *
-	 * @return	object
+	 * @return      object
 	 */
 	function &getItem()
 	{
@@ -152,7 +152,7 @@ class BannersModelBanner extends JModelLegacy
 	/**
 	 * Get the URL for a banner
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function getUrl()
 	{

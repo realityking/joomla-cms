@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -14,15 +14,15 @@ require_once JPATH_INSTALLATION . '/helpers/database.php';
 /**
  * Install Configuration model for the Joomla Core Installer.
  *
- * @package  Joomla.Installation
- * @since    3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationModelConfiguration extends JModelLegacy
 {
 	/**
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function setup($options)
 	{
@@ -45,9 +45,9 @@ class InstallationModelConfiguration extends JModelLegacy
 	}
 
 	/**
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	function _createConfiguration($options)
 	{
@@ -213,9 +213,9 @@ class InstallationModelConfiguration extends JModelLegacy
 	}
 
 	/**
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	function _createRootUser($options)
 	{

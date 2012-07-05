@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.hathor
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  templates.hathor
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @since       1.6
  *
  * Main CSS file for the template
  */
@@ -127,19 +127,45 @@ iframe {
 
 /* new styles */
 
-.enabled 	{ color: #005800; font-weight: bold; }
-.disabled 	{ color: #a20000; font-weight: bold; }
-p.error 	{ color: #a20000; font-weight: bold; }
-.warning 	{ color: #a20000; font-weight: bold; }
-.nowarning 	{ color: #2c2c2c; font-weight: bold; }
-.success 	{ color: #005800; font-weight: bold;}
-.allow 		{ color: #005800;}
-span.writable 		{ color: #005800;}
-.deny 		{ color: #a20000;}
-span.unwritable		{ color: #a20000;}
-.none 		{ color: #aaaaaa;}
-.pointer	{ cursor: pointer;}
-.nowrap { white-space: nowrap; }
+.enabled {
+	color: #005800; font-weight: bold;
+}
+.disabled {
+	color: #a20000; font-weight: bold;
+}
+p.error {
+	color: #a20000; font-weight: bold;
+}
+.warning {
+	color: #a20000; font-weight: bold;
+}
+.nowarning {
+	color: #2c2c2c; font-weight: bold;
+}
+.success {
+	color: #005800; font-weight: bold;
+}
+.allow {
+	color: #005800;
+}
+span.writable {
+	color: #005800;
+}
+.deny {
+	color: #a20000;
+}
+span.unwritable {
+	color: #a20000;
+}
+.none {
+	color: #aaaaaa;
+}
+.pointer {
+	cursor: pointer;
+}
+.nowrap {
+	white-space: nowrap;
+}
 
 p.nowarning, p.warning {
 	margin: 10px;
@@ -400,7 +426,9 @@ h3.pane-toggler a:focus {
 }
 
 /* The following line hides the unseen panel (prevents the mouse from activating in IE, so overridden in the ie css files) */
-/*.pane-toggler + div.pane-slider {display: none;}*/
+/*.pane-toggler + div.pane-slider {
+	display: none;
+}*/
 .pane-slider.pane-hide {
 	display: none;
 }
@@ -726,33 +754,75 @@ div.col2 {
 	width: 45%;
 }
 
-	/* Avoid using the width divs. They are here for 3PD Extensions if needed
-	 * Use the specific layout divs listed after. See also the th.width entries */
-div.width-1 { width: 1%;}
-div.width-3 { width: 3%;}
-div.width-5 { width: 5%;}
-div.width-10 { width: 10%;}
-div.width-20 { width: 20%;}
-div.width-30 { width: 30%;}
-div.width-35 { width: 35%; }
-div.width-40 { width: 40%;}
-div.width-45 { width: 45%;}
-div.width-50 { width: 50%;}
-div.width-55 { width: 55%;}
-div.width-60 { width: 60%; }
-div.width-65 { width: 65%;}
-div.width-70 { width: 70%;}
-div.width-80 { width: 80%;}
-div.width-100 { width: 100%;}
+/* Avoid using the width divs. They are here for 3PD Extensions if needed
+	* Use the specific layout divs listed after. See also the th.width entries */
+div.width-1 {
+	width: 1%;
+}
+div.width-3 {
+	width: 3%;
+}
+div.width-5 {
+	width: 5%;
+}
+div.width-10 {
+	width: 10%;
+}
+div.width-20 {
+	width: 20%;
+}
+div.width-30 {
+	width: 30%;
+}
+div.width-35 {
+	width: 35%;
+}
+div.width-40 {
+	width: 40%;
+}
+div.width-45 {
+	width: 45%;
+}
+div.width-50 {
+	width: 50%;
+}
+div.width-55 {
+	width: 55%;
+}
+div.width-60 {
+	width: 60%;
+}
+div.width-65 {
+	width: 65%;
+}
+div.width-70 {
+	width: 70%;
+}
+div.width-80 {
+	width: 80%;
+}
+div.width-100 {
+	width: 100%;
+}
 
-.clrlft { clear: left; }
-.clrrt { clear: right; }
-.fltlft { float: left; }
-.fltrt { float: right; }
-.fltnone { float: none; }
+.clrlft {
+	clear: left;
+}
+.clrrt {
+	clear: right;
+}
+.fltlft {
+	float: left;
+}
+.fltrt {
+	float: right;
+}
+.fltnone {
+	float: none;
+}
 
 
-	/* Layout Divs */
+/* Layout Divs */
 div.main-section {
 	width: 60%;
 }
@@ -806,7 +876,7 @@ fieldset li, ol#property-values li, ul#property-values li {
 
 fieldset.adminform fieldset.radio,
 fieldset.panelform fieldset.radio,
-fieldset.adminform-legacy fieldset.radio  {
+fieldset.adminform-legacy fieldset.radio {
 	border: 0;
 	float: left;
 	padding: 0;
@@ -825,7 +895,7 @@ fieldset.panelform fieldset.radio span.faux-label {
 /* checkboxes */
 fieldset.adminform fieldset.checkboxes,
 fieldset.panelform fieldset.checkboxes,
-fieldset.adminform-legacy fieldset.checkboxes  {
+fieldset.adminform-legacy fieldset.checkboxes {
 	border: 0;
 	float:left;
 	padding: 0;
@@ -868,7 +938,6 @@ fieldset.panelform-legacy span.faux-label,
 fieldset.adminform-legacy span.faux-label {
 	min-width: 150px;
 	float:left;
-
 }
 /* JParameter classes on radio button labels  */
 fieldset.panelform-legacy label.radiobtn-jno,
@@ -944,13 +1013,13 @@ fieldset#filter-bar input#search {
 	width: 10em;
 }
 
-	/* Note: these visual cues should be augmented by aria */
+/* Note: these visual cues should be augmented by aria */
 .invalid {
 	font-weight: bold;
 }
 
 
-	/* augmented by aria in template javascript */
+/* augmented by aria in template javascript */
 input.readonly, span.faux-input {
 	border: 0;
 }
@@ -1096,7 +1165,7 @@ ul.adminformlist .button2-left, ul.adminformlist .button2-left {
 	margin-top: 5px;
 }
 
-	/* Table styles are for use with tabular data */
+/* Table styles are for use with tabular data */
 table.adminform {
 	width: 100%;
 	border-collapse: collapse;
@@ -1140,8 +1209,8 @@ td.center,th.center {
 	text-align: center;
 }
 
-	/* Avoid using the width classes. They are here for 3PD Extensions if needed
-	 * Use the specific layout table headers listed after. See also the div.width entries */
+/* Avoid using the width classes. They are here for 3PD Extensions if needed
+	* Use the specific layout table headers listed after. See also the div.width entries */
 th.width-1 {
 	width: 1%;
 }
@@ -1182,7 +1251,7 @@ th.width-40 {
 	width: 40%;
 }
 
-	/* Table header layout classes */
+/* Table header layout classes */
 th.row-number-col {
 	width: 3%;
 }
@@ -1282,7 +1351,7 @@ table.adminlist tbody th {
 	font-weight: bold;
 }
 
-	/* Table row styles */
+/* Table row styles */
 table.adminlist tr {
 	padding-left: 30px;
 	padding-right: 30px;
@@ -1301,7 +1370,7 @@ table.adminlist tfoot tr {
 	text-align: center;
 }
 
-	/* Table td/th styles */
+/* Table td/th styles */
 table.adminlist tfoot td,table.adminlist tfoot th {
 	text-align: center;
 }
@@ -1325,16 +1394,36 @@ table.adminlist td.order input {
 /**
  * Tree indentation & nesting - Up to 10 levels deep so don't go crazy :
  */
-table.adminlist td.indent-4 	{ padding-left:4px; }
-table.adminlist td.indent-19 	{ padding-left:19px; }
-table.adminlist td.indent-34 	{ padding-left:34px; }
-table.adminlist td.indent-49 	{ padding-left:49px; }
-table.adminlist td.indent-64 	{ padding-left:64px; }
-table.adminlist td.indent-79 	{ padding-left:79px; }
-table.adminlist td.indent-94 	{ padding-left:94px; }
-table.adminlist td.indent-109 	{ padding-left:109px; }
-table.adminlist td.indent-124 	{ padding-left:124px; }
-table.adminlist td.indent-139 	{ padding-left:139px; }
+table.adminlist td.indent-4 {
+	padding-left:4px;
+}
+table.adminlist td.indent-19 {
+	padding-left:19px;
+}
+table.adminlist td.indent-34 {
+	padding-left:34px;
+}
+table.adminlist td.indent-49 {
+	padding-left:49px;
+}
+table.adminlist td.indent-64 {
+	padding-left:64px;
+}
+table.adminlist td.indent-79 {
+	padding-left:79px;
+}
+table.adminlist td.indent-94 {
+	padding-left:94px;
+}
+table.adminlist td.indent-109 {
+	padding-left:109px;
+}
+table.adminlist td.indent-124 {
+	padding-left:124px;
+}
+table.adminlist td.indent-139 {
+	padding-left:139px;
+}
 
 /**
  * Adminlist buttons
@@ -1369,7 +1458,7 @@ ul#new-modules-list {
 /**
  * Utility styles
  */
-	/* General Clearing Class */
+/* General Clearing Class */
 .clr {
 	clear: both;
 	overflow: hidden;
@@ -1390,7 +1479,7 @@ ul#new-modules-list {
 	margin-left: 5px;
 }
 
-	/* stu nicholls solution for centering divs */
+/* stu nicholls solution for centering divs */
 .container {
 	clear: both;
 	text-decoration: none;
@@ -1400,7 +1489,7 @@ ul#new-modules-list {
 	display: inline-block;
 }
 
-	/* table solution for global config */
+/* table solution for global config */
 table.noshow {
 	width: 100%;
 	border-collapse: collapse;
@@ -1471,15 +1560,15 @@ button {
 	font-weight: bold;
 	cursor: default;
 	padding: 0 6px 0 6px;
-	/* add padding if you are using the directional images */
-	/* padding: 0 30px 0 6px; */
+/* add padding if you are using the directional images */
+/* padding: 0 30px 0 6px; */;
 }
 
 .button1 a:hover,.button1 a:focus {
 	text-decoration: none;
 }
 
-	/* Button 2 Type */
+/* Button 2 Type */
 .button2-left,.button2-right {
 	float: left;
 	line-height: 1.5em;
@@ -1500,7 +1589,7 @@ button {
 	cursor: default;
 }
 
-	/* these are inactive buttons */
+/* these are inactive buttons */
 .button2-left span,.button2-right span {
 	cursor: default;
 }
@@ -1545,7 +1634,7 @@ button {
  * Pagination styles
  */
 
-	/* Normal pagination styles */
+/* Normal pagination styles */
 div.containerpg {
 	position: relative;
 	left: 50%;
@@ -1578,7 +1667,7 @@ div.pagination {
 	font-size: 100%;
 }
 
-	/* The Go submittal button */
+/* The Go submittal button */
 .pagination button {
 	font-size: 100%;
 	height: 1.8em;
@@ -1592,7 +1681,7 @@ div.pagination .button2-right, div.pagination .button2-left {
 	line-height: 1.6em;
 }
 
-	/* Style if pagination is part of the table (old style) */
+/* Style if pagination is part of the table (old style) */
 table.adminlist .pagination {
 	display: table;
 	padding: 0;
@@ -1812,7 +1901,7 @@ body.contentpane input, body.contentpane select {
  * User Accessibility
  */
 
-	/* Skip to Content Structural Styling */
+/* Skip to Content Structural Styling */
 #skiplinkholder a,#skiplinkholder a:link,#skiplinkholder a:visited {
 	display: block;
 	width: 99%;
@@ -1837,7 +1926,7 @@ body.contentpane input, body.contentpane select {
 	left: -200%;
 }
 
-	/* Skip to Content Visual Styling */
+/* Skip to Content Visual Styling */
 #skiplinkholder a, #skiplinkholder a:link, #skiplinkholder a:visited {
 	text-decoration: underline;
 	padding: 5px;
@@ -1847,7 +1936,7 @@ body.contentpane input, body.contentpane select {
 	padding-right: 20px;
 }
 
-	/* Hide overlayed controls so that keyboarders can get to the modal */
+/* Hide overlayed controls so that keyboarders can get to the modal */
 .body-overlayed a,
 .body-overlayed input,
 .body-overlayed button {
@@ -1864,8 +1953,8 @@ body.contentpane input, body.contentpane select {
  * Admin Form Styles
  */
 
-	/* For elements that aren't to be seen by users unless the user does something
-	 * like clicking on a header to see the collapsed section. */
+/* For elements that aren't to be seen by users unless the user does something
+	* like clicking on a header to see the collapsed section. */
 .element-hidden, .hide {
 	display: none;
 }
@@ -1878,8 +1967,8 @@ body.contentpane input, body.contentpane select {
 	height: 0;
 }
 
-	/* For elements that aren't to be seen by visual users but do need to be read by screenreaders.
-	 * Cannot be used for elements that can get focus such as links and form elements */
+/* For elements that aren't to be seen by visual users but do need to be read by screenreaders.
+	* Cannot be used for elements that can get focus such as links and form elements */
 .element-invisible, .hidelabeltxt {
 	height: 0;
 	overflow: hidden;
@@ -1888,7 +1977,7 @@ body.contentpane input, body.contentpane select {
 	margin:0;
 }
 
-	/* Firefox has issues styling legend so this is a universal fix
+/* Firefox has issues styling legend so this is a universal fix
 	for making the legend invisible (i.e. visually it's not there, but screen readers see it */
 
 legend.element-invisible {
@@ -2275,9 +2364,9 @@ ul.config-option-list fieldset {
 */
 #permissions-sliders ul#rules,
 #permissions-sliders ul#rules ul {
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style-type: none;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style-type: none;
 }
 
 #permissions-sliders ul#rules li {
@@ -2286,28 +2375,28 @@ ul.config-option-list fieldset {
 }
 
 #permissions-sliders ul#rules table.group-rules {
-    border-collapse: collapse;
-   	margin: 5px;
-    width: 100%;
+	border-collapse: collapse;
+	margin: 5px;
+	width: 100%;
 }
 
 #permissions-sliders ul#rules table.group-rules td {
-    padding: 4px;
-    vertical-align: middle;
-    text-align: left;
-    overflow: hidden;
+	padding: 4px;
+	vertical-align: middle;
+	text-align: left;
+	overflow: hidden;
 }
 
 #permissions-sliders ul#rules table.group-rules th {
-    font-size: 1.2em;
-    overflow: hidden;
-    font-weight: bold;
+	font-size: 1.2em;
+	overflow: hidden;
+	font-weight: bold;
 }
 
 #permissions-sliders .panel {
-    margin-bottom: 3px;
-    margin-left: 0;
-    border: 0;
+	margin-bottom: 3px;
+	margin-left: 0;
+	border: 0;
 }
 
 #permissions-sliders p.rule-desc {
@@ -2350,8 +2439,8 @@ table.group-rules td select {
 }
 
 #permissions-sliders  ul#rules  table.group-rules th {
-    text-align: left;
-    padding: 4px;
+	text-align: left;
+	padding: 4px;
 }
 
 #permissions-sliders ul#rules table.group-rules td label {
@@ -2402,14 +2491,15 @@ ul.helpmenu li {
  * with javascript by Bill Tomczak
  */
 
-	/* Note: set up the font-size on the id and used 100% on the elements.
+/* Note: set up the font-size on the id and used 100% on the elements.
 	If ul/li/a are different ems, then the shifting back via non-js keyboard
 	doesn't work properly */
 
 /**
  * Menu Styling
  */
-#menu { /* this is on the main ul */
+#menu {
+/* this is on the main ul */
 	position: relative;
 	z-index: 100;
 	padding: 0;
@@ -2420,7 +2510,8 @@ ul.helpmenu li {
 	font-weight: bold;
 }
 
-#menu ul { /* all lists */
+#menu ul {
+/* all lists */
 	padding: 0;
 	margin: 0;
 	list-style: none;
@@ -2435,14 +2526,15 @@ ul.helpmenu li {
 	padding: 0.35em 2.5em 0.35em 2em;
 	vertical-align: middle;
 	display: block;
-	/* width: 10em; */
+/* width: 10em; */
 	text-decoration: none;
 	font-size: 100%;
 }
 
-#menu li { /* all list items */
+#menu li {
+/* all list items */
 	float: left;
-	/* width: 12em;  width needed or else Opera goes nuts */
+/* width: 12em;  width needed or else Opera goes nuts */
 	font-size: 100%;
 }
 
@@ -2462,21 +2554,24 @@ ul.helpmenu li {
 	cursor: default;
 }
 
-#menu li ul { /* second-level lists */
+#menu li ul {
+/* second-level lists */
 	position: absolute;
 	width: 16em;
 	margin-left: -1000em;
-	/* using left instead of display to hide menus because display: none isn't read by screen readers */
+/* using left instead of display to hide menus because display: none isn't read by screen readers */;
 }
 
-#menu li li { /* second-level row */
+#menu li li {
+/* second-level row */
 	border: none;
 	width: 16em;
 }
 
-#menu li ul ul { /* third-and-above-level lists */
+#menu li ul ul {
+/* third-and-above-level lists */
 	margin: -2.3em 0 0 -1000em;
-	/* top margin is equal to parent line height+bottom padding */
+/* top margin is equal to parent line height+bottom padding */;
 }
 
 #menu li:hover ul ul,#menu li.sfhover ul ul {
@@ -2484,7 +2579,7 @@ ul.helpmenu li {
 }
 
 #menu li:hover ul,#menu li.sfhover ul {
-	/* lists nested under hovered list items */
+/* lists nested under hovered list items */
 	margin-left: 0;
 }
 
@@ -2533,7 +2628,7 @@ ul.helpmenu li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	/* border-bottom plus padding-bottom is the technique */
+/* border-bottom plus padding-bottom is the technique */
 	padding-bottom: 2.5em;
 	line-height: 2em;
 }
@@ -2584,21 +2679,21 @@ ul.helpmenu li {
 
 /* -- Update check badges -- */
 span.update-badge {
-    background-image: -moz-linear-gradient(center bottom , #FF0000 41%, #FC7E7E 79%);
+	background-image: -moz-linear-gradient(center bottom , #FF0000 41%, #FC7E7E 79%);
 	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.41, rgb(255,0,0)),color-stop(0.79, rgb(252,126,126)));
-    border: 2px solid white;
-    border-radius: 1.5em 1.5em 1.5em 1.5em;
-    color: white;
-    display: block;
-    float: left;
-    font-size: 1.2em;
-    font-weight: bold;
-    height: 1.2em;
-    left: 60px;
-    min-width: 1em;
-    padding: 0 0.1em 0;
-    position: relative;
-    top: -88px;
+	border: 2px solid white;
+	border-radius: 1.5em 1.5em 1.5em 1.5em;
+	color: white;
+	display: block;
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	height: 1.2em;
+	left: 60px;
+	min-width: 1em;
+	padding: 0 0.1em 0;
+	position: relative;
+	top: -88px;
 }
 
 /* User Notes */
@@ -2607,7 +2702,6 @@ span.update-badge {
 	list-style-position: inside;
 	padding-left: 0;
 	padding-right: 0;
-
 }
 
 .unotes div.utitle {

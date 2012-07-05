@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * TinyMCE Editor Plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Editors.tinymce
- * @since		1.5
+ * @package     Joomla.Plugin
+ * @subpackage  Editors.tinymce
+ * @since       1.5
  */
 class plgEditorTinymce extends JPlugin
 {
@@ -26,8 +26,8 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * Constructor
 	 *
-	 * @param  object  $subject  The object to observe
-	 * @param  array   $config   An array that holds the plugin configuration
+	 * @param       object  $subject  The object to observe
+	 * @param       array   $config   An array that holds the plugin configuration
 	 *
 	 * @since       1.5
 	 */
@@ -40,7 +40,7 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * Initialises the Editor.
 	 *
-	 * @return  string  JavaScript Initialization string
+	 * @return      string  JavaScript Initialization string
 	 *
 	 * @since 1.5
 	 */
@@ -630,7 +630,7 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * TinyMCE WYSIWYG Editor - get the editor content
 	 *
-	 * @param  string  The name of the editor
+	 * @param       string  The name of the editor
 	 *
 	 * @return string
 	 */
@@ -642,9 +642,9 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * TinyMCE WYSIWYG Editor - set the editor content
 	 *
-	 * @param   string  The name of the editor
+	 * @param       string  The name of the editor
 	 *
-	 * @return  string
+	 * @return      string
 	 */
 	public function onSetContent($editor, $html)
 	{
@@ -654,9 +654,9 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * TinyMCE WYSIWYG Editor - copy editor content to form field
 	 *
-	 * @param   string  The name of the editor
+	 * @param       string  The name of the editor
 	 *
-	 * @return  string
+	 * @return      string
 	 */
 	public function onSave($editor)
 	{
@@ -665,7 +665,7 @@ class plgEditorTinymce extends JPlugin
 
 	/**
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 */
 	public function onGetInsertMethod($name)
 	{
@@ -703,16 +703,16 @@ class plgEditorTinymce extends JPlugin
 	/**
 	 * Display the editor area.
 	 *
-	 * @param   string   The name of the editor area.
-	 * @param   string   The content of the field.
-	 * @param   string   The width of the editor area.
-	 * @param   string   The height of the editor area.
-	 * @param   int      The number of columns for the editor area.
-	 * @param   int      The number of rows for the editor area.
-	 * @param   boolean  True and the editor buttons will be displayed.
-	 * @param   string   An optional ID for the textarea. If not supplied the name is used.
+	 * @param       string   The name of the editor area.
+	 * @param       string   The content of the field.
+	 * @param       string   The width of the editor area.
+	 * @param       string   The height of the editor area.
+	 * @param       int      The number of columns for the editor area.
+	 * @param       int      The number of rows for the editor area.
+	 * @param       boolean  True and the editor buttons will be displayed.
+	 * @param       string   An optional ID for the textarea. If not supplied the name is used.
 	 *
-	 * @return  string
+	 * @return      string
 	 */
 	public function onDisplay($name, $content, $width, $height, $col, $row, $buttons = true, $id = null, $asset = null, $author = null)
 	{
@@ -741,7 +741,7 @@ class plgEditorTinymce extends JPlugin
 
 	/**
 	 *
-	 * @return  string
+	 * @return      string
 	 */
 	private function _displayButtons($name, $buttons, $asset, $author)
 	{
@@ -795,7 +795,7 @@ class plgEditorTinymce extends JPlugin
 
 	/**
 	 *
-	 * @return  string
+	 * @return      string
 	 */
 	private function _toogleButton($name)
 	{

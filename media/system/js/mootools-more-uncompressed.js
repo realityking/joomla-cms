@@ -1,5 +1,5 @@
 // MooTools: the javascript framework.
-// Load this file's selection again by visiting: http://mootools.net/more/065f2f092ece4e3b32bb5214464cf926 
+// Load this file's selection again by visiting: http://mootools.net/more/065f2f092ece4e3b32bb5214464cf926
 // Or build this file again with packager using: packager build More/More More/Events.Pseudos More/Class.Refactor More/Class.Binds More/Class.Occlude More/Chain.Wait More/Array.Extras More/Date More/Date.Extras More/Number.Format More/Object.Extras More/String.Extras More/String.QueryString More/URI More/URI.Relative More/Hash More/Hash.Extras More/Element.Forms More/Elements.From More/Element.Event.Pseudos More/Element.Event.Pseudos.Keys More/Element.Measure More/Element.Pin More/Element.Position More/Element.Shortcuts More/Form.Request More/Form.Request.Append More/Form.Validator More/Form.Validator.Inline More/Form.Validator.Extras More/OverText More/Fx.Elements More/Fx.Accordion More/Fx.Move More/Fx.Reveal More/Fx.Scroll More/Fx.Slide More/Fx.SmoothScroll More/Fx.Sort More/Drag More/Drag.Move More/Slider More/Sortables More/Request.JSONP More/Request.Queue More/Request.Periodical More/Assets More/Color More/Group More/Hash.Cookie More/IframeShim More/Table More/HtmlTable More/HtmlTable.Zebra More/HtmlTable.Sort More/HtmlTable.Select More/Keyboard More/Keyboard.Extras More/Mask More/Scroller More/Tips More/Spinner More/Locale More/Locale.Set.From More/Locale.en-US.Date More/Locale.en-US.Form.Validator More/Locale.en-US.Number More/Locale.ar.Date More/Locale.ar.Form.Validator More/Locale.ca-CA.Date More/Locale.ca-CA.Form.Validator More/Locale.cs-CZ.Date More/Locale.cs-CZ.Form.Validator More/Locale.da-DK.Date More/Locale.da-DK.Form.Validator More/Locale.de-CH.Date More/Locale.de-CH.Form.Validator More/Locale.de-DE.Date More/Locale.de-DE.Form.Validator More/Locale.de-DE.Number More/Locale.en-GB.Date More/Locale.es-AR.Date More/Locale.es-AR.Form.Validator More/Locale.es-ES.Date More/Locale.es-ES.Form.Validator More/Locale.et-EE.Date More/Locale.et-EE.Form.Validator More/Locale.EU.Number More/Locale.fa.Date More/Locale.fa.Form.Validator More/Locale.fi-FI.Date More/Locale.fi-FI.Form.Validator More/Locale.fi-FI.Number More/Locale.fr-FR.Date More/Locale.fr-FR.Form.Validator More/Locale.fr-FR.Number More/Locale.he-IL.Date More/Locale.he-IL.Form.Validator More/Locale.he-IL.Number More/Locale.hu-HU.Date More/Locale.hu-HU.Form.Validator More/Locale.it-IT.Date More/Locale.it-IT.Form.Validator More/Locale.ja-JP.Date More/Locale.ja-JP.Form.Validator More/Locale.ja-JP.Number More/Locale.nl-NL.Date More/Locale.nl-NL.Form.Validator More/Locale.nl-NL.Number More/Locale.no-NO.Date More/Locale.no-NO.Form.Validator More/Locale.pl-PL.Date More/Locale.pl-PL.Form.Validator More/Locale.pt-BR.Date More/Locale.pt-BR.Form.Validator More/Locale.pt-PT.Date More/Locale.pt-PT.Form.Validator More/Locale.ru-RU-unicode.Date More/Locale.ru-RU-unicode.Form.Validator More/Locale.si-SI.Date More/Locale.si-SI.Form.Validator More/Locale.sv-SE.Date More/Locale.sv-SE.Form.Validator More/Locale.uk-UA.Date More/Locale.uk-UA.Form.Validator More/Locale.zh-CH.Date More/Locale.zh-CH.Form.Validator
 /*
 ---
@@ -1274,13 +1274,13 @@ var build = function(format){
 
 	var parsed = [];
 	var re = (format.source || format) // allow format to be regex
-	 .replace(/%([a-z])/gi,
+	.replace(/%([a-z])/gi,
 		function($0, $1){
 			return replacers($1) || $0;
 		}
 	).replace(/\((?!\?)/g, '(?:') // make all groups non-capturing
-	 .replace(/ (?!\?|\*)/g, ',? ') // be forgiving with spaces and commas
-	 .replace(/%([a-z%])/gi,
+	.replace(/ (?!\?|\*)/g, ',? ') // be forgiving with spaces and commas
+	.replace(/%([a-z%])/gi,
 		function($0, $1){
 			var p = keys[$1];
 			if (!p) return $1;
@@ -1523,8 +1523,6 @@ Locale.define('en-US', 'Number', {
 	}*/
 
 });
-
-
 
 
 /*
@@ -2230,7 +2228,6 @@ Hash.alias({indexOf: 'keyOf', contains: 'hasValue'});
 
 
 })();
-
 
 
 /*
@@ -4263,7 +4260,7 @@ Form.Request.Append = new Class({
 				if (kids.length == 1){
 					container = kids[0];
 				} else {
-					 container = new Element('div', {
+					container = new Element('div', {
 						styles: {
 							display: 'none'
 						}
@@ -4715,7 +4712,7 @@ Form.Validator.addAllThese([
 			if (typeOf(props.length) != 'null') return (element.get('value').length == props.length || element.get('value').length == 0);
 			else return true;
 		}
-	}],	
+	}],
 
 	['minLength', {
 		errorMsg: function(element, props){
@@ -4883,8 +4880,6 @@ Element.implement({
 //legacy
 var FormValidator = Form.Validator;
 //</1.2compat>
-
-
 
 
 /*
@@ -5568,7 +5563,6 @@ Object.append(OverText, {
 	}
 
 });
-
 
 
 /*
@@ -8166,7 +8160,6 @@ String.implement({
 })();
 
 
-
 /*
 ---
 
@@ -8304,8 +8297,8 @@ var Table = this.Table = function(){
 
 	this.length = 0;
 	var keys = [],
-	    values = [];
-	
+	values = [];
+
 	this.set = function(key, value){
 		var index = keys.indexOf(key);
 		if (index == -1){
@@ -8337,7 +8330,7 @@ var Table = this.Table = function(){
 	this.each = this.forEach = function(fn, bind){
 		for (var i = 0, l = this.length; i < l; i++) fn.call(bind, keys[i], values[i], this);
 	};
-	
+
 };
 
 if (this.Type) new Type('Table', Table);
@@ -8500,8 +8493,6 @@ var HtmlTable = new Class({
 		return this;
 	});
 });
-
-
 
 
 /*
@@ -9522,7 +9513,7 @@ HtmlTable = Class.refactor(HtmlTable, {
 			index += offset;
 		} else {
 			var limit = 0,
-			    count = 0;
+				count = 0;
 			if (offset > 0){
 				while (count < offset && index < this.body.rows.length -1){
 					if (this.body.rows[++index].isDisplayed()) count++;
@@ -12297,9 +12288,6 @@ provides: [Locale.nl-NL.Number]
 */
 
 Locale.define('nl-NL').inherit('EU', 'Number');
-
-
-
 
 
 /*

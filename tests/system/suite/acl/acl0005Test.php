@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests admin login permissions per global configuration permission settings.
  */
 require_once 'SeleniumJoomlaTestCase.php';
@@ -22,16 +22,16 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 		$message='You do not have access to the administrator section of this site.';
 
 		//Define test user
-	    $username = 'ACL Test User' . $salt;
+		$username = 'ACL Test User' . $salt;
 		$password = 'password' . $salt;
 		$login = 'acltestuser' . $salt;
 		$email = $login . '@test.com';
 		$group = 'Public';
 		echo "Create $username and add to $group group.\n";
-	    $this->createUser($username, $login, $password, $email, $group);
+		$this->createUser($username, $login, $password, $email, $group);
 
-	    echo "Removing $username from Registered group.\n";
-	    $this->changeAssignedGroup($username,$group="Registered");
+		echo "Removing $username from Registered group.\n";
+		$this->changeAssignedGroup($username,$group="Registered");
 
         echo "Setting all roles to inherit.\n";
 		$actions = array('Site Login', 'Admin Login', 'Configure', 'Access Component', 'Create', 'Delete', 'Edit', 'Edit State');
@@ -43,14 +43,14 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			 $this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
@@ -58,7 +58,7 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
 		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
@@ -67,9 +67,9 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Not Set";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
@@ -80,32 +80,32 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
 	   	$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->doAdminLogin();
+		$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
@@ -116,32 +116,32 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->doAdminLogin();
+		$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -151,92 +151,92 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    echo "Logging in to front end.\n";
-	    $this->doAdminLogin($login,$password);
-		    $this->doAdminLogin($login,$password);
+		echo "Logging in to front end.\n";
+		$this->doAdminLogin($login,$password);
+			$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
 		$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
-	    $group='Super Users';
+		$group='Super Users';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Administrator';
+		$group='Administrator';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Manager';
+		$group='Manager';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Public';
+		$group='Public';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Registered';
+		$group='Registered';
 		$this->changeAssignedGroup($username,$group);
 
 
 		$permission="Allowed";
 
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->doAdminLogin();
+		$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -244,35 +244,34 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 		$this->changeAssignedGroup($username,$group);
 
 
-
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -282,32 +281,32 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -318,32 +317,32 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -354,32 +353,32 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->doAdminLogin();
@@ -389,40 +388,39 @@ class Acl0005Test extends SeleniumJoomlaTestCase
 
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("link=Log out"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doAdminLogout();
 
     	$this->doAdminLogin();
 
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->doAdminLogin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
-	    $this->doAdminLogout();
+		$this->doAdminLogout();
 
-	    $this->doAdminLogin($login,$password);
+		$this->doAdminLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->gotoAdmin();
     	$this->doAdminLogin();
-	    $this->deleteTestUsers();
+		$this->deleteTestUsers();
 		$this->restoreDefaultGlobalPermissions();
-	    $this->doAdminLogOut();
+		$this->doAdminLogOut();
 		$this->deleteAllVisibleCookies();
   }
 }
-

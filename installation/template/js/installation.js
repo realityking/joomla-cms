@@ -1,24 +1,24 @@
 /**
- * @package		Joomla.Installation
- * @subpackage	JavaScript
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Installation
+ * @subpackage  JavaScript
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 var Installation = new Class({
-    initialize: function(container, base) {
-        this.sampleDataLoaded = false;
-        this.busy = false;
-        this.container = container;
-        this.spinner = new Spinner(this.container);
-        this.baseUrl = base;
-        this.view = '';
+	initialize: function(container, base) {
+		this.sampleDataLoaded = false;
+		this.busy = false;
+		this.container = container;
+		this.spinner = new Spinner(this.container);
+		this.baseUrl = base;
+		this.view = '';
 
-        this.pageInit();
-    },
+		this.pageInit();
+	},
 
-    pageInit: function() {
-    	this.addToggler();
+	pageInit: function() {
+		this.addToggler();
 		// Attach the validator
 		$$('form.form-validate').each(function(form){ this.attachToForm(form); }, document.formvalidator);
 
@@ -29,9 +29,9 @@ var Installation = new Class({
 			select.setAttribute('disabled', 'disabled');
 			button.setAttribute('value', Joomla.JText._('INSTL_SITE_SAMPLE_LOADED', 'Sample Data Installed Successfully.'));
 		}
-    },
+	},
 
-    submitform: function() {
+	submitform: function() {
 		var form = document.id('adminForm');
 
 		if (this.busy) {
@@ -290,5 +290,5 @@ var Installation = new Class({
 			alwaysHide:true,
 			show: 1
 		});
-    }
+	}
 });

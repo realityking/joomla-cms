@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Extension Manager Install Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.5
  */
 class InstallerModelInstall extends JModelLegacy
 {
@@ -31,7 +31,7 @@ class InstallerModelInstall extends JModelLegacy
 	/**
 	 * Model context string.
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	protected $_context = 'com_installer.install';
 
@@ -40,7 +40,7 @@ class InstallerModelInstall extends JModelLegacy
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState()
 	{
@@ -61,8 +61,8 @@ class InstallerModelInstall extends JModelLegacy
 	/**
 	 * Install an extension from either folder, url or upload.
 	 *
-	 * @return	boolean result of install
-	 * @since	1.5
+	 * @return      boolean result of install
+	 * @since       1.5
 	 */
 	function install()
 	{
@@ -185,8 +185,8 @@ class InstallerModelInstall extends JModelLegacy
 	/**
 	 * Install an extension from a directory
 	 *
-	 * @return	Package details or false on failure
-	 * @since	1.5
+	 * @return      Package details or false on failure
+	 * @since       1.5
 	 */
 	protected function _getPackageFromFolder()
 	{
@@ -220,8 +220,8 @@ class InstallerModelInstall extends JModelLegacy
 	/**
 	 * Install an extension from a URL
 	 *
-	 * @return	Package details or false on failure
-	 * @since	1.5
+	 * @return      Package details or false on failure
+	 * @since       1.5
 	 */
 	protected function _getPackageFromUrl()
 	{

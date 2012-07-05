@@ -166,7 +166,7 @@ endif; ?>
 	<?php if ($images->image_fulltext_caption):
 		echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) .'"';
 	endif; ?>
-	src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
+	src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>" />
 </div>
 <?php endif; ?>
 <?php
@@ -177,8 +177,9 @@ endif;
 <?php echo $this->item->text; ?>
 <?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND!$this->item->paginationrelative):
-	echo $this->item->pagination;?>
-<?php endif; ?>
+	echo $this->item->pagination;
+endif;
+?>
 
 <?php if (isset($urls) AND ((!empty($urls->urls_position)  AND ($urls->urls_position=='1')) OR ( $params->get('urls_position')=='1') )): ?>
 <?php echo $this->loadTemplate('links'); ?>
@@ -212,8 +213,9 @@ if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item-
 <?php endif; ?>
 <?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND $this->item->paginationposition AND $this->item->paginationrelative):
-	echo $this->item->pagination;?>
-<?php endif; ?>
+	echo $this->item->pagination;
+endif;
+?>
 
 <?php echo $this->item->event->afterDisplayContent; ?>
 </div>

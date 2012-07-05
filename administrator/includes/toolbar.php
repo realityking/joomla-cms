@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Administrator
+ * @package     Joomla.Administrator
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -13,8 +13,8 @@ jimport('joomla.html.toolbar');
 /**
  * Utility class for the button bar.
  *
- * @package		Joomla.Administrator
- * @subpackage	Application
+ * @package     Joomla.Administrator
+ * @subpackage  Application
  */
 abstract class JToolBarHelper
 {
@@ -24,9 +24,9 @@ abstract class JToolBarHelper
 	 * this title fucntion must be called before the starttable function and the toolbars icons
 	 * this is due to the nature of how the css has been used to postion the title in respect to the toolbar.
 	 *
-	 * @param	string	$title	The title.
-	 * @param	string	$icon	The space-separated names of the image.
-	 * @since	1.5
+	 * @param       string	$title	The title.
+	 * @param       string	$icon	The space-separated names of the image.
+	 * @since       1.5
 	 */
 	public static function title($title, $icon = 'generic.png')
 	{
@@ -45,8 +45,8 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a spacer cell.
 	 *
-	 * @param	string	$width	The width for the cell
-	 * @since	1.0
+	 * @param       string	$width	The width for the cell
+	 * @since       1.0
 	 */
 	public static function spacer($width = '')
 	{
@@ -58,7 +58,7 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a divider between menu buttons
 	 *
-	 * @since	1.0
+	 * @since       1.0
 	 */
 	public static function divider()
 	{
@@ -70,12 +70,12 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a custom option and task button for the button bar.
 	 *
-	 * @param	string	$task		The task to perform (picked up by the switch($task) blocks.
-	 * @param	string	$icon		The image to display.
-	 * @param	string	$iconOver	The image to display when moused over.
-	 * @param	string	$alt		The alt text for the icon image.
-	 * @param	bool	$listSelect	True if required to check that a standard list item is checked.
-	 * @since	1.0
+	 * @param       string	$task		The task to perform (picked up by the switch($task) blocks.
+	 * @param       string	$icon		The image to display.
+	 * @param       string	$iconOver	The image to display when moused over.
+	 * @param       string	$alt		The alt text for the icon image.
+	 * @param       bool	$listSelect	True if required to check that a standard list item is checked.
+	 * @since       1.0
 	 */
 	public static function custom($task = '', $icon = '', $iconOver = '', $alt = '', $listSelect = true)
 	{
@@ -91,9 +91,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a preview button for a given option (opens a popup window).
 	 *
-	 * @param	string	$url	The name of the popup file (excluding the file extension)
-	 * @param	bool	$updateEditors
-	 * @since	1.0
+	 * @param       string	$url	The name of the popup file (excluding the file extension)
+	 * @param       bool	$updateEditors
+	 * @since       1.0
 	 */
 	public static function preview($url = '', $updateEditors = false)
 	{
@@ -105,11 +105,11 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a preview button for a given option (opens a popup window).
 	 *
-	 * @param	string	$ref		The name of the popup file (excluding the file extension for an xml file).
-	 * @param	bool	$com		Use the help file in the component directory.
-	 * @param	string	$override	Use this URL instead of any other
-	 * @param	string	$component	Name of component to get Help (null for current component)
-	 * @since	1.0
+	 * @param       string	$ref		The name of the popup file (excluding the file extension for an xml file).
+	 * @param       bool	$com		Use the help file in the component directory.
+	 * @param       string	$override	Use this URL instead of any other
+	 * @param       string	$component	Name of component to get Help (null for current component)
+	 * @since       1.0
 	 */
 	public static function help($ref, $com = false, $override = null, $component = null)
 	{
@@ -122,9 +122,9 @@ abstract class JToolBarHelper
 	 * Writes a cancel button that will go back to the previous page without doing
 	 * any other operation.
 	 *
-	 * @param	string	$alt	Alternative text.
-	 * @param	string	$href	URL of the href attribute.
-	 * @since	1.0
+	 * @param       string	$alt	Alternative text.
+	 * @param       string	$href	URL of the href attribute.
+	 * @since       1.0
 	 */
 	public static function back($alt = 'JTOOLBAR_BACK', $href = 'javascript:history.back();')
 	{
@@ -136,9 +136,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a media_manager button.
 	 *
-	 * @param	string	$directory	The sub-drectory to upload the media to.
-	 * @param	string	$alt		An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$directory	The sub-drectory to upload the media to.
+	 * @param       string	$alt		An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function media_manager($directory = '', $alt = 'JTOOLBAR_UPLOAD')
 	{
@@ -150,9 +150,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'default' button for a record.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function makeDefault($task = 'default', $alt = 'JTOOLBAR_DEFAULT')
 	{
@@ -164,9 +164,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'assign' button for a record.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function assign($task = 'assign', $alt = 'JTOOLBAR_ASSIGN')
 	{
@@ -178,10 +178,10 @@ abstract class JToolBarHelper
 	/**
 	 * Writes the common 'new' icon for the button bar.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @param	boolean	$check	True if required to check that a standard list item is checked.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @param       boolean	$check	True if required to check that a standard list item is checked.
+	 * @since       1.0
 	 */
 	public static function addNew($task = 'add', $alt = 'JTOOLBAR_NEW', $check = false)
 	{
@@ -193,10 +193,10 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'publish' button.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @param	boolean	$check	True if required to check that a standard list item is checked.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @param       boolean	$check	True if required to check that a standard list item is checked.
+	 * @since       1.0
 	 */
 	public static function publish($task = 'publish', $alt = 'JTOOLBAR_PUBLISH', $check = false)
 	{
@@ -208,9 +208,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'publish' button for a list of records.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function publishList($task = 'publish', $alt = 'JTOOLBAR_PUBLISH')
 	{
@@ -222,10 +222,10 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'unpublish' button.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @param	boolean	$check	True if required to check that a standard list item is checked.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @param       boolean	$check	True if required to check that a standard list item is checked.
+	 * @since       1.0
 	 */
 	public static function unpublish($task = 'unpublish', $alt = 'JTOOLBAR_UNPUBLISH', $check = false)
 	{
@@ -237,9 +237,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'unpublish' button for a list of records.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function unpublishList($task = 'unpublish', $alt = 'JTOOLBAR_UNPUBLISH')
 	{
@@ -251,9 +251,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'archive' button for a list of records.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function archiveList($task = 'archive', $alt = 'JTOOLBAR_ARCHIVE')
 	{
@@ -265,9 +265,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes an unarchive button for a list of records.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function unarchiveList($task = 'unarchive', $alt = 'JTOOLBAR_UNARCHIVE')
 	{
@@ -279,9 +279,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'edit' button for a list of records.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function editList($task = 'edit', $alt = 'JTOOLBAR_EDIT')
 	{
@@ -293,9 +293,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'edit' button for a template html.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function editHtml($task = 'edit_source', $alt = 'JTOOLBAR_EDIT_HTML')
 	{
@@ -307,9 +307,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'edit' button for a template css.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function editCss($task = 'edit_css', $alt = 'JTOOLBAR_EDIT_CSS')
 	{
@@ -321,10 +321,10 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a common 'delete' button for a list of records.
 	 *
-	 * @param	string	$msg	Postscript for the 'are you sure' message.
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$msg	Postscript for the 'are you sure' message.
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function deleteList($msg = '', $task = 'remove', $alt = 'JTOOLBAR_DELETE')
 	{
@@ -340,10 +340,10 @@ abstract class JToolBarHelper
 	/**
 	 * Write a trash button that will move items to Trash Manager.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @param	bool	$check
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @param       bool	$check
+	 * @since       1.0
 	 */
 	public static function trash($task = 'remove', $alt = 'JTOOLBAR_TRASH', $check = true)
 	{
@@ -356,9 +356,9 @@ abstract class JToolBarHelper
 	 * Writes a save button for a given option.
 	 * Apply operation leads to a save action only (does not leave edit mode).
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function apply($task = 'apply', $alt = 'JTOOLBAR_APPLY')
 	{
@@ -371,9 +371,9 @@ abstract class JToolBarHelper
 	 * Writes a save button for a given option.
 	 * Save operation leads to a save and then close action.
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function save($task = 'save', $alt = 'JTOOLBAR_SAVE')
 	{
@@ -431,9 +431,9 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a cancel button and invokes a cancel operation (eg a checkin).
 	 *
-	 * @param	string	$task	An override for the task.
-	 * @param	string	$alt	An override for the alt text.
-	 * @since	1.0
+	 * @param       string	$task	An override for the task.
+	 * @param       string	$alt	An override for the alt text.
+	 * @since       1.0
 	 */
 	public static function cancel($task = 'cancel', $alt = 'JTOOLBAR_CANCEL')
 	{
@@ -445,12 +445,12 @@ abstract class JToolBarHelper
 	/**
 	 * Writes a configuration button and invokes a cancel operation (eg a checkin).
 	 *
-	 * @param	string	$component	The name of the component, eg, com_content.
-	 * @param	int		$height		The height of the popup.
-	 * @param	int		$width		The width of the popup.
-	 * @param	string	$alt		The name of the button.
-	 * @param	string	$path		An alternative path for the configuation xml relative to JPATH_SITE.
-	 * @since	1.0
+	 * @param       string	$component	The name of the component, eg, com_content.
+	 * @param       int		$height		The height of the popup.
+	 * @param       int		$width		The width of the popup.
+	 * @param       string	$alt		The name of the button.
+	 * @param       string	$path		An alternative path for the configuation xml relative to JPATH_SITE.
+	 * @since       1.0
 	 */
 	public static function preferences($component, $height = '550', $width = '875', $alt = 'JToolbar_Options', $path = '', $onClose = '')
 	{
@@ -468,16 +468,16 @@ abstract class JToolBarHelper
 /**
  * Utility class for the submenu.
  *
- * @package		Joomla.Administrator
+ * @package     Joomla.Administrator
  */
 abstract class JSubMenuHelper
 {
 	/**
 	 * Method to add a menu item to submenu.
 	 *
-	 * @param	string	$name	Name of the menu item.
-	 * @param	string	$link	URL of the menu item.
-	 * @param	bool	True if the item is active, false otherwise.
+	 * @param       string	$name	Name of the menu item.
+	 * @param       string	$link	URL of the menu item.
+	 * @param       bool	True if the item is active, false otherwise.
 	 */
 	public static function addEntry($name, $link = '', $active = false)
 	{

@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_admin
+ * @package     Joomla.Administrator
+ * @subpackage  com_admin
  */
 class AdminViewProfile extends JViewLegacy
 {
@@ -44,7 +44,7 @@ class AdminViewProfile extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

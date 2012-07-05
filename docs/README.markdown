@@ -19,6 +19,3 @@ Requirements
  * ant 1.8.2
 
  * publican 2.8
-
-
-

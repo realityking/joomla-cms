@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -14,15 +14,15 @@ require_once JPATH_INSTALLATION . '/helpers/database.php';
 /**
  * Database configuration model for the Joomla Core Installer.
  *
- * @package  Joomla.Installation
- * @since    3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationModelDatabase extends JModelLegacy
 {
 	static protected $userId = 0;
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	static protected function generateRandUserId()
 	{
@@ -38,7 +38,7 @@ class InstallationModelDatabase extends JModelLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	static public function resetRandUserId()
 	{
@@ -48,7 +48,7 @@ class InstallationModelDatabase extends JModelLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	static public function getUserId()
 	{
@@ -60,7 +60,7 @@ class InstallationModelDatabase extends JModelLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function initialise($options)
 	{
@@ -364,7 +364,7 @@ class InstallationModelDatabase extends JModelLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	function installSampleData($options)
 	{
@@ -415,11 +415,11 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * method to update the user id of the sample data content to the new rand user id
 	 *
-	 * @param   JDatabase  $db  Database connector object $db*
+	 * @param       JDatabase  $db  Database connector object $db*
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	protected function postInstallSampleData($db)
 	{
@@ -450,13 +450,13 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to backup all tables in a database with a given prefix.
 	 *
-	 * @param   JDatabase  $db      JDatabase object.
-	 * @param   string     $name    Name of the database to process.
-	 * @param   string     $prefix  Database table prefix.
+	 * @param       JDatabase  $db      JDatabase object.
+	 * @param       string     $name    Name of the database to process.
+	 * @param       string     $prefix  Database table prefix.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function backupDatabase($db, $name, $prefix)
 	{
@@ -507,12 +507,12 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to create a new database.
 	 *
-	 * @param   JDatabase   $db    JDatabase object.
-	 * @param   string      $name  Name of the database to create.
+	 * @param       JDatabase   $db    JDatabase object.
+	 * @param       string      $name  Name of the database to create.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function createDatabase($db, $name)
 	{
@@ -538,13 +538,13 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to delete all tables in a database with a given prefix.
 	 *
-	 * @param   JDatabase  $db      JDatabase object.
-	 * @param   string     $name    Name of the database to process.
-	 * @param   string     $prefix  Database table prefix.
+	 * @param       JDatabase  $db      JDatabase object.
+	 * @param       string     $name    Name of the database to process.
+	 * @param       string     $prefix  Database table prefix.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function deleteDatabase($db, $name, $prefix)
 	{
@@ -580,12 +580,12 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to import a database schema from a file.
 	 *
-	 * @param   JDatabase  $db      JDatabase object.
-	 * @param   string     $schema  Path to the schema file.
+	 * @param       JDatabase  $db      JDatabase object.
+	 * @param       string     $schema  Path to the schema file.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function populateDatabase($db, $schema)
 	{
@@ -630,12 +630,12 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to set the database character set to UTF-8.
 	 *
-	 * @param   JDatabase  $db    JDatabase object.
-	 * @param   string     $name  Name of the database to process.
+	 * @param       JDatabase  $db    JDatabase object.
+	 * @param       string     $name  Name of the database to process.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function setDatabaseCharset($db, $name)
 	{
@@ -660,11 +660,11 @@ class InstallationModelDatabase extends JModelLegacy
 	/**
 	 * Method to split up queries from a schema file into an array.
 	 *
-	 * @param   string  $sql  SQL schema.
+	 * @param       string  $sql  SQL schema.
 	 *
-	 * @return  array   Queries to perform.
+	 * @return      array   Queries to perform.
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 * @access  protected
 	 */
 	function _splitQueries($sql)

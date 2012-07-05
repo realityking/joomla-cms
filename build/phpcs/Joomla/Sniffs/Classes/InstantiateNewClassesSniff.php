@@ -4,9 +4,9 @@
  * have any parameters.
  *
  * @category  Classes
- * @package   Joomla.CodeSniffer
- * @author    Nikolai Plath
- * @license   GNU General Public License version 2 or later
+ * @package     Joomla.CodeSniffer
+ * @author      Nikolai Plath
+ * @license     GNU General Public License version 2 or later
  */
 
 /**
@@ -14,7 +14,7 @@
  * have any parameters.
  *
  * @category  Classes
- * @package   Joomla.CodeSniffer
+ * @package     Joomla.CodeSniffer
  */
 class Joomla_Sniffs_Classes_InstantiateNewClassesSniff implements PHP_CodeSniffer_Sniff
 {

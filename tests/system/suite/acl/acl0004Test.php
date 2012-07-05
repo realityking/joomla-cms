@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests site login permissions per global configuration permission settings.
  */
 require_once 'SeleniumJoomlaTestCase.php';
@@ -21,17 +21,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		//Set message to be checked
 		$message='You cannot access the private section of this site.';
 
-	    //Define test user
+		//Define test user
 		$username = 'ACL Test User' . $salt;
 		$password = 'password' . $salt;
 		$login = 'acltestuser' . $salt;
 		$email = $login . '@test.com';
 		$group = 'Public';
 		echo "Create $username and add to $group group.\n";
-	    $this->createUser($username, $login, $password, $email, $group);
+		$this->createUser($username, $login, $password, $email, $group);
 
-	    echo "Removing $username from Registered group.\n";
-	    $this->changeAssignedGroup($username,$group="Registered");
+		echo "Removing $username from Registered group.\n";
+		$this->changeAssignedGroup($username,$group="Registered");
 
 		echo "Setting all roles to inherit for $username.\n";
 		$actions = array('Site Login', 'Admin Login', 'Configure', 'Access Component', 'Create', 'Delete', 'Edit', 'Edit State');
@@ -43,29 +43,29 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"), 'Message not displayed or message changed, SeleniumJoomlaTestCase line 31');
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$permission="Not Set";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->gotoAdmin();
@@ -76,29 +76,29 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
+		$this->gotoSite();
 	   	$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->gotoAdmin();
@@ -110,30 +110,30 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -145,13 +145,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -159,57 +159,57 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    echo "Logging in to front end.\n";
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		echo "Logging in to front end.\n";
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
 		$this->doFrontEndLogout();
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
-	    $group='Super Users';
+		$group='Super Users';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Administrator';
+		$group='Administrator';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Manager';
+		$group='Manager';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Public';
+		$group='Public';
 		$this->changeAssignedGroup($username,$group);
 
-	    $group='Registered';
+		$group='Registered';
 		$this->changeAssignedGroup($username,$group);
 
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -217,17 +217,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -239,13 +239,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -253,17 +253,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -275,13 +275,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -289,17 +289,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -310,13 +310,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -324,17 +324,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -345,13 +345,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -359,17 +359,17 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
 		$this->gotoAdmin();
@@ -380,13 +380,13 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Allowed";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		try {
 			$this->assertTrue($this->isElementPresent("//form[@id='login-form'][contains(., '$username')]"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e){
+		} catch (PHPUnit_Framework_AssertionFailedError $e){
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
     	$this->doFrontEndLogout();
 
     	$this->gotoAdmin();
@@ -394,24 +394,23 @@ class Acl0004Test extends SeleniumJoomlaTestCase
 		$permission="Denied";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
-	    $this->gotoAdmin();
+		$this->gotoAdmin();
 		$this->jClick('Global Configuration: Permissions');
 		$permission="Inherited";
 		$this->setPermissions('Global Configuration', $group, $action, $permission);
 
-	    $this->gotoSite();
-	    $this->doFrontEndLogin($login,$password);
+		$this->gotoSite();
+		$this->doFrontEndLogin($login,$password);
 		$this->checkMessage($message);
 
     	$this->gotoAdmin();
-	    $this->deleteTestUsers();
+		$this->deleteTestUsers();
 		$this->restoreDefaultGlobalPermissions();
-	    $this->doAdminLogOut();
+		$this->doAdminLogOut();
 		$this->deleteAllVisibleCookies();
   }
 }
-

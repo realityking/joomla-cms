@@ -14,9 +14,9 @@ jimport('joomla.application.categories');
 /**
  * Build the route for the com_contact component
  *
- * @param	array	An array of URL arguments
+ * @param       array	An array of URL arguments
  *
- * @return	array	The URL arguments to use to assemble the subsequent URL.
+ * @return      array	The URL arguments to use to assemble the subsequent URL.
  */
 function ContactBuildRoute(&$query){
 	$segments = array();
@@ -121,9 +121,9 @@ function ContactBuildRoute(&$query){
 /**
  * Parse the segments of a URL.
  *
- * @param	array	The segments of the URL to parse.
+ * @param       array	The segments of the URL to parse.
  *
- * @return	array	The URL attributes to be used by the application.
+ * @return      array	The URL attributes to be used by the application.
  */
 function ContactParseRoute($segments)
 {

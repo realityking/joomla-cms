@@ -17,7 +17,7 @@ if ($feed != false)
 	$iUrl	= isset($feed->image->url)	? $feed->image->url	: null;
 	$iTitle = isset($feed->image->title) ? $feed->image->title : null;
 	?>
-	<div style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important"  class="feed<?php echo $moduleclass_sfx; ?>">
+	<div style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important" class="feed<?php echo $moduleclass_sfx; ?>">
 	<?php
 	// feed description
 	if (!is_null($feed->title) && $params->get('rsstitle', 1)) {
@@ -42,7 +42,7 @@ if ($feed != false)
 	// feed image
 	if ($params->get('rssimage', 1) && $iUrl) {
 	?>
-		<img src="<?php echo $iUrl; ?>" alt="<?php echo @$iTitle; ?>"/>
+		<img src="<?php echo $iUrl; ?>" alt="<?php echo @$iTitle; ?>" />
 
 	<?php
 	}

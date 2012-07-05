@@ -2,9 +2,9 @@
 /**
  * JFilterInputTest
  *
- * @package		Joomla.UnitTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license		GNU General Public License
+ * @package     Joomla.UnitTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License
  */
 
 require_once JPATH_BASE . '/libraries/joomla/filter/filterinput.php';
@@ -14,7 +14,7 @@ require_once JPATH_BASE . '/libraries/joomla/filter/filteroutput.php';
  * JFilterInputTest
  *
  * @package Joomla.UnitTest
- * @subpackage Filter
+ * @subpackage  Filter
  */
 class JFilterInputTest extends PHPUnit_Framework_TestCase
 {

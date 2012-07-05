@@ -1,9 +1,9 @@
 /*
 		MIT License
 
- @author		Harald Kirschner <http://digitarald.de>
- @author		Valerio Proietti, <http://mad4milk.net>
- @copyright	Authors
+ @author      Harald Kirschner <http://digitarald.de>
+ @author      Valerio Proietti, <http://mad4milk.net>
+ @copyright   Authors
 */
 Swiff.Uploader=new Class({Extends:Swiff,Implements:Events,options:{path:"Swiff.Uploader.swf",target:null,zIndex:9999,callBacks:null,params:{wMode:"opaque",menu:"false",allowScriptAccess:"always"},typeFilter:null,multiple:!0,queued:!0,verbose:!1,height:30,width:100,passStatus:null,url:null,method:null,data:null,mergeData:!0,fieldName:null,fileSizeMin:1,fileSizeMax:null,allowDuplicates:!1,timeLimit:Browser.Platform.linux?0:30,policyFile:null,buttonImage:null,fileListMax:0,fileListSizeMax:0,instantStart:!1,
 appendCookieData:!1,fileClass:null},initialize:function(a){this.addEvent("load",this.initializeSwiff,!0).addEvent("select",this.processFiles,!0).addEvent("complete",this.update,!0).addEvent("fileRemove",function(a){this.fileList.erase(a)}.bind(this),!0);this.setOptions(a);this.options.callBacks&&Hash.each(this.options.callBacks,function(a,b){this.addEvent(b,a)},this);this.options.callBacks={fireCallback:this.fireCallback.bind(this)};a=this.options.path;a.contains("?")||(a+="?noCache="+Date.now);this.options.container=

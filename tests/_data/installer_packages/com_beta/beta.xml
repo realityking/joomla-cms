@@ -79,7 +79,7 @@
  		<languages folder="admin/language">
 			<language tag="en-GB">language/en-GB.com_beta.ini</language>
 		</languages>
-		 -->
+		-->
 	</administration>
 
 	<!-- Extension Update Specification -->

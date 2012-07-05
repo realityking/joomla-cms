@@ -12,13 +12,13 @@ defined('_JEXEC') or die;
 /**
  * Pagenavigation plugin class.
  *
- * @package		Joomla.Plugin
- * @subpackage	Content.pagenavigation
+ * @package     Joomla.Plugin
+ * @subpackage  Content.pagenavigation
  */
 class plgContentPagenavigation extends JPlugin
 {
 	/**
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function onContentBeforeDisplay($context, &$row, &$params, $page=0)
 	{

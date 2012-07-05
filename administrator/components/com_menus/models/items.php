@@ -14,18 +14,18 @@ jimport('joomla.application.component.modellist');
 /**
  * Menu Item List Model for Menus.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @since       1.6
  */
 class MenusModelItems extends JModelList
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -60,8 +60,8 @@ class MenusModelItems extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -117,10 +117,10 @@ class MenusModelItems extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
-	 * @since	1.6
+	 * @return      string		A store id.
+	 * @since       1.6
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -140,8 +140,8 @@ class MenusModelItems extends JModelList
 	 *
 	 * In the absence of better information, this is the first menu ordered by title.
 	 *
-	 * @return	string	The default menu type
-	 * @since	1.6
+	 * @return      string	The default menu type
+	 * @since       1.6
 	 */
 	protected function getDefaultMenuType()
 	{
@@ -160,7 +160,7 @@ class MenusModelItems extends JModelList
 	/**
 	 * Builds an SQL query to load the list data.
 	 *
-	 * @return	JDatabaseQuery	A query object.
+	 * @return      JDatabaseQuery	A query object.
 	 */
 	protected function getListQuery()
 	{

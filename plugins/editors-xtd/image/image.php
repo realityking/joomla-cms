@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Editor Image buton
  *
- * @package		Joomla.Plugin
- * @subpackage	Editors-xtd.image
+ * @package     Joomla.Plugin
+ * @subpackage  Editors-xtd.image
  * @since 1.5
  */
 class plgButtonImage extends JPlugin

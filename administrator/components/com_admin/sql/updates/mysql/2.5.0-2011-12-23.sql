@@ -44,4 +44,3 @@ CREATE TABLE IF NOT EXISTS `#__finder_links` (
   KEY `idx_published_list` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`list_price`),
   KEY `idx_published_sale` (`published`,`state`,`access`,`publish_start_date`,`publish_end_date`,`sale_price`)
 ) DEFAULT CHARSET=utf8;
-

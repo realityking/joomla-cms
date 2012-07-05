@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 /**
  * Installer helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class InstallerHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 */
 	public static function addSubmenu($vName = 'install')
 	{
@@ -60,8 +60,8 @@ class InstallerHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return	JObject
-	 * @since	1.6
+	 * @return      JObject
+	 * @since       1.6
 	 */
 	public static function getActions()
 	{

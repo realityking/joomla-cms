@@ -19,19 +19,19 @@ defined('_JEXEC') or die;
 class FinderHelper
 {
 	/**
-	 * @var		string	The extension name.
-	 * @since	2.5
+	 * @var         string	The extension name.
+	 * @since       2.5
 	 */
 	public static $extension = 'com_finder';
 
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param   string  $vName  The name of the active view.
+	 * @param       string  $vName  The name of the active view.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -55,9 +55,9 @@ class FinderHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return  JObject  A JObject containing the allowed actions.
+	 * @return      JObject  A JObject containing the allowed actions.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function getActions()
 	{

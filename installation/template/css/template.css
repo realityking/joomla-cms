@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /* CSS Document */
@@ -531,7 +531,7 @@ div.inlineError {
 	border-bottom: medium solid red;
 }
 
-#system-message dt.message  {
+#system-message dt.message {
 	border-top: medium solid red;
 	font-size: larger;
 	font-weight: bold;
@@ -561,16 +561,16 @@ div.inlineError {
 	body {
 		min-width: 800px;
 	}
-	
+
 	#content-pad {
 		min-height: 0;
 	}
-	
+
 	#stepbar {
 		left: -180px;
 	}
-	
+
 	#right, #warning {
 		margin-left: 0;
-	}
+	};
 }

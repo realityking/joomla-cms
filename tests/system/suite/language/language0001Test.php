@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests error messages associated with actions performed when nothing is selected.
  */
 require_once 'SeleniumJoomlaTestCase.php';
@@ -1239,21 +1239,21 @@ class Language0001Test extends SeleniumJoomlaTestCase
 	$this->click("link=Send email");
 	try
 	{
-	    $this->assertEquals("Please enter a subject", $this->getAlert());
+		$this->assertEquals("Please enter a subject", $this->getAlert());
 	}
 	catch (PHPUnit_Framework_AssertionFailedError $e)
 	{
-	    array_push($this->verificationErrors, $this->getTraceFiles($e));
+		array_push($this->verificationErrors, $this->getTraceFiles($e));
 	}
 	$this->type("jform_subject", "test");
 	$this->click("link=Send email");
     try
 	{
-	     $this->assertEquals("Please enter a message", $this->getAlert());
+		 $this->assertEquals("Please enter a message", $this->getAlert());
 	}
 	catch (PHPUnit_Framework_AssertionFailedError $e)
 	{
-	    array_push($this->verificationErrors, $this->getTraceFiles($e));
+		array_push($this->verificationErrors, $this->getTraceFiles($e));
 	}
 	$this->type("jform_message", "test");
     $this->click("//li[@id='toolbar-send']/a/span");
@@ -1274,4 +1274,3 @@ class Language0001Test extends SeleniumJoomlaTestCase
 	$this->deleteAllVisibleCookies();
   }
 }
-

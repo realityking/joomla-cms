@@ -12,24 +12,24 @@ defined('_JEXEC') or die;
 /**
  * Form Field Place class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class JFormFieldClient extends JFormField
 {
 	/**
 	 * The field type.
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	protected $type = 'Client';
 
 	/**
 	 * Method to get the field input.
 	 *
-	 * @return	string		The field input.
-	 * @since	1.6
+	 * @return      string		The field input.
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{

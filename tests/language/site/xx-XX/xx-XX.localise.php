@@ -1,22 +1,22 @@
 <?php
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
  * xx-XX Localise class
  *
- * @package		Joomla.Site
- * @since		1.6
+ * @package     Joomla.Site
+ * @since       1.6
  */
 abstract class xx_XXLocalise {
 	/**
 	 * Returns the potential suffixes for a specific number of items
 	 *
-	 * @param	int $count  The number of items.
-	 * @return	array  An array of potential suffixes.
-	 * @since	1.6
+	 * @param       int $count  The number of items.
+	 * @return      array  An array of potential suffixes.
+	 * @since       1.6
 	 */
 	public static function getPluralSuffixes($count) {
 		if ($count == 0) {
@@ -36,8 +36,8 @@ abstract class xx_XXLocalise {
 	/**
 	 * Returns the ignored search words
 	 *
-	 * @return	array  An array of ignored search words.
-	 * @since	1.6
+	 * @return      array  An array of ignored search words.
+	 * @since       1.6
 	 */
 	public static function getIgnoreSearchWords() {
 		$search_ignore = array();
@@ -50,9 +50,9 @@ abstract class xx_XXLocalise {
 	 * This method processes a string and replaces all accented UTF-8 characters by unaccented
 	 * ASCII-7 "equivalents"
 	 *
-	 * @param	string	$string	The string to transliterate
-	 * @return	string	The transliteration of the string
-	 * @since	1.6
+	 * @param       string	$string	The string to transliterate
+	 * @return      string	The transliteration of the string
+	 * @since       1.6
 	 */
 	public static function transliterate($string)
 	{
@@ -112,4 +112,3 @@ abstract class xx_XXLocalise {
 		return $str;
 	}
 }
-

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('JPATH_BASE') or die;
@@ -13,25 +13,25 @@ JLoader::register('JFormFieldList', JPATH_LIBRARIES . '/joomla/form/fields/list.
 /**
  * Language Form Field class.
  *
- * @package  Joomla.Installation
- * @since    1.6
+ * @package     Joomla.Installation
+ * @since       1.6
  */
 class JFormFieldLanguage extends JFormFieldList
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $type = 'Language';
 
 	/**
 	 * Method to get the field options.
 	 *
-	 * @return	array	The field option objects.
+	 * @return      array	The field option objects.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function getOptions()
 	{

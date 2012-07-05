@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
 <form action="<?php echo JRoute::_('index.php?option=com_installer&view=warnings');?>" method="post" name="adminForm" id="adminForm">
 
 <?php if ($this->errorCount === 0) : ?>
-    <p class="nowarning"><?php echo JText::_('COM_INSTALLER_MSG_DATABASE_OK'); ?></p>
+	<p class="nowarning"><?php echo JText::_('COM_INSTALLER_MSG_DATABASE_OK'); ?></p>
 	<?php echo JHtml::_('sliders.start', 'database-sliders', array('useCookie'=>1)); ?>
 
 <?php else : ?>

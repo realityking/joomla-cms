@@ -3,12 +3,12 @@
  *
  * Updated to latest 3.0 API. Hopefully 100% compat!
  *
- * @version		3.0
+ * @version     3.0
  *
- * @license		MIT License
+ * @license     MIT License
  *
- * @author		Harald Kirschner <http://digitarald.de>
- * @copyright	Authors
+ * @author      Harald Kirschner <http://digitarald.de>
+ * @copyright   Authors
  */
 
 var FancyUpload2 = new Class({

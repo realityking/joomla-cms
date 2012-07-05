@@ -27,88 +27,88 @@ class FinderIndexerQuery
 	/**
 	 * Flag to show whether the query can return results.
 	 *
-	 * @var    boolean
-	 * @since  2.5
+	 * @var         boolean
+	 * @since       2.5
 	 */
 	public $search;
 
 	/**
 	 * The query input string.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $input;
 
 	/**
 	 * The language of the query.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $language;
 
 	/**
 	 * The query string matching mode.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $mode;
 
 	/**
 	 * The included tokens.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $included = array();
 
 	/**
 	 * The excluded tokens.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $excluded = array();
 
 	/**
 	 * The tokens to ignore because no matches exist.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $ignored = array();
 
 	/**
 	 * The operators used in the query input string.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $operators = array();
 
 	/**
 	 * The terms to highlight as matches.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $highlight = array();
 
 	/**
 	 * The number of matching terms for the query input.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	public $terms;
 
 	/**
 	 * The static filter id.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $filter;
 
@@ -123,49 +123,49 @@ class FinderIndexerQuery
 	 * 		...
 	 * );
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	public $filters = array();
 
 	/**
 	 * The start date filter.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $date1;
 
 	/**
 	 * The end date filter.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $date2;
 
 	/**
 	 * The start date filter modifier.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $when1;
 
 	/**
 	 * The end date filter modifier.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	public $when2;
 
 	/**
 	 * Method to instantiate the query object.
 	 *
-	 * @param   array  $options  An array of query options.
+	 * @param       array  $options  An array of query options.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public function __construct($options)
@@ -263,11 +263,11 @@ class FinderIndexerQuery
 	/**
 	 * Method to convert the query object into a URI string.
 	 *
-	 * @param   string  $base  The base URI. [optional]
+	 * @param       string  $base  The base URI. [optional]
 	 *
-	 * @return  string  The complete query URI.
+	 * @return      string  The complete query URI.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function toURI($base = null)
 	{
@@ -360,9 +360,9 @@ class FinderIndexerQuery
 	/**
 	 * Method to get a list of excluded search term ids.
 	 *
-	 * @return  array  An array of excluded term ids.
+	 * @return      array  An array of excluded term ids.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getExcludedTermIds()
 	{
@@ -385,9 +385,9 @@ class FinderIndexerQuery
 	/**
 	 * Method to get a list of included search term ids.
 	 *
-	 * @return  array  An array of included term ids.
+	 * @return      array  An array of included term ids.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getIncludedTermIds()
 	{
@@ -428,9 +428,9 @@ class FinderIndexerQuery
 	/**
 	 * Method to get a list of required search term ids.
 	 *
-	 * @return  array  An array of required term ids.
+	 * @return      array  An array of required term ids.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getRequiredTermIds()
 	{
@@ -471,11 +471,11 @@ class FinderIndexerQuery
 	 * comes in the form of a pre-defined search filter that is assigned to the
 	 * search form.
 	 *
-	 * @param   integer  $filterId  The id of static filter.
+	 * @param       integer  $filterId  The id of static filter.
 	 *
-	 * @return  boolean  True on success, false on failure.
+	 * @return      boolean  True on success, false on failure.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function processStaticTaxonomy($filterId)
@@ -582,11 +582,11 @@ class FinderIndexerQuery
 	 * because the dynamic options can be used to further narrow a static
 	 * taxonomy filter.
 	 *
-	 * @param   array  $filters  An array of taxonomy node ids.
+	 * @param       array  $filters  An array of taxonomy node ids.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function processDynamicTaxonomy($filters)
@@ -675,14 +675,14 @@ class FinderIndexerQuery
 	 * Method to process the query date filters to determine start and end
 	 * date limitations.
 	 *
-	 * @param   string  $date1  The first date filter.
-	 * @param   string  $date2  The second date filter.
-	 * @param   string  $when1  The first date modifier.
-	 * @param   string  $when2  The second date modifier.
+	 * @param       string  $date1  The first date filter.
+	 * @param       string  $date2  The second date filter.
+	 * @param       string  $when1  The first date modifier.
+	 * @param       string  $when2  The second date modifier.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function processDates($date1, $date2, $when1, $when2)
 	{
@@ -741,13 +741,13 @@ class FinderIndexerQuery
 	 * Method to process the query input string and extract required, optional,
 	 * and excluded tokens; taxonomy filters; and date filters.
 	 *
-	 * @param   string  $input  The query input string.
-	 * @param   string  $lang   The query input language.
-	 * @param   string  $mode   The query matching mode.
+	 * @param       string  $input  The query input string.
+	 * @param       string  $lang   The query input language.
+	 * @param       string  $mode   The query matching mode.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function processString($input, $lang, $mode)
@@ -1269,11 +1269,11 @@ class FinderIndexerQuery
 	 * that term and we should try to find a similar term to use that we can
 	 * match so that we can suggest the alternative search query to the user.
 	 *
-	 * @param   FinderIndexerToken  $token  A FinderIndexerToken object.
+	 * @param       FinderIndexerToken  $token  A FinderIndexerToken object.
 	 *
-	 * @return  FinderIndexerToken  A FinderIndexerToken object.
+	 * @return      FinderIndexerToken  A FinderIndexerToken object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getTokenData($token)

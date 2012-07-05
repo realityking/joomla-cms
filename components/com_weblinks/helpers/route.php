@@ -17,8 +17,8 @@ jimport('joomla.application.categories');
  * Weblinks Component Route Helper
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_weblinks
+ * @package     Joomla.Site
+ * @subpackage  com_weblinks
  * @since 1.5
  */
 abstract class WeblinksHelperRoute
@@ -26,7 +26,7 @@ abstract class WeblinksHelperRoute
 	protected static $lookup;
 
 	/**
-	 * @param	int	The route of the weblink
+	 * @param       int	The route of the weblink
 	 */
 	public static function getWeblinkRoute($id, $catid)
 	{
@@ -58,8 +58,8 @@ abstract class WeblinksHelperRoute
 	}
 
 	/**
-	 * @param	int		$id		The id of the weblink.
-	 * @param	string	$return	The return page variable.
+	 * @param       int		$id		The id of the weblink.
+	 * @param       string	$return	The return page variable.
 	 */
 	public static function getFormRoute($id, $return = null)
 	{

@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -13,14 +13,14 @@ defined('_JEXEC') or die;
  *
  * Provide many supporting API functions
  *
- * @package  Joomla.Installation
+ * @package     Joomla.Installation
  */
 class JInstallation extends JApplication
 {
 	/**
 	* Class constructor
 	*
-	* @param   array  $config  An optional associative array of configuration settings.
+	* @param       array  $config  An optional associative array of configuration settings.
 	*                          Recognized key values include 'clientId' (this list is not meant to be comprehensive).
 	*/
 	public function __construct(array $config = array())
@@ -37,7 +37,7 @@ class JInstallation extends JApplication
 	/**
 	 * Render the application
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	public function render()
 	{
@@ -98,9 +98,9 @@ class JInstallation extends JApplication
 	/**
 	 * Initialise the application.
 	 *
-	 * @param   array  $options
+	 * @param       array  $options
 	 *
-	 * @return  void
+	 * @return      void
 	 */
 	public function initialise($options = array())
 	{
@@ -158,7 +158,7 @@ class JInstallation extends JApplication
 	}
 
 	/**
-	 * @return	void
+	 * @return      void
 	 */
 	public static function debugLanguage()
 	{
@@ -226,10 +226,10 @@ class JInstallation extends JApplication
 	/**
 	 * Set configuration values
 	 *
-	 * @param   array   $vars       Array of configuration values
-	 * @param   string  $namespace  The namespace
+	 * @param       array   $vars       Array of configuration values
+	 * @param       string  $namespace  The namespace
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	public function setCfg(array $vars = array(), $namespace = 'config')
 	{
@@ -239,7 +239,7 @@ class JInstallation extends JApplication
 	/**
 	 * Create the configuration registry
 	 *
-	 * @return	void
+	 * @return      void
 	 */
 	public function _createConfiguration($file)
 	{
@@ -250,7 +250,7 @@ class JInstallation extends JApplication
 	/**
 	* Get the template
 	*
-	* @return  string  The template name
+	* @return      string  The template name
 	*/
 	public function getTemplate($params = false)
 	{
@@ -267,9 +267,9 @@ class JInstallation extends JApplication
 	/**
 	 * Create the user session
 	 *
-	 * @param   string  $name  The sessions name
+	 * @param       string  $name  The sessions name
 	 *
-	 * @return  JSession
+	 * @return      JSession
 	 */
 	public function _createSession($name)
 	{
@@ -290,7 +290,7 @@ class JInstallation extends JApplication
 	 * Returns the language code and help url set in the localise.xml file.
 	 * Used for forcing a particular language in localised releases.
 	 *
-	 * @return	bool|array	False on failure, array on success.
+	 * @return      bool|array	False on failure, array on success.
 	 */
 	public function getLocalise()
 	{
@@ -321,7 +321,7 @@ class JInstallation extends JApplication
 	 * Returns the installed language files in the administrative and
 	 * front-end area.
 	 *
-	 * @param   boolean  $db
+	 * @param       boolean  $db
 	 *
 	 * @return array Array with installed language packs in admin and site area
 	 */

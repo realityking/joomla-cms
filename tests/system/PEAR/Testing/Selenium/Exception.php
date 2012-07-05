@@ -29,10 +29,10 @@ require_once 'PEAR/Exception.php';
  * Testing_Selenium_Exception
  *
  * @category   Testing
- * @package    Testing_Selenium
- * @author     Shin Ohno <ganchiku at gmail dot com>
- * @author     Bjoern Schotte <schotte at mayflower dot de>
- * @version    @package_version@
+ * @package     Testing_Selenium
+ * @author      Shin Ohno <ganchiku at gmail dot com>
+ * @author      Bjoern Schotte <schotte at mayflower dot de>
+ * @version     @package_version@
  */
 class Testing_Selenium_Exception extends PEAR_Exception
 {

@@ -2,9 +2,9 @@
 /**
  * JDateTest.php -- unit testing file for JDate
  *
- * @package	Joomla.UnitTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.UnitTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 require_once JPATH_BASE . '/libraries/joomla/utilities/date.php';
 
@@ -13,8 +13,8 @@ require_once JPATH_BASE . '/libraries/joomla/utilities/date.php';
  *
  * Test class for Jdate.
  *
- * @package	Joomla.UnitTest
- * @subpackage Utilities
+ * @package     Joomla.UnitTest
+ * @subpackage  Utilities
  */
 class JDateTest extends PHPUnit_Framework_TestCase
 {

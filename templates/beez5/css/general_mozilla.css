@@ -8,7 +8,6 @@
 .reset input,
 .word .inputbox,
 .search .inputbox,
-.finder .inputbox
-{
-        -moz-border-radius: 5px;
+.finder .inputbox {
+		-moz-border-radius: 5px;
 }

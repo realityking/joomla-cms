@@ -50,7 +50,7 @@ $user = JFactory::getUser();
 					<div class="path">
 					<?php if ($user->authorise('core.create', 'com_media')): ?>
 						<input class="inputbox" type="text" id="folderpath" readonly="readonly" />
-						<input class="inputbox" type="text" id="foldername" name="foldername"  />
+						<input class="inputbox" type="text" id="foldername" name="foldername" />
 						<input class="update-folder" type="hidden" name="folderbase" id="folderbase" value="<?php echo $this->state->folder; ?>" />
 						<button type="submit"><?php echo JText::_('COM_MEDIA_CREATE_FOLDER'); ?></button>
 					<?php endif; ?>
@@ -68,7 +68,7 @@ $user = JFactory::getUser();
 						<label for="upload-file" class="hidelabeltxt"><?php echo JText::_('COM_MEDIA_UPLOAD_FILE'); ?></label>
 						<input type="file" id="upload-file" name="Filedata[]" multiple />
 						<label for="upload-submit" class="hidelabeltxt"><?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?></label>
-						<input type="submit" id="upload-submit" value="<?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?>"/>
+						<input type="submit" id="upload-submit" value="<?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?>" />
 					</fieldset>
 					<div id="upload-flash" class="hide">
 						<ul>

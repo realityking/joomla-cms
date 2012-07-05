@@ -14,15 +14,15 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Redirect link list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_redirect
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_redirect
+ * @since       1.6
  */
 class RedirectControllerLinks extends JControllerAdmin
 {
 	/**
 	 * Method to update a record.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function activate()
 	{
@@ -57,7 +57,7 @@ class RedirectControllerLinks extends JControllerAdmin
 
 	/**
 	 * Proxy for getModel.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Link', $prefix = 'RedirectModel', $config = array('ignore_request' => true))
 	{

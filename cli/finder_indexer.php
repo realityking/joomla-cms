@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Cli
+ * @package     Joomla.Cli
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // Make sure we're being called from the command line, not a web interface
@@ -77,25 +77,25 @@ class FinderCli extends JApplicationCli
 	/**
 	 * Start time for the index process
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	private $_time = null;
 
 	/**
 	 * Start time for each batch
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	private $_qtime = null;
 
 	/**
 	 * Entry point for Finder CLI script
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function doExecute()
 	{
@@ -113,9 +113,9 @@ class FinderCli extends JApplicationCli
 	/**
 	 * Run the indexer
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private function _index()
 	{

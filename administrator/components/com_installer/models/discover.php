@@ -14,9 +14,9 @@ require_once dirname(__FILE__) . '/extension.php';
 /**
  * Installer Manage Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class InstallerModelDiscover extends InstallerModel
 {
@@ -27,7 +27,7 @@ class InstallerModelDiscover extends InstallerModel
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -42,8 +42,8 @@ class InstallerModelDiscover extends InstallerModel
 	/**
 	 * Method to get the database query.
 	 *
-	 * @return	JDatabaseQuery the database query
-	 * @since	1.6
+	 * @return      JDatabaseQuery the database query
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -60,7 +60,7 @@ class InstallerModelDiscover extends InstallerModel
 	 *
 	 * Finds uninstalled extensions
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function discover()
 	{
@@ -94,7 +94,7 @@ class InstallerModelDiscover extends InstallerModel
 	/**
 	 * Installs a discovered extension.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function discover_install()
 	{
@@ -130,7 +130,7 @@ class InstallerModelDiscover extends InstallerModel
 	/**
 	 * Cleans out the list of discovered extensions.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function purge()
 	{

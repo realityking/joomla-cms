@@ -159,9 +159,9 @@ Calendar.setup = function (params) {
 			params.date = Date.parseDate(dateEl.value || dateEl.innerHTML, dateFmt);
 		if (!(cal && params.cache)) {
 			window.calendar = cal = new Calendar(params.firstDay,
-							     params.date,
-							     params.onSelect || onSelect,
-							     params.onClose || function(cal) { cal.hide(); });
+								 params.date,
+								 params.onSelect || onSelect,
+								 params.onClose || function(cal) { cal.hide(); });
 			cal.setDateToolTipHandler(params.dateTooltipFunc);
 			cal.showsTime = params.showsTime;
 			cal.time24 = (params.timeFormat == "24");

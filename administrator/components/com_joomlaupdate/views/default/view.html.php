@@ -21,11 +21,11 @@ class JoomlaupdateViewDefault extends JViewLegacy
 	/**
 	 * Renders the view
 	 *
-	 * @param   string  $tpl  Template name
+	 * @param       string  $tpl  Template name
 	 *
 	 * @return void
 	 *
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	public function display($tpl=null)
 	{

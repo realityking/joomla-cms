@@ -34,11 +34,11 @@ class plgCaptchaRecaptcha extends JPlugin
 	/**
 	 * Initialise the captcha
 	 *
-	 * @param	string	$id	The id of the field.
+	 * @param       string	$id	The id of the field.
 	 *
-	 * @return	Boolean	True on success, false otherwise
+	 * @return      Boolean	True on success, false otherwise
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	public function onInit($id)
 	{
@@ -70,9 +70,9 @@ class plgCaptchaRecaptcha extends JPlugin
 	/**
 	 * Gets the challenge HTML
 	 *
-	 * @return  string  The HTML to be embedded in the form.
+	 * @return      string  The HTML to be embedded in the form.
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	public function onDisplay($name, $id, $class)
 	{
@@ -80,12 +80,12 @@ class plgCaptchaRecaptcha extends JPlugin
 	}
 
 	/**
-	  * Calls an HTTP POST function to verify if the user's guess was correct
-	  *
-	  * @return  True if the answer is correct, false otherwise
-	  *
-	  * @since  2.5
-	  */
+	 * Calls an HTTP POST function to verify if the user's guess was correct
+	 *
+	 * @return      True if the answer is correct, false otherwise
+	 *
+	 * @since       2.5
+	 */
 	public function onCheckAnswer($code)
 	{
 		// Initialise variables
@@ -140,11 +140,11 @@ class plgCaptchaRecaptcha extends JPlugin
 	/**
 	 * Encodes the given data into a query string format.
 	 *
-	 * @param   string  $data  Array of string elements to be encoded
+	 * @param       string  $data  Array of string elements to be encoded
 	 *
-	 * @return  string  Encoded request
+	 * @return      string  Encoded request
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	private function _recaptcha_qsencode($data)
 	{
@@ -162,14 +162,14 @@ class plgCaptchaRecaptcha extends JPlugin
 	/**
 	 * Submits an HTTP POST to a reCAPTCHA server.
 	 *
-	 * @param   string  $host
-	 * @param   string  $path
-	 * @param   array   $data
-	 * @param   int     $port
+	 * @param       string  $host
+	 * @param       string  $path
+	 * @param       array   $data
+	 * @param       int     $port
 	 *
-	 * @return  array   Response
+	 * @return      array   Response
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	private function _recaptcha_http_post($host, $path, $data, $port = 80)
 	{
@@ -208,7 +208,7 @@ class plgCaptchaRecaptcha extends JPlugin
 	 *
 	 * @return string
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	private function _getLanguage()
 	{

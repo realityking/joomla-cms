@@ -66,4 +66,3 @@ CREATE TABLE  `#__banner_tracks` (
   INDEX `idx_track_type` (`track_type`),
   INDEX `idx_banner_id` (`banner_id`)
 )  DEFAULT CHARSET=utf8;
-

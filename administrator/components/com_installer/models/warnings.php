@@ -15,24 +15,24 @@ jimport('joomla.filesystem.folder');
 /**
  * Extension Manager Templates Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_installer
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
+ * @since       1.6
  */
 class InstallerModelWarnings extends JModelList
 {
 	/**
 	 * Extension Type
-	 * @var	string
+	 * @var         string
 	 */
 	var $type = 'warnings';
 
 	/**
 	 * Return the byte value of a particular string.
 	 *
-	 * @param	string	String optionally with G, M or K suffix
+	 * @param       string	String optionally with G, M or K suffix
 	 *
-	 * @return	int		size in bytes
+	 * @return      int		size in bytes
 	 *
 	 * @since 1.6
 	 */
@@ -56,7 +56,7 @@ class InstallerModelWarnings extends JModelList
 	/**
 	 * Load the data.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function getItems()
 	{

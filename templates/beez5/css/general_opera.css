@@ -7,7 +7,6 @@
 .remind input,
 .reset input,
 .search .inputbox,
-.finder .inputbox
-{
-        border-radius:4px;
+.finder .inputbox {
+		border-radius:4px;
 }

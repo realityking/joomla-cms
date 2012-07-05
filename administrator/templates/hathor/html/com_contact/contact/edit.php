@@ -68,7 +68,7 @@ JHtml::_('behavior.formvalidation');
 			<?php echo $this->form->getInput('misc'); ?>
 		</fieldset>
 	</div>
-    <div class="col options-section">
+	<div class="col options-section">
 		<?php echo  JHtml::_('sliders.start', 'contact-slider'); ?>
 			<?php echo JHtml::_('sliders.panel', JText::_('JGLOBAL_FIELDSET_PUBLISHING'), 'publishing-details'); ?>
 

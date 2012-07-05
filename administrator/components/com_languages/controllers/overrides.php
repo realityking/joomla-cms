@@ -14,26 +14,26 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Languages Overrides Controller
  *
- * @package			Joomla.Administrator
- * @subpackage	com_languages
- * @since				2.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       2.5
  */
 class LanguagesControllerOverrides extends JControllerAdmin
 {
 	/**
 	 * The prefix to use with controller messages
 	 *
-	 * @var		string
-	 * @since	2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $text_prefix = 'COM_LANGUAGES_VIEW_OVERRIDES';
 
 	/**
 	 * Method for deleting one or more overrides
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public function delete()
 	{

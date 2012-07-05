@@ -12,25 +12,25 @@ defined('JPATH_BASE') or die;
 /**
  * Supports an HTML select list of contacts
  *
- * @package		Joomla.Administrator
- * @subpackage	com_contact
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_contact
+ * @since       1.6
  */
 class JFormFieldOrdering extends JFormField
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $type = 'Ordering';
 
 	/**
 	 * Method to get the field input markup.
 	 *
-	 * @return	string	The field input markup.
-	 * @since	1.6
+	 * @return      string	The field input markup.
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{
@@ -59,7 +59,7 @@ class JFormFieldOrdering extends JFormField
 		// Create a read-only list (no name) with a hidden input to store the value.
 		if ((string) $this->element['readonly'] == 'true') {
 			$html[] = JHtml::_('list.ordering', '', $query, trim($attr), $this->value, $contactId ? 0 : 1);
-			$html[] = '<input type="hidden" name="'.$this->name.'" value="'.$this->value.'"/>';
+			$html[] = '<input type="hidden" name="'.$this->name.'" value="'.$this->value.'" />';
 		}
 		// Create a regular list.
 		else {

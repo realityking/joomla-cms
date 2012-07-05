@@ -12,24 +12,24 @@ defined('_JEXEC') or die;
 /**
  * Menu Item Types Model for Menus.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @version		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @version     1.6
  */
 class MenusModelMenutypes extends JModelLegacy
 {
 	/**
 	 * A reverse lookup of the base link URL to Title
 	 *
-	 * @var	array
+	 * @var         array
 	 */
 	protected $rlu = array();
 
 	/**
 	 * Method to get the reverse lookup of the base link URL to Title
 	 *
-	 * @return	array	Array of reverse lookup of the base link URL to Title
-	 * @since	1.6
+	 * @return      array	Array of reverse lookup of the base link URL to Title
+	 * @since       1.6
 	 */
 	public function getReverseLookup()
 	{
@@ -42,8 +42,8 @@ class MenusModelMenutypes extends JModelLegacy
 	/**
 	 * Method to get the available menu item type options.
 	 *
-	 * @return	array	Array of groups with menu item types.
-	 * @since	1.6
+	 * @return      array	Array of groups with menu item types.
+	 * @since       1.6
 	 */
 	public function getTypeOptions()
 	{

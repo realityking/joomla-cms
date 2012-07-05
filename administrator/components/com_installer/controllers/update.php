@@ -10,15 +10,15 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_installer
+ * @package     Joomla.Administrator
+ * @subpackage  com_installer
  */
 class InstallerControllerUpdate extends JControllerLegacy
 {
 	/**
 	 * Update a set of extensions.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function update()
 	{
@@ -51,7 +51,7 @@ class InstallerControllerUpdate extends JControllerLegacy
 	/**
 	 * Find new updates.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function find()
 	{
@@ -73,7 +73,7 @@ class InstallerControllerUpdate extends JControllerLegacy
 	/**
 	 * Purges updates.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function purge()
 	{

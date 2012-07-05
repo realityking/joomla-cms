@@ -1,7 +1,7 @@
 /**
- * @package		Joomla.JavaScript
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.JavaScript
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 
@@ -15,8 +15,8 @@ if (typeof(Joomla) === 'undefined') {
 *
 * Inspired by: Subrata Chakrabarty <http://chakrabarty.com/editable_dropdown_samplecode.html>
 *
-* @package		Joomla.JavaScript
-* @since		1.6
+* @package     Joomla.JavaScript
+* @since       1.6
 */
 Joomla.combobox = {};
 Joomla.combobox.transform = function(el, options)

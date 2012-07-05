@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests back-end acces of user belonging to a limited access group.
  */
 require_once 'SeleniumJoomlaTestCase.php';
@@ -20,20 +20,20 @@ class Acl0003Test extends SeleniumJoomlaTestCase
 		$groupParent = 'Manager';
 		$this->createGroup($groupName, $groupParent);
 
-	    //Add new user to Restricted Manager Group
+		//Add new user to Restricted Manager Group
 		$username = 'Restricted User' . $salt1;
 		$login = 'RestrictedUser' . $salt1;
 		$email = $login . '@test.com';
 		$group = $groupName;
-	    $this->createUser($username, $login, 'password', $email, $group);
+		$this->createUser($username, $login, 'password', $email, $group);
 
 		echo "Set Weblinks access permissions for ". $groupName.".\n";
-	    $this->click("link=Control Panel");
-	    $this->waitForPageToLoad("30000");
-	    $component = 'Weblinks';
-	    $actions = array('Create', 'Delete', 'Edit', 'Edit State');
-	    $permissions = array ('Denied', 'Denied', 'Denied', 'Denied');
-	    $this->setPermissions($component, $groupName, $actions, $permissions);
+		$this->click("link=Control Panel");
+		$this->waitForPageToLoad("30000");
+		$component = 'Weblinks';
+		$actions = array('Create', 'Delete', 'Edit', 'Edit State');
+		$permissions = array ('Denied', 'Denied', 'Denied', 'Denied');
+		$this->setPermissions($component, $groupName, $actions, $permissions);
 		$this->doAdminLogout();
 
 		//Test access for Test User beloning to Restricted Manager Group
@@ -59,4 +59,3 @@ class Acl0003Test extends SeleniumJoomlaTestCase
 		echo "Finished acl0003Test\n";
   }
 }
-

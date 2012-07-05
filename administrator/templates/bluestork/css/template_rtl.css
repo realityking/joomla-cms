@@ -1,8 +1,8 @@
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.bluestork
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Administrator
+ * @subpackage  templates.bluestork
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /* -- GENERAL STYLES RTL ------------------------------ */
@@ -31,8 +31,12 @@ h1, h2, h3 {
 	white-space: nowrap;
 	padding-left: 0;
 }
-.button1 .next { background: url(../images/j_button1_prev.png) no-repeat; }
-.button1 a { padding: 0 6px 0 30px; }
+.button1 .next {
+	background: url(../images/j_button1_prev.png) no-repeat;
+}
+.button1 a {
+	padding: 0 6px 0 30px;
+}
 
 .button1,
 .button1 div{
@@ -49,19 +53,19 @@ h1, h2, h3 {
 }
 
 .button2-left .end{
-	background:	transparent url(../images/j_button2_first.png) no-repeat scroll 0 0;
+	background: transparent url(../images/j_button2_first.png) no-repeat scroll 0 0;
 }
 
 .button2-left.off .end{
-	background:	transparent url(../images/j_button2_first_off.png) no-repeat scroll 0 0;
+	background: transparent url(../images/j_button2_first_off.png) no-repeat scroll 0 0;
 }
 
 .button2-left .next{
-	background:	transparent url(../images/j_button2_prev.png) no-repeat scroll 0 0;
+	background: transparent url(../images/j_button2_prev.png) no-repeat scroll 0 0;
 }
 
 .button2-left.off .next{
-	background:	transparent url(../images/j_button2_prev_off.png) no-repeat scroll 0 0;
+	background: transparent url(../images/j_button2_prev_off.png) no-repeat scroll 0 0;
 }
 
 .button2-left .page,
@@ -196,7 +200,9 @@ div.header {
 	padding-left: 0;
 }
 
-.header{ background-position: right; }
+.header{
+	background-position: right;
+}
 
 table.adminlist thead th.left {
 	text-align: right;
@@ -262,7 +268,7 @@ div.col{
 }
 
 #form-login div.button_holder{
- 	padding-left: 0;
+	padding-left: 0;
 }
 
 form .inputbox {
@@ -421,7 +427,7 @@ fieldset.adminform-legacy label {
 /* checkboxes */
 fieldset.adminform fieldset.checkboxes,
 fieldset.panelform fieldset.checkboxes,
-fieldset.adminform-legacy fieldset.checkboxes  {
+fieldset.adminform-legacy fieldset.checkboxes {
 	float:right;
 	margin: 0 0 5px 0;
 	clear:left;
@@ -456,14 +462,24 @@ dl.tabs dt {
 td.col1 {
 	text-align: right;
 }
-.clrlft		{clear: right;}
-.clrrt		{clear: left;}
-.fltlft		{float: right;}
-.fltrt		{float: left;}
-.fltnone	{float: none;}
+.clrlft {
+	clear: right;
+}
+.clrrt {
+	clear: left;
+}
+.fltlft {
+	float: right;
+}
+.fltrt {
+	float: left;
+}
+.fltnone {
+	float: none;
+}
 
 #user-groups li {
-float:right; text-align:right;
+	float:right; text-align:right;
 }
 
 /* -------- Batch Section ---------- */
@@ -496,8 +512,7 @@ select#batch-menu-id,
 select#batch-position-id {
 	margin-left: 30px;
 	margin-right: 0;
-}
- {
+} {
 	margin-left: 30px;
 	margin-right: 0;
 }
@@ -538,8 +553,8 @@ span.icon-16-locked {
 
 #permissions-sliders ul#rules,
 #permissions-sliders ul#rules ul {
-    margin: 0 !important;
-    padding: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
 }
 
 #permissions-sliders ul#rules li {
@@ -552,9 +567,9 @@ span.icon-16-locked {
 }
 
 #permissions-sliders ul#rules table.group-rules td {
-    padding:4px;
-    vertical-align:middle;
-    text-align:right;
+	padding:4px;
+	vertical-align:middle;
+	text-align:right;
 }
 
 ul#rules table.group-rules td label {
@@ -574,8 +589,8 @@ table.group-rules td select {
 }
 
 #permissions-sliders  ul#rules  table.group-rules th {
-    text-align:right;
-    padding:4px;
+	text-align:right;
+	padding:4px;
 }
 
 #permissions-sliders .pane-toggler span {
@@ -726,14 +741,15 @@ ul#new-modules-list li {
 /* Installer Database */
 #installer-database p.warning {
 	padding-left: 0;
-	padding-right: 20px;	
+	padding-right: 20px;
 	background-position: center right;
 }
 
 #installer-database p.nowarning {
 	padding-left: 0;
-	padding-right: 20px;	
-	background-position: center right;}
+	padding-right: 20px;
+	background-position: center right;
+}
 
 p.nowarning {
 	float: right;

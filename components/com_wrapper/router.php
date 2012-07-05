@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @param	array
- * @return	array
+ * @param       array
+ * @return      array
  */
 function WrapperBuildRoute(&$query)
 {
@@ -25,8 +25,8 @@ function WrapperBuildRoute(&$query)
 }
 
 /**
- * @param	array
- * @return	array
+ * @param       array
+ * @return      array
  */
 function WrapperParseRoute($segments)
 {

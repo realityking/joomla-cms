@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license	GNU General Public License version 2 or later; see LICENSE.txt
- * @package	JoomlaFramework
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     JoomlaFramework
  */
 
 require_once 'PHPUnit/Framework.php';
@@ -882,18 +882,18 @@ class JLanguageTest extends PHPUnit_Framework_TestCase
 		// In this case, returns array with default language
 		// - same operation of get method with metadata property
 		$option1 = array(
-		    'name' => 'English (United Kingdom)',
-		    'tag' => 'en-GB',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'English (United Kingdom)',
+			'tag' => 'en-GB',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$option2 = array(
-		    'name' => 'XXTestLang',
-		    'tag' => 'xx-XX',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'XXTestLang',
+			'tag' => 'xx-XX',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 
 		$lang = new JLanguage('');
@@ -920,22 +920,22 @@ class JLanguageTest extends PHPUnit_Framework_TestCase
 		$basePath = '../../administrator/';
 
 		$option1 = array(
-		    'name' => 'English (United Kingdom)',
-		    'tag' => 'en-GB',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'English (United Kingdom)',
+			'tag' => 'en-GB',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$option2 = array(
-		    'name' => 'XXTestLang',
-		    'tag' => 'xx-XX',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'XXTestLang',
+			'tag' => 'xx-XX',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$listCompareEqual1 = array(
-		    'en-GB' => $option1,
-		    'xx-XX' => $option2
+			'en-GB' => $option1,
+			'xx-XX' => $option2
 		);
 
 		$lang = new JLanguage('');
@@ -1038,14 +1038,14 @@ class JLanguageTest extends PHPUnit_Framework_TestCase
 		$dir = '../../language/';
 
 		$option = array(
-		    'name' => 'English (United Kingdom)',
-		    'tag' => 'en-GB',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'English (United Kingdom)',
+			'tag' => 'en-GB',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$language = array(
-		    'en-GB' => $option
+			'en-GB' => $option
 		);
 
 		$lang = new JLanguage('');
@@ -1068,14 +1068,14 @@ class JLanguageTest extends PHPUnit_Framework_TestCase
 		$dir3 = '../../administrator';
 
 		$option = array(
-		    'name' => 'English (United Kingdom)',
-		    'tag' => 'en-GB',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'English (United Kingdom)',
+			'tag' => 'en-GB',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$language = array(
-		    'en-GB' => $option
+			'en-GB' => $option
 		);
 		$empty = array();
 
@@ -1110,14 +1110,14 @@ class JLanguageTest extends PHPUnit_Framework_TestCase
 		$path3 = '../../administrator';
 
 		$option = array(
-		    'name' => 'English (United Kingdom)',
-		    'tag' => 'en-GB',
-		    'rtl' => 0,
-		    'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
-		    'firstDay' => 0
+			'name' => 'English (United Kingdom)',
+			'tag' => 'en-GB',
+			'rtl' => 0,
+			'locale' => 'en_GB.utf8, en_GB.UTF-8, en_GB, eng_GB, en, english, english-uk, uk, gbr, britain, england, great britain, uk, united kingdom, united-kingdom',
+			'firstDay' => 0
 		);
 		$language = array(
-		    'en-GB' => $option
+			'en-GB' => $option
 		);
 		$empty = array();
 

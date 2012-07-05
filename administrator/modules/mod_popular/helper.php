@@ -14,18 +14,18 @@ JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR.'/components/com_content/models
 jimport('joomla.application.categories');
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	mod_popular
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  mod_popular
+ * @since       1.6
  */
 abstract class modPopularHelper
 {
 	/**
 	 * Get a list of the most popular articles
 	 *
-	 * @param	JObject		The module parameters.
+	 * @param       JObject		The module parameters.
 	 *
-	 * @return	array
+	 * @return      array
 	 */
 	public static function getList($params)
 	{
@@ -88,8 +88,8 @@ abstract class modPopularHelper
 	/**
 	 * Get the alternate title for the module
 	 *
-	 * @param	JObject	The module parameters.
-	 * @return	string	The alternate title for the module.
+	 * @param       JObject	The module parameters.
+	 * @return      string	The alternate title for the module.
 	 */
 	public static function getTitle($params)
 	{

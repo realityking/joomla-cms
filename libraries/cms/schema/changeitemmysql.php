@@ -34,7 +34,7 @@ class JSchemaChangeitemmysql extends JSchemaChangeitem
 	 *
 	 * @return void
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	protected function buildCheckQuery()
 	{
@@ -131,12 +131,12 @@ class JSchemaChangeitemmysql extends JSchemaChangeitem
 	 * If you change a column to "integer unsigned" it shows
 	 * as "int(10) unsigned" in the check query.
 	 *
-	 * @param  string  $type1  the column type
-	 * @param  string  $type2  the column attributes
+	 * @param       string  $type1  the column type
+	 * @param       string  $type2  the column attributes
 	 *
 	 * @return string  The original or changed column type.
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	private function fixInteger($type1, $type2)
 	{
@@ -153,10 +153,10 @@ class JSchemaChangeitemmysql extends JSchemaChangeitem
 	 * Replaces name quote character with normal quote for literal.
 	 * Drops trailing semi-colon. Injects the database prefix.
 	 *
-	 * @param   string  $string  The input string to be cleaned up.
-	 * @return  string  The modified string.
+	 * @param       string  $string  The input string to be cleaned up.
+	 * @return      string  The modified string.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	private function fixQuote($string)
 	{

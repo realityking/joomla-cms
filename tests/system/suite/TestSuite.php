@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 if (!defined('PHPUnit_MAIN_METHOD')) {
@@ -107,5 +107,3 @@ if (!class_exists('SeleniumConfig')) {
 	require_once 'servers/configdef.php';
 	TestSuite::main();
 }
-
-

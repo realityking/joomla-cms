@@ -13,32 +13,32 @@ defined('_JEXEC') or die;
  * HTML View class for the Newsfeeds component
  *
  * @static
- * @package		Joomla.Site
- * @subpackage	com_newsfeeds
+ * @package     Joomla.Site
+ * @subpackage  com_newsfeeds
  * @since 1.0
  */
 class NewsfeedsViewNewsfeed extends JViewLegacy
 {
 	/**
-	 * @var		object
-	 * @since	1.6
+	 * @var         object
+	 * @since       1.6
 	 */
 	protected $state;
 
 	/**
-	 * @var		object
-	 * @since	1.6
+	 * @var         object
+	 * @since       1.6
 	 */
 	protected $item;
 
 	/**
-	 * @var		boolean
-	 * @since	1.6
+	 * @var         boolean
+	 * @since       1.6
 	 */
 	protected $print;
 
 	/**
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function display($tpl = null)
 	{
@@ -208,8 +208,8 @@ class NewsfeedsViewNewsfeed extends JViewLegacy
 	/**
 	 * Prepares the document
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function _prepareDocument()
 	{

@@ -3241,7 +3241,7 @@ Array.mirror(Elements);
 /*<ltIE8>*/
 var createElementAcceptsHTML;
 try {
-    createElementAcceptsHTML = (document.createElement('<input name=x>').name == 'x');
+	createElementAcceptsHTML = (document.createElement('<input name=x>').name == 'x');
 } catch (e){}
 
 var escapeQuotes = function(html){

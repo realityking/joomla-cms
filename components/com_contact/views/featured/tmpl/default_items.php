@@ -18,7 +18,7 @@ $params = &$this->item->params;
 ?>
 
 <?php if (empty($this->items)) : ?>
-	<p> <?php echo JText::_('COM_CONTACT_NO_CONTACTS'); ?>	 </p>
+	<p><?php echo JText::_('COM_CONTACT_NO_CONTACTS'); ?></p>
 <?php else : ?>
 
 <form action="<?php echo htmlspecialchars(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">

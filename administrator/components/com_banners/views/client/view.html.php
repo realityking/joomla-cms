@@ -14,9 +14,9 @@ JLoader::register('BannersHelper', JPATH_COMPONENT.'/helpers/banners.php');
 /**
  * View to edit a client.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.5
  */
 class BannersViewClient extends JViewLegacy
 {
@@ -47,7 +47,7 @@ class BannersViewClient extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

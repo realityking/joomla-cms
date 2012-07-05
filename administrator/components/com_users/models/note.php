@@ -23,12 +23,12 @@ class UsersModelNote extends JModelAdmin
 	/**
 	 * Method to get the record form.
 	 *
-	 * @param   array    $data      Data for the form.
-	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
+	 * @param       array    $data      Data for the form.
+	 * @param       boolean  $loadData  True if the form is to load its own data (default case), false if not.
 	 *
-	 * @return  mixed  A JForm object on success, false on failure
+	 * @return      mixed  A JForm object on success, false on failure
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getForm($data = array(), $loadData = true)
 	{
@@ -45,11 +45,11 @@ class UsersModelNote extends JModelAdmin
 	/**
 	 * Method to get a single record.
 	 *
-	 * @param   integer  $pk  The id of the primary key.
+	 * @param       integer  $pk  The id of the primary key.
 	 *
-	 * @return  mixed  Object on success, false on failure.
+	 * @return      mixed  Object on success, false on failure.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getItem($pk = null)
 	{
@@ -68,13 +68,13 @@ class UsersModelNote extends JModelAdmin
 	/**
 	 * Method to get a table object, load it if necessary.
 	 *
-	 * @param   string  $name     The table name. Optional.
-	 * @param   string  $prefix   The class prefix. Optional.
-	 * @param   array   $options  Configuration array for model. Optional.
+	 * @param       string  $name     The table name. Optional.
+	 * @param       string  $prefix   The class prefix. Optional.
+	 * @param       array   $options  Configuration array for model. Optional.
 	 *
-	 * @return  JTable  The table object
+	 * @return      JTable  The table object
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getTable($name = 'Note', $prefix = 'UsersTable', $options = array())
 	{
@@ -84,9 +84,9 @@ class UsersModelNote extends JModelAdmin
 	/**
 	 * Method to get the data that should be injected in the form.
 	 *
-	 * @return  mixed  The data for the form.
+	 * @return      mixed  The data for the form.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function loadFormData()
 	{
@@ -123,9 +123,9 @@ class UsersModelNote extends JModelAdmin
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function populateState()
 	{
@@ -138,11 +138,11 @@ class UsersModelNote extends JModelAdmin
 	/**
 	 * Method to save the form data.
 	 *
-	 * @param   array  $data  The form data.
+	 * @param       array  $data  The form data.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	/*public function save($data)
 	{

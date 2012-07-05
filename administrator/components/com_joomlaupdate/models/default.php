@@ -23,9 +23,9 @@ class JoomlaupdateModelDefault extends JModelLegacy
 	 * Detects if the Joomla! update site currently in use matches the one
 	 * configured in this component. If they don't match, it changes it.
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since	2.5.4
+	 * @since       2.5.4
 	 */
 	public function applyUpdateSite()
 	{
@@ -96,11 +96,11 @@ class JoomlaupdateModelDefault extends JModelLegacy
 	/**
 	 * Makes sure that the Joomla! update cache is up-to-date
 	 *
-	 * @param   bool  $force  Force reload, ignoring the cache timeout
+	 * @param       bool  $force  Force reload, ignoring the cache timeout
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since	2.5.4
+	 * @since       2.5.4
 	 */
 	public function refreshUpdates($force = false)
 	{
@@ -173,7 +173,7 @@ class JoomlaupdateModelDefault extends JModelLegacy
 	 *
 	 * @return array
 	 *
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	public function getFTPOptions()
 	{
@@ -230,12 +230,12 @@ class JoomlaupdateModelDefault extends JModelLegacy
 	/**
 	 * Downloads a package file to a specific directory
 	 *
-	 * @param   string  $url     The URL to download from
-	 * @param   string  $target  The directory to store the file
+	 * @param       string  $url     The URL to download from
+	 * @param       string  $target  The directory to store the file
 	 *
 	 * @return boolean True on success
 	 *
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	protected function downloadPackage($url, $target)
 	{
@@ -252,7 +252,7 @@ class JoomlaupdateModelDefault extends JModelLegacy
 	}
 
 	/**
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	public function createRestorationFile($basename = null)
 	{
@@ -433,7 +433,7 @@ ENDDATA;
 	 *
 	 * @return boolean True on success
 	 *
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	public function finaliseUpgrade()
 	{
@@ -651,7 +651,7 @@ ENDDATA;
 	 *
 	 * @return void
 	 *
-	 * @since  2.5.4
+	 * @since       2.5.4
 	 */
 	public function cleanUp()
 	{

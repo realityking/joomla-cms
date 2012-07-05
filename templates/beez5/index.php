@@ -82,12 +82,12 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 			var rightopen='<?php echo JText::_('TPL_BEEZ5_TEXTRIGHTOPEN', true); ?>';
 			var rightclose='<?php echo JText::_('TPL_BEEZ5_TEXTRIGHTCLOSE', true); ?>';
 			var fontSizeTitle='<?php echo JText::_('TPL_BEEZ5_FONTSIZE', true); ?>';
-            var bigger='<?php echo JText::_('TPL_BEEZ5_BIGGER', true); ?>';
-            var reset='<?php echo JText::_('TPL_BEEZ5_RESET', true); ?>';
-            var smaller='<?php echo JText::_('TPL_BEEZ5_SMALLER', true); ?>';
-            var biggerTitle='<?php echo JText::_('TPL_BEEZ5_INCREASE_SIZE', true); ?>';
-            var resetTitle='<?php echo JText::_('TPL_BEEZ5_REVERT_STYLES_TO_DEFAULT', true); ?>';
-            var smallerTitle='<?php echo JText::_('TPL_BEEZ5_DECREASE_SIZE', true); ?>';
+			var bigger='<?php echo JText::_('TPL_BEEZ5_BIGGER', true); ?>';
+			var reset='<?php echo JText::_('TPL_BEEZ5_RESET', true); ?>';
+			var smaller='<?php echo JText::_('TPL_BEEZ5_SMALLER', true); ?>';
+			var biggerTitle='<?php echo JText::_('TPL_BEEZ5_INCREASE_SIZE', true); ?>';
+			var resetTitle='<?php echo JText::_('TPL_BEEZ5_REVERT_STYLES_TO_DEFAULT', true); ?>';
+			var smallerTitle='<?php echo JText::_('TPL_BEEZ5_DECREASE_SIZE', true); ?>';
 		</script>
 
 	</head>
@@ -132,7 +132,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 		<div id="header-image">
 			<jdoc:include type="modules" name="position-15" />
 			<?php if ($this->countModules('position-15')==0): ?>
-				<img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/images/fruits.jpg"  alt="<?php echo JText::_('TPL_BEEZ5_LOGO'); ?>" />
+				<img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/images/fruits.jpg" alt="<?php echo JText::_('TPL_BEEZ5_LOGO'); ?>" />
 			<?php endif; ?>
 		</div>
 		<?php if (!$templateparams->get('html5', 0)): ?>
@@ -157,7 +157,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 
 								<jdoc:include type="modules" name="position-7" style="beezDivision" headerLevel="3" />
 								<jdoc:include type="modules" name="position-4" style="beezHide" headerLevel="3" state="0 " />
-								<jdoc:include type="modules" name="position-5" style="beezTabs" headerLevel="2"  id="3" />
+								<jdoc:include type="modules" name="position-5" style="beezTabs" headerLevel="2" id="3" />
 
 						<?php if(!$this->params->get('html5', 0)): ?>
 							</div><!-- end navi -->
@@ -172,7 +172,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 						<div id="main">
 
 						<?php if ($this->countModules('position-12')): ?>
-							<div id="top"><jdoc:include type="modules" name="position-12"   />
+							<div id="top"><jdoc:include type="modules" name="position-12" />
 							</div>
 						<?php endif; ?>
 
@@ -200,9 +200,9 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 				<?php endif; ?>
 
 						<a id="additional"></a>
-						<jdoc:include type="modules" name="position-6" style="beezDivision" headerLevel="3"/>
-						<jdoc:include type="modules" name="position-8" style="beezDivision" headerLevel="3"  />
-						<jdoc:include type="modules" name="position-3" style="beezDivision" headerLevel="3"  />
+						<jdoc:include type="modules" name="position-6" style="beezDivision" headerLevel="3" />
+						<jdoc:include type="modules" name="position-8" style="beezDivision" headerLevel="3" />
+						<jdoc:include type="modules" name="position-3" style="beezDivision" headerLevel="3" />
 
 				<?php if(!$templateparams->get('html5', 0)): ?>
 					</div><!-- end right -->
@@ -219,9 +219,9 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/md_sty
 					<nav class="left <?php if ($showRightColumn == null){ echo 'leftbigger';} ?>" id="nav">
 				<?php endif; ?>
 
-						<jdoc:include type="modules" name="position-7"  style="beezDivision" headerLevel="3" />
+						<jdoc:include type="modules" name="position-7" style="beezDivision" headerLevel="3" />
 						<jdoc:include type="modules" name="position-4" style="beezHide" headerLevel="3" state="0 " />
-						<jdoc:include type="modules" name="position-5" style="beezTabs" headerLevel="2"  id="3" />
+						<jdoc:include type="modules" name="position-5" style="beezTabs" headerLevel="2" id="3" />
 
 				<?php if (!$templateparams->get('html5', 0)): ?>
 					</div><!-- end navi -->

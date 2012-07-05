@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * checks that all menu choices are shown in back end
  */
 
@@ -89,7 +89,7 @@ class Menu0001 extends SeleniumJoomlaTestCase
 		$this->click("//button[@type='submit']");
 		$this->waitForPageToLoad("30000");
 		$this->click("link=position-7");
-		
+
 		// Wait for jSelectPosition element to disappear
 		$this->waitforElement("//iframe[contains(@src, 'jSelectPosition')]", 30, false);
 
@@ -211,4 +211,3 @@ class Menu0001 extends SeleniumJoomlaTestCase
 		$this->deleteAllVisibleCookies();
 	}
 }
-

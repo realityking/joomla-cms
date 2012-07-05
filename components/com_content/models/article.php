@@ -14,8 +14,8 @@ jimport('joomla.application.component.modelitem');
 /**
  * Content Component Article Model
  *
- * @package		Joomla.Site
- * @subpackage	com_content
+ * @package     Joomla.Site
+ * @subpackage  com_content
  * @since 1.5
  */
 class ContentModelArticle extends JModelItem
@@ -23,7 +23,7 @@ class ContentModelArticle extends JModelItem
 	/**
 	 * Model context string.
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	protected $_context = 'com_content.article';
 
@@ -32,7 +32,7 @@ class ContentModelArticle extends JModelItem
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState()
 	{
@@ -60,9 +60,9 @@ class ContentModelArticle extends JModelItem
 	/**
 	 * Method to get article data.
 	 *
-	 * @param	integer	The id of the article.
+	 * @param       integer	The id of the article.
 	 *
-	 * @return	mixed	Menu item data object on success, false on failure.
+	 * @return      mixed	Menu item data object on success, false on failure.
 	 */
 	public function &getItem($pk = null)
 	{
@@ -234,9 +234,9 @@ class ContentModelArticle extends JModelItem
 	/**
 	 * Increment the hit counter for the article.
 	 *
-	 * @param	int		Optional primary key of the article to increment.
+	 * @param       int		Optional primary key of the article to increment.
 	 *
-	 * @return	boolean	True if successful; false otherwise and internal error set.
+	 * @return      boolean	True if successful; false otherwise and internal error set.
 	 */
 	public function hit($pk = 0)
 	{

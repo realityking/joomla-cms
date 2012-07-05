@@ -10,15 +10,15 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_modules
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_modules
+ * @since       1.6
  */
 abstract class JHtmlModules
 {
 	/**
-	 * @param	int $clientId	The client id
-	 * @param	string $state 	The state of the template
+	 * @param       int $clientId	The client id
+	 * @param       string $state 	The state of the template
 	 */
 	static public function templates($clientId = 0, $state = '')
 	{
@@ -51,16 +51,16 @@ abstract class JHtmlModules
 	/**
 	 * Returns a published state on a grid
 	 *
-	 * @param   integer       $value			The state value.
-	 * @param   integer       $i				The row index
-	 * @param   boolean       $enabled			An optional setting for access control on the action.
-	 * @param   string        $checkbox			An optional prefix for checkboxes.
+	 * @param       integer       $value			The state value.
+	 * @param       integer       $i				The row index
+	 * @param       boolean       $enabled			An optional setting for access control on the action.
+	 * @param       string        $checkbox			An optional prefix for checkboxes.
 	 *
-	 * @return  string        The Html code
+	 * @return      string        The Html code
 	 *
-	 * @see JHtmlJGrid::state
+	 * @see         JHtmlJGrid::state
 	 *
-	 * @since   1.7.1
+	 * @since       1.7.1
 	 */
 	public static function state($value, $i, $enabled = true, $checkbox = 'cb')
 	{
@@ -109,11 +109,11 @@ abstract class JHtmlModules
 	/**
 	 * Display a batch widget for the module position selector.
 	 *
-	 * @param   integer  $clientId  The client ID
+	 * @param       integer  $clientId  The client ID
 	 *
-	 * @return  string  The necessary HTML for the widget.
+	 * @return      string  The necessary HTML for the widget.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function positions($clientId)
 	{
@@ -145,11 +145,11 @@ abstract class JHtmlModules
 	/**
 	 * Method to get the field options.
 	 *
-	 * @param   integer  $clientId  The client ID
+	 * @param       integer  $clientId  The client ID
 	 *
-	 * @return  array  The field option objects.
+	 * @return      array  The field option objects.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function positionList($clientId = 0)
 	{

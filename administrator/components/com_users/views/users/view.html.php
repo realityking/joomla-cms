@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of users.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersViewUsers extends JViewLegacy
 {
@@ -47,7 +47,7 @@ class UsersViewUsers extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

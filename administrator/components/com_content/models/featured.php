@@ -14,17 +14,17 @@ require_once dirname(__FILE__) . '/articles.php';
 /**
  * About Page Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_content
+ * @package     Joomla.Administrator
+ * @subpackage  com_content
  */
 class ContentModelFeatured extends ContentModelArticles
 {
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -54,9 +54,9 @@ class ContentModelFeatured extends ContentModelArticles
 	}
 
 	/**
-	 * @param	boolean	True to join selected foreign information
+	 * @param       boolean	True to join selected foreign information
 	 *
-	 * @return	string
+	 * @return      string
 	 */
 	function getListQuery($resolveFKs = true)
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Editor Readmore buton
  *
- * @package		Joomla.Plugin
- * @subpackage	Editors-xtd.readmore
+ * @package     Joomla.Plugin
+ * @subpackage  Editors-xtd.readmore
  * @since 1.5
  */
 class plgButtonReadmore extends JPlugin

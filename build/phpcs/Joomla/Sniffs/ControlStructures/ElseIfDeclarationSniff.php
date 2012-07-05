@@ -5,12 +5,12 @@
  * PHP version 5
  *
  * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
+ * @package     PHP_CodeSniffer
+ * @author      Greg Sherwood <gsherwood@squiz.net>
+ * @author      Marc McIntyre <mmcintyre@squiz.net>
  * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   CVS: $Id: ElseIfDeclarationSniff.php 301632 2010-07-28 01:57:56Z squiz $
+ * @license     http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
+ * @version     CVS: $Id: ElseIfDeclarationSniff.php 301632 2010-07-28 01:57:56Z squiz $
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 
@@ -21,12 +21,12 @@
  * be a single word "elseif".
  *
  * @category  PHP
- * @package   PHP_CodeSniffer
- * @author    Greg Sherwood <gsherwood@squiz.net>
- * @author    Marc McIntyre <mmcintyre@squiz.net>
+ * @package     PHP_CodeSniffer
+ * @author      Greg Sherwood <gsherwood@squiz.net>
+ * @author      Marc McIntyre <mmcintyre@squiz.net>
  * @copyright 2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @license   http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
- * @version   Release: 1.3.0
+ * @license     http://matrix.squiz.net/developer/tools/php_cs/licence BSD Licence
+ * @version     Release: 1.3.0
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
 class Joomla_Sniffs_ControlStructures_ElseIfDeclarationSniff implements PHP_CodeSniffer_Sniff

@@ -12,24 +12,24 @@ defined('_JEXEC') or die;
 /**
  * Categories view class for the Category package.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_categories
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_categories
+ * @since       1.6
  */
 class CategoriesController extends JControllerLegacy
 {
 	/**
-	 * @var		string	The extension for which the categories apply.
-	 * @since	1.6
+	 * @var         string	The extension for which the categories apply.
+	 * @since       1.6
 	 */
 	protected $extension;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param	array An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -44,11 +44,11 @@ class CategoriesController extends JControllerLegacy
 	/**
 	 * Method to display a view.
 	 *
-	 * @param	boolean			If true, the view output will be cached
-	 * @param	array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean			If true, the view output will be cached
+	 * @param       array			An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return	JController		This object to support chaining.
-	 * @since	1.5
+	 * @return      JController		This object to support chaining.
+	 * @since       1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{

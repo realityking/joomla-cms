@@ -1,7 +1,7 @@
 <?php
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 require_once JPATH_BASE.'/libraries/joomla/event/dispatcher.php';
@@ -15,7 +15,7 @@ require_once dirname(__FILE__).'/JDispatcherStub.php';
  */
 class JDispatcherTest extends JoomlaTestCase {
 	/**
-	 * @var	JDispatcher
+	 * @var         JDispatcher
 	 * @access protected
 	 */
 	protected $object;

@@ -14,15 +14,15 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Weblinks list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_weblinks
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_weblinks
+ * @since       1.6
  */
 class WeblinksControllerWeblinks extends JControllerAdmin
 {
 	/**
 	 * Proxy for getModel.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Weblink', $prefix = 'WeblinksModel', $config = array('ignore_request' => true))
 	{

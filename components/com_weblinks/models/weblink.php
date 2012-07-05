@@ -14,9 +14,9 @@ jimport('joomla.application.component.modelitem');
 /**
  * Weblinks Component Model for a Weblink record
  *
- * @package		Joomla.Site
- * @subpackage	com_weblinks
- * @since		1.5
+ * @package     Joomla.Site
+ * @subpackage  com_weblinks
+ * @since       1.5
  */
 class WeblinksModelWeblink extends JModelItem
 {
@@ -24,7 +24,7 @@ class WeblinksModelWeblink extends JModelItem
 	 * Model context string.
 	 *
 	 * @access	protected
-	 * @var		string
+	 * @var         string
 	 */
 	protected $_context = 'com_weblinks.weblink';
 
@@ -33,7 +33,7 @@ class WeblinksModelWeblink extends JModelItem
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState()
 	{
@@ -51,9 +51,9 @@ class WeblinksModelWeblink extends JModelItem
 	/**
 	 * Method to get an ojbect.
 	 *
-	 * @param	integer	The id of the object to get.
+	 * @param       integer	The id of the object to get.
 	 *
-	 * @return	mixed	Object on success, false on failure.
+	 * @return      mixed	Object on success, false on failure.
 	 */
 	public function &getItem($id = null)
 	{
@@ -94,9 +94,9 @@ class WeblinksModelWeblink extends JModelItem
 	/**
 	 * Method to increment the hit counter for the weblink
 	 *
-	 * @param	int		Optional ID of the weblink.
-	 * @return	boolean	True on success
-	 * @since	1.5
+	 * @param       int		Optional ID of the weblink.
+	 * @return      boolean	True on success
+	 * @since       1.5
 	 */
 	public function hit($id = null)
 	{

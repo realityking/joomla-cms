@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * HTML View class for the Admin component
  *
- * @package		Joomla.Administrator
- * @subpackage	com_admin
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_admin
+ * @since       1.6
  */
 class AdminViewHelp extends JViewLegacy
 {
@@ -61,7 +61,7 @@ class AdminViewHelp extends JViewLegacy
 	/**
 	 * Setup the Toolbar
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -12,8 +12,8 @@ defined('JPATH_BASE') or die;
 /**
  * Plugin class for logout redirect handling.
  *
- * @package		Joomla.Plugin
- * @subpackage	System.logout
+ * @package     Joomla.Plugin
+ * @subpackage  System.logout
  */
 class plgSystemLogout extends JPlugin
 {
@@ -21,10 +21,10 @@ class plgSystemLogout extends JPlugin
 	 * Object Constructor.
 	 *
 	 * @access	public
-	 * @param	object	The object to observe -- event dispatcher.
-	 * @param	object	The configuration object for the plugin.
-	 * @return	void
-	 * @since	1.5
+	 * @param       object	The object to observe -- event dispatcher.
+	 * @param       object	The configuration object for the plugin.
+	 * @return      void
+	 * @since       1.5
 	 */
 	function __construct(&$subject, $config)
 	{
@@ -48,11 +48,11 @@ class plgSystemLogout extends JPlugin
 	/**
 	 * This method should handle any logout logic and report back to the subject
 	 *
-	 * @param	array	$user		Holds the user data.
-	 * @param	array	$options	Array holding options (client, ...).
+	 * @param       array	$user		Holds the user data.
+	 * @param       array	$options	Array holding options (client, ...).
 	 *
-	 * @return	object	True on success
-	 * @since	1.5
+	 * @return      object	True on success
+	 * @since       1.5
 	 */
 	public function onUserLogout($user, $options = array())
 	{

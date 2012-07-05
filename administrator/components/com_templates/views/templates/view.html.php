@@ -12,37 +12,37 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of template styles.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_templates
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_templates
+ * @since       1.6
  */
 class TemplatesViewTemplates extends JViewLegacy
 {
 	/**
-	 * @var		array
-	 * @since	1.6
+	 * @var         array
+	 * @since       1.6
 	 */
 	protected $items;
 
 	/**
-	 * @var		object
-	 * @since	1.6
+	 * @var         object
+	 * @since       1.6
 	 */
 	protected $pagination;
 
 	/**
-	 * @var		object
-	 * @since	1.6
+	 * @var         object
+	 * @since       1.6
 	 */
 	protected $state;
 
 	/**
 	 * Display the view.
 	 *
-	 * @param	string
+	 * @param       string
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public function display($tpl = null)
 	{
@@ -72,8 +72,8 @@ class TemplatesViewTemplates extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * HTML View class for the Content component
  *
- * @package		Joomla.Site
- * @subpackage	com_content
+ * @package     Joomla.Site
+ * @subpackage  com_content
  * @since 1.5
  */
 class ContentViewArchive extends JViewLegacy

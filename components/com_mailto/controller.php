@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Site
- * @subpackage	com_mailto
+ * @package     Joomla.Site
+ * @subpackage  com_mailto
  */
 class MailtoController extends JControllerLegacy
 {
@@ -131,8 +131,8 @@ class MailtoController extends JControllerLegacy
 
 		// Clean the email data
 		$subject = JMailHelper::cleanSubject($subject);
-		$body	 = JMailHelper::cleanBody($body);
-		$sender	 = JMailHelper::cleanAddress($sender);
+		$body    = JMailHelper::cleanBody($body);
+		$sender  = JMailHelper::cleanAddress($sender);
 
 		// Send the email
 		if (JFactory::getMailer()->sendMail($from, $sender, $email, $subject, $body) !== true)

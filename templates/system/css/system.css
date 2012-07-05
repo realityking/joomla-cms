@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /* Import project-level system CSS */
@@ -31,7 +31,7 @@ span.highlight {
 	margin-bottom: 10px;
 }
 
-.img-fulltext-float-none {
+.img-fulltext-float-none {;
 }
 
 .img-intro-float-right {
@@ -46,5 +46,5 @@ span.highlight {
 	margin-bottom: 5px;
 }
 
-.img-intro-float-none {
+.img-intro-float-none {;
 }

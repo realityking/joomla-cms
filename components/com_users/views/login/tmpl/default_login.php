@@ -27,7 +27,7 @@ JHtml::_('behavior.keepalive');
 		<?php endif; ?>
 
 		<?php if (($this->params->get('login_image')!='')) :?>
-			<img src="<?php echo $this->escape($this->params->get('login_image')); ?>" class="login-image" alt="<?php echo JTEXT::_('COM_USER_LOGIN_IMAGE_ALT')?>"/>
+			<img src="<?php echo $this->escape($this->params->get('login_image')); ?>" class="login-image" alt="<?php echo JTEXT::_('COM_USER_LOGIN_IMAGE_ALT')?>" />
 		<?php endif; ?>
 
 	<?php if (($this->params->get('logindescription_show') == 1 && str_replace(' ', '', $this->params->get('login_description')) != '') || $this->params->get('login_image') != '') : ?>
@@ -46,7 +46,7 @@ JHtml::_('behavior.keepalive');
 			<?php if (JPluginHelper::isEnabled('system', 'remember')) : ?>
 			<div class="login-fields">
 				<label id="remember-lbl" for="remember"><?php echo JText::_('JGLOBAL_REMEMBER_ME') ?></label>
-				<input id="remember" type="checkbox" name="remember" class="inputbox" value="yes"  alt="<?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>" />
+				<input id="remember" type="checkbox" name="remember" class="inputbox" value="yes" alt="<?php echo JText::_('JGLOBAL_REMEMBER_ME') ?>" />
 			</div>
 			<?php endif; ?>
 			<button type="submit" class="button"><?php echo JText::_('JLOGIN'); ?></button>

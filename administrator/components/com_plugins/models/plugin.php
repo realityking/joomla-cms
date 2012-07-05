@@ -14,45 +14,45 @@ jimport('joomla.application.component.modeladmin');
 /**
  * Plugin model.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_plugins
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_plugins
+ * @since       1.6
  */
 class PluginsModelPlugin extends JModelAdmin
 {
 	/**
-	 * @var		string	The help screen key for the module.
-	 * @since	1.6
+	 * @var         string	The help screen key for the module.
+	 * @since       1.6
 	 */
 	protected $helpKey = 'JHELP_EXTENSIONS_PLUGIN_MANAGER_EDIT';
 
 	/**
-	 * @var		string	The help screen base URL for the module.
-	 * @since	1.6
+	 * @var         string	The help screen base URL for the module.
+	 * @since       1.6
 	 */
 	protected $helpURL;
 
 	protected $_cache;
 
 	/**
-	 * @var		string	The event to trigger after saving the data.
-	 * @since	1.6
+	 * @var         string	The event to trigger after saving the data.
+	 * @since       1.6
 	 */
 	protected $event_after_save = 'onExtensionAfterSave';
 
 	/**
-	 * @var		string	The event to trigger after before the data.
-	 * @since	1.6
+	 * @var         string	The event to trigger after before the data.
+	 * @since       1.6
 	 */
 	protected $event_before_save = 'onExtensionBeforeSave';
 
 	/**
 	 * Method to get the record form.
 	 *
-	 * @param	array	$data		Data for the form.
-	 * @param	boolean	$loadData	True if the form is to load its own data (default case), false if not.
-	 * @return	JForm	A JForm object on success, false on failure
-	 * @since	1.6
+	 * @param       array	$data		Data for the form.
+	 * @param       boolean	$loadData	True if the form is to load its own data (default case), false if not.
+	 * @return      JForm	A JForm object on success, false on failure
+	 * @since       1.6
 	 */
 	public function getForm($data = array(), $loadData = true)
 	{
@@ -94,8 +94,8 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Method to get the data that should be injected in the form.
 	 *
-	 * @return	mixed	The data for the form.
-	 * @since	1.6
+	 * @return      mixed	The data for the form.
+	 * @since       1.6
 	 */
 	protected function loadFormData()
 	{
@@ -112,9 +112,9 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Method to get a single record.
 	 *
-	 * @param	integer	The id of the primary key.
+	 * @param       integer	The id of the primary key.
 	 *
-	 * @return	mixed	Object on success, false on failure.
+	 * @return      mixed	Object on success, false on failure.
 	 */
 	public function getItem($pk = null)
 	{
@@ -161,10 +161,10 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Returns a reference to the a Table object, always creating it.
 	 *
-	 * @param	type	The table type to instantiate
-	 * @param	string	A prefix for the table class name. Optional.
-	 * @param	array	Configuration array for model. Optional.
-	 * @return	JTable	A database object
+	 * @param       type	The table type to instantiate
+	 * @param       string	A prefix for the table class name. Optional.
+	 * @param       array	Configuration array for model. Optional.
+	 * @return      JTable	A database object
 	*/
 	public function getTable($type = 'Extension', $prefix = 'JTable', $config = array())
 	{
@@ -176,8 +176,8 @@ class PluginsModelPlugin extends JModelAdmin
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function populateState()
 	{
@@ -192,11 +192,11 @@ class PluginsModelPlugin extends JModelAdmin
 	}
 
 	/**
-	 * @param	object	A form object.
-	 * @param	mixed	The data expected for the form.
-	 * @return	mixed	True if successful.
+	 * @param       object	A form object.
+	 * @param       mixed	The data expected for the form.
+	 * @return      mixed	True if successful.
 	 * @throws	Exception if there is an error in the form event.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function preprocessForm(JForm $form, $data, $group = 'content')
 	{
@@ -275,9 +275,9 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * A protected method to get a set of ordering conditions.
 	 *
-	 * @param	object	A record object.
-	 * @return	array	An array of conditions to add to add to ordering queries.
-	 * @since	1.6
+	 * @param       object	A record object.
+	 * @return      array	An array of conditions to add to add to ordering queries.
+	 * @since       1.6
 	 */
 	protected function getReorderConditions($table)
 	{
@@ -290,9 +290,9 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Override method to save the form data.
 	 *
-	 * @param	array	The form data.
-	 * @return	boolean	True on success.
-	 * @since	1.6
+	 * @param       array	The form data.
+	 * @return      boolean	True on success.
+	 * @since       1.6
 	 */
 	public function save($data)
 	{
@@ -308,8 +308,8 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Get the necessary data to load an item help screen.
 	 *
-	 * @return	object	An object with key, url, and local properties for loading the item help screen.
-	 * @since	1.6
+	 * @return      object	An object with key, url, and local properties for loading the item help screen.
+	 * @since       1.6
 	 */
 	public function getHelp()
 	{
@@ -319,7 +319,7 @@ class PluginsModelPlugin extends JModelAdmin
 	/**
 	 * Custom clean cache method, plugins are cached in 2 places for different clients
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function cleanCache($group = null, $client_id = 0) {
 		parent::cleanCache('com_plugins');

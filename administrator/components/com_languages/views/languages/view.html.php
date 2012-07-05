@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * HTML Languages View class for the Languages component
  *
- * @package		Joomla.Administrator
- * @subpackage	com_languages
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       1.6
  */
 class LanguagesViewLanguages extends JViewLegacy
 {
@@ -44,7 +44,7 @@ class LanguagesViewLanguages extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

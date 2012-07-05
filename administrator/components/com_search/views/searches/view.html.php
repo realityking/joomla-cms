@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of search terms.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_search
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_search
+ * @since       1.5
  */
 class SearchViewSearches extends JViewLegacy
 {
@@ -46,7 +46,7 @@ class SearchViewSearches extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

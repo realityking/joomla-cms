@@ -1,12 +1,12 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 .outline {
-  border: 1px solid #cccccc;
-  background: #ffffff;
-  padding: 2px;
+	border: 1px solid #cccccc;
+	background: #ffffff;
+	padding: 2px;
 }
 
 .manager table td,

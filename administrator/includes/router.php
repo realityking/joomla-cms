@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Administrator
+ * @package     Joomla.Administrator
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('JPATH_BASE') or die;
@@ -11,8 +11,8 @@ defined('JPATH_BASE') or die;
 /**
  * Class to create and parse routes
  *
- * @package		Joomla.Administrator
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @since       1.5
  */
 class JRouterAdministrator extends JRouter
 {
@@ -27,10 +27,10 @@ class JRouterAdministrator extends JRouter
 	/**
 	 * Function to convert an internal URI to a route
 	 *
-	 * @param	string	$uri	The internal URL
+	 * @param       string	$uri	The internal URL
 	 *
-	 * @return	string	The absolute search engine friendly URL
-	 * @since	1.5
+	 * @return      string	The absolute search engine friendly URL
+	 * @since       1.5
 	 */
 	function build($url)
 	{

@@ -14,8 +14,8 @@ require_once dirname(__FILE__) . '/articles.php';
 /**
  * Frontpage Component Model
  *
- * @package		Joomla.Site
- * @subpackage	com_content
+ * @package     Joomla.Site
+ * @subpackage  com_content
  * @since 1.5
  */
 class ContentModelFeatured extends ContentModelArticles
@@ -23,7 +23,7 @@ class ContentModelFeatured extends ContentModelArticles
 	/**
 	 * Model context string.
 	 *
-	 * @var		string
+	 * @var         string
 	 */
 	public $_context = 'com_content.frontpage';
 
@@ -32,7 +32,7 @@ class ContentModelFeatured extends ContentModelArticles
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -68,7 +68,7 @@ class ContentModelFeatured extends ContentModelArticles
 	/**
 	 * Method to get a list of articles.
 	 *
-	 * @return	mixed	An array of objects on success, false on failure.
+	 * @return      mixed	An array of objects on success, false on failure.
 	 */
 	public function getItems()
 	{
@@ -90,9 +90,9 @@ class ContentModelFeatured extends ContentModelArticles
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
+	 * @return      string		A store id.
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -103,7 +103,7 @@ class ContentModelFeatured extends ContentModelArticles
 	}
 
 	/**
-	 * @return	JDatabaseQuery
+	 * @return      JDatabaseQuery
 	 */
 	function getListQuery()
 	{

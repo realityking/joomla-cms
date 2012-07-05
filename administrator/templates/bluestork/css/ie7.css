@@ -1,16 +1,15 @@
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.bluestork
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Administrator
+ * @subpackage  templates.bluestork
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 
 /* IE7 OVERRIDES */
 
 input {
-	border-width: expression(this.type == "radio" ? '0px' : this.type == "checkbox" ?
-		'0px' : '1px');
+	border-width: expression(this.type == "radio" ? '0px' : this.type == "checkbox" ? '0px' : '1px');
 }
 
 /* Accessibility: css in template.css for slider keyboard
@@ -26,7 +25,7 @@ input {
 
 div.toolbar-list span {
 	margin: 0;
-	position: relative
+	position: relative;
 }
 
 div.toolbar-list a {
@@ -96,9 +95,7 @@ div.current ul.menu-links {
 	list-style-position: inside;
 }
 input.readonly {
-
 	border: 0 !important;
-
 }
 
 div#position-icon.pane-sliders div.pane-down div.icon-wrapper {
@@ -117,4 +114,3 @@ fieldset.panelform fieldset.checkboxes.impunlimited {
 	float:none;
 	width: 170px;
 }
-

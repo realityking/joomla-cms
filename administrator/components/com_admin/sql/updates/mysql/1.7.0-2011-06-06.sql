@@ -5,4 +5,3 @@ CREATE TABLE IF NOT EXISTS `#__associations` (
   PRIMARY KEY `idx_context_id` (`context`, `id`),
   INDEX `idx_key` (`key`)
 ) DEFAULT CHARSET=utf8;
-

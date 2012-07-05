@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.modellist');
 
 /**
- * @package		Joomla.Site
- * @subpackage	com_contact
+ * @package     Joomla.Site
+ * @subpackage  com_contact
  */
 class ContactModelFeatured extends JModelList
 {
@@ -36,7 +36,7 @@ class ContactModelFeatured extends JModelList
 	 * The category that applies.
 	 *
 	 * @access	protected
-	 * @var		object
+	 * @var         object
 	 */
 	protected $_category = null;
 
@@ -44,16 +44,16 @@ class ContactModelFeatured extends JModelList
 	 * The list of other cotnact categories.
 	 *
 	 * @access	protected
-	 * @var		array
+	 * @var         array
 	 */
 	protected $_categories = null;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param	array	An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array	An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -75,7 +75,7 @@ class ContactModelFeatured extends JModelList
 	/**
 	 * Method to get a list of items.
 	 *
-	 * @return	mixed	An array of objects on success, false on failure.
+	 * @return      mixed	An array of objects on success, false on failure.
 	 */
 	public function getItems()
 	{
@@ -98,8 +98,8 @@ class ContactModelFeatured extends JModelList
 	/**
 	 * Method to build an SQL query to load the list data.
 	 *
-	 * @return	string	An SQL query
-	 * @since	1.6
+	 * @return      string	An SQL query
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{
@@ -164,7 +164,7 @@ class ContactModelFeatured extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{

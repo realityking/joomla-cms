@@ -1,8 +1,7 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 
 
 #messages {
@@ -108,7 +107,7 @@ fieldset select,
 fieldset img,
 fieldset button {
 	float: right;
-    margin: 5px 0 5px 5px;
+	margin: 5px 0 5px 5px;
 }
 
 label.hidelabeltxt {
@@ -116,10 +115,10 @@ label.hidelabeltxt {
 }
 #imageForm fieldset label,
 #uploadform fieldset label {
-    float: right;
-    clear: none;
-    clear: right;
+	float: right;
+	clear: none;
+	clear: right;
 }
 .swiff-uploader-box {
-        right:auto!important;
+	right:auto!important;
 }

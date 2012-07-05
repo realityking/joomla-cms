@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 /**
  * Search component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_search
+ * @package     Joomla.Administrator
+ * @subpackage  com_search
  */
 class SearchHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
-	 * @since	1.6
+	 * @param       string	The name of the active view.
+	 * @since       1.6
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -31,7 +31,7 @@ class SearchHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return	JObject
+	 * @return      JObject
 	 */
 	public static function getActions()
 	{

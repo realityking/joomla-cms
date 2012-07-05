@@ -14,16 +14,16 @@ require_once JPATH_COMPONENT.'/controller.php';
 /**
  * Registration controller class for Users.
  *
- * @package		Joomla.Site
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Site
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersControllerUser extends UsersController
 {
 	/**
 	 * Method to log in a user.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function login()
 	{
@@ -71,7 +71,7 @@ class UsersControllerUser extends UsersController
 	/**
 	 * Method to log out a user.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function logout()
 	{
@@ -101,7 +101,7 @@ class UsersControllerUser extends UsersController
 	/**
 	 * Method to register a user.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function register()
 	{
@@ -160,7 +160,7 @@ class UsersControllerUser extends UsersController
 	/**
 	 * Method to login a user.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function remind()
 	{
@@ -219,7 +219,7 @@ class UsersControllerUser extends UsersController
 	/**
 	 * Method to login a user.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function resend()
 	{

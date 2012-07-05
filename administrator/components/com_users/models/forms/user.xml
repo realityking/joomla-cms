@@ -85,7 +85,7 @@
 			type="text"
 			class="readonly"
 			label="COM_USERS_USER_FIELD_RESETCOUNT_LABEL"
-			description ="COM_USERS_USER_FIELD_RESETCOUNT_DESC"
+			description="COM_USERS_USER_FIELD_RESETCOUNT_DESC"
 			default="0"
 			readonly="true"
 			/>
@@ -119,7 +119,7 @@
 			type="text"
 			class="readonly"
 			label="JGLOBAL_FIELD_ID_LABEL"
-			description ="JGLOBAL_FIELD_ID_DESC"
+			description="JGLOBAL_FIELD_ID_DESC"
 			default="0"
 			readonly="true"
 			/>

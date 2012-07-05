@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Joomla! udpate notification plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Quickicon.Extensionupdate
- * @since		2.5
+ * @package     Joomla.Plugin
+ * @subpackage  Quickicon.Extensionupdate
+ * @since       2.5
  */
 class plgQuickiconExtensionupdate extends JPlugin
 {
@@ -36,10 +36,10 @@ class plgQuickiconExtensionupdate extends JPlugin
 	 * Returns an icon definition for an icon which looks for extensions updates
 	 * via AJAX and displays a notification when such updates are found.
 	 *
-	 * @param  $context  The calling context
+	 * @param       $context  The calling context
 	 *
 	 * @return array A list of icon definition associative arrays, consisting of the
-	 *				 keys link, image, text and access.
+	 *               keys link, image, text and access.
 	 *
 	 * @since       2.5
 	 */

@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Search Component Search Model
  *
- * @package		Joomla.Site
- * @subpackage	com_search
+ * @package     Joomla.Site
+ * @subpackage  com_search
  * @since 1.5
  */
 class SearchModelSearch extends JModelLegacy
@@ -105,8 +105,8 @@ class SearchModelSearch extends JModelLegacy
 	 * Method to set the search areas
 	 *
 	 * @access	public
-	 * @param	array	Active areas
-	 * @param	array	Search areas
+	 * @param       array	Active areas
+	 * @param       array	Search areas
 	 */
 	function setAreas($active = array(), $search = array())
 	{

@@ -12,25 +12,25 @@ defined('JPATH_BASE') or die;
 /**
  * Supports a modal newsfeeds picker.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_newsfeeds
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_newsfeeds
+ * @since       1.6
  */
 class JFormFieldModal_Newsfeeds extends JFormField
 {
 	/**
 	 * The form field type.
 	 *
-	 * @var		string
-	 * @since	1.6
+	 * @var         string
+	 * @since       1.6
 	 */
 	protected $type = 'Modal_Newsfeeds';
 
 	/**
 	 * Method to get the field input markup.
 	 *
-	 * @return	string	The field input markup.
-	 * @since	1.6
+	 * @return      string	The field input markup.
+	 * @since       1.6
 	 */
 	protected function getInput()
 	{
@@ -80,7 +80,7 @@ class JFormFieldModal_Newsfeeds extends JFormField
 
 		JHtml::_('behavior.modal', 'a.modal');
 		$html = "\n".'<div class="fltlft"><input type="text" id="'.$this->id.'_name" value="'.htmlspecialchars($title, ENT_QUOTES, 'UTF-8').'" disabled="disabled" /></div>';
-		$html .= '<div class="button2-left"><div class="blank"><a class="modal" title="'.JText::_('COM_NEWSFEEDS_CHANGE_FEED_BUTTON').'"  href="'.$link.'" rel="{handler: \'iframe\', size: {x: 800, y: 450}}">'.JText::_('COM_NEWSFEEDS_CHANGE_FEED_BUTTON').'</a></div></div>'."\n";
+		$html .= '<div class="button2-left"><div class="blank"><a class="modal" title="'.JText::_('COM_NEWSFEEDS_CHANGE_FEED_BUTTON').'" href="'.$link.'" rel="{handler: \'iframe\', size: {x: 800, y: 450}}">'.JText::_('COM_NEWSFEEDS_CHANGE_FEED_BUTTON').'</a></div></div>'."\n";
 		// The active newsfeed id field.
 		if (0 == (int)$this->value) {
 			$value = '';

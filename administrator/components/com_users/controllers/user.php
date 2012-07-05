@@ -21,8 +21,8 @@ jimport('joomla.application.component.controllerform');
 class UsersControllerUser extends JControllerForm
 {
 	/**
-	 * @var    string  The prefix to use with controller messages.
-	 * @since  1.6
+	 * @var         string  The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_USERS_USER';
 
@@ -31,12 +31,12 @@ class UsersControllerUser extends JControllerForm
 	 *
 	 * Checks that non-Super Admins are not editing Super Admins.
 	 *
-	 * @param   array   $data  An array of input data.
-	 * @param   string  $key   The name of the key for the primary key.
+	 * @param       array   $data  An array of input data.
+	 * @param       string  $key   The name of the key for the primary key.
 	 *
-	 * @return  boolean  True if allowed, false otherwise.
+	 * @return      boolean  True if allowed, false otherwise.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function allowEdit($data = array(), $key = 'id')
 	{
@@ -56,11 +56,11 @@ class UsersControllerUser extends JControllerForm
 	/**
 	 * Method to run batch operations.
 	 *
-	 * @param   object  $model  The model.
+	 * @param       object  $model  The model.
 	 *
-	 * @return  boolean  True on success, false on failure
+	 * @return      boolean  True on success, false on failure
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function batch($model = null)
 	{
@@ -78,12 +78,12 @@ class UsersControllerUser extends JControllerForm
 	/**
 	 * Overrides parent save method to check the submitted passwords match.
 	 *
-	 * @param   string  $key     The name of the primary key of the URL variable.
-	 * @param   string  $urlVar  The name of the URL variable if different from the primary key (sometimes required to avoid router collisions).
+	 * @param       string  $key     The name of the primary key of the URL variable.
+	 * @param       string  $urlVar  The name of the URL variable if different from the primary key (sometimes required to avoid router collisions).
 	 *
-	 * @return  boolean  True if successful, false otherwise.
+	 * @return      boolean  True if successful, false otherwise.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function save($key = null, $urlVar = null)
 	{

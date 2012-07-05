@@ -11,17 +11,17 @@ defined('_JEXEC') or die;
 
 /**
  * Note: this view is intended only to be opened in a popup
- * @package		Joomla.Administrator
- * @subpackage	com_config
+ * @package     Joomla.Administrator
+ * @subpackage  com_config
  */
 class ConfigControllerComponent extends JControllerLegacy
 {
 	/**
 	 * Class Constructor
 	 *
-	 * @param	array	$config		An optional associative array of configuration settings.
-	 * @return	void
-	 * @since	1.5
+	 * @param       array	$config		An optional associative array of configuration settings.
+	 * @return      void
+	 * @since       1.5
 	 */
 	function __construct($config = array())
 	{

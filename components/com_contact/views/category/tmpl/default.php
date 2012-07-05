@@ -24,7 +24,7 @@ defined('_JEXEC') or die;
 <?php if ($this->params->def('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
 	<div class="category-desc">
 	<?php if ($this->params->get('show_description_image') && $this->category->getParams()->get('image')) : ?>
-		<img src="<?php echo $this->category->getParams()->get('image'); ?>"/>
+		<img src="<?php echo $this->category->getParams()->get('image'); ?>" />
 	<?php endif; ?>
 	<?php if ($this->params->get('show_description') && $this->category->description) : ?>
 		<?php echo JHtml::_('content.prepare', $this->category->description, '', 'com_contact.category'); ?>

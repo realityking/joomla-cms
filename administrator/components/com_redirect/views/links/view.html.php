@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of redirection links.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_redirect
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_redirect
+ * @since       1.6
  */
 class RedirectViewLinks extends JViewLegacy
 {
@@ -26,7 +26,7 @@ class RedirectViewLinks extends JViewLegacy
 	/**
 	 * Display the view
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function display($tpl = null)
 	{
@@ -48,7 +48,7 @@ class RedirectViewLinks extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

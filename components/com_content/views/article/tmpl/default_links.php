@@ -48,7 +48,7 @@ if ($urls && (!empty($urls->urla) || !empty($urls->urlb) || !empty($urls->urlc))
 					{
 						case 1:
 							// open in a new window
-							echo '<a href="'. htmlspecialchars($link) .'" target="_blank"  rel="nofollow">'.
+							echo '<a href="'. htmlspecialchars($link) .'" target="_blank" rel="nofollow">'.
 								htmlspecialchars($label) .'</a>';
 							break;
 
@@ -61,7 +61,7 @@ if ($urls && (!empty($urls->urla) || !empty($urls->urlb) || !empty($urls->urlc))
 						case 3:
 							// open in a modal window
 							JHtml::_('behavior.modal', 'a.modal'); ?>
-							<a class="modal" href="<?php echo htmlspecialchars($link); ?>"  rel="{handler: 'iframe', size: {x:600, y:600}}">
+							<a class="modal" href="<?php echo htmlspecialchars($link); ?>" rel="{handler: 'iframe', size: {x:600, y:600}}">
 								<?php echo htmlspecialchars($label) . ' </a>';
 							break;
 

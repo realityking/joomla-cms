@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 /**
  * Languages component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_languages
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_languages
+ * @since       1.6
  */
 class LanguagesHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -50,7 +50,7 @@ class LanguagesHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return	JObject
+	 * @return      JObject
 	 */
 	public static function getActions()
 	{
@@ -70,11 +70,11 @@ class LanguagesHelper
 	/**
 	 * Method for parsing ini files
 	 *
-	 * @param		string	$filename Path and name of the ini file to parse
+	 * @param       string	$filename Path and name of the ini file to parse
 	 *
-	 * @return	array		Array of strings found in the file, the array indices will be the keys. On failure an empty array will be returned
+	 * @return      array		Array of strings found in the file, the array indices will be the keys. On failure an empty array will be returned
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public static function parseFile($filename)
 	{
@@ -101,11 +101,11 @@ class LanguagesHelper
 	 * Filter method for language keys.
 	 * This method will be called by JForm while filtering the form data.
 	 *
-	 * @param		string	$value	The language key to filter
+	 * @param       string	$value	The language key to filter
 	 *
-	 * @return	string	The filtered language key
+	 * @return      string	The filtered language key
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public static function filterKey($value)
 	{
@@ -118,11 +118,11 @@ class LanguagesHelper
 	 * Filter method for language strings.
 	 * This method will be called by JForm while filtering the form data.
 	 *
-	 * @param		string	$value	The language string to filter
+	 * @param       string	$value	The language string to filter
 	 *
-	 * @return	string	The filtered language string
+	 * @return      string	The filtered language string
 	 *
-	 * @since		2.5
+	 * @since       2.5
 	 */
 	public static function filterText($value)
 	{

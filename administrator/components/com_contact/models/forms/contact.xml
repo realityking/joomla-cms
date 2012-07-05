@@ -18,7 +18,7 @@
 			class="inputbox"
 			size="30"
 			required="true"
-		 />
+		/>
 
 		<field name="alias"
 			type="text"
@@ -177,13 +177,13 @@
 			filter="JComponentHelper::filterText"
 			buttons="true"
 			hide="readmore,pagebreak"
-			 />
+		/>
 		<field name="image"
 			type="media"
 			hide_none="1"
 			label="COM_CONTACT_FIELD_PARAMS_IMAGE_LABEL"
 			description="COM_CONTACT_FIELD_PARAMS_IMAGE_DESC"
-			/>
+		/>
 
 		<field name="created_by" type="user"
 			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="COM_CONTACT_FIELD_CREATED_BY_DESC" />
@@ -204,8 +204,7 @@
 		label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
 		class="readonly"
 		readonly="true"
-		filter="unset"/>
-
+		filter="unset" />
 
 
 		<field name="checked_out"
@@ -216,7 +215,7 @@
 		<field name="checked_out_time"
 			type="hidden"
 			filter="unset"
-		 />
+		/>
 
 		<field name="ordering"
 			type="ordering"
@@ -244,7 +243,7 @@
 			class="inputbox"
 			rows="3"
 			cols="30"
-		 />
+		/>
 
 		<field name="metadesc"
 			type="textarea"

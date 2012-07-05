@@ -4,12 +4,12 @@
  * Allows to open various content as modal,
  * centered and animated box.
  *
- * @version		1.3
+ * @version     1.3
  *
- * @license		MIT-style license
- * @author		Harald Kirschner <mail [at] digitarald.de>
- * @author		Rouven Weßling <me [at] rouvenwessling.de>
- * @copyright	Author
+ * @license     MIT-style license
+ * @author      Harald Kirschner <mail [at] digitarald.de>
+ * @author      Rouven Weßling <me [at] rouvenwessling.de>
+ * @copyright   Author
  */
 
 #sbox-overlay {
@@ -25,7 +25,7 @@
 	text-align: left;
 	overflow: visible;
 	padding: 10px;
-	/* invalid values, but looks smoother! */
+/* invalid values, but looks smoother! */
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -150,7 +150,7 @@
 	background: url(../images/modal/bg_nw.png) no-repeat;
 }
 @-moz-document url-prefix() {
-    .body-overlayed {
-	overflow: visible;
-    }
+	.body-overlayed {
+		overflow: visible;
+	};
 }

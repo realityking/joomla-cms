@@ -115,7 +115,7 @@ if(!$templateparams->get('html5', 0)): ?>
 						</ul>
 						<div id="line"></div>
 					<div id="header-image">
-					<img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/images/fruits.jpg"  alt="<?php echo JText::_('TPL_BEEZ5_LOGO'); ?>" />
+					<img src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/images/fruits.jpg" alt="<?php echo JText::_('TPL_BEEZ5_LOGO'); ?>" />
 					</div>
 
 		<?php if(!$templateparams->get('html5', 0)): ?>

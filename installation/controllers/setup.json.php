@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
  * Setup controller for the Joomla Core Installer.
  * - JSON Protocol -
  *
- * @package		Joomla.Installation
- * @since		3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationControllerSetup extends JControllerLegacy
 {
 	/**
 	 * Method to set the setup language for the application.
 	 *
-	 * @return  void
-	 * @since   3.0
+	 * @return      void
+	 * @since       3.0
 	 */
 	public function setlanguage()
 	{
@@ -86,9 +86,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function database()
 	{
@@ -158,9 +158,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function filesystem()
 	{
@@ -208,9 +208,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function saveconfig()
 	{
@@ -277,9 +277,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function loadSampleData()
 	{
@@ -321,9 +321,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function detectFtpRoot()
 	{
@@ -359,9 +359,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function verifyFtpSettings()
 	{
@@ -397,9 +397,9 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   3.0
+	 * @since       3.0
 	 */
 	public function removeFolder()
 	{
@@ -481,10 +481,10 @@ class InstallationControllerSetup extends JControllerLegacy
 	 * can be a Exception object for when an error has occurred or
 	 * a JObject for a good response.
 	 *
-	 * @param	object	$response	JObject on success, Exception on failure.
+	 * @param       object	$response	JObject on success, Exception on failure.
 	 *
-	 * @return  void
-	 * @since   3.0
+	 * @return      void
+	 * @since       3.0
 	 */
 	public function sendResponse($response)
 	{
@@ -508,8 +508,8 @@ class InstallationControllerSetup extends JControllerLegacy
 /**
  * Joomla Core Installation JSON Response Class
  *
- * @package  Joomla.Installation
- * @since    3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationJsonResponse
 {

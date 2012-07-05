@@ -21,9 +21,9 @@ class FinderControllerSuggestions extends JControllerLegacy
 	/**
 	 * Method to find search query suggestions.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function display()
 	{

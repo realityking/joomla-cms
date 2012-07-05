@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Weblink Table class
  *
- * @package		Joomla.Administrator
- * @subpackage	com_weblinks
- * @since		1.5
+ * @package     Joomla.Administrator
+ * @subpackage  com_weblinks
+ * @since       1.5
  */
 class WeblinksTableWeblink extends JTable
 {
@@ -31,10 +31,10 @@ class WeblinksTableWeblink extends JTable
 	/**
 	 * Overloaded bind function to pre-process the params.
 	 *
-	 * @param	array		Named array
-	 * @return	null|string	null is operation was satisfactory, otherwise returns an error
-	 * @see		JTable:bind
-	 * @since	1.5
+	 * @param       array		Named array
+	 * @return      null|string	null is operation was satisfactory, otherwise returns an error
+	 * @see         JTable:bind
+	 * @since       1.5
 	 */
 	public function bind($array, $ignore = '')
 	{
@@ -55,9 +55,9 @@ class WeblinksTableWeblink extends JTable
 	/**
 	 * Overload the store method for the Weblinks table.
 	 *
-	 * @param	boolean	Toggle whether null values should be updated.
-	 * @return	boolean	True on success, false on failure.
-	 * @since	1.6
+	 * @param       boolean	Toggle whether null values should be updated.
+	 * @return      boolean	True on success, false on failure.
+	 * @since       1.6
 	 */
 	public function store($updateNulls = false)
 	{
@@ -91,7 +91,7 @@ class WeblinksTableWeblink extends JTable
 	/**
 	 * Overloaded check method to ensure data integrity.
 	 *
-	 * @return	boolean	True on success.
+	 * @return      boolean	True on success.
 	 */
 	public function check()
 	{
@@ -154,12 +154,12 @@ class WeblinksTableWeblink extends JTable
 	 * table.  The method respects checked out rows by other users and will attempt
 	 * to checkin rows that it can after adjustments are made.
 	 *
-	 * @param	mixed	An optional array of primary key values to update.  If not
+	 * @param       mixed	An optional array of primary key values to update.  If not
 	 *					set the instance property value is used.
-	 * @param	integer The publishing state. eg. [0 = unpublished, 1 = published]
-	 * @param	integer The user id of the user performing the operation.
-	 * @return	boolean	True on success.
-	 * @since	1.0.4
+	 * @param       integer The publishing state. eg. [0 = unpublished, 1 = published]
+	 * @param       integer The user id of the user performing the operation.
+	 * @return      boolean	True on success.
+	 * @since       1.0.4
 	 */
 	public function publish($pks = null, $state = 1, $userId = 0)
 	{

@@ -14,9 +14,9 @@ jimport( 'joomla.application.component.controlleradmin' );
 /**
  * The Menu Item Controller
  *
- * @package		Joomla.Administrator
- * @subpackage	com_menus
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_menus
+ * @since       1.6
  */
 class MenusControllerItems extends JControllerAdmin
 {
@@ -28,7 +28,7 @@ class MenusControllerItems extends JControllerAdmin
 
 	/**
 	 * Proxy for getModel
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function getModel($name = 'Item', $prefix = 'MenusModel', $config = array())
 	{
@@ -38,8 +38,8 @@ class MenusControllerItems extends JControllerAdmin
 	/**
 	 * Rebuild the nested set tree.
 	 *
-	 * @return	bool	False on failure or error, true on success.
-	 * @since	1.6
+	 * @return      bool	False on failure or error, true on success.
+	 * @since       1.6
 	 */
 	public function rebuild()
 	{
@@ -85,7 +85,7 @@ class MenusControllerItems extends JControllerAdmin
 	/**
 	 * Method to set the home property for a list of items
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function setDefault()
 	{

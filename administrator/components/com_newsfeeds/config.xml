@@ -58,9 +58,9 @@
 			label="COM_NEWSFEEDS_FIELD_CHARACTER_COUNT_LABEL"
 			description="COM_NEWSFEEDS_FIELD_CHARACTER_COUNT_DESC" />
 
-		<field 
+		<field
 			id="feed_display_order"
-			name="feed_display_order" 
+			name="feed_display_order"
 			type="list"
 			label="COM_NEWSFEEDS_FIELD_FEED_DISPLAY_ORDER_LABEL"
 			description="COM_NEWSFEEDS_FIELD_FEED_DISPLAY_ORDER_DESC"
@@ -112,9 +112,9 @@
 			label="JGLOBAL_SHOW_CATEGORY_IMAGE_LABEL"
 			description="JGLOBAL_SHOW_CATEGORY_IMAGE_DESC"
 		>
-	 		<option value="0">JHIDE</option>
-	 		<option value="1">JSHOW</option>
-	 	</field>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
 
 		<field name="maxLevel" type="list"
 			description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
@@ -306,6 +306,6 @@
 			filter="rules"
 			validate="rules"
 			component="com_newsfeeds"
-			section="component"/>
+			section="component" />
 	</fieldset>
 </config>

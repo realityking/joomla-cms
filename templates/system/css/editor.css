@@ -1,6 +1,6 @@
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 body {
@@ -26,10 +26,10 @@ h2 {
 }
 
 h3 {
-  font-weight: bold;
-  font-family: Helvetica,Arial,sans-serif;
-  font-size: 13px;
-  color: #135cae;
+	font-weight: bold;
+	font-family: Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	color: #135cae;
 }
 
 h4 {
@@ -48,10 +48,20 @@ a:hover {
 	font-weight: normal;
 }
 
-div.caption       { padding: 0 10px 0 10px; }
-div.caption img   { border: 1px solid #CCC; }
-div.caption p     { font-size: .90em; color: #666; text-align: center; }
+div.caption {
+	padding: 0 10px 0 10px;
+}
+div.caption img {
+	border: 1px solid #CCC;
+}
+div.caption p {
+	font-size: .90em; color: #666; text-align: center;
+}
 
 /* STYLES FOR JOOMLA! EDITOR */
-hr#system-readmore  { border: red dashed 1px; color: red; }
-hr.system-pagebreak { border: gray dashed 1px; color: gray; }
+hr#system-readmore {
+	border: red dashed 1px; color: red;
+}
+hr.system-pagebreak {
+	border: gray dashed 1px; color: gray;
+}

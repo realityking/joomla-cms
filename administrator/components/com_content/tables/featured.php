@@ -10,13 +10,13 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_content
+ * @package     Joomla.Administrator
+ * @subpackage  com_content
  */
 class ContentTableFeatured extends JTable
 {
 	/**
-	 * @param	JDatabase	A database connector object
+	 * @param       JDatabase	A database connector object
 	 */
 	function __construct(&$db)
 	{

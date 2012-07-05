@@ -1,13 +1,13 @@
 /**
  * Swiff.Uploader - Flash FileReference Control
  *
- * @version		3.0
+ * @version     3.0
  *
- * @license		MIT License
+ * @license     MIT License
  *
- * @author		Harald Kirschner <http://digitarald.de>
- * @author		Valerio Proietti, <http://mad4milk.net>
- * @copyright	Authors
+ * @author      Harald Kirschner <http://digitarald.de>
+ * @author      Valerio Proietti, <http://mad4milk.net>
+ * @copyright   Authors
  */
 
 Swiff.Uploader = new Class({

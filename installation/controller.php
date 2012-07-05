@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -13,20 +13,20 @@ jimport('joomla.application.component.helper');
 /**
  * Base controller class for the Joomla Core Installer.
  *
- * @package  Joomla.Installation
- * @since    1.6
+ * @package     Joomla.Installation
+ * @since       1.6
  */
 class InstallationController extends JControllerLegacy
 {
 	/**
 	 * Method to display a view.
 	 *
-	 * @param   boolean  $cachable   If true, the view output will be cached
-	 * @param   array    $urlparams  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+	 * @param       boolean  $cachable   If true, the view output will be cached
+	 * @param       array    $urlparams  An array of safe url parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return  JController  This object to support chaining.
+	 * @return      JController  This object to support chaining.
 	 *
-	 * @since   1.5
+	 * @since       1.5
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{

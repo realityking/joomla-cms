@@ -14,24 +14,24 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Banners list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersControllerBanners extends JControllerAdmin
 {
 	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
+	 * @var         string	The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_BANNERS_BANNERS';
 
 	/**
 	 * Constructor.
 	 *
-	 * @param	array An optional associative array of configuration settings.
-	 * @see		JController
-	 * @since	1.6
+	 * @param       array An optional associative array of configuration settings.
+	 * @see         JController
+	 * @since       1.6
 	 */
 	public function __construct($config = array())
 	{
@@ -42,7 +42,7 @@ class BannersControllerBanners extends JControllerAdmin
 
 	/**
 	 * Proxy for getModel.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Banner', $prefix = 'BannersModel', $config = array('ignore_request' => true))
 	{
@@ -51,7 +51,7 @@ class BannersControllerBanners extends JControllerAdmin
 	}
 
 	/**
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function sticky_publish()
 	{

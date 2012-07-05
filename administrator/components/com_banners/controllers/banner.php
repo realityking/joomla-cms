@@ -21,19 +21,19 @@ jimport('joomla.application.component.controllerform');
 class BannersControllerBanner extends JControllerForm
 {
 	/**
-	 * @var    string  The prefix to use with controller messages.
-	 * @since  1.6
+	 * @var         string  The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_BANNERS_BANNER';
 
 	/**
 	 * Method override to check if you can add a new record.
 	 *
-	 * @param   array  $data  An array of input data.
+	 * @param       array  $data  An array of input data.
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function allowAdd($data = array())
 	{
@@ -62,12 +62,12 @@ class BannersControllerBanner extends JControllerForm
 	/**
 	 * Method override to check if you can edit an existing record.
 	 *
-	 * @param   array   $data  An array of input data.
-	 * @param   string  $key   The name of the key for the primary key.
+	 * @param       array   $data  An array of input data.
+	 * @param       string  $key   The name of the key for the primary key.
 	 *
-	 * @return  boolean
+	 * @return      boolean
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	protected function allowEdit($data = array(), $key = 'id')
 	{
@@ -96,11 +96,11 @@ class BannersControllerBanner extends JControllerForm
 	/**
 	 * Method to run batch operations.
 	 *
-	 * @param   string  $model  The model
+	 * @param       string  $model  The model
 	 *
-	 * @return	boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since	2.5
+	 * @since       2.5
 	 */
 	public function batch($model = null)
 	{

@@ -23,11 +23,11 @@ class FinderViewMaps extends JViewLegacy
 	/**
 	 * Method to display the view.
 	 *
-	 * @param   string  $tpl  A template file to load. [optional]
+	 * @param       string  $tpl  A template file to load. [optional]
 	 *
-	 * @return  mixed  A string if successful, otherwise a JError object.
+	 * @return      mixed  A string if successful, otherwise a JError object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function display($tpl = null)
 	{
@@ -57,9 +57,9 @@ class FinderViewMaps extends JViewLegacy
 	/**
 	 * Method to configure the toolbar for this view.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function addToolbar()
 	{

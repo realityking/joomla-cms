@@ -240,5 +240,3 @@ CREATE TABLE IF NOT EXISTS `#__finder_types` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `title` (`title`)
 )   DEFAULT CHARSET=utf8;
-
-

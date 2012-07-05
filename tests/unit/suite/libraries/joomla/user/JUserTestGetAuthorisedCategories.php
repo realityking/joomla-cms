@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @package		JoomlaFramework
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     JoomlaFramework
  */
 
 //Complusoft JoomlaTeam - Support: JoomlaTeam@Complusoft.es
@@ -14,12 +14,12 @@ require_once 'PHPUnit/Extensions/Database/DataSet/CsvDataSet.php';
  * Test class for JAccess getCategoriesByGroup and getCategoriesByUser methods
  * Note that this is separate from JAccessTest class because it requires different test data
  *
- * @package		JoomlaFramework
+ * @package     JoomlaFramework
  */
 
 class JAccessTestGetCategories extends JoomlaDatabaseTestCase {
 	/**
-	 * @var		JAccess
+	 * @var         JAccess
 	 * @access	protected
 	 */
 	protected $object;

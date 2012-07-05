@@ -9,12 +9,12 @@
  * Inspired by
  *  ... Lokesh Dhakar	- The original Lightbox v2
  *
- * @version		1.3
+ * @version     1.3
  *
- * @license		MIT-style license
- * @author		Harald Kirschner <mail [at] digitarald.de>
- * @author		Rouven Weßling <me [at] rouvenwessling.de>
- * @copyright	Author
+ * @license     MIT-style license
+ * @author      Harald Kirschner <mail [at] digitarald.de>
+ * @author      Rouven Weßling <me [at] rouvenwessling.de>
+ * @copyright   Author
  */
 
 var SqueezeBox = {
@@ -129,7 +129,7 @@ var SqueezeBox = {
 			return !SqueezeBox.fromElement(this, options);
 		});
 	},
-	
+
 	open: function(subject, options) {
 		this.initialize();
 
@@ -158,7 +158,7 @@ var SqueezeBox = {
 			return false;
 		}, this);
 	},
-	
+
 	fromElement: function(from, options) {
 		return this.open(from, options);
 	},

@@ -5,7 +5,6 @@
 .contact .inputbox,
 .login-fields input,
 .remind input,
-.reset input
-
-{    -webkit-border-radius: 4px;
+.reset input {
+	-webkit-border-radius: 4px;
 }

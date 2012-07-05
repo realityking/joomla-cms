@@ -1,9 +1,9 @@
 <?php
 /**
- * @package    Joomla.Installation
+ * @package     Joomla.Installation
  *
- * @copyright  Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -11,17 +11,17 @@ defined('_JEXEC') or die;
 /**
  * Setup controller for the Joomla Core Installer.
  *
- * @package		Joomla.Installation
- * @since		3.0
+ * @package     Joomla.Installation
+ * @since       3.0
  */
 class InstallationControllerSetup extends JControllerLegacy
 {
 	/**
 	 * Method to set the setup language for the application.
 	 *
-	 * @return	void
+	 * @return      void
 	 *
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	public function setlanguage()
 	{
@@ -77,7 +77,7 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	function database()
 	{
@@ -143,7 +143,7 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	function filesystem()
 	{
@@ -188,7 +188,7 @@ class InstallationControllerSetup extends JControllerLegacy
 	}
 
 	/**
-	 * @since	3.0
+	 * @since       3.0
 	 */
 	function saveconfig()
 	{

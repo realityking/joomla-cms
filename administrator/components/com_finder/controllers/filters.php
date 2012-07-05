@@ -23,13 +23,13 @@ class FinderControllerFilters extends JControllerAdmin
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getModel($name = 'Filter', $prefix = 'FinderModel', $config = array('ignore_request' => true))
 	{

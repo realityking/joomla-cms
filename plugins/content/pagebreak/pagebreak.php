@@ -27,9 +27,9 @@ jimport('joomla.utilities.utility');
  * or
  * <code><hr class="system-pagebreak" alt="The first page" title="The page title" /></code>
  *
- * @package		Joomla.Plugin
- * @subpackage	Content.pagebreak
- * @since		1.6
+ * @package     Joomla.Plugin
+ * @subpackage  Content.pagebreak
+ * @since       1.6
  */
 class plgContentPagebreak extends JPlugin
 {
@@ -48,13 +48,13 @@ class plgContentPagebreak extends JPlugin
 	}
 
 	/**
-	 * @param	string	The context of the content being passed to the plugin.
-	 * @param	object	The article object.  Note $article->text is also available
-	 * @param	object	The article params
-	 * @param	int		The 'page' number
+	 * @param       string	The context of the content being passed to the plugin.
+	 * @param       object	The article object.  Note $article->text is also available
+	 * @param       object	The article params
+	 * @param       int		The 'page' number
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public function onContentPrepare($context, &$row, &$params, $page = 0)
 	{
@@ -210,8 +210,8 @@ class plgContentPagebreak extends JPlugin
 	}
 
 	/**
-	 * @return	void
-	 * @return	1.6
+	 * @return      void
+	 * @return      1.6
 	 */
 	protected function _createTOC(&$row, &$matches, &$page)
 	{
@@ -292,8 +292,8 @@ class plgContentPagebreak extends JPlugin
 	}
 
 	/**
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function _createNavigation(&$row, $page, $n)
 	{

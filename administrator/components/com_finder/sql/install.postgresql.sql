@@ -264,13 +264,12 @@ CREATE INDEX "#__finder_taxonomy_idx_parent_published" on "#__finder_taxonomy" (
 --
 -- Dumping data for table #__finder_taxonomy
 --
-UPDATE "#__finder_taxonomy" SET ("id", "parent_id", "title", "state", "access", "ordering") = (1, 0, 'ROOT', 0, 0, 0) 
+UPDATE "#__finder_taxonomy" SET ("id", "parent_id", "title", "state", "access", "ordering") = (1, 0, 'ROOT', 0, 0, 0)
 WHERE "id"=1;
 
-INSERT INTO "#__finder_taxonomy" ("id", "parent_id", "title", "state", "access", "ordering") 
-SELECT 1, 0, 'ROOT', 0, 0, 0 WHERE 1 NOT IN 
+INSERT INTO "#__finder_taxonomy" ("id", "parent_id", "title", "state", "access", "ordering")
+SELECT 1, 0, 'ROOT', 0, 0, 0 WHERE 1 NOT IN
 (SELECT 1 FROM "#__finder_taxonomy" WHERE "id"=1);
-
 
 
 --
@@ -321,7 +320,7 @@ CREATE INDEX "#__finder_terms_common_idx_lang" on "#__finder_terms_common" ("lan
 --
 UPDATE "#__finder_terms_common" SET ("term", "language") = ('a', 'en') WHERE "term"='a';
 
-INSERT INTO "#__finder_terms_common" ("term", "language") 
+INSERT INTO "#__finder_terms_common" ("term", "language")
 SELECT 'a', 'en' WHERE 1 NOT IN (SELECT 1 FROM "#__finder_terms_common" WHERE "term"='a');
 
 --
@@ -423,7 +422,7 @@ SELECT 'by', 'en' WHERE 1 NOT IN (SELECT 1 FROM "#__finder_terms_common" WHERE "
 --
 UPDATE "#__finder_terms_common" SET ("term", "language") = ('for', 'en') WHERE "term"='for';
 
-INSERT INTO "#__finder_terms_common" ("term", "language") SELECT 'for', 'en' WHERE 1 NOT IN 
+INSERT INTO "#__finder_terms_common" ("term", "language") SELECT 'for', 'en' WHERE 1 NOT IN
 (SELECT 1 FROM "#__finder_terms_common" WHERE "term"='for');
 
 --
@@ -1009,7 +1008,6 @@ INSERT INTO "#__finder_terms_common" ("term", "language")
 SELECT 'yours', 'en' WHERE 1 NOT IN (SELECT 1 FROM "#__finder_terms_common" WHERE "term"='yours');
 
 
-
 --
 -- Table: #__finder_tokens
 --
@@ -1052,4 +1050,3 @@ CREATE TABLE "#__finder_types" (
   PRIMARY KEY ("id"),
   CONSTRAINT "#__finder_types_title" UNIQUE ("title")
 );
-

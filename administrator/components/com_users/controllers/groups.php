@@ -14,22 +14,22 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * User groups list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersControllerGroups extends JControllerAdmin
 {
 	/**
-	 * @var		string	The prefix to use with controller messages.
-	 * @since	1.6
+	 * @var         string	The prefix to use with controller messages.
+	 * @since       1.6
 	 */
 	protected $text_prefix = 'COM_USERS_GROUPS';
 
 	/**
 	 * Proxy for getModel.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Group', $prefix = 'UsersModel')
 	{
@@ -41,7 +41,7 @@ class UsersControllerGroups extends JControllerAdmin
 	 *
 	 * Overrides JControllerAdmin::delete to check the core.admin permission.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function delete()
 	{
@@ -58,7 +58,7 @@ class UsersControllerGroups extends JControllerAdmin
 	 *
 	 * Overrides JControllerAdmin::publish to check the core.admin permission.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	function publish()
 	{
@@ -75,7 +75,7 @@ class UsersControllerGroups extends JControllerAdmin
 	 *
 	 * Overrides JControllerAdmin::reorder to check the core.admin permission.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function reorder()
 	{
@@ -92,7 +92,7 @@ class UsersControllerGroups extends JControllerAdmin
 	 *
 	 * Overrides JControllerAdmin::saveorder to check the core.admin permission.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function saveorder()
 	{
@@ -109,7 +109,7 @@ class UsersControllerGroups extends JControllerAdmin
 	 *
 	 * Overrides JControllerAdmin::checkin to check the core.admin permission.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function checkin()
 	{

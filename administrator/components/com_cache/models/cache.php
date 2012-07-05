@@ -14,9 +14,9 @@ jimport('joomla.application.component.modellist');
 /**
  * Cache Model
  *
- * @package		Joomla.Administrator
- * @subpackage	com_cache
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_cache
+ * @since       1.6
  */
 class CacheModelCache extends JModelList
 {
@@ -46,7 +46,7 @@ class CacheModelCache extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{

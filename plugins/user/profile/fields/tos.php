@@ -23,17 +23,17 @@ class JFormFieldTos extends JFormFieldRadio
 	/**
 	 * The form field type.
 	 *
-	 * @var    string
-	 * @since  2.5.5
+	 * @var         string
+	 * @since       2.5.5
 	 */
 	protected $type = 'Tos';
 
 	/**
 	 * Method to get the field label markup.
 	 *
-	 * @return  string  The field label markup.
+	 * @return      string  The field label markup.
 	 *
-	 * @since   2.5.5
+	 * @since       2.5.5
 	 */
 	protected function getLabel()
 	{

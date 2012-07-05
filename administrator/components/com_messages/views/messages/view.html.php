@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of messages.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_messages
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_messages
+ * @since       1.6
  */
 class MessagesViewMessages extends JViewLegacy
 {
@@ -44,7 +44,7 @@ class MessagesViewMessages extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

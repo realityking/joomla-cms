@@ -1,7 +1,7 @@
 /**
- * @package		Hathor
- * @copyright	Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Hathor
+ * @copyright   Copyright (C) 2005 - 2009 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 /**
@@ -100,29 +100,29 @@ function setAriaProperties() {
  */
 
 window.addEvent('domready', function(){
-	  var menu = document.id('menu');
-	  if (menu && !menu.hasClass('disabled')) {
-	    menu.getElements('li').each(function(cel){
-	      cel.addEvent('mouseenter', function(){
-	        this.addClass('sfhover');
-	      });
-	      cel.addEvent('mouseleave', function() {
-					this.removeClass('sfhover');
-				});
-	    });
-
-	  	menu.getElements('a').each(function(ael) {
-				ael.addEvent('focus', function() {
-					this.addClass('sffocus');
-					this.getParents('li').addClass('sfhover');
-				});
-				ael.addEvent('blur', function() {
-					this.removeClass('sffocus');
-					this.getParents('li').removeClass('sfhover');
-				});
+	var menu = document.id('menu');
+	if (menu && !menu.hasClass('disabled')) {
+		menu.getElements('li').each(function(cel){
+			cel.addEvent('mouseenter', function(){
+				this.addClass('sfhover');
 			});
-		}
-	});
+			cel.addEvent('mouseleave', function() {
+				this.removeClass('sfhover');
+			});
+		});
+
+		menu.getElements('a').each(function(ael) {
+			ael.addEvent('focus', function() {
+				this.addClass('sffocus');
+				this.getParents('li').addClass('sfhover');
+			});
+			ael.addEvent('blur', function() {
+				this.removeClass('sffocus');
+				this.getParents('li').removeClass('sfhover');
+			});
+		});
+	}
+});
 
 window.addEvent('domready', function() {
 	setFocus();

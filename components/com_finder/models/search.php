@@ -29,8 +29,8 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Context string for the model type
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $context = 'com_finder.search';
 
@@ -39,41 +39,41 @@ class FinderModelSearch extends JModelList
 	 * models the entire search query including the text input; static and
 	 * dynamic taxonomy filters; date filters; etc.
 	 *
-	 * @var    FinderIndexerQuery
-	 * @since  2.5
+	 * @var         FinderIndexerQuery
+	 * @since       2.5
 	 */
 	protected $query;
 
 	/**
 	 * An array of all excluded terms ids.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	protected $excludedTerms = array();
 
 	/**
 	 * An array of all included terms ids.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	protected $includedTerms = array();
 
 	/**
 	 * An array of all required terms ids.
 	 *
-	 * @var    array
-	 * @since  2.5
+	 * @var         array
+	 * @since       2.5
 	 */
 	protected $requiredTerms = array();
 
 	/**
 	 * Method to get the results of the query.
 	 *
-	 * @return  array  An array of FinderIndexerResult objects.
+	 * @return      array  An array of FinderIndexerResult objects.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public function getResults()
@@ -154,9 +154,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to get the total number of results.
 	 *
-	 * @return  integer  The total number of results.
+	 * @return      integer  The total number of results.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	public function getTotal()
@@ -195,9 +195,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to get the query object.
 	 *
-	 * @return  FinderIndexerQuery  A query object.
+	 * @return      FinderIndexerQuery  A query object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function getQuery()
 	{
@@ -211,9 +211,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to build a database query to load the list data.
 	 *
-	 * @return  JDatabaseQuery  A database query.
+	 * @return      JDatabaseQuery  A database query.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getListQuery()
 	{
@@ -322,9 +322,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to get the total number of results for the search query.
 	 *
-	 * @return  integer  The results total.
+	 * @return      integer  The results total.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getResultsTotal()
@@ -620,9 +620,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to get the results for the search query.
 	 *
-	 * @return  array  An array of result data objects.
+	 * @return      array  An array of result data objects.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getResultsData()
@@ -962,9 +962,9 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to get an array of link ids that match excluded terms.
 	 *
-	 * @return  array  An array of links ids.
+	 * @return      array  An array of links ids.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getExcludedLinkIds()
@@ -1053,11 +1053,11 @@ class FinderModelSearch extends JModelList
 	 * Method to get a subquery for filtering link ids mapped to specific
 	 * terms ids.
 	 *
-	 * @param   array  $terms  An array of search term ids.
+	 * @param       array  $terms  An array of search term ids.
 	 *
-	 * @return  JDatabaseQuery  A database object.
+	 * @return      JDatabaseQuery  A database object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getTermsQuery($terms)
 	{
@@ -1079,12 +1079,12 @@ class FinderModelSearch extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param   string   $id    An identifier string to generate the store id. [optional]
-	 * @param   boolean  $page  True to store the data paged, false to store all data. [optional]
+	 * @param       string   $id    An identifier string to generate the store id. [optional]
+	 * @param       boolean  $page  True to store the data paged, false to store all data. [optional]
 	 *
-	 * @return  string  A store id.
+	 * @return      string  A store id.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getStoreId($id = '', $page = true)
 	{
@@ -1116,12 +1116,12 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to auto-populate the model state.  Calling getState in this method will result in recursion.
 	 *
-	 * @param   string  $ordering   An optional ordering field. [optional]
-	 * @param   string  $direction  An optional direction. [optional]
+	 * @param       string  $ordering   An optional ordering field. [optional]
+	 * @param       string  $direction  An optional direction. [optional]
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -1233,12 +1233,12 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to retrieve data from cache.
 	 *
-	 * @param   string   $id          The cache store id.
-	 * @param   boolean  $persistent  Flag to enable the use of external cache. [optional]
+	 * @param       string   $id          The cache store id.
+	 * @param       boolean  $persistent  Flag to enable the use of external cache. [optional]
 	 *
-	 * @return  mixed  The cached data if found, null otherwise.
+	 * @return      mixed  The cached data if found, null otherwise.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function retrieve($id, $persistent = true)
 	{
@@ -1269,13 +1269,13 @@ class FinderModelSearch extends JModelList
 	/**
 	 * Method to store data in cache.
 	 *
-	 * @param   string   $id          The cache store id.
-	 * @param   mixed    $data        The data to cache.
-	 * @param   boolean  $persistent  Flag to enable the use of external cache. [optional]
+	 * @param       string   $id          The cache store id.
+	 * @param       mixed    $data        The data to cache.
+	 * @param       boolean  $persistent  Flag to enable the use of external cache. [optional]
 	 *
-	 * @return  boolean  True on success, false on failure.
+	 * @return      boolean  True on success, false on failure.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function store($id, $data, $persistent = true)
 	{

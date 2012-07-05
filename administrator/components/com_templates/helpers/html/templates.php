@@ -10,15 +10,15 @@
 defined('_JEXEC') or die;
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	com_templates
+ * @package     Joomla.Administrator
+ * @subpackage  com_templates
  */
 class JHtmlTemplates
 {
 	/**
 	 * Display the thumb for the template.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 */
 	public static function thumb($template, $clientId = 0)
 	{

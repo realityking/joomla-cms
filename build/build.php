@@ -17,9 +17,9 @@
  * 3. Run from CLI as: 'php build.php" from build directory.
  * 4. Check the archives in the tmp directory.
  *
- * @package		Joomla.Build
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Build
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
 
  */
 
@@ -131,7 +131,7 @@ for($num=$release-1; $num >= 0; $num--) {
 	sort($filePut);
 	file_put_contents('diffconvert/'.$version.'.'.$num, implode("", $filePut));
 	file_put_contents('diffconvert/'.$version.'.'.$num.'-deleted', $deletedFiles);
-	
+
 	// Only create archives for 0 and most recent versions. Skip other update versions.
 	if ($num != 0 && ($num != $release - 1)) {
 		echo "Skipping create archive for version $version.$num\n";

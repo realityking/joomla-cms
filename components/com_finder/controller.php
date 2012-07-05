@@ -23,13 +23,13 @@ class FinderController extends JControllerLegacy
 	/**
 	 * Method to display a view.
 	 *
-	 * @param   boolean  $cachable   If true, the view output will be cached. [optional]
-	 * @param   array    $urlparams  An array of safe url parameters and their variable types,
+	 * @param       boolean  $cachable   If true, the view output will be cached. [optional]
+	 * @param       array    $urlparams  An array of safe url parameters and their variable types,
 	 *                               for valid values see {@link JFilterInput::clean()}. [optional]
 	 *
-	 * @return  JController  This object is to support chaining.
+	 * @return      JController  This object is to support chaining.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function display($cachable = false, $urlparams = array())
 	{

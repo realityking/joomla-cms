@@ -15,17 +15,17 @@ require_once JPATH_COMPONENT.'/helpers/debug.php';
 /**
  * Methods supporting a list of user records.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_users
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_users
+ * @since       1.6
  */
 class UsersModelDebugGroup extends JModelList
 {
 	/**
 	 * Get a list of the actions.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	public function getDebugActions()
 	{
@@ -37,8 +37,8 @@ class UsersModelDebugGroup extends JModelList
 	/**
 	 * Override getItems method.
 	 *
-	 * @return	array
-	 * @since	1.6
+	 * @return      array
+	 * @since       1.6
 	 */
 	public function getItems()
 	{
@@ -78,8 +78,8 @@ class UsersModelDebugGroup extends JModelList
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
@@ -125,10 +125,10 @@ class UsersModelDebugGroup extends JModelList
 	 * different modules that might need different sets of data or different
 	 * ordering requirements.
 	 *
-	 * @param	string		$id	A prefix for the store id.
+	 * @param       string		$id	A prefix for the store id.
 	 *
-	 * @return	string		A store id.
-	 * @since	1.6
+	 * @return      string		A store id.
+	 * @since       1.6
 	 */
 	protected function getStoreId($id = '')
 	{
@@ -144,8 +144,8 @@ class UsersModelDebugGroup extends JModelList
 	/**
 	 * Get the group being debugged.
 	 *
-	 * @return	JObject
-	 * @since	1.6
+	 * @return      JObject
+	 * @since       1.6
 	 */
 	public function getGroup()
 	{
@@ -174,8 +174,8 @@ class UsersModelDebugGroup extends JModelList
 	/**
 	 * Build an SQL query to load the list data.
 	 *
-	 * @return	JDatabaseQuery
-	 * @since	1.6
+	 * @return      JDatabaseQuery
+	 * @since       1.6
 	 */
 	protected function getListQuery()
 	{

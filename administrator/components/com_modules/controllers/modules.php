@@ -14,15 +14,15 @@ jimport('joomla.application.component.controlleradmin');
 /**
  * Modules list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_modules
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_modules
+ * @since       1.6
  */
 class ModulesControllerModules extends JControllerAdmin
 {
 	/**
 	 * Method to clone an existing module.
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	public function duplicate()
 	{
@@ -50,13 +50,13 @@ class ModulesControllerModules extends JControllerAdmin
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Module', $prefix = 'ModulesModel', $config = array('ignore_request' => true))
 	{

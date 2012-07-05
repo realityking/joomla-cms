@@ -24,12 +24,12 @@ class JModelLegacy extends JModel
 	 * Add a directory where JModel should search for models. You may
 	 * either pass a string or an array of directories.
 	 *
-	 * @param   mixed   $path    A path or array[sting] of paths to search.
-	 * @param   string  $prefix  A prefix for models.
+	 * @param       mixed   $path    A path or array[sting] of paths to search.
+	 * @param       string  $prefix  A prefix for models.
 	 *
-	 * @return  array  An array with directory elements. If prefix is equal to '', all directories are returned.
+	 * @return      array  An array with directory elements. If prefix is equal to '', all directories are returned.
 	 *
-	 * @since   2.5.5
+	 * @since       2.5.5
 	 */
 	public static function addIncludePath($path = '', $prefix = '')
 	{

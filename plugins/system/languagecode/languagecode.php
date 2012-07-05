@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * Language Code plugin class.
  *
- * @package		Joomla.Plugin
- * @subpackage	Content.languagecode
+ * @package     Joomla.Plugin
+ * @subpackage  Content.languagecode
  */
 class plgSystemLanguagecode extends JPlugin
 {
@@ -79,11 +79,11 @@ class plgSystemLanguagecode extends JPlugin
 	}
 
 	/**
-	 * @param	JForm	$form	The form to be altered.
-	 * @param	array	$data	The associated data for the form.
+	 * @param       JForm	$form	The form to be altered.
+	 * @param       array	$data	The associated data for the form.
 	 *
-	 * @return	boolean
-	 * @since	2.5
+	 * @return      boolean
+	 * @since       2.5
 	 */
 	public function onContentPrepareForm($form, $data)
 	{

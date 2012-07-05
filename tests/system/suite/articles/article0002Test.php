@@ -1,8 +1,8 @@
 <?php
 /**
- * @package		Joomla.SystemTest
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.SystemTest
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * Tests editing an article on the front end
  */
 
@@ -21,68 +21,68 @@ class Article0002 extends SeleniumJoomlaTestCase
 		$this->gotoSite();
 		$this->doFrontEndLogin();
 		echo "Edit article in front end\n";
-	    $this->click("//img[@alt='Edit']");
-	    $this->waitForPageToLoad("30000");
-	    $salt = mt_rand();
-	    $testText="Test text $salt";
+		$this->click("//img[@alt='Edit']");
+		$this->waitForPageToLoad("30000");
+		$salt = mt_rand();
+		$testText="Test text $salt";
 
 //		Use no editor until tinymce issue fixes
-// 	    $this->setTinyText($testText);
-	    $this->type("id=jform_articletext", "<p>$testText</p>");
+// 		$this->setTinyText($testText);
+		$this->type("id=jform_articletext", "<p>$testText</p>");
 
-	    echo "Save article\n";
-	    $this->click("//button[@type='button']");
-	    $this->waitForPageToLoad("30000");
+		echo "Save article\n";
+		$this->click("//button[@type='button']");
+		$this->waitForPageToLoad("30000");
 		try {
-	        $this->assertEquals("Article successfully saved", $this->getText("//dl[@id='system-message']/dd/ul/li"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e) {
+			$this->assertEquals("Article successfully saved", $this->getText("//dl[@id='system-message']/dd/ul/li"));
+		} catch (PHPUnit_Framework_AssertionFailedError $e) {
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
-	    try {
-	        $this->assertTrue($this->isTextPresent($testText));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e) {
+		}
+		try {
+			$this->assertTrue($this->isTextPresent($testText));
+		} catch (PHPUnit_Framework_AssertionFailedError $e) {
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		}
 
-	    echo "Check that new text shows on page\n";
-	    $this->assertEquals($testText, $this->getText("//div[@class='items-leading']/div[@class='leading-0']//p"));
+		echo "Check that new text shows on page\n";
+		$this->assertEquals($testText, $this->getText("//div[@class='items-leading']/div[@class='leading-0']//p"));
 
-	    echo "Open again for editing in front end\n";
-	    $this->click("//img[@alt='Edit']");
-	    $this->waitForPageToLoad("30000");
-	    $text="<p>Congratulations! You have a Joomla! site! Joomla! makes your site easy to build a website " .
-	    		"just the way you want it and keep it simple to update and maintain.</p> " .
+		echo "Open again for editing in front end\n";
+		$this->click("//img[@alt='Edit']");
+		$this->waitForPageToLoad("30000");
+		$text="<p>Congratulations! You have a Joomla! site! Joomla! makes your site easy to build a website " .
+				"just the way you want it and keep it simple to update and maintain.</p> " .
 				"<p>Joomla! is a flexible and powerful platform, whether you are building a small site " .
 				"for yourself or a huge site with hundreds of thousands of visitors. ".
 				"Joomla is open source, which means you can make it work just the way you want it to.</p>";
 
-	    //		Use no editor until tinymce issue fixes
-	    // 	    $this->setTinyText($text);
-	    $this->type("id=jform_articletext", $text);
+		//		Use no editor until tinymce issue fixes
+		// 		$this->setTinyText($text);
+		$this->type("id=jform_articletext", $text);
 
-	    $this->click("//button[@type='button']");
-	    $this->waitForPageToLoad("30000");
-	    echo "Check for success message\n";
-	    try {
-	        $this->assertEquals("Article successfully saved", $this->getText("//dl[@id='system-message']/dd/ul/li"));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e) {
-			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
+		$this->click("//button[@type='button']");
+		$this->waitForPageToLoad("30000");
+		echo "Check for success message\n";
 		try {
-	        $this->assertFalse($this->isTextPresent($testText));
-	    } catch (PHPUnit_Framework_AssertionFailedError $e) {
+			$this->assertEquals("Article successfully saved", $this->getText("//dl[@id='system-message']/dd/ul/li"));
+		} catch (PHPUnit_Framework_AssertionFailedError $e) {
 			array_push($this->verificationErrors, $this->getTraceFiles($e));
-	    }
-	    echo "Check that new text shows on page\n";
-	    $this->assertTrue($this->isElementPresent("//div[@class='items-leading']/div[@class='leading-0']//p[contains(text(), 'Congratulations!')]"));
+		}
+		try {
+			$this->assertFalse($this->isTextPresent($testText));
+		} catch (PHPUnit_Framework_AssertionFailedError $e) {
+			array_push($this->verificationErrors, $this->getTraceFiles($e));
+		}
+		echo "Check that new text shows on page\n";
+		$this->assertTrue($this->isElementPresent("//div[@class='items-leading']/div[@class='leading-0']//p[contains(text(), 'Congratulations!')]"));
 
-	    $this->doFrontEndLogout();
-	    $this->gotoAdmin();
-	    $this->doAdminLogin();
-	    $this->setEditor('Tiny');
-	    $this->doAdminLogout();
+		$this->doFrontEndLogout();
+		$this->gotoAdmin();
+		$this->doAdminLogin();
+		$this->setEditor('Tiny');
+		$this->doAdminLogout();
 
-	    echo "Finishing testEditArticle\n";
+		echo "Finishing testEditArticle\n";
 		$this->deleteAllVisibleCookies();
 	}
 
@@ -130,4 +130,3 @@ class Article0002 extends SeleniumJoomlaTestCase
 	}
 
 }
-

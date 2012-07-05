@@ -23,7 +23,7 @@ defined( '_JEXEC' ) or die( 'Restricted access' );
 	</tr>
 	<?php if($this->countModules('footer')) { ?>
 	<tr>
-		<td colspan="2"><jdoc:include type="modules" name="footer" style="xhtml"/></td>
+		<td colspan="2"><jdoc:include type="modules" name="footer" style="xhtml" /></td>
 	</tr>
 	<?php } ?>
 </table>

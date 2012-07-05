@@ -30,98 +30,98 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * use the plugin name suffix as the context. For example, if the plugin is
 	 * named 'plgFinderContent', the context could be 'Content'.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $context;
 
 	/**
 	 * The extension name.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $extension;
 
 	/**
 	 * The sublayout to use when rendering the results.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $layout;
 
 	/**
 	 * The mime type of the content the adapter indexes.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $mime;
 
 	/**
 	 * The access level of an item before save.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	protected $old_access;
 
 	/**
 	 * The access level of a category before save.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	protected $old_cataccess;
 
 	/**
 	 * The type of content the adapter indexes.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $type_title;
 
 	/**
 	 * The type id of the content.
 	 *
-	 * @var    integer
-	 * @since  2.5
+	 * @var         integer
+	 * @since       2.5
 	 */
 	protected $type_id;
 
 	/**
 	 * The database object.
 	 *
-	 * @var    object
-	 * @since  2.5
+	 * @var         object
+	 * @since       2.5
 	 */
 	protected $db;
 
 	/**
 	 * The table name.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $table;
 
 	/**
 	 * The field the published state is stored in.
 	 *
-	 * @var    string
-	 * @since  2.5
+	 * @var         string
+	 * @since       2.5
 	 */
 	protected $state_field = 'state';
 
 	/**
 	 * Method to instantiate the indexer adapter.
 	 *
-	 * @param   object  &$subject  The object to observe.
-	 * @param   array   $config    An array that holds the plugin configuration.
+	 * @param       object  &$subject  The object to observe.
+	 * @param       array   $config    An array that holds the plugin configuration.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function __construct(&$subject, $config)
 	{
@@ -150,9 +150,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the adapter state and push it into the indexer.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws	Exception on error.
 	 */
 	public function onStartIndex()
@@ -180,9 +180,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * Method to prepare for the indexer to be run. This method will often
 	 * be used to include dependencies and things of that nature.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on error.
 	 */
 	public function onBeforeIndex()
@@ -209,9 +209,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * much content is available for indexing. It is important to track the
 	 * progress correctly so we can display it to the user.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on error.
 	 */
 	public function onBuildIndex()
@@ -260,13 +260,13 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * table. This is used to synchronize published and access states that
 	 * are changed when not editing an item directly.
 	 *
-	 * @param   string   $id        The ID of the item to change.
-	 * @param   string   $property  The property that is being changed.
-	 * @param   integer  $value     The new value of that property.
+	 * @param       string   $id        The ID of the item to change.
+	 * @param       string   $property  The property that is being changed.
+	 * @param       integer  $value     The new value of that property.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws	Exception on database error.
 	 */
 	protected function change($id, $property, $value)
@@ -303,11 +303,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to index an item.
 	 *
-	 * @param   FinderIndexerResult  $item  The item to index as a FinderIndexerResult object.
+	 * @param       FinderIndexerResult  $item  The item to index as a FinderIndexerResult object.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	abstract protected function index(FinderIndexerResult $item);
@@ -315,11 +315,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to reindex an item.
 	 *
-	 * @param   integer  $id  The ID of the item to reindex.
+	 * @param       integer  $id  The ID of the item to reindex.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function reindex($id)
@@ -337,11 +337,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to remove an item from the index.
 	 *
-	 * @param   string  $id  The ID of the item to remove.
+	 * @param       string  $id  The ID of the item to remove.
 	 *
-	 * @return  boolean  True on success.
+	 * @return      boolean  True on success.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function remove($id)
@@ -384,9 +384,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to setup the adapter before indexing.
 	 *
-	 * @return  boolean  True on success, false on failure.
+	 * @return      boolean  True on success, false on failure.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	abstract protected function setup();
@@ -394,11 +394,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to update index data on category access level changes
 	 *
-	 * @param   JTable  $row  A JTable object
+	 * @param       JTable  $row  A JTable object
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function categoryAccessChange($row)
 	{
@@ -426,12 +426,12 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to update index data on category access level changes
 	 *
-	 * @param   array    $pks    A list of primary key ids of the content that has changed state.
-	 * @param   integer  $value  The value of the state that the content has been changed to.
+	 * @param       array    $pks    A list of primary key ids of the content that has changed state.
+	 * @param       integer  $value  The value of the state that the content has been changed to.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function categoryStateChange($pks, $value)
 	{
@@ -465,11 +465,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to check the existing access level for categories
 	 *
-	 * @param   JTable  $row  A JTable object
+	 * @param       JTable  $row  A JTable object
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function checkCategoryAccess($row)
 	{
@@ -486,11 +486,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to check the existing access level for items
 	 *
-	 * @param   JTable  $row  A JTable object
+	 * @param       JTable  $row  A JTable object
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function checkItemAccess($row)
 	{
@@ -507,9 +507,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the number of content items available to index.
 	 *
-	 * @return  integer  The number of content items available to index.
+	 * @return      integer  The number of content items available to index.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getContentCount()
@@ -553,11 +553,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get a content item to index.
 	 *
-	 * @param   integer  $id  The id of the content item.
+	 * @param       integer  $id  The id of the content item.
 	 *
-	 * @return  FinderIndexerResult  A FinderIndexerResult object.
+	 * @return      FinderIndexerResult  A FinderIndexerResult object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getItem($id)
@@ -594,13 +594,13 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get a list of content items to index.
 	 *
-	 * @param   integer         $offset  The list offset.
-	 * @param   integer         $limit   The list limit.
-	 * @param   JDatabaseQuery  $sql     A JDatabaseQuery object. [optional]
+	 * @param       integer         $offset  The list offset.
+	 * @param       integer         $limit   The list limit.
+	 * @param       JDatabaseQuery  $sql     A JDatabaseQuery object. [optional]
 	 *
-	 * @return  array  An array of FinderIndexerResult objects.
+	 * @return      array  An array of FinderIndexerResult objects.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getItems($offset, $limit, $sql = null)
@@ -651,11 +651,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the SQL query used to retrieve the list of content items.
 	 *
-	 * @param   mixed  $sql  A JDatabaseQuery object. [optional]
+	 * @param       mixed  $sql  A JDatabaseQuery object. [optional]
 	 *
-	 * @return  JDatabaseQuery  A database object.
+	 * @return      JDatabaseQuery  A database object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getListQuery($sql = null)
 	{
@@ -670,11 +670,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the plugin type
 	 *
-	 * @param   integer  $id  The plugin ID
+	 * @param       integer  $id  The plugin ID
 	 *
-	 * @return  string  The plugin type
+	 * @return      string  The plugin type
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getPluginType($id)
 	{
@@ -693,9 +693,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * Method to get a SQL query to load the published and access states for
 	 * an article and category.
 	 *
-	 * @return  JDatabaseQuery  A database object.
+	 * @return      JDatabaseQuery  A database object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getStateQuery()
 	{
@@ -715,11 +715,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the query clause for getting items to update by time.
 	 *
-	 * @param   string  $time  The modified timestamp.
+	 * @param       string  $time  The modified timestamp.
 	 *
-	 * @return  JDatabaseQuery  A database object.
+	 * @return      JDatabaseQuery  A database object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getUpdateQueryByTime($time)
 	{
@@ -735,11 +735,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the query clause for getting items to update by id.
 	 *
-	 * @param   array  $ids  The ids to load.
+	 * @param       array  $ids  The ids to load.
 	 *
-	 * @return  JDatabaseQuery  A database object.
+	 * @return      JDatabaseQuery  A database object.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getUpdateQueryByIds($ids)
 	{
@@ -755,9 +755,9 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to get the type id for the adapter content.
 	 *
-	 * @return  integer  The numeric type id for the content.
+	 * @return      integer  The numeric type id for the content.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getTypeId()
@@ -786,13 +786,13 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * Method to get the URL for the item. The URL is how we look up the link
 	 * in the Finder index.
 	 *
-	 * @param   integer  $id         The id of the item.
-	 * @param   string   $extension  The extension the category is in.
-	 * @param   string   $view       The view for the URL.
+	 * @param       integer  $id         The id of the item.
+	 * @param       string   $extension  The extension the category is in.
+	 * @param       string   $view       The view for the URL.
 	 *
-	 * @return  string  The URL of the item.
+	 * @return      string  The URL of the item.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function getURL($id, $extension, $view)
 	{
@@ -803,11 +803,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * Method to get the page title of any menu item that is linked to the
 	 * content item, if it exists and is set.
 	 *
-	 * @param   string  $url  The url of the item.
+	 * @param       string  $url  The url of the item.
 	 *
-	 * @return  mixed  The title on success, null if not found.
+	 * @return      mixed  The title on success, null if not found.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 * @throws  Exception on database error.
 	 */
 	protected function getItemMenuTitle($url)
@@ -860,11 +860,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to update index data on access level changes
 	 *
-	 * @param   JTable  $row  A JTable object
+	 * @param       JTable  $row  A JTable object
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function itemAccessChange($row)
 	{
@@ -885,12 +885,12 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to update index data on published state changes
 	 *
-	 * @param   array    $pks    A list of primary key ids of the content that has changed state.
-	 * @param   integer  $value  The value of the state that the content has been changed to.
+	 * @param       array    $pks    A list of primary key ids of the content that has changed state.
+	 * @param       integer  $value  The value of the state that the content has been changed to.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function itemStateChange($pks, $value)
 	{
@@ -920,11 +920,11 @@ abstract class FinderIndexerAdapter extends JPlugin
 	/**
 	 * Method to update index data when a plugin is disabled
 	 *
-	 * @param   array  $pks  A list of primary key ids of the content that has changed state.
+	 * @param       array  $pks  A list of primary key ids of the content that has changed state.
 	 *
-	 * @return  void
+	 * @return      void
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function pluginDisable($pks)
 	{
@@ -952,12 +952,12 @@ abstract class FinderIndexerAdapter extends JPlugin
 	 * Method to translate the native content states into states that the
 	 * indexer can use.
 	 *
-	 * @param   integer  $item      The item state.
-	 * @param   integer  $category  The category state. [optional]
+	 * @param       integer  $item      The item state.
+	 * @param       integer  $category  The category state. [optional]
 	 *
-	 * @return  integer  The translated indexer state.
+	 * @return      integer  The translated indexer state.
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	protected function translateState($item, $category = null)
 	{

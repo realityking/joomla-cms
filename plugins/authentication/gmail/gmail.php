@@ -12,8 +12,8 @@ defined('_JEXEC') or die;
 /**
  * GMail Authentication Plugin
  *
- * @package		Joomla.Plugin
- * @subpackage	Authentication.gmail
+ * @package     Joomla.Plugin
+ * @subpackage  Authentication.gmail
  * @since 1.5
  */
 class plgAuthenticationGMail extends JPlugin
@@ -22,10 +22,10 @@ class plgAuthenticationGMail extends JPlugin
 	 * This method should handle any authentication and report back to the subject
 	 *
 	 * @access	public
-	 * @param   array	$credentials Array holding the user credentials
-	 * @param	array   $options	Array of extra options
-	 * @param	object	$response	Authentication response object
-	 * @return	boolean
+	 * @param       array	$credentials Array holding the user credentials
+	 * @param       array   $options	Array of extra options
+	 * @param       object	$response	Authentication response object
+	 * @return      boolean
 	 * @since 1.5
 	 */
 	function onUserAuthenticate($credentials, $options, & $response) {

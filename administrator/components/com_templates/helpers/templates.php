@@ -12,16 +12,16 @@ defined('_JEXEC') or die;
 /**
  * Templates component helper.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_templates
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_templates
+ * @since       1.6
  */
 class TemplatesHelper
 {
 	/**
 	 * Configure the Linkbar.
 	 *
-	 * @param	string	The name of the active view.
+	 * @param       string	The name of the active view.
 	 */
 	public static function addSubmenu($vName)
 	{
@@ -40,7 +40,7 @@ class TemplatesHelper
 	/**
 	 * Gets a list of the actions that can be performed.
 	 *
-	 * @return	JObject
+	 * @return      JObject
 	 */
 	public static function getActions()
 	{
@@ -59,7 +59,7 @@ class TemplatesHelper
 	/**
 	 * Get a list of filter options for the application clients.
 	 *
-	 * @return	array	An array of JHtmlOption elements.
+	 * @return      array	An array of JHtmlOption elements.
 	 */
 	public static function getClientOptions()
 	{
@@ -74,7 +74,7 @@ class TemplatesHelper
 	/**
 	 * Get a list of filter options for the templates with styles.
 	 *
-	 * @return	array	An array of JHtmlOption elements.
+	 * @return      array	An array of JHtmlOption elements.
 	 */
 	public static function getTemplateOptions($clientId = '*')
 	{

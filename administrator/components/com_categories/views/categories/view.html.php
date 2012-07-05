@@ -12,9 +12,9 @@ defined('_JEXEC') or die;
 /**
  * Categories view class for the Category package.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_categories
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_categories
+ * @since       1.6
  */
 class CategoriesViewCategories extends JViewLegacy
 {
@@ -64,7 +64,7 @@ class CategoriesViewCategories extends JViewLegacy
 	/**
 	 * Add the page title and toolbar.
 	 *
-	 * @since	1.6
+	 * @since       1.6
 	 */
 	protected function addToolbar()
 	{

@@ -34,35 +34,35 @@ abstract class JSchemaChangeitem extends JObject
 	/**
 	* Update file: full path file name where query was found
 	*
-	* @var    string
+	* @var         string
 	*/
 	public $file = null;
 
 	/**
 	 * Update query: query used to change the db schema (one line from the file)
 	 *
-	 * @var    string
+	 * @var         string
 	 */
 	public $updateQuery = null;
 
 	/**
 	* Check query: query used to check the db schema
 	*
-	* @var    string
+	* @var         string
 	*/
 	public $checkQuery = null;
 
 	/**
 	* Check query result: expected result of check query if database is up to date
 	*
-	* @var    string
+	* @var         string
 	*/
 	public $checkQueryExpected = 1;
 
 	/**
 	* JDatabase object
 	*
-	* @var    string
+	* @var         string
 	*/
 	public $db = null;
 
@@ -71,7 +71,7 @@ abstract class JSchemaChangeitem extends JObject
 	 * message to tell user what was checked / changed
 	 * Possible values: ADD_TABLE, ADD_COLUMN, CHANGE_COLUMN_TYPE, ADD_INDEX
 	 *
-	 * @var   string
+	 * @var         string
 	 *
 	 */
 	public $queryType = null;
@@ -85,33 +85,33 @@ abstract class JSchemaChangeitem extends JObject
 	*     For CHANGE_COLUMN_TYPE: table, column, type
 	*     For ADD_INDEX: table, index
 	*
-	* @var    array
+	* @var         array
 	*/
 	public $msgElements = array();
 
 	/**
 	* Checked status
 	*
-	* @var    int   0=not checked, -1=skipped, -2=failed, 1=succeeded
+	* @var         int   0=not checked, -1=skipped, -2=failed, 1=succeeded
 	*/
 	public $checkStatus = 0;
 
 	/**
 	* Rerun status
 	*
-	* @var    int   0=not rerun, -1=skipped, -2=failed, 1=succeeded
+	* @var         int   0=not rerun, -1=skipped, -2=failed, 1=succeeded
 	*/
 	public $rerunStatus = 0;
 
 	/**
 	 * Constructor: builds check query and message from $updateQuery
 	 *
-	 * @param   JDatabase  $db
-	 * @param   string     $file   full path name of the sql file
-	 * @param   string     $query   text of the sql query (one line of the file)
-	 * @param   string     $checkQuery
+	 * @param       JDatabase  $db
+	 * @param       string     $file   full path name of the sql file
+	 * @param       string     $query   text of the sql query (one line of the file)
+	 * @param       string     $checkQuery
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public function __construct($db, $file, $updateQuery)
 	{
@@ -125,13 +125,13 @@ abstract class JSchemaChangeitem extends JObject
 	 *
 	 * Returns an instance of the correct schemachangeitem for the $db
 	 *
-	 * @param   JDatabase $db
-	 * @param   string    $file   full path name of the sql file
-	 * @param   string    $query  text of the sql query (one line of the file)
+	 * @param       JDatabase $db
+	 * @param       string    $file   full path name of the sql file
+	 * @param       string    $query  text of the sql query (one line of the file)
 	 *
-	 * @return  JSchemaChangeItem for the $db driver
+	 * @return      JSchemaChangeItem for the $db driver
 	 *
-	 * @since   2.5
+	 * @since       2.5
 	 */
 	public static function getInstance($db, $file, $query)
 	{
@@ -154,9 +154,9 @@ abstract class JSchemaChangeitem extends JObject
 	 * Runs the check query and checks that 1 row is returned
 	 * If yes, return true, otherwise return false
 	 *
-	 * @return  boolean  true on success, false otherwise
+	 * @return      boolean  true on success, false otherwise
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	public function check()
 	{
@@ -181,7 +181,7 @@ abstract class JSchemaChangeitem extends JObject
 	/**
 	 * Runs the update query to apply the change to the database
 	 *
-	 * @since  2.5
+	 * @since       2.5
 	 */
 	public function fix()
 	{

@@ -25,17 +25,17 @@ class JFormFieldHelpsite extends JFormFieldList
 	/**
 	 * The form field type.
 	 *
-	 * @var    string
-	 * @since  1.6.0
+	 * @var         string
+	 * @since       1.6.0
 	 */
 	public $type = 'Helpsite';
 
 	/**
 	 * Method to get the help site field options.
 	 *
-	 * @return  array  The field option objects.
+	 * @return      array  The field option objects.
 	 *
-	 * @since   1.6.0
+	 * @since       1.6.0
 	 */
 	protected function getOptions()
 	{

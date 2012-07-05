@@ -35,7 +35,7 @@ endif;
 				?>
 			<li>
 				<a href="<?php echo $link; ?>">
-				    <?php echo $label;  ?>
+					<?php echo $label;  ?>
 				</a>
 			</li>
 		<?php endforeach; ?>

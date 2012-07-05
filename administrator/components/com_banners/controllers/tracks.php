@@ -12,28 +12,28 @@ defined('_JEXEC') or die;
 /**
  * Tracks list controller class.
  *
- * @package		Joomla.Administrator
- * @subpackage	com_banners
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  com_banners
+ * @since       1.6
  */
 class BannersControllerTracks extends JControllerLegacy
 {
 	/**
-	 * @var		string	The context for persistent state.
-	 * @since	1.6
+	 * @var         string	The context for persistent state.
+	 * @since       1.6
 	 */
 	protected $context = 'com_banners.tracks';
 
 	/**
 	 * Method to get a model object, loading it if required.
 	 *
-	 * @param   string  $name    The model name. Optional.
-	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration array for model. Optional.
+	 * @param       string  $name    The model name. Optional.
+	 * @param       string  $prefix  The class prefix. Optional.
+	 * @param       array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  object  The model.
+	 * @return      object  The model.
 	 *
-	 * @since   1.6
+	 * @since       1.6
 	 */
 	public function getModel($name = 'Tracks', $prefix = 'BannersModel', $config = array('ignore_request' => true))
 	{
@@ -44,8 +44,8 @@ class BannersControllerTracks extends JControllerLegacy
 	/**
 	 * Method to remove a record.
 	 *
-	 * @return	void
-	 * @since	1.6
+	 * @return      void
+	 * @since       1.6
 	 */
 	public function delete()
 	{

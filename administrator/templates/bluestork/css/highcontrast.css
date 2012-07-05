@@ -1,8 +1,8 @@
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.bluestork
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Joomla.Administrator
+ * @subpackage  templates.bluestork
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 body,
@@ -26,29 +26,57 @@ a:hover {
 }
 
 
-#border-top.h_green          { background: none }
-#border-top.h_green div      { background: none }
-#border-top.h_green div div   { background: none }
+#border-top.h_green {
+	background: none;
+}
+#border-top.h_green div {
+	background: none;
+}
+#border-top.h_green div div {
+	background: none;
+}
 
-#border-top.h_teal           { background: none }
-#border-top.h_teal div       { background: none }
-#border-top.h_teal div div   { background: none }
+#border-top.h_teal {
+	background: none;
+}
+#border-top.h_teal div {
+	background: none;
+}
+#border-top.h_teal div div {
+	background: none;
+}
 
-#border-top.h_cherry           { background: none }
-#border-top.h_cherry div       { background: none }
-#border-top.h_cherry div div   { background: none }
+#border-top.h_cherry {
+	background: none;
+}
+#border-top.h_cherry div {
+	background: none;
+}
+#border-top.h_cherry div div {
+	background: none;
+}
 
-#border-top.h_blue           { background: none }
-#border-top.h_blue div       { background: none }
-#border-top.h_blue div div   { background: none }
+#border-top.h_blue {
+	background: none;
+}
+#border-top.h_blue div {
+	background: none;
+}
+#border-top.h_blue div div {
+	background: none;
+}
 
 
 table.adminform {
 	background-color: #000;
-	/* border: solid 1px #fff; */
+/* border: solid 1px #fff; */;
 }
-table.adminform tr.row0 { background-color: #f9f9f9; }
-table.adminform tr.row1 { background-color: #000000; }
+table.adminform tr.row0 {
+	background-color: #f9f9f9;
+}
+table.adminform tr.row1 {
+	background-color: #000000;
+}
 
 table.adminform th {
 	color: #fff;
@@ -57,14 +85,13 @@ table.adminform th {
 div#element-box,
 div#toolbar-box,
 div#element-box div.section-box {
-  background: #000;
+	background: #000;
 }
 
 table.admintable td.key,
 table.admintable td.paramlist_key {
 	background-color: #000;
 	color: #fff;
-
 }
 #batch-access,
 #batch-category-id,
@@ -93,7 +120,7 @@ input.text-area-order,
 .adminform button,
 .adminform textarea,
 .adminform input,
-.adminform select   {
+.adminform select {
 	background-color: #000;
 	color: #fff;
 	font-weight: bold;
@@ -114,11 +141,15 @@ div.toolbar-list a:active {
 
 
 #border-bottom div,
-#border-bottom { background: none }
-#border-bottom div div 	{ background: none; height: 11px; }
+#border-bottom {
+	background: none;
+}
+#border-bottom div div {
+	background: none; height: 11px;
+}
 
 
-legend    {
+legend {
 	color: #fff;
 	font-size: 14px;
 	font-weight: bold;
@@ -129,17 +160,27 @@ div.header {
 
 /* ---- Menu layout -------------------------- */
 
-#header-box  { border: 1px solid #ccc; background: #000000; }
+#header-box {
+	border: 1px solid #ccc; background: #000000;
+}
 
 #menu li {
 	border-left: 1px solid #fff;
 	border-right: 1px solid #d8d8d8;
 }
-#menu li li { border: 0;}
+#menu li li {
+	border: 0;
+}
 
-#menu ul    { border: 0.1em solid #ccc; background: #000 ;font-weight: bold !important;}
-#menu ul li.node { background: transparent url(../images/j_arrow.png) no-repeat right 50%; font-weight: bold !important;}
-#menu ul li.separator { background: #000 url(../images/bg-menu.gif);  height: 1px;  }
+#menu ul {
+	border: 0.1em solid #ccc; background: #000;font-weight: bold !important;
+}
+#menu ul li.node {
+	background: transparent url(../images/j_arrow.png) no-repeat right 50%; font-weight: bold !important;
+}
+#menu ul li.separator {
+	background: #000 url(../images/bg-menu.gif);  height: 1px;
+}
 
 #menu a, #menu div {
 	color: #ffffff;
@@ -156,18 +197,30 @@ div.header {
 }
 
 /* 1 level - hover */
-#menu li.hover a {  color:000; background-color: #e8e8e8; border-left: 1px solid #025a8d;  border-right:1px solid #025a8d; margin: 0; font-weight: bold !important;}
+#menu li.hover a {
+	color:000; background-color: #e8e8e8; border-left: 1px solid #025a8d;  border-right:1px solid #025a8d; margin: 0; font-weight: bold !important;
+}
 /* 2 level - normal */
-#menu li.hover li a { color:000;  background-color: transparent; border: 0 none; margin: 2px;  font-weight: bold !important;}
+#menu li.hover li a {
+	color:000;  background-color: transparent; border: 0 none; margin: 2px;  font-weight: bold !important;
+}
 /* 2 level - hover */
-#menu li.hover li.hover a { color:000; background-color: #e8e8e8; border: 1px solid #025a8d;  margin: 1px;  font-weight: bold !important; }
+#menu li.hover li.hover a {
+	color:000; background-color: #e8e8e8; border: 1px solid #025a8d;  margin: 1px;  font-weight: bold !important;
+}
 /* 3 level - normal */
-#menu li.hover li.hover li a { color:000; background-color: transparent; border: 0 none;   margin: 2px;font-weight: bold !important;  }
+#menu li.hover li.hover li a {
+	color:000; background-color: transparent; border: 0 none;   margin: 2px;font-weight: bold !important;
+}
 /* 3 level - hover */
-#menu li.hover li.hover li a:hover { color:000; background-color: #e8e8e8; border: 1px solid #025a8d;  margin: 1px; font-weight: bold !important; }
+#menu li.hover li.hover li a:hover {
+	color:000; background-color: #e8e8e8; border: 1px solid #025a8d;  margin: 1px; font-weight: bold !important;
+}
 
 
-#submenu-box { background: #000; margin-bottom: 10px; }
+#submenu-box {
+	background: #000; margin-bottom: 10px;
+}
 
 #submenu li a,
 #submenu span.nolink {
@@ -193,23 +246,43 @@ table.adminlist thead th {
 	color: #fff;
 }
 
-table.adminlist tbody tr			{ background-color: #000;   }
-table.adminlist tbody tr.row1 	{ background: #000;  }
+table.adminlist tbody tr {
+	background-color: #000;
+}
+table.adminlist tbody tr.row1 {
+	background: #000;
+}
 
 table.adminlist tbody tr.row0:hover td,
-table.adminlist tbody tr.row1:hover td  { background-color: #000 ; }
+table.adminlist tbody tr.row1:hover td {
+	background-color: #000;
+}
 
-table.adminlist tbody tr td 	   { background: #000; }
-table.adminlist tbody tr.row1 td { background: #000;  }
+table.adminlist tbody tr td {
+	background: #000;
+}
+table.adminlist tbody tr.row1 td {
+	background: #000;
+}
 
-table.adminlist tfoot tr {  color: #fff; }
+table.adminlist tfoot tr {
+	color: #fff;
+}
 table.adminlist tfoot td,
-table.adminlist tfoot th { background-color: #000;  }
+table.adminlist tfoot th {
+	background-color: #000;
+}
 
 /* Panels */
-.pane-sliders .panel h3 { background: #000; color: #fff}
-.pane-sliders .content { background: #000; }
-.pane-sliders .title { color: #fff; }
+.pane-sliders .panel h3 {
+	background: #000; color: #fff;
+}
+.pane-sliders .content {
+	background: #000;
+}
+.pane-sliders .title {
+	color: #fff;
+}
 
 #permissions-sliders ul#rules li h3.pane-toggler-down {
 	color: #fff;
@@ -232,8 +305,8 @@ div#position-icon.pane-sliders .icon {
 	color: #fff;
 }
 .tip-title {
-	/* To do. New dark image */
-	/* background: url("../images/selector-arrow-contrast.png") no-repeat scroll 0 0 transparent; */
+/* To do. New dark image */
+/* background: url("../images/selector-arrow-contrast.png") no-repeat scroll 0 0 transparent; */;
 }
 
 #cpanel div.icon a {
@@ -277,7 +350,7 @@ table.adminlist thead th {
 	border-right: 1px solid #fff;
 }
 table.adminlist {
-border-top: 1px solid #fff;
+	border-top: 1px solid #fff;
 }
 
 .mooTree_selected {
@@ -285,13 +358,19 @@ border-top: 1px solid #fff;
 }
 
 /* System Standard Messages */
-#system-message dd.message ul { background: #000 url(../images/notice-info.png) 4px center no-repeat;}
+#system-message dd.message ul {
+	background: #000 url(../images/notice-info.png) 4px center no-repeat;
+}
 
 /* System Error Messages */
-#system-message dd.error ul { color: #fff; background: #000 url(../images/notice-alert.png) 4px top no-repeat; border-top: 3px solid #666; border-bottom: 3px solid #666;}
+#system-message dd.error ul {
+	color: #fff; background: #000 url(../images/notice-alert.png) 4px top no-repeat; border-top: 3px solid #666; border-bottom: 3px solid #666;
+}
 
 /* System Notice Messages */
-#system-message dd.notice ul { color: #fff; background: #000 url(../images/notice-note.png) 4px top no-repeat; border-top: 3px solid #666; border-bottom: 3px solid #666;}
+#system-message dd.notice ul {
+	color: #fff; background: #000 url(../images/notice-note.png) 4px top no-repeat; border-top: 3px solid #666; border-bottom: 3px solid #666;
+}
 
 #system-message dd ul {
 	color:#fff;
@@ -314,10 +393,10 @@ div.pagetitle h2 {
 	text-decoration:none;
 }
 #submenu a:hover, #submenu a.active, #submenu span.nolink.active,
-table#acl-config th  {
+table#acl-config th {
 	background:none repeat scroll 0 0 #000000;
 }
-div.toolbar-list a  {
+div.toolbar-list a {
 	border:1px solid #000;
 }
 

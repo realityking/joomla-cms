@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 /**
- * @package		Joomla.Administrator
- * @subpackage	templates.hathor
- * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @since		1.6
+ * @package     Joomla.Administrator
+ * @subpackage  templates.hathor
+ * @copyright   Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @since       1.6
  *
  * Color CSS file for the template - standard
  */
@@ -67,9 +67,9 @@ a:visited {
 	border: 1px solid #738498;
 	background: #c3d2e5;
 	background: -moz-linear-gradient(
-	    center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		center top,
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -137,7 +137,7 @@ span.writable {
 p.error,
 .warning,
 .deny,
-span.unwritable	{
+span.unwritable {
 	color: #a20000;
 }
 
@@ -221,12 +221,12 @@ div.toolbar-list a {
 	border-bottom: 1px solid #738498;
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -257,12 +257,12 @@ div.toolbar-list li.button a.inactive {
 .pane-sliders .panel h3 {
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 	color: #054993;
 }
@@ -302,12 +302,12 @@ dl.tabs dt {
 	border: 1px solid #738498;
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 	color: #054993;
 }
@@ -367,12 +367,12 @@ div.current fieldset.adminform {
 #login-page #element-box.login {
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -400,12 +400,12 @@ div.current fieldset.adminform {
 	border-bottom: 1px solid #738498;
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -452,18 +452,18 @@ fieldset#filter-bar ol li fieldset, fieldset#filter-bar ul li fieldset {
 	border: 0;
 }
 
-	/* Note: these visual cues should be augmented by aria */
+/* Note: these visual cues should be augmented by aria */
 .invalid {
 	color: #a20000;
 }
 
-	/* must be augmented by aria at the same time if changed dynamically by js
+/* must be augmented by aria at the same time if changed dynamically by js
 	aria-invalid=true or aria-invalid=false */
 input.invalid {
 	border: 1px solid #a20000;
 }
 
-	/* augmented by aria in template javascript */
+/* augmented by aria in template javascript */
 input.readonly, span.faux-input {
 	border: 0;
 }
@@ -486,12 +486,12 @@ input[type="button"], input[type="submit"], input[type="reset"] {
 	color: #054993;
 	background-color: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -548,7 +548,7 @@ fieldset.adminform {
 	border: 1px solid #738498;
 }
 
-	/* Table styles are for use with tabular data */
+/* Table styles are for use with tabular data */
 table.adminform {
 	background-color: #ffffff;
 }
@@ -595,7 +595,7 @@ table.adminlist thead th {
 	border-bottom:1px solid #738498;
 }
 
-	/* Table row styles */
+/* Table row styles */
 table.adminlist tbody tr {
 	background: #ffffff;
 }
@@ -616,7 +616,7 @@ table.adminlist tbody tr.row1:hover th,
 table.adminlist tbody tr.row0:focus td,
 table.adminlist tbody tr.row1:focus td,
 table.adminlist tbody tr.row0:focus th,
-table.adminlist tbody tr.row1:focus th  {
+table.adminlist tbody tr.row1:focus th {
 	background-color: #e5d9c3;
 }
 
@@ -638,12 +638,12 @@ table.adminlist tbody tr.row0 td,
 table.adminlist tbody tr.row0 th {
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -655,7 +655,7 @@ table.adminlist tfoot tr {
 	color: #2c2c2c;
 }
 
-	/* Table td/th styles */
+/* Table td/th styles */
 table.adminlist tfoot td,table.adminlist tfoot th {
 	background-color: #ffffff;
 	border-top: 1px solid #738498;
@@ -668,12 +668,12 @@ table.adminlist tr td.btns a {
 	border: 1px solid #738498;
 	background-color: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 	color: #054993;
 }
@@ -708,12 +708,12 @@ button {
 	border: 1px solid #738498;
 	background-color: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
@@ -732,46 +732,45 @@ button:hover, button:focus {
 	color: #054993;
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
-	/* Use this if you add images to the buttons such as directional arrows */
+/* Use this if you add images to the buttons such as directional arrows */
 .button1 a {
 	color: #054993;
-	/* add padding if you are using the directional images */
-	/* padding: 0 30px 0 6px; */
+/* add padding if you are using the directional images */
+/* padding: 0 30px 0 6px; */;
 }
 
 .button1 a:hover,.button1 a:focus {
 	background: #e5d9c3;
 }
 
-	/* Button 2 Type */
+/* Button 2 Type */
 .button2-left,.button2-right {
 	border: 1px solid #738498;
 	background-color: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
-.button2-left a,.button2-right a,.button2-left span,.button2-right span
-	{
+.button2-left a,.button2-right a,.button2-left span,.button2-right span {
 	color: #054993;
 }
 
-	/* these are inactive buttons */
+/* these are inactive buttons */
 .button2-left span,.button2-right span {
 	color: #999999;
 }
@@ -791,7 +790,7 @@ button:hover, button:focus {
  * Pagination styles
  */
 
-	/* Grey out the current page number */
+/* Grey out the current page number */
 .pagination .page span {
 	color: #999999;
 }
@@ -870,11 +869,11 @@ a img.calendar {
 	background-image: url(../images/admin/publish_r.png);
 }
 
-.jgrid span.pending	{
+.jgrid span.pending {
 	background-image: url(../images/admin/publish_y.png);
 }
 
-.jgrid span.warning	{
+.jgrid span.warning {
 	background-image: url(../images/admin/publish_y.png);
 }
 
@@ -1055,7 +1054,9 @@ a img.calendar {
 	background-image: url(../images/menu/icon-16-module.png);
 }
 
-/* .icon-16-new 		{ background-image: url(../images/menu/icon-16-new.png); } */
+/* .icon-16-new {
+	background-image: url(../images/menu/icon-16-new.png);
+} */
 .icon-16-newarticle {
 	background-image: url(../images/menu/icon-16-newarticle.png);
 }
@@ -1318,7 +1319,7 @@ a img.calendar {
 }
 
 .icon-32-print {
-    background-image: url(../images/toolbar/icon-32-print.png);
+	background-image: url(../images/toolbar/icon-32-print.png);
 }
 
 /**
@@ -1563,11 +1564,11 @@ a img.calendar {
 	background-image: url(../images/header/icon-48-redirect.png);
 }
 
-.icon-48-search	{
+.icon-48-search {
 	background-image: url(../images/header/icon-48-search.png);
 }
 
-.icon-48-finder	{
+.icon-48-finder {
 	background-image: url(../images/header/icon-48-search.png);
 }
 
@@ -1619,8 +1620,8 @@ div.message {
 }
 
 .outline {
-  border: 1px solid #738498;
-  background: #ffffff;
+	border: 1px solid #738498;
+	background: #ffffff;
 }
 
 /**
@@ -1630,7 +1631,7 @@ dl.menu_type dt {
 	border-bottom: 1px solid #738498;
 }
 
-ul#new-modules-list  {
+ul#new-modules-list {
 	border-top: 1px solid #738498;
 }
 
@@ -1638,7 +1639,7 @@ ul#new-modules-list  {
  * User Accessibility
  */
 
-	/* Skip to Content Visual Styling */
+/* Skip to Content Visual Styling */
 #skiplinkholder a, #skiplinkholder a:link, #skiplinkholder a:visited {
 	color: #ffffff;
 	background: #054993;
@@ -1735,16 +1736,16 @@ label.icon-16-deny {
 	background:url(../images/admin/icon-16-deny.png) no-repeat;
 }
 a.icon-16-allow {
-	background:url(../images/admin/icon-16-allow.png) no-repeat ;
+	background:url(../images/admin/icon-16-allow.png) no-repeat;
 }
 a.icon-16-deny {
-	background:url(../images/admin/icon-16-deny.png) no-repeat ;
+	background:url(../images/admin/icon-16-deny.png) no-repeat;
 }
 a.icon-16-allowinactive {
-	background:url(../images/admin/icon-16-allowinactive.png) no-repeat ;
+	background:url(../images/admin/icon-16-allowinactive.png) no-repeat;
 }
 a.icon-16-denyinactive {
-	background:url(../images/admin/icon-16-denyinactive.png) no-repeat ;
+	background:url(../images/admin/icon-16-denyinactive.png) no-repeat;
 }
 
 /* ACL footer/legend */
@@ -1803,8 +1804,8 @@ table#acl-config th.acl-groups {
 
 #permissions-sliders ul#rules,
 #permissions-sliders ul#rules ul {
-    border:solid 0 #738498;
-    background:#ffffff;
+	border:solid 0 #738498;
+	background:#ffffff;
 }
 
 ul#rules li .pane-sliders .panel h3.title {
@@ -1832,15 +1833,15 @@ ul#rules li .pane-sliders .panel h3.title {
 }
 
 #permissions-sliders ul#rules table.group-rules td {
-    border-right: solid 1px #738498;
-    border-bottom: solid 1px #738498;
+	border-right: solid 1px #738498;
+	border-bottom: solid 1px #738498;
 }
 
 #permissions-sliders ul#rules table.group-rules th {
-    background: #e5d9c3;
-    border-right: solid 1px #738498;
-    border-bottom: solid 1px #738498;
-    color: #2c2c2c;
+	background: #e5d9c3;
+	border-right: solid 1px #738498;
+	border-bottom: solid 1px #738498;
+	color: #2c2c2c;
 }
 
 ul#rules table.aclmodify-table {
@@ -1856,7 +1857,7 @@ ul#rules table.group-rules td label {
 }
 
 #permissions-sliders  ul#rules  table.group-rules td {
-   background: #ffffff;
+	background: #ffffff;
 }
 
 #permissions-sliders span.level {
@@ -1907,26 +1908,28 @@ table.adminlist tbody td.check-d {
  * with javascript by Bill Tomczak
  */
 
-	/* Note: set up the font-size on the id and used 100% on the elements.
+/* Note: set up the font-size on the id and used 100% on the elements.
 	If ul/li/a are different ems, then the shifting back via non-js keyboard
 	doesn't work properly */
 
 /**
  * Menu Styling
  */
-#menu { /* this is on the main ul */
+#menu {
+/* this is on the main ul */
 	color: #2c2c2c;
 }
 
-#menu ul { /* all lists */
+#menu ul {
+/* all lists */
 	background: #c3d2e5;
 	background: -moz-linear-gradient(
-	    center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		center top,
+		#a5bbd4,
+		#c3d2e5 70%
 	);background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	color: #2c2c2c;
 }
@@ -1946,7 +1949,8 @@ table.adminlist tbody td.check-d {
 	background-position: left 50%;
 }
 
-#menu li { /* all list items */
+#menu li {
+/* all list items */
 	border-right: 1px solid #738498;
 	background-color: transparent;
 }
@@ -1961,20 +1965,22 @@ table.adminlist tbody td.check-d {
 	color: #738498;
 	background-color: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 }
 
-#menu li ul { /* second-level lists */
+#menu li ul {
+/* second-level lists */
 	border: 1px solid #738498;
 }
 
-#menu li li { /* second-level row */
+#menu li li {
+/* second-level row */
 	background-color: transparent;
 }
 
@@ -1982,27 +1988,27 @@ table.adminlist tbody td.check-d {
  * Styling parents
  */
 
- 	/* 1 level - sfhover */
+/* 1 level - sfhover */
 #menu li.sfhover a {
 	background-color: #e5d9c3;
 }
 
-	/* 2 level - normal */
+/* 2 level - normal */
 #menu li.sfhover li a {
 	background-color: transparent;
 }
 
-	/* 2 level - hover */
+/* 2 level - hover */
 #menu li.sfhover li.sfhover a,#menu li li a:focus {
 	background-color: #e5d9c3;
 }
 
-	/* 3 level - normal */
+/* 3 level - normal */
 #menu li.sfhover li.sfhover li a {
 	background-color: transparent;
 }
 
-	/* 3 level - hover */
+/* 3 level - hover */
 #menu li.sfhover li.sfhover li.sfhover a,#menu li li li a:focus {
 	background-color: #e5d9c3;
 }
@@ -2021,20 +2027,20 @@ table.adminlist tbody td.check-d {
  */
 #submenu {
 	border-bottom: 1px solid #738498;
-	/* border-bottom plus padding-bottom is the technique */
-	/* This is the background befind the tabs */
-	/*background: #ffffff;*/
+/* border-bottom plus padding-bottom is the technique */
+/* This is the background befind the tabs */
+	/*background: #ffffff;*/;
 }
 
 #submenu a, #submenu span.nolink {
 	background: #c3d2e5;
 	background: -webkit-gradient(linear, left top, left bottom,
-	    color-stop(0.00, #a5bbd4),
-	    color-stop(0.7, #c3d2e5)
+		color-stop(0.00, #a5bbd4),
+		color-stop(0.7, #c3d2e5)
 	);
 	background: -moz-linear-gradient(center top,
-	    #a5bbd4,
-	    #c3d2e5 70%
+		#a5bbd4,
+		#c3d2e5 70%
 	);
 	border: 1px solid #738498;
 	color: #054993;
@@ -2065,10 +2071,18 @@ table.adminform tr.row0 {
 	background-color: #ffffff;
 }
 
-ul.alternating > li:nth-child(odd) { background-color: #ffffff; }
-ul.alternating > li:nth-child(even) { background-color: #c3d2e5;}
-ol.alternating > li:nth-child(odd) { background-color: #ffffff; }
-ol.alternating > li:nth-child(even) { background-color: #c3d2e5;}
+ul.alternating > li:nth-child(odd) {
+	background-color: #ffffff;
+}
+ul.alternating > li:nth-child(even) {
+	background-color: #c3d2e5;
+}
+ol.alternating > li:nth-child(odd) {
+	background-color: #ffffff;
+}
+ol.alternating > li:nth-child(even) {
+	background-color: #c3d2e5;
+}
 
 /* Installer Database */
 #installer-database, #installer-discover, #installer-update, #installer-warnings {
