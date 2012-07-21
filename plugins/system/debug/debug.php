@@ -240,6 +240,14 @@ class plgSystemDebug extends JPlugin
 	 */
 	protected function displaySession($key = '', $session = null, $id = 0)
 	{
+		$sessObj = JFactory::getSession();
+
+		if ($sessObj->getState() !== 'active' && $sessObj->getState() !== 'expired')
+		{
+			return '<p>No session has been started.</p>';
+			return '<p>' . JText::_('PLG_DEBUG_SESSION_NOT_STARTED') . '</p>';
+		}
+
 		if (!$session)
 		{
 			$session = $_SESSION;
@@ -372,11 +380,9 @@ class plgSystemDebug extends JPlugin
 	 */
 	protected function displayMemoryUsage()
 	{
-		$html = '';
+		$bytes = memory_get_peak_usage();
 
-		$bytes = JProfiler::getInstance('Application')->getMemory();
-
-		$html .= '<code>';
+		$html  = '<code>';
 		$html .= JHtml::_('number.bytes', $bytes);
 		$html .= ' (' . number_format($bytes) . ' Bytes)';
 		$html .= '</code>';
