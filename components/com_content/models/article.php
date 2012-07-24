@@ -65,6 +65,7 @@ class ContentModelArticle extends JModelItem
 	public function &getItem($pk = null)
 	{
 		$pk = (!empty($pk)) ? $pk : (int) $this->getState('article.id');
+		$contentParams = JComponentHelper::getParams('com_content', true);
 
 		if ($this->_item === null) {
 			$this->_item = array();
@@ -113,9 +114,12 @@ class ContentModelArticle extends JModelItem
 				$query->select('parent.title as parent_title, parent.id as parent_id, parent.path as parent_route, parent.alias as parent_alias');
 				$query->join('LEFT', '#__categories as parent ON parent.id = c.parent_id');
 
-				// Join on voting table
-				$query->select('ROUND(v.rating_sum / v.rating_count, 0) AS rating, v.rating_count as rating_count');
-				$query->join('LEFT', '#__content_rating AS v ON a.id = v.content_id');
+				// Only join on voting table if votes are shown
+				if ($contentParams->get('show_vote', 0))
+				{
+					$query->select('ROUND(v.rating_sum / v.rating_count, 0) AS rating, v.rating_count as rating_count');
+					$query->join('LEFT', '#__content_rating AS v ON a.id = v.content_id');
+				}
 
 				$query->where('a.id = ' . (int) $pk);
 
