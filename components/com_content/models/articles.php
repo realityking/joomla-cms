@@ -466,6 +466,270 @@ class ContentModelArticles extends JModelList
 	}
 
 	/**
+	 * Get the master query for retrieving a list of articles subject to the model state.
+	 *
+	 * @return	JDatabaseQuery
+	 * @since	3.0
+	 */
+	function getCountQuery()
+	{
+		// Create a new query object.
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+
+		// Select the required fields from the table.
+		$query->select('COUNT(a.id)');
+
+		$query->from('#__content AS a');
+
+		// Join over the categories.
+		$query->join('LEFT', '#__categories AS c ON c.id = a.catid');
+
+		// Join over the categories to get parent category titles
+		$query->join('LEFT', '#__categories as parent ON parent.id = c.parent_id');
+
+		// Join to check for category published state in parent categories up the tree
+		$subquery = 'SELECT cat.id as id FROM #__categories AS cat JOIN #__categories AS parent ';
+		$subquery .= 'ON cat.lft BETWEEN parent.lft AND parent.rgt ';
+		$subquery .= 'WHERE parent.extension = ' . $db->quote('com_content');
+
+		if ($this->getState('filter.published') == 2) {
+			// Find any up-path categories that are archived
+			// If any up-path categories are archived, include all children in archived layout
+			$subquery .= ' AND parent.published = 2 GROUP BY cat.id ';
+			// Set effective state to archived if up-path category is archived
+			$publishedWhere = 'CASE WHEN badcats.id is null THEN a.state ELSE 2 END';
+		}
+		else {
+			// Find any up-path categories that are not published
+			// If all categories are published, badcats.id will be null, and we just use the article state
+			$subquery .= ' AND parent.published != 1 GROUP BY cat.id ';
+			// Select state to unpublished if up-path category is unpublished
+			$publishedWhere = 'CASE WHEN badcats.id is null THEN a.state ELSE 0 END';
+		}
+		$query->join('LEFT OUTER', '(' . $subquery . ') AS badcats ON badcats.id = c.id');
+
+		// Filter by access level.
+		if ($access = $this->getState('filter.access')) {
+			$user	= JFactory::getUser();
+			$groups	= implode(',', $user->getAuthorisedViewLevels());
+			$query->where('a.access IN ('.$groups.')');
+			$query->where('c.access IN ('.$groups.')');
+		}
+
+		// Filter by published state
+		$published = $this->getState('filter.published');
+
+		if (is_numeric($published)) {
+			// Use article state if badcats.id is null, otherwise, force 0 for unpublished
+			$query->where($publishedWhere . ' = ' . (int) $published);
+		}
+		elseif (is_array($published)) {
+			JArrayHelper::toInteger($published);
+			$published = implode(',', $published);
+			// Use article state if badcats.id is null, otherwise, force 0 for unpublished
+			$query->where($publishedWhere . ' IN ('.$published.')');
+		}
+
+		// Filter by featured state
+		$featured = $this->getState('filter.featured');
+		switch ($featured)
+		{
+			case 'hide':
+				$query->where('a.featured = 0');
+				break;
+
+			case 'only':
+				$query->where('a.featured = 1');
+				break;
+
+			case 'show':
+			default:
+				// Normally we do not discriminate
+				// between featured/unfeatured items.
+				break;
+		}
+
+		// Filter by a single or group of articles.
+		$articleId = $this->getState('filter.article_id');
+
+		if (is_numeric($articleId)) {
+			$type = $this->getState('filter.article_id.include', true) ? '= ' : '<> ';
+			$query->where('a.id '.$type.(int) $articleId);
+		}
+		elseif (is_array($articleId)) {
+			JArrayHelper::toInteger($articleId);
+			$articleId = implode(',', $articleId);
+			$type = $this->getState('filter.article_id.include', true) ? 'IN' : 'NOT IN';
+			$query->where('a.id '.$type.' ('.$articleId.')');
+		}
+
+		// Filter by a single or group of categories
+		$categoryId = $this->getState('filter.category_id');
+
+		if (is_numeric($categoryId)) {
+			$type = $this->getState('filter.category_id.include', true) ? '= ' : '<> ';
+
+			// Add subcategory check
+			$includeSubcategories = $this->getState('filter.subcategories', false);
+			$categoryEquals = 'a.catid '.$type.(int) $categoryId;
+
+			if ($includeSubcategories) {
+				$levels = (int) $this->getState('filter.max_category_levels', '1');
+				// Create a subquery for the subcategory list
+				$subQuery = $db->getQuery(true);
+				$subQuery->select('sub.id');
+				$subQuery->from('#__categories as sub');
+				$subQuery->join('INNER', '#__categories as this ON sub.lft > this.lft AND sub.rgt < this.rgt');
+				$subQuery->where('this.id = '.(int) $categoryId);
+				if ($levels >= 0) {
+					$subQuery->where('sub.level <= this.level + '.$levels);
+				}
+
+				// Add the subquery to the main query
+				$query->where('('.$categoryEquals.' OR a.catid IN ('.$subQuery->__toString().'))');
+			}
+			else {
+				$query->where($categoryEquals);
+			}
+		}
+		elseif (is_array($categoryId) && (count($categoryId) > 0)) {
+			JArrayHelper::toInteger($categoryId);
+			$categoryId = implode(',', $categoryId);
+			if (!empty($categoryId)) {
+				$type = $this->getState('filter.category_id.include', true) ? 'IN' : 'NOT IN';
+				$query->where('a.catid '.$type.' ('.$categoryId.')');
+			}
+		}
+
+		// Filter by author
+		$authorId = $this->getState('filter.author_id');
+		$authorWhere = '';
+
+		if (is_numeric($authorId)) {
+			$type = $this->getState('filter.author_id.include', true) ? '= ' : '<> ';
+			$authorWhere = 'a.created_by '.$type.(int) $authorId;
+		}
+		elseif (is_array($authorId)) {
+			JArrayHelper::toInteger($authorId);
+			$authorId = implode(',', $authorId);
+
+			if ($authorId) {
+				$type = $this->getState('filter.author_id.include', true) ? 'IN' : 'NOT IN';
+				$authorWhere = 'a.created_by '.$type.' ('.$authorId.')';
+			}
+		}
+
+		// Filter by author alias
+		$authorAlias = $this->getState('filter.author_alias');
+		$authorAliasWhere = '';
+
+		if (is_string($authorAlias)) {
+			$type = $this->getState('filter.author_alias.include', true) ? '= ' : '<> ';
+			$authorAliasWhere = 'a.created_by_alias '.$type.$db->Quote($authorAlias);
+		}
+		elseif (is_array($authorAlias)) {
+			$first = current($authorAlias);
+
+			if (!empty($first)) {
+				JArrayHelper::toString($authorAlias);
+
+				foreach ($authorAlias as $key => $alias)
+				{
+					$authorAlias[$key] = $db->Quote($alias);
+				}
+
+				$authorAlias = implode(',', $authorAlias);
+
+				if ($authorAlias) {
+					$type = $this->getState('filter.author_alias.include', true) ? 'IN' : 'NOT IN';
+					$authorAliasWhere = 'a.created_by_alias '.$type.' ('.$authorAlias .
+						')';
+				}
+			}
+		}
+
+		if (!empty($authorWhere) && !empty($authorAliasWhere)) {
+			$query->where('('.$authorWhere.' OR '.$authorAliasWhere.')');
+		}
+		elseif (empty($authorWhere) && empty($authorAliasWhere)) {
+			// If both are empty we don't want to add to the query
+		}
+		else {
+			// One of these is empty, the other is not so we just add both
+			$query->where($authorWhere.$authorAliasWhere);
+		}
+
+		// Filter by start and end dates.
+		$nullDate	= $db->Quote($db->getNullDate());
+		$nowDate	= $db->Quote(JFactory::getDate()->toSql());
+
+		$query->where('(a.publish_up = '.$nullDate.' OR a.publish_up <= '.$nowDate.')');
+		$query->where('(a.publish_down = '.$nullDate.' OR a.publish_down >= '.$nowDate.')');
+
+		// Filter by Date Range or Relative Date
+		$dateFiltering = $this->getState('filter.date_filtering', 'off');
+		$dateField = $this->getState('filter.date_field', 'a.created');
+
+		switch ($dateFiltering)
+		{
+			case 'range':
+				$startDateRange = $db->Quote($this->getState('filter.start_date_range', $nullDate));
+				$endDateRange = $db->Quote($this->getState('filter.end_date_range', $nullDate));
+				$query->where('('.$dateField.' >= '.$startDateRange.' AND '.$dateField .
+					' <= '.$endDateRange.')');
+				break;
+
+			case 'relative':
+				$relativeDate = (int) $this->getState('filter.relative_date', 0);
+				$query->where($dateField.' >= DATE_SUB('.$nowDate.', INTERVAL ' .
+					$relativeDate.' DAY)');
+				break;
+
+			case 'off':
+			default:
+				break;
+		}
+
+		// process the filter for list views with user-entered filters
+		$params = $this->getState('params');
+
+		if ((is_object($params)) && ($params->get('filter_field') != 'hide') && ($filter = $this->getState('list.filter'))) {
+			// clean filter variable
+			$filter = JString::strtolower($filter);
+			$hitsFilter = intval($filter);
+			$filter = $db->Quote('%'.$db->escape($filter, true).'%', false);
+
+			switch ($params->get('filter_field'))
+			{
+				case 'author':
+					$query->where(
+						'LOWER( CASE WHEN a.created_by_alias > '.$db->quote(' ').
+						' THEN a.created_by_alias ELSE ua.name END ) LIKE '.$filter.' '
+					);
+					break;
+
+				case 'hits':
+					$query->where('a.hits >= '.$hitsFilter.' ');
+					break;
+
+				case 'title':
+				default: // default to 'title' if parameter is not valid
+					$query->where('LOWER( a.title ) LIKE '.$filter);
+					break;
+			}
+		}
+
+		// Filter by language
+		if ($this->getState('filter.language')) {
+			$query->where('a.language in ('.$db->quote(JFactory::getLanguage()->getTag()).','.$db->quote('*').')');
+			$query->where('(contact.language in ('.$db->quote(JFactory::getLanguage()->getTag()).','.$db->quote('*').') OR contact.language IS NULL)');
+		}
+
+		return $query;
+	}
+
+	/**
 	 * Method to get a list of articles.
 	 *
 	 * Overriden to inject convert the attribs field into a JParameter object.
@@ -587,6 +851,7 @@ class ContentModelArticles extends JModelList
 
 		return $items;
 	}
+
 	public function getStart()
 	{
 		return $this->getState('list.start');

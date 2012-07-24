@@ -52,6 +52,14 @@ class JModelList extends JModelLegacy
 	protected $query = array();
 
 	/**
+	 * An internal cache for the count last query used.
+	 *
+	 * @var    JDatabaseQuery
+	 * @since  12.2
+	 */
+	protected $countQuery = null;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param   array  $config  An optional associative array of configuration settings.
@@ -101,6 +109,37 @@ class JModelList extends JModelLegacy
 		}
 
 		return $this->query;
+	}
+
+	/**
+	 * Method to cache the last count query constructed.
+	 *
+	 * This method ensures that the count query is constructed only once for a given state of the model.
+	 *
+	 * @return  JDatabaseQuery  A JDatabaseQuery object
+	 *
+	 * @since   12.2
+	 */
+	protected function _getCountQuery()
+	{
+		// Capture the last store id used.
+		static $lastStoreId;
+
+		// Compute the current store id.
+		$currentStoreId = $this->getStoreId();
+
+		// If the last store id is different from the current, refresh the query.
+		if ($lastStoreId != $currentStoreId || empty($this->countQuery))
+		{
+			$lastStoreId = $currentStoreId;
+			if (!method_exists($this, 'getCountQuery'))
+			{
+				return false;
+			}
+			$this->countQuery = $this->getCountQuery();
+		}
+
+		return $this->countQuery;
 	}
 
 	/**
@@ -226,15 +265,33 @@ class JModelList extends JModelLegacy
 		}
 
 		// Load the total.
-		$query = $this->_getListQuery();
-		try
+		$query = $this->_getCountQuery();
+
+		if ($query instanceof JDatabaseQuery)
 		{
-			$total = (int) $this->_getListCount($query);
+			try
+			{
+				$this->_db->setQuery($query);
+				$total = (int) $this->_db->loadResult();
+			}
+			catch (RuntimeException $e)
+			{
+				$this->setError($e->getMessage());
+				return false;
+			}
 		}
-		catch (RuntimeException $e)
+		else
 		{
-			$this->setError($e->getMessage());
-			return false;
+			$query = $this->_getListQuery();
+			try
+			{
+				$total = (int) $this->_getListCount($query);
+			}
+			catch (RuntimeException $e)
+			{
+				$this->setError($e->getMessage());
+				return false;
+			}
 		}
 
 		// Add the total to the internal cache.

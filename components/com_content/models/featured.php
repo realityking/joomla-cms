@@ -121,6 +121,7 @@ class ContentModelFeatured extends ContentModelArticles
 		$orderby = $primary . ' ' . $secondary . ' a.created DESC ';
 		$this->setState('list.ordering', $orderby);
 		$this->setState('list.direction', '');
+
 		// Create a new query object.
 		$query = parent::getListQuery();
 
@@ -129,6 +130,36 @@ class ContentModelFeatured extends ContentModelArticles
 		{
 			$query->join('INNER', '#__content_frontpage AS fp ON fp.content_id = a.id');
 		}
+
+		// Filter by categories
+		if (is_array($featuredCategories = $this->getState('filter.frontpage.categories'))) {
+			$query->where('a.catid IN (' . implode(',', $featuredCategories) . ')');
+		}
+
+		return $query;
+	}
+
+	/**
+	 * @return	JDatabaseQuery
+	 */
+	function getCountQuery()
+	{
+		// Set the blog ordering
+		$params = $this->state->params;
+		$articleOrderby = $params->get('orderby_sec', 'rdate');
+		$articleOrderDate = $params->get('order_date');
+		$categoryOrderby = $params->def('orderby_pri', '');
+		$secondary = ContentHelperQuery::orderbySecondary($articleOrderby, $articleOrderDate) . ', ';
+		$primary = ContentHelperQuery::orderbyPrimary($categoryOrderby);
+
+		$orderby = $primary . ' ' . $secondary . ' a.created DESC ';
+		$this->setState('list.ordering', $orderby);
+		$this->setState('list.direction', '');
+
+		// Create a new query object.
+		$query = parent::getCountQuery();
+
+		$query->where('a.featured = 1');
 
 		// Filter by categories
 		if (is_array($featuredCategories = $this->getState('filter.frontpage.categories'))) {
