@@ -94,17 +94,33 @@ class BannersHelper
 	 */
 	public static function updateReset()
 	{
-		$user = JFactory::getUser();
-		$db = JFactory::getDBO();
+		static $result;
+
+		if (isset($result))
+		{
+			return $result;
+		}
+
+		$user     = JFactory::getUser();
+		$db       = JFactory::getDBO();
+		$now      = JFactory::getDate();
 		$nullDate = $db->getNullDate();
-		$now = JFactory::getDate();
-		$query = $db->getQuery(true);
+		$query    = $db->getQuery(true);
+
 		$query->select('*');
 		$query->from('#__banners');
-		$query->where("'".$now."' >= ".$db->quoteName('reset'));
-		$query->where($db->quoteName('reset').' != '.$db->quote($nullDate).' AND '.$db->quoteName('reset').'!=NULL');
-		$query->where('('.$db->quoteName('checked_out').' = 0 OR '.$db->quoteName('checked_out').' = '.(int) $db->Quote($user->id).')');
-		$db->setQuery((string) $query);
+		$query->where("'" . $now . "' >= " . $db->quoteName('reset'));
+		$query->where($db->quoteName('reset') . ' != '.$db->quote($nullDate) . ' AND ' . $db->quoteName('reset') . '!=NULL');
+
+		if ($user->id)
+		{
+			$query->where('(' . $db->quoteName('checked_out') . ' = 0 OR ' . $db->quoteName('checked_out') . ' = ' . $db->Quote($user->id) . ')');
+		}
+		else
+		{
+			$query->where($db->quoteName('checked_out') . ' = 0');
+		}
+		$db->setQuery($query);
 
 		try
 		{
@@ -113,26 +129,31 @@ class BannersHelper
 		catch (RuntimeException $e)
 		{
 			JError::raiseWarning(500, $e->getMessage());
+			$result = false;
 			return false;
 		}
 
 		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 
-		foreach ($rows as $row) {
+		foreach ($rows as $row)
+		{
 			$purchase_type = $row->purchase_type;
 
-			if ($purchase_type < 0 && $row->cid) {
+			if ($purchase_type < 0 && $row->cid)
+			{
 				$client = JTable::getInstance('Client', 'BannersTable');
 				$client->load($row->cid);
 				$purchase_type = $client->purchase_type;
 			}
 
-			if ($purchase_type < 0) {
+			if ($purchase_type < 0)
+			{
 				$params = JComponentHelper::getParams('com_banners');
 				$purchase_type = $params->get('purchase_type');
 			}
 
-			switch($purchase_type) {
+			switch ($purchase_type)
+			{
 				case 1:
 					$reset = $nullDate;
 					break;
@@ -170,10 +191,12 @@ class BannersHelper
 			catch (RuntimeException $e)
 			{
 				JError::raiseWarning(500, $db->getMessage());
+				$result = false;
 				return false;
 			}
 		}
 
+		$result = true;
 		return true;
 	}
 
