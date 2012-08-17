@@ -79,7 +79,7 @@ class JToolbarButtonHelp extends JToolbarButton
 	 */
 	protected function _getCommand($ref, $com, $override, $component)
 	{
-		// Get Help URL
+		JHtml::_('behavior.framework');
 		$url = JHelp::createURL($ref, $com, $override, $component);
 		$url = htmlspecialchars($url, ENT_QUOTES);
 		$cmd = "Joomla.popupWindow('$url', '" . JText::_('JHELP', true) . "', 700, 500, 1)";
