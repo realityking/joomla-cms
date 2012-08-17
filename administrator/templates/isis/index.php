@@ -115,7 +115,7 @@ $db->setQuery($query);
 $admin_count = (int) $db->loadResult();
 $count = '<span class="badge">' . $admin_count . '</span>';
 
-$total_count = '<span class="badge">' . $admin_count + $online_count . '</span>';
+$total_count = '<span class="badge">' . ($admin_count + $online_count) . '</span>';
 
 $hideLinks = $input->getBool('hidemainmenu');
 
@@ -132,8 +132,7 @@ $unread = (int) $db->loadResult();
 $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messages').'">').
 	'<i class="icon-envelope"></i> '.
 	JText::plural('MOD_STATUS_MESSAGES', $unread).
-	($hideLinks ? '' : '</a>').
-	'<div class="btn-group divider"></div>';
+	($hideLinks ? '' : '</a>');
 
 ?>
 <!DOCTYPE html>
@@ -141,7 +140,7 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="../media/jui/js/jquery.js"></script>
-	<script src="../media/jui/js/bootstrap.min.js"></script>
+	<script src="../media/jui/js/bootstrap.js"></script>
 	<script src="../media/jui/js/chosen.jquery.min.js"></script>
 	<script src="../media/jui/js/jquery-ui.js"></script>
 	<script type="text/javascript">
@@ -184,10 +183,8 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 					<jdoc:include type="modules" name="menu" style="none" />
 
 					<ul class="<?php if ($this->direction == 'rtl') : ?>nav<?php else : ?>nav pull-right<?php endif; ?>">
+						<li><a href=#" id="onlinecount"><?php echo $total_count; ?> Online</a></li>
 						<li><a href="<?php echo JURI::root(); ?>" target="_blank"><i class="icon-share-alt"></i><?php echo JText::_('JGLOBAL_VIEW_SITE'); ?></a></li>
-						<li><a><?php echo JText::plural('MOD_STATUS_USERS', $online_num); ?></a></li>
-						<li><a><?php echo JText::plural('MOD_STATUS_BACKEND_USERS', $count); ?></a></li>
-						<li><a><?php echo $total_count; ?> Online</a></li>
 						<li><?php echo $messages; ?></li>
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->username; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -207,7 +204,7 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span9">
-					<h1 class="page-title"><?php echo $sitename . ' - ' . JHtml::_('string.truncate', $app->JComponentTitle, 40, false, false);?></h1>
+					<h1 class="page-title"><a style="color: white;"><?php echo $sitename . '</a> - ' . JHtml::_('string.truncate', $app->JComponentTitle, 40, false, false);?></h1>
 				</div>
 				<div class="span3">
 					<jdoc:include type="modules" name="searchload" style="none" />
@@ -335,6 +332,18 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 			$(".btn-group input[checked=checked]").each(function(){
 				$("label[for=" + $(this).attr('id') + "]").addClass('active btn-primary');
 			});
+
+			var a = $("#onlinecount");
+			a.popover({
+				placement: 'bottom',
+				trigger: 'manual',
+				content: '<?php echo JText::plural('MOD_STATUS_USERS', $online_num) . '<br />' . JText::plural('MOD_STATUS_BACKEND_USERS', $count) ; ?>',
+				title: 'Users online'
+			});
+			a.click(function(){
+				$('#onlinecount').popover('toggle');
+			});
+
 		})(jQuery);
 	</script>
 </body>
