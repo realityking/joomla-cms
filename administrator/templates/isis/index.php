@@ -210,6 +210,10 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 			</div>
 		</div>
 	</div>
+	<?php
+	if (!$cpanel)
+	{
+	?>
 	<!-- Subheader -->
 	<a class="btn btn-subhead" data-toggle="collapse" data-target=".subhead-collapse"><?php echo JText::_('TPL_ISIS_TOOLBAR');?> <i class="icon-wrench"></i></a>
 	<div class="subhead-collapse">
@@ -224,6 +228,15 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 			</div>
 		</div>
 	</div>
+	<?php
+	}
+	else
+	{
+	?>
+	<div style="margin-bottom: 20px"></div>
+	<?php
+	}
+	?>
 	<!-- container-fluid -->
 	<div class="container-fluid container-main">
 		<div class="row-fluid">
