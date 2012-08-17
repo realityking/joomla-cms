@@ -129,7 +129,7 @@ else
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="<?php echo JURI::root(); ?>" title="<?php echo JText::_('JGLOBAL_PREVIEW');?> <?php echo $sitename; ?>" target="_blank"><?php echo JHtml::_('string.truncate', $sitename, 14, false, false);?> <i class="icon-out-2 small"></i></a>
+				<a class="brand" href="<?php echo $this->baseurl; ?>"><img src="<?php echo $logo;?>" height="18" alt="<?php echo $sitename; ?>" /></a>
 				<div class="nav-collapse">
 					<jdoc:include type="modules" name="menu" style="none" />
 					<ul class="<?php if ($this->direction == 'rtl') : ?>nav<?php else : ?>nav pull-right<?php endif; ?>">
@@ -168,11 +168,8 @@ else
 	<div class="header">
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span2 container-logo">
-					<a class="logo" href="<?php echo $this->baseurl; ?>"><img src="<?php echo $logo;?>" alt="<?php echo $sitename; ?>" /></a>
-				</div>
-				<div class="span7">
-					<h1 class="page-title"><?php echo JHtml::_('string.truncate', $app->JComponentTitle, 40, false, false);?></h1>
+				<div class="span9">
+					<h1 class="page-title"><?php echo $sitename . ' - ' . JHtml::_('string.truncate', $app->JComponentTitle, 40, false, false);?></h1>
 				</div>
 				<div class="span3">
 					<jdoc:include type="modules" name="searchload" style="none" />
