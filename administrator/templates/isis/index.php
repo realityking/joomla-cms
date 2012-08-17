@@ -140,7 +140,7 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="../media/jui/js/jquery.js"></script>
-	<script src="../media/jui/js/bootstrap.js"></script>
+	<script src="../media/jui/js/bootstrap.min.js"></script>
 	<script src="../media/jui/js/chosen.jquery.min.js"></script>
 	<script src="../media/jui/js/jquery-ui.js"></script>
 	<script type="text/javascript">
