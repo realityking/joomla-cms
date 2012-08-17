@@ -85,6 +85,52 @@ else
 {
 	$logo = $this->baseurl . "/templates/" . $this->template . "/images/logo.png";
 }
+
+$lang = JFactory::getLanguage();
+
+// 1.5 or Core then 1.6 3PD
+$lang->load('mod_status', JPATH_BASE, null, false, false) ||
+$lang->load('mod_status', JPATH_BASE, $lang->getDefault(), false, false);
+
+$db    = JFactory::getDbo();
+$query = $db->getQuery(true);
+
+// Get the number of frontend logged in users.
+$query->clear();
+$query->select('COUNT(session_id)');
+$query->from('#__session');
+$query->where('guest = 0 AND client_id = 0');
+
+$db->setQuery($query);
+$online_num = '<span class="badge">' . (int) $db->loadResult() . '</span>';
+
+// Get the number of back-end logged in users.
+$query->clear();
+$query->select('COUNT(session_id)');
+$query->from('#__session');
+$query->where('guest = 0 AND client_id = 1');
+
+$db->setQuery($query);
+$count = '<span class="badge">' . (int) $db->loadResult() . '</span>';
+
+$hideLinks = $input->getBool('hidemainmenu');
+
+// Get the number of unread messages in your inbox.
+$query	= $db->getQuery(true);
+$query->select('COUNT(*)');
+$query->from('#__messages');
+$query->where('state = 0 AND user_id_to = '.(int) $user->get('id'));
+
+$db->setQuery($query);
+$unread = (int) $db->loadResult();
+
+// Print the inbox message.
+$messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messages').'">').
+	'<i class="icon-envelope"></i> '.
+	JText::plural('MOD_STATUS_MESSAGES', $unread).
+	($hideLinks ? '' : '</a>').
+	'<div class="btn-group divider"></div>';
+
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
@@ -132,25 +178,12 @@ else
 				<a class="brand" href="<?php echo $this->baseurl; ?>"><img src="<?php echo $logo;?>" height="18" alt="<?php echo $sitename; ?>" /></a>
 				<div class="nav-collapse">
 					<jdoc:include type="modules" name="menu" style="none" />
+
 					<ul class="<?php if ($this->direction == 'rtl') : ?>nav<?php else : ?>nav pull-right<?php endif; ?>">
-						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo JText::_('TPL_ISIS_SETTINGS');?> <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<?php if($user->authorise('core.admin')):?>
-									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_config"><?php echo JText::_('TPL_ISIS_GLOBAL_CONFIGURATION');?></a></li>
-									<li class="divider"></li>
-									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_admin&view=sysinfo"><?php echo JText::_('TPL_ISIS_SYSTEM_INFORMATION');?></a></li>
-								<?php endif;?>
-								<?php if($user->authorise('core.manage', 'com_cache')):?>
-									 <li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_cache"><?php echo JText::_('TPL_ISIS_CLEAR_CACHE');?></a></li>
-									 <li>
-									 <li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_cache&view=purge"><?php echo JText::_('TPL_ISIS_PURGE_EXPIRED_CACHE');?></a></li>
-									 <li>
-								<?php endif;?>
-								<?php if($user->authorise('core.admin', 'com_checkin')):?>
-									<li><a href="<?php echo $this->baseurl; ?>/index.php?option=com_checkin"><?php echo JText::_('TPL_ISIS_GLOBAL_CHECK_IN');?></a></li>
-								<?php endif;?>
-							</ul>
-						</li>
+						<li><a href="<?php echo JURI::root(); ?>" target="_blank"><i class="icon-share-alt"></i><?php echo JText::_('JGLOBAL_VIEW_SITE'); ?></a></li>
+						<li><a><?php echo JText::plural('MOD_STATUS_USERS', $online_num); ?></a></li>
+						<li><a><?php echo JText::plural('MOD_STATUS_BACKEND_USERS', $count); ?></a></li>
+						<li><?php echo $messages; ?></li>
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->username; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li class=""><a href="index.php?option=com_admin&task=profile.edit&id=<?php echo $user->id;?>"><?php echo JText::_('TPL_ISIS_EDIT_ACCOUNT');?></a></li>
@@ -231,18 +264,6 @@ else
 			</div>
 		<?php endif; ?>
 	</div>
-	<?php if ($this->countModules('status')): ?>
-	<!-- Begin Status Module -->
-	<div id="status" class="navbar navbar-fixed-bottom hidden-phone">
-		<div class="btn-toolbar">
-			<div class="btn-group pull-right">
-				<p>&copy; <?php echo $sitename; ?> <?php echo date('Y');?></p>
-			</div>
-			<jdoc:include type="modules" name="status" style="no" />
-		</div>
-	</div>
-	<!-- End Status Module -->
-	<?php endif; ?>
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
