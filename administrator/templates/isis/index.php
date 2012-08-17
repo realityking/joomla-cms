@@ -102,7 +102,8 @@ $query->from('#__session');
 $query->where('guest = 0 AND client_id = 0');
 
 $db->setQuery($query);
-$online_num = '<span class="badge">' . (int) $db->loadResult() . '</span>';
+$online_count = (int) $db->loadResult();
+$online_num = '<span class="badge">' . $online_count . '</span>';
 
 // Get the number of back-end logged in users.
 $query->clear();
@@ -111,7 +112,10 @@ $query->from('#__session');
 $query->where('guest = 0 AND client_id = 1');
 
 $db->setQuery($query);
-$count = '<span class="badge">' . (int) $db->loadResult() . '</span>';
+$admin_count = (int) $db->loadResult();
+$count = '<span class="badge">' . $admin_count . '</span>';
+
+$total_count = '<span class="badge">' . $admin_count + $online_count . '</span>';
 
 $hideLinks = $input->getBool('hidemainmenu');
 
@@ -183,6 +187,7 @@ $messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messa
 						<li><a href="<?php echo JURI::root(); ?>" target="_blank"><i class="icon-share-alt"></i><?php echo JText::_('JGLOBAL_VIEW_SITE'); ?></a></li>
 						<li><a><?php echo JText::plural('MOD_STATUS_USERS', $online_num); ?></a></li>
 						<li><a><?php echo JText::plural('MOD_STATUS_BACKEND_USERS', $count); ?></a></li>
+						<li><a><?php echo $total_count; ?> Online</a></li>
 						<li><?php echo $messages; ?></li>
 						<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $user->username; ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
