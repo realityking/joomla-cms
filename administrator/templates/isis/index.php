@@ -278,7 +278,6 @@ $messages = ($hideLinks ? '<a>' : '<a href="' . JRoute::_('index.php?option=com_
 			</div>
 		<?php endif; ?>
 	</div>
-	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
 			$('*[rel=tooltip]').tooltip()
