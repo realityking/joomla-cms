@@ -62,7 +62,7 @@ $sitename = $app->getCfg('sitename');
 	</style>
 </head>
 
-<body class="site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " itemid-" . $itemid . " ";?>">
+<body class="site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " ";?>">
 	<!-- Container -->
 	<div class="container">
 		<div id="content">
