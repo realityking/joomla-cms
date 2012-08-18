@@ -129,10 +129,9 @@ $db->setQuery($query);
 $unread = (int) $db->loadResult();
 
 // Print the inbox message.
-$messages = ($hideLinks ? '' : '<a href="'.JRoute::_('index.php?option=com_messages').'">').
-	'<i class="icon-envelope"></i> '.
-	JText::plural('MOD_STATUS_MESSAGES', $unread).
-	($hideLinks ? '' : '</a>');
+$messages = ($hideLinks ? '<a>' : '<a href="' . JRoute::_('index.php?option=com_messages') . '">') .
+	'<i class="icon-envelope"></i> ' .
+	JText::plural('MOD_STATUS_MESSAGES', $unread) . '</a>';
 
 ?>
 <!DOCTYPE html>
