@@ -16,7 +16,7 @@ $document = JFactory::getDocument();
 		<div class="control-group">
 			<div class="controls">
 			  <div class="input-prepend">
-			    <span class="add-on"><i class="icon-user" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_USERNAME'); ?>"></i> <label for="mod-login-username" class="element-invisible"><?php echo JText::_('JGLOBAL_USERNAME'); ?></label></span><input name="username" tabindex="1" id="mod-login-username" type="text" class="input-big" placeholder="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" size="15" />
+			    <span class="add-on"><i class="icon-user" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_USERNAME'); ?>"></i> <label for="mod-login-username" class="element-invisible"><?php echo JText::_('JGLOBAL_USERNAME'); ?></label></span><input name="username" tabindex="1" id="mod-login-username" type="text" class="input-big" placeholder="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" size="15" autofocus="autofocus" />
 			  </div>
 			</div>
 		</div>
