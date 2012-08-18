@@ -15,15 +15,15 @@ $document = JFactory::getDocument();
 	<fieldset class="loginform">
 		<div class="control-group">
 			<div class="controls">
-			  <div class="input-prepend input-append">
-			    <span class="add-on"><i class="icon-user" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_USERNAME'); ?>"></i> <label for="mod-login-username" class="element-invisible"><?php echo JText::_('JGLOBAL_USERNAME'); ?></label></span><input name="username" tabindex="1" id="mod-login-username" type="text" class="input-medium" placeholder="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" size="15" /><a href="<?php echo JURI::root()?>index.php?option=com_users&view=remind" class="btn width-auto" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'left' : 'right'; ?>" title="<?php echo JText::_('MOD_LOGIN_REMIND'); ?>"><i class="icon-help" title="<?php echo JText::_('MOD_LOGIN_REMIND'); ?>"></i></a>
+			  <div class="input-prepend">
+			    <span class="add-on"><i class="icon-user" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_USERNAME'); ?>"></i> <label for="mod-login-username" class="element-invisible"><?php echo JText::_('JGLOBAL_USERNAME'); ?></label></span><input name="username" tabindex="1" id="mod-login-username" type="text" class="input-big" placeholder="<?php echo JText::_('JGLOBAL_USERNAME'); ?>" size="15" />
 			  </div>
 			</div>
 		</div>
 		<div class="control-group">
 			<div class="controls">
-			  <div class="input-prepend input-append">
-			    <span class="add-on"><i class="icon-lock" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_PASSWORD'); ?>" ></i> <label for="mod-login-password" class="element-invisible"><?php echo JText::_('JGLOBAL_PASSWORD'); ?></label></span><input name="passwd" tabindex="2" id="mod-login-password" type="password" class="input-medium"  placeholder="<?php echo JText::_('JGLOBAL_PASSWORD'); ?>" size="15" /><a href="<?php echo JURI::root()?>index.php?option=com_users&view=reset" class="btn width-auto" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'left' : 'right'; ?>" title="<?php echo JText::_('MOD_LOGIN_RESET'); ?>"><i class="icon-help" title="<?php echo JText::_('MOD_LOGIN_RESET'); ?>"></i></a>
+			  <div class="input-prepend">
+			    <span class="add-on"><i class="icon-lock" rel="tooltip" data-placement="<?php echo $document->direction == 'rtl' ? 'right' : 'left'; ?>" title="<?php echo JText::_('JGLOBAL_PASSWORD'); ?>" ></i> <label for="mod-login-password" class="element-invisible"><?php echo JText::_('JGLOBAL_PASSWORD'); ?></label></span><input name="passwd" tabindex="2" id="mod-login-password" type="password" class="input-big"  placeholder="<?php echo JText::_('JGLOBAL_PASSWORD'); ?>" size="15" />
 			  </div>
 			 </div>
 		</div>
