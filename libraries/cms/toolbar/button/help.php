@@ -42,9 +42,8 @@ class JToolbarButtonHelp extends JToolbarButton
 		$class = 'question-sign';
 		$doTask = $this->_getCommand($ref, $com, $override, $component);
 
-		$html = "<button href=\"#\" onclick=\"$doTask\" rel=\"help\" class=\"btn\">\n";
-		$html .= "<i class=\"icon-$class\">\n";
-		$html .= "</i>\n";
+		$html = "<button onclick=\"$doTask\" class=\"btn\">\n";
+		$html .= "<i class=\"icon-$class\"></i>\n";
 		$html .= "$text\n";
 		$html .= "</button>\n";
 
@@ -79,6 +78,7 @@ class JToolbarButtonHelp extends JToolbarButton
 	 */
 	protected function _getCommand($ref, $com, $override, $component)
 	{
+		JHtml::_('behavior.framework');
 		// Get Help URL
 		$url = JHelp::createURL($ref, $com, $override, $component);
 		$url = htmlspecialchars($url, ENT_QUOTES);

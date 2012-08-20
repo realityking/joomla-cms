@@ -47,9 +47,8 @@ class JToolbarButtonConfirm extends JToolbarButton
 		$class = $this->fetchIconClass($name);
 		$doTask = $this->_getCommand($msg, $name, $task, $list);
 
-		$html = "<button href=\"#\" onclick=\"$doTask\" class=\"btn\">\n";
-		$html .= "<span class=\"$class\">\n";
-		$html .= "</span>\n";
+		$html = "<button onclick=\"$doTask\" class=\"btn\">\n";
+		$html .= "<span class=\"$class\"></span>\n";
 		$html .= "$text\n";
 		$html .= "</button>\n";
 

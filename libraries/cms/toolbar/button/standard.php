@@ -55,9 +55,8 @@ class JToolbarButtonStandard extends JToolbarButton
 			$iconWhite = "";
 		}
 
-		$html = "<button href=\"#\" onclick=\"$doTask\" class=\"".$btnClass."\">\n";
-		$html .= "<i class=\"$class $iconWhite\">\n";
-		$html .= "</i>\n";
+		$html  = "<button onclick=\"$doTask\" class=\"" . $btnClass . "\">\n";
+		$html .= "<i class=\"$class $iconWhite\"></i>\n";
 		$html .= "$i18n_text\n";
 		$html .= "</button>\n";
 
