@@ -19,34 +19,6 @@ defined('_JEXEC') or die;
 class plgUserJoomla extends JPlugin
 {
 	/**
-	 * Remove all sessions for the user name
-	 *
-	 * Method is called after user data is deleted from the database
-	 *
-	 * @param	array		$user	Holds the user data
-	 * @param	boolean		$succes	True if user was succesfully stored in the database
-	 * @param	string		$msg	Message
-	 *
-	 * @return	boolean
-	 * @since	1.6
-	 */
-	public function onUserAfterDelete($user, $succes, $msg)
-	{
-		if (!$succes) {
-			return false;
-		}
-
-		$db = JFactory::getDbo();
-		$db->setQuery(
-			'DELETE FROM '.$db->quoteName('#__session') .
-			' WHERE '.$db->quoteName('userid').' = '.(int) $user['id']
-		);
-		$db->execute();
-
-		return true;
-	}
-
-	/**
 	 * Utility method to act on a user after it has been saved.
 	 *
 	 * This method sends a registration email to new users created in the backend.
@@ -160,22 +132,6 @@ class plgUserJoomla extends JPlugin
 		$session = JFactory::getSession();
 		$session->set('user', $instance);
 
-		$db = JFactory::getDBO();
-
-		// Check to see the the session already exists.
-		$app = JFactory::getApplication();
-		$app->checkSession();
-
-		// Update the user related fields for the Joomla sessions table.
-		$db->setQuery(
-			'UPDATE '.$db->quoteName('#__session') .
-			' SET '.$db->quoteName('guest').' = '.$db->quote($instance->get('guest')).',' .
-			'	'.$db->quoteName('username').' = '.$db->quote($instance->get('username')).',' .
-			'	'.$db->quoteName('userid').' = '.(int) $instance->get('id') .
-			' WHERE '.$db->quoteName('session_id').' = '.$db->quote($session->getId())
-		);
-		$db->execute();
-
 		// Hit the user last visit field
 		$instance->setLastVisit();
 
@@ -210,15 +166,6 @@ class plgUserJoomla extends JPlugin
 			// Destroy the php session for this user
 			$session->destroy();
 		}
-
-		// Force logout all users with that userid
-		$db = JFactory::getDBO();
-		$db->setQuery(
-			'DELETE FROM '.$db->quoteName('#__session') .
-			' WHERE '.$db->quoteName('userid').' = '.(int) $user['id'] .
-			' AND '.$db->quoteName('client_id').' = '.(int) $options['clientid']
-		);
-		$db->execute();
 
 		return true;
 	}
