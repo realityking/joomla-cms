@@ -42,12 +42,6 @@ $sitename = $app->getCfg('sitename');
 	  jQuery.noConflict();
 	</script>
 	<jdoc:include type="head" />
-	<script type="text/javascript">
-		window.addEvent('domready', function () {
-			document.getElementById('form-login').username.select();
-			document.getElementById('form-login').username.focus();
-		});
-	</script>
 	<style type="text/css">
 		/* Responsive Styles */
 		@media (max-width: 480px) {
