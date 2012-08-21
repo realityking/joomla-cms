@@ -657,13 +657,13 @@ abstract class JHtmlBehavior
 			->addScriptDeclaration(
 			"window.addEvent('domready', function(){
 				var nativeColorUi = false;
-				if (Browser.opera && (Browser.version >= 11.5)) {
+				if (Browser.opera && (Browser.version >= 11.5)
+					|| Browser.chrome && (Browser.version >= 20)) {
 					nativeColorUi = true;
 				}
-				$$('.input-colorpicker').each(function(item){
-					if (nativeColorUi) {
-						item.type = 'color';
-					} else {
+				if (!nativeColorUi) {
+					$$('.input-colorpicker').each(function(item){
+						item.type = 'text';
 						new MooRainbow(item, {
 							id: item.id,
 							imgPath: '" . JURI::root(true) . "/media/system/images/mooRainbow/',
@@ -672,8 +672,8 @@ abstract class JHtmlBehavior
 							},
 							startColor: item.value.hexToRgb(true) ? item.value.hexToRgb(true) : [0, 0, 0]
 						});
-					}
-				});
+					});
+				}
 			});
 		");
 

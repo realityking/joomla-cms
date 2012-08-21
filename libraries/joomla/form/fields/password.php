@@ -38,15 +38,16 @@ class JFormFieldPassword extends JFormField
 	 */
 	protected function getInput()
 	{
-		// Initialize some field attributes.
-		$size		= $this->element['size'] ? ' size="' . (int) $this->element['size'] . '"' : '';
-		$maxLength	= $this->element['maxlength'] ? ' maxlength="' . (int) $this->element['maxlength'] . '"' : '';
-		$class		= $this->element['class'] ? ' class="' . (string) $this->element['class'] . '"' : '';
-		$auto		= ((string) $this->element['autocomplete'] == 'off') ? ' autocomplete="off"' : '';
-		$readonly	= ((string) $this->element['readonly'] == 'true') ? ' readonly="readonly"' : '';
-		$disabled	= ((string) $this->element['disabled'] == 'true') ? ' disabled="disabled"' : '';
-		$meter		= ((string) $this->element['strengthmeter'] == 'true');
-		$threshold	= $this->element['threshold'] ? (int) $this->element['threshold'] : 66;
+		$size		 = $this->element['size'] ? ' size="' . (int) $this->element['size'] . '"' : '';
+		$maxLength	 = $this->element['maxlength'] ? ' maxlength="' . (int) $this->element['maxlength'] . '"' : '';
+		$class		 = $this->element['class'] ? ' class="' . (string) $this->element['class'] . '"' : '';
+		$placeholder = $this->element['placeholder'] ? ' placeholder="' . (string) $this->element['placeholder'] . '"' : '';
+		$required    = $this->required ? ' required="required"' : '';
+		$auto		 = ((string) $this->element['autocomplete'] == 'off') ? ' autocomplete="off"' : '';
+		$readonly	 = ((string) $this->element['readonly'] == 'true') ? ' readonly="readonly"' : '';
+		$disabled	 = ((string) $this->element['disabled'] == 'true') ? ' disabled="disabled"' : '';
+		$meter		 = ((string) $this->element['strengthmeter'] == 'true');
+		$threshold	 = $this->element['threshold'] ? (int) $this->element['threshold'] : 66;
 
 		$script = '';
 		if ($meter)
@@ -64,6 +65,6 @@ class JFormFieldPassword extends JFormField
 
 		return '<input type="password" name="' . $this->name . '" id="' . $this->id . '"' .
 			' value="' . htmlspecialchars($this->value, ENT_COMPAT, 'UTF-8') . '"' .
-			$auto . $class . $readonly . $disabled . $size . $maxLength . '/>' . $script;
+			$auto . $class . $readonly . $required . $placeholder . $disabled . $size . $maxLength . '/>' . $script;
 	}
 }

@@ -3,14 +3,6 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-Object.append(Browser.Features, {
-	inputemail: (function() {
-		var i = document.createElement("input");
-		i.setAttribute("type", "email");
-		return i.type !== "text";
-	})()
-});
-
 /**
  * Unobtrusive Form Validation library
  *
@@ -80,9 +72,6 @@ var JFormValidator = new Class({
 				}
 			} else {
 				el.addEvent('blur', function(){return document.formvalidator.validate(this);});
-				if (el.hasClass('validate-email') && Browser.Features.inputemail) {
-					el.type = 'email';
-				}
 			}
 		});
 	},

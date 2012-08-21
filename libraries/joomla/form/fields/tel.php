@@ -31,4 +31,12 @@ class JFormFieldTel extends JFormFieldText
 	 * @since  11.1
 	 */
 	protected $type = 'Tel';
+
+	/**
+	 * Value of the type attribute of the rendered input element.
+	 *
+	 * @var    string
+	 * @since  12.2
+	 */
+	protected $inputtype = 'tel';
 }
