@@ -419,7 +419,7 @@ class JApplication extends JApplicationBase
 	 *
 	 * @since   11.1
 	 */
-	public function enqueueMessage($msg, $type = 'message')
+	public function enqueueMessage($msg, $type = 'info')
 	{
 		// For empty queue, if messages exists in the session, enqueue them first.
 		if (!count($this->_messageQueue))

@@ -120,7 +120,7 @@ class InstallerModelDiscover extends InstallerModel
 			$app->setUserState('com_installer.message', $installer->message);
 			$app->setUserState('com_installer.extension_message', $installer->get('extension_message'));
 			if (!$failed) {
-				$app->enqueueMessage(JText::_('COM_INSTALLER_MSG_DISCOVER_INSTALLSUCCESSFUL'));
+				$app->enqueueMessage(JText::_('COM_INSTALLER_MSG_DISCOVER_INSTALLSUCCESSFUL'), 'success');
 			}
 		} else {
 			$app->enqueueMessage(JText::_('COM_INSTALLER_MSG_DISCOVER_NOEXTENSIONSELECTED'));
