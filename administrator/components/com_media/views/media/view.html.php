@@ -18,6 +18,14 @@ defined('_JEXEC') or die;
  */
 class MediaViewMedia extends JViewLegacy
 {
+	/**
+	 * Holds a list of MIME types that are allowed to be uploaded.
+	 *
+	 * @var    string
+	 * @since  3.0
+	 */
+	protected $accept = null;
+
 	public function display($tpl = null)
 	{
 		$app	= JFactory::getApplication();
@@ -47,9 +55,14 @@ class MediaViewMedia extends JViewLegacy
 
 		// JHtml::_('script', 'system/mootree.js', true, true, false, false);
 		JHtml::_('stylesheet', 'system/mootree.css', array(), true);
-		if ($lang->isRTL()) :
+		if ($lang->isRTL()){
 			JHtml::_('stylesheet', 'media/mootree_rtl.css', array(), true);
-		endif;
+		}
+
+		if ((bool) $config->get('restrict_uploads', false))
+		{
+			$this->accept = $config->get('upload_mime', 'image/jpeg,image/gif,image/png');
+		}
 
 		if ($config->get('enable_flash', 1)) {
 			$fileTypes = $config->get('upload_extensions', 'bmp,gif,jpg,png,jpeg');

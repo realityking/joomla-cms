@@ -18,6 +18,14 @@ defined('_JEXEC') or die;
  */
 class MediaViewImages extends JViewLegacy
 {
+	/**
+	 * Holds a list of MIME types that are allowed to be uploaded.
+	 *
+	 * @var    string
+	 * @since  3.0
+	 */
+	protected $accept = null;
+
 	public function display($tpl = null)
 	{
 		$config = JComponentHelper::getParams('com_media');
@@ -31,6 +39,11 @@ class MediaViewImages extends JViewLegacy
 
 		if ($lang->isRTL()) {
 			JHtml::_('stylesheet', 'media/popup-imagemanager_rtl.css', array(), true);
+		}
+
+		if ((bool) $config->get('restrict_uploads', false))
+		{
+			$this->accept = $config->get('upload_mime', 'image/jpeg,image/gif,image/png');
 		}
 
 		if ($config->get('enable_flash', 1)) {

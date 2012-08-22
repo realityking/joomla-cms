@@ -84,7 +84,7 @@ echo $params->get('image_path', 'images');?>/';
 			<legend><?php echo $this->config->get('upload_maxsize') == '0' ? JText::_('COM_MEDIA_UPLOAD_FILES_NOLIMIT') : JText::sprintf('COM_MEDIA_UPLOAD_FILES', $this->config->get('upload_maxsize')); ?></legend>
 			<fieldset id="upload-noflash" class="actions">
 				<label for="upload-file" class="hidelabeltxt"><?php echo JText::_('COM_MEDIA_UPLOAD_FILE'); ?></label>
-				<input type="file" id="upload-file" name="Filedata[]" multiple />
+				<input type="file" id="upload-file" name="Filedata[]" accept="<?php echo $this->accept; ?>" multiple="multiple" />
 				<label for="upload-submit" class="hidelabeltxt"><?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?></label>
 				<input type="submit" id="upload-submit" value="<?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?>"/>
 			</fieldset>
@@ -94,12 +94,12 @@ echo $params->get('image_path', 'images');?>/';
 					<li><a href="#" id="upload-clear"><?php echo JText::_('COM_MEDIA_CLEAR_LIST'); ?></a></li>
 					<li><a href="#" id="upload-start"><?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?></a></li>
 				</ul>
-				<div class="clr"> </div>
+				<div class="clr"></div>
 				<p class="overall-title"></p>
-				<?php echo JHtml::_('image', 'media/bar.gif', JText::_('COM_MEDIA_OVERALL_PROGRESS'), array('class' => 'progress overall-progress'), true); ?>
-				<div class="clr"> </div>
+				<div class="overall-progress"></div>
+				<div class="clr"></div>
 				<p class="current-title"></p>
-				<?php echo JHtml::_('image', 'media/bar.gif', JText::_('COM_MEDIA_CURRENT_PROGRESS'), array('class' => 'progress current-progress'), true); ?>
+				<div class="current-progress"></div>
 				<p class="current-text"></p>
 			</div>
 			<ul class="upload-queue" id="upload-queue">
