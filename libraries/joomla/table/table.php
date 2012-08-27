@@ -865,7 +865,7 @@ abstract class JTable extends JObject
 		// Check the row in by primary key.
 		$query = $this->_db->getQuery(true);
 		$query->update($this->_tbl);
-		$query->set($this->_db->quoteName('checked_out') . ' = 0');
+		$query->set($this->_db->quoteName('checked_out') . ' = NULL');
 		$query->set($this->_db->quoteName('checked_out_time') . ' = ' . $this->_db->quote($this->_db->getNullDate()));
 		$query->where($this->_tbl_key . ' = ' . $this->_db->quote($pk));
 		$this->_db->setQuery($query);
