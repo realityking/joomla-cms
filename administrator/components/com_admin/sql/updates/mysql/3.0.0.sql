@@ -1,4 +1,6 @@
-# Placeholder file for database changes for version 3.0.0
+ALTER TABLE `#__users` DROP KEY `usertype`;
+ALTER TABLE `#__session` DROP KEY `whosonline`;
+
 ALTER TABLE `#__contact_details` DROP `imagepos`;
 ALTER TABLE `#__content` DROP COLUMN `title_alias`;
 ALTER TABLE `#__content` DROP COLUMN `sectionid`;
@@ -10,6 +12,8 @@ ALTER TABLE `#__weblinks` DROP COLUMN `date`;
 ALTER TABLE `#__weblinks` DROP COLUMN `archived`;
 ALTER TABLE `#__weblinks` DROP COLUMN `approved`;
 ALTER TABLE `#__menu` DROP COLUMN `ordering`;
+ALTER TABLE `#__session` DROP COLUMN `usertype`;
+ALTER TABLE `#__user` DROP COLUMN `usertype`;
 ALTER TABLE `#__weblinks` ADD COLUMN `version` int(10) unsigned NOT NULL DEFAULT '1';
 ALTER TABLE `#__weblinks` ADD COLUMN `images` text NOT NULL;
 ALTER TABLE `#__newsfeeds` ADD COLUMN `description` text NOT NULL;
