@@ -49,13 +49,15 @@ class UsersModelLogin extends JModelForm
 	protected function loadFormData()
 	{
 		// Check the session for previously entered login form data.
-		$app	= JFactory::getApplication();
-		$data	= $app->getUserState('users.login.form.data', array());
+		$app  = JFactory::getApplication();
+		$data = $app->getUserState('users.login.form.data', array());
 
 		// check for return URL from the request first
-		if ($return = JRequest::getVar('return', '', 'method', 'base64')) {
+		if ($return = $app->input->get('return', '', 'base64'))
+		{
 			$data['return'] = base64_decode($return);
-			if (!JURI::isInternal($data['return'])) {
+			if (!JURI::isInternal($data['return']))
+			{
 				$data['return'] = '';
 			}
 		}

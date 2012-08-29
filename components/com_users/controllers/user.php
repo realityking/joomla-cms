@@ -33,8 +33,8 @@ class UsersControllerUser extends UsersController
 
 		// Populate the data array:
 		$data = array();
-		$data['return'] = base64_decode($app->input->post->get('return', '', 'BASE64'));
-		$data['username'] = JRequest::getVar('username', '', 'method', 'username');
+		$data['return']   = base64_decode($this->input->post->get('return', '', 'BASE64'));
+		$data['username'] = $this->input->post->get('username', '', 'username')
 		$data['password'] = JRequest::getString('password', '', 'post', JREQUEST_ALLOWRAW);
 
 		// Set the return URL if empty.
@@ -79,21 +79,25 @@ class UsersControllerUser extends UsersController
 
 		$app = JFactory::getApplication();
 
-		// Perform the log in.
+		// Perform the log out.
 		$error = $app->logout();
 
 		// Check if the log out succeeded.
-		if (!($error instanceof Exception)) {
+		if (!($error instanceof Exception))
+		{
 			// Get the return url from the request and validate that it is internal.
-			$return = JRequest::getVar('return', '', 'method', 'base64');
+			$return = $this->input->get('return', '', 'base64');
 			$return = base64_decode($return);
-			if (!JURI::isInternal($return)) {
+			if (!JURI::isInternal($return))
+			{
 				$return = '';
 			}
 
 			// Redirect the user.
 			$app->redirect(JRoute::_($return, false));
-		} else {
+		}
+		else
+		{
 			$app->redirect(JRoute::_('index.php?option=com_users&view=login', false));
 		}
 	}
