@@ -23,11 +23,9 @@ class SearchViewSearch extends JViewLegacy
 		require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/search.php';
 
 		$app     = JFactory::getApplication();
-		$pathway = $app->getPathway();
 		$uri     = JURI::getInstance();
 
 		$error   = null;
-		$rows    = null;
 		$results = null;
 		$total   = 0;
 
@@ -143,7 +141,7 @@ class SearchViewSearch extends JViewLegacy
 				$searchRegex = '#(';
 				$x = 0;
 
-				foreach ($searchwords as $k => $hlword)
+				foreach ($searchwords as $hlword)
 				{
 					$searchRegex .= ($x == 0 ? '' : '|');
 					$searchRegex .= preg_quote($hlword, '#');

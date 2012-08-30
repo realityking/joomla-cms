@@ -190,7 +190,9 @@ class ContentModelArticle extends JModelItem
 				}
 
 				// Compute view access permissions.
-				if ($access = $this->getState('filter.access')) {
+				$access = $this->getState('filter.access');
+				if ($access)
+				{
 					// If the access filter has been set, we already know this user can view.
 					$data->params->set('access-view', true);
 				}

@@ -241,7 +241,9 @@ class ContentModelArticles extends JModelList
 		$query->join('LEFT OUTER', '(' . $subquery . ') AS badcats ON badcats.id = c.id');
 
 		// Filter by access level.
-		if ($access = $this->getState('filter.access')) {
+		$access = $this->getState('filter.access');
+		if ($access)
+		{
 			$user	= JFactory::getUser();
 			$groups	= implode(',', $user->getAuthorisedViewLevels());
 			$query->where('a.access IN ('.$groups.')');

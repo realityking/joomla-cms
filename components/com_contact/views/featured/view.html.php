@@ -53,8 +53,7 @@ class ContactViewFeatured extends JViewLegacy
 		}
 
 		// Check whether category access level allows access.
-		$user	= JFactory::getUser();
-		$groups	= $user->getAuthorisedViewLevels();
+		$user = JFactory::getUser();
 
 		// Prepare the data.
 		// Compute the contact slug.
@@ -99,10 +98,9 @@ class ContactViewFeatured extends JViewLegacy
 	 */
 	protected function _prepareDocument()
 	{
-		$app		= JFactory::getApplication();
-		$menus		= $app->getMenu();
-		$pathway	= $app->getPathway();
-		$title 		= null;
+		$app   = JFactory::getApplication();
+		$menus = $app->getMenu();
+		$title = null;
 
 		// Because the application sets a default page title,
 		// we need to get it from the menu item itself
@@ -113,7 +111,6 @@ class ContactViewFeatured extends JViewLegacy
 		} else {
 			$this->params->def('page_heading', JText::_('COM_CONTACT_DEFAULT_PAGE_TITLE'));
 		}
-		$id = (int) @$menu->query['id'];
 
 		$title = $this->params->get('page_title', '');
 		if (empty($title)) {

@@ -22,26 +22,23 @@ abstract class modRelatedItemsHelper
 {
 	public static function getList($params)
 	{
-		$db			= JFactory::getDbo();
-		$app		= JFactory::getApplication();
-		$user		= JFactory::getUser();
-		$userId		= (int) $user->get('id');
-		$count		= (int) $params->get('count', 5);
-		$groups		= implode(',', $user->getAuthorisedViewLevels());
-		$date		= JFactory::getDate();
+		$db       = JFactory::getDbo();
+		$app      = JFactory::getApplication();
+		$user     = JFactory::getUser();
+		$groups   = implode(',', $user->getAuthorisedViewLevels());
+		$date     = JFactory::getDate();
 
-		$option		= $app->input->get('option');
-		$view		= $app->input->get('view');
+		$option   = $app->input->get('option');
+		$view     = $app->input->get('view');
 
-		$temp		= $app->input->getString('id');
-		$temp		= explode(':', $temp);
-		$id			= $temp[0];
+		$temp     = $app->input->getString('id');
+		$temp     = explode(':', $temp);
+		$id       = $temp[0];
 
-		$showDate	= $params->get('showDate', 0);
-		$nullDate	= $db->getNullDate();
-		$now		= $date->toSql();
-		$related	= array();
-		$query		= $db->getQuery(true);
+		$nullDate = $db->getNullDate();
+		$now      = $date->toSql();
+		$related  = array();
+		$query    = $db->getQuery(true);
 
 		if ($option == 'com_content' && $view == 'article' && $id)
 		{
@@ -113,7 +110,6 @@ abstract class modRelatedItemsHelper
 					}
 
 					$db->setQuery($query);
-					$qstring = $db->getQuery();
 					$temp = $db->loadObjectList();
 
 					if (count($temp))

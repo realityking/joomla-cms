@@ -185,8 +185,6 @@ class MenusModelMenus extends JModelList
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
-		$app = JFactory::getApplication('administrator');
-
 		// List state information.
 		parent::populateState('a.id', 'asc');
 	}

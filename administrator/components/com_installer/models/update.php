@@ -95,7 +95,8 @@ class InstallerModelUpdate extends JModelList
 	{
 		$updater = JUpdater::getInstance();
 		$results = $updater->findUpdates($eid, $cache_timeout);
-		return true;
+
+		return $results;
 	}
 
 	/**

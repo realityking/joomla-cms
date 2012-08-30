@@ -53,15 +53,17 @@ class UsersModelDebugGroup extends JModelList
 
 				foreach ($actions as $action)
 				{
-					$name	= $action[0];
-					$level	= $action[1];
+					$name  = $action[0];
+					$level = $action[1];
 
 					// Check that we check this action for the level of the asset.
-					if ($action[1] === null || $action[1] >= $asset->level) {
+					if ($level === null || $level >= $asset->level)
+					{
 						// We need to test this action.
-						$asset->checks[$name] = JAccess::checkGroup($groupId, $action[0], $asset->name);
+						$asset->checks[$name] = JAccess::checkGroup($groupId, $name, $asset->name);
 					}
-					else {
+					else
+					{
 						// We ignore this action.
 						$asset->checks[$name] = 'skip';
 					}

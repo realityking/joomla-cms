@@ -21,12 +21,7 @@ class WrapperViewWrapper extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
-		$app		= JFactory::getApplication();
-		$document	= JFactory::getDocument();
-
-		$menus	= $app->getMenu();
-		$menu	= $menus->getActive();
-
+		$app    = JFactory::getApplication();
 		$params = $app->getParams();
 
 		// because the application sets a default page title, we need to get it

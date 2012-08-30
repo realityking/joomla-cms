@@ -178,7 +178,6 @@ class FinderIndexerDriverMysql extends FinderIndexer
 		}
 
 		// Set up the variables we will need during processing.
-		$tokens = array();
 		$count = 0;
 
 		// Mark afterLinking in the profiler.
@@ -463,9 +462,6 @@ class FinderIndexerDriverMysql extends FinderIndexer
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-
-		// Get the indexer state.
-		$state = static::getState();
 
 		// Update the link counts and remove the mapping records.
 		for ($i = 0; $i <= 15; $i++)

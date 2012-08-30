@@ -132,8 +132,7 @@ class JAdministrator extends JApplication
 				$component = JAdministratorHelper::findOption();
 			}
 
-			$document	= JFactory::getDocument();
-			$user		= JFactory::getUser();
+			$document = JFactory::getDocument();
 
 			switch ($document->getType()) {
 				case 'html':

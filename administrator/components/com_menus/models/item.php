@@ -1315,7 +1315,6 @@ class MenusModelItem extends JModelAdmin
 	{
 		$table		= $this->getTable();
 		$pks		= (array) $pks;
-		$user		= JFactory::getUser();
 
 		$languages	= array();
 		$onehome	= false;

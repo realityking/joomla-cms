@@ -22,7 +22,6 @@ class ContactViewContact extends JViewLegacy
 	public function display()
 	{
 		// Get model data.
-		$state = $this->get('State');
 		$item = $this->get('Item');
 
 		// Check for errors.
@@ -33,11 +32,6 @@ class ContactViewContact extends JViewLegacy
 
 		$doc = JFactory::getDocument();
 		$doc->setMetaData('Content-Type', 'text/directory', true);
-
-		$app		= JFactory::getApplication();
-		$params 	= $app->getParams();
-		$user		= JFactory::getUser();
-		$dispatcher = JEventDispatcher::getInstance();
 
 		// Compute lastname, firstname and middlename
 		$item->name = trim($item->name);

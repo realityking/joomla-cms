@@ -118,7 +118,7 @@ class JoomlaupdateModelDefault extends JModelLegacy
 			$cache_timeout = 3600 * $cache_timeout;
 		}
 		$updater = JUpdater::getInstance();
-		$results = $updater->findUpdates(700, $cache_timeout);
+		$updater->findUpdates(700, $cache_timeout);
 	}
 
 	/**
@@ -452,7 +452,6 @@ ENDDATA;
 		$element = preg_replace('/\.xml/', '', basename($manifestPath));
 
 		// Run the script file
-		$scriptElement = $manifest->scriptfile;
 		$manifestScript = (string) $manifest->scriptfile;
 
 		if ($manifestScript)

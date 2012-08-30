@@ -174,7 +174,7 @@ class InstallerModelInstall extends JModelLegacy
 
 		// Move uploaded file
 		jimport('joomla.filesystem.file');
-		$uploaded = JFile::upload($tmp_src, $tmp_dest);
+		JFile::upload($tmp_src, $tmp_dest);
 
 		// Unpack the downloaded package file
 		$package = JInstallerHelper::unpack($tmp_dest);
@@ -227,7 +227,6 @@ class InstallerModelInstall extends JModelLegacy
 	 */
 	protected function _getPackageFromUrl()
 	{
-		$db    = JFactory::getDbo();
 		$input = JFactory::getApplication()->input;
 
 		// Get the URL of the package to install

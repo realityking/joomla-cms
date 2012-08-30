@@ -423,13 +423,11 @@ class ContactModelContact extends JModelAdmin
 	 */
 	protected function prepareTable($table)
 	{
-		$date = JFactory::getDate();
-		$user = JFactory::getUser();
+		$table->name  = htmlspecialchars_decode($table->name, ENT_QUOTES);
+		$table->alias = JApplication::stringURLSafe($table->alias);
 
-		$table->name		= htmlspecialchars_decode($table->name, ENT_QUOTES);
-		$table->alias		= JApplication::stringURLSafe($table->alias);
-
-		if (empty($table->alias)) {
+		if (empty($table->alias))
+		{
 			$table->alias = JApplication::stringURLSafe($table->name);
 		}
 
@@ -438,7 +436,8 @@ class ContactModelContact extends JModelAdmin
 			$table->created	= $date->toSql();
 
 			// Set ordering to the last item if not set
-			if (empty($table->ordering)) {
+			if (empty($table->ordering))
+			{
 				$db = JFactory::getDbo();
 				$db->setQuery('SELECT MAX(ordering) FROM #__contact_details');
 				$max = $db->loadResult();

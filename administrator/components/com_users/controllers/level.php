@@ -48,8 +48,7 @@ class UsersControllerLevel extends JControllerForm
 		// Check for request forgeries.
 		JSession::checkToken() or jexit(JText::_('JInvalid_Token'));
 
-		$user = JFactory::getUser();
-		$ids  = $this->input->get('cid', array(), 'array');
+		$ids = $this->input->get('cid', array(), 'array');
 
 		if (!JFactory::getUser()->authorise('core.admin', $this->option)) {
 			JError::raiseError(500, JText::_('JERROR_ALERTNOAUTHOR'));

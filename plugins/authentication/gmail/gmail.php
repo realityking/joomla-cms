@@ -57,7 +57,7 @@ class plgAuthenticationGMail extends JPlugin
 				//curl_setopt($curl, CURLOPT_HEADER, 1);
 				curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
 				curl_setopt($curl, CURLOPT_USERPWD, $credentials['username'].':'.$credentials['password']);
-				$result = curl_exec($curl);
+				curl_exec($curl);
 				$code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 					switch ($code) {

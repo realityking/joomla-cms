@@ -302,7 +302,6 @@ class AdmintoolsHelperDownload
 		}
 		else
 		{
-
 			// PHP 4 way (actually, it's just a fallback)
 			if ( function_exists('ini_set') )
 			{

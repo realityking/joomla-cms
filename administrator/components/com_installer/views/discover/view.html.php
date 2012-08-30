@@ -40,10 +40,6 @@ class InstallerViewDiscover extends InstallerViewDefault
 	 */
 	protected function addToolbar()
 	{
-		$canDo	= InstallerHelper::getActions();
-		/*
-		 * Set toolbar items for the page
-		 */
 		JToolbarHelper::custom('discover.install', 'upload', 'upload', 'JTOOLBAR_INSTALL', true, false);
 		JToolbarHelper::custom('discover.refresh', 'refresh', 'refresh', 'COM_INSTALLER_TOOLBAR_DISCOVER', false, false);
 		JToolbarHelper::custom('discover.purge', 'purge', 'purge', 'JTOOLBAR_PURGE_CACHE', false, false);

@@ -48,7 +48,7 @@ class UsersModelReset extends JModelForm
 	public function getResetCompleteForm($data = array(), $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm('com_users.reset_complete', 'reset_complete', $options = array('control' => 'jform'));
+		$form = $this->loadForm('com_users.reset_complete', 'reset_complete', array('control' => 'jform'));
 		if (empty($form)) {
 			return false;
 		}
@@ -67,7 +67,7 @@ class UsersModelReset extends JModelForm
 	public function getResetConfirmForm($data = array(), $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm('com_users.reset_confirm', 'reset_confirm', $options = array('control' => 'jform'));
+		$form = $this->loadForm('com_users.reset_confirm', 'reset_confirm', array('control' => 'jform'));
 		if (empty($form)) {
 			return false;
 		}

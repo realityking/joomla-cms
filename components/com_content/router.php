@@ -76,7 +76,7 @@ function ContentBuildRoute(&$query)
 				// Make sure we have the id and the alias
 				if (strpos($query['id'], ':') === false) {
 					$db = JFactory::getDbo();
-					$aquery = $db->setQuery(
+					$db->setQuery(
 						$db->getQuery(true)
 						->select('alias')
 						->from('#__content')

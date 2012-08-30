@@ -24,13 +24,10 @@ class WeblinksViewWeblink extends JViewLegacy
 
 	public function display($tpl = null)
 	{
-		$app		= JFactory::getApplication();
-		$params		= $app->getParams();
+		$app = JFactory::getApplication();
 
 		// Get some data from the models
-		$state		= $this->get('State');
-		$item		= $this->get('Item');
-		$category	= $this->get('Category');
+		$item = $this->get('Item');
 
 		if ($this->getLayout() == 'edit') {
 			$this->_displayEdit($tpl);

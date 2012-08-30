@@ -254,9 +254,7 @@ class plgEditorCodemirror extends JPlugin
 				}
 			}
 
-			$html[] = '</div>';
-			$html[] = '</div>';
-			$return .= "<div class=\"clearfix\"></div>\n";
+			$html[] = '</div></div>';
 		}
 
 		return implode("\n", $html);

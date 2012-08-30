@@ -76,9 +76,8 @@ class JHtmlIcon
 	 */
 	public static function edit($article, $params, $attribs = array())
 	{
-		$user	= JFactory::getUser();
-		$userId	= $user->get('id');
-		$uri	= JURI::getInstance();
+		$user = JFactory::getUser();
+		$uri  = JURI::getInstance();
 
 		// Ignore if in a popup window.
 		if ($params && $params->get('popup')) {

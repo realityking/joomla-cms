@@ -180,8 +180,9 @@ class ContactModelContact extends JModelForm
 				$data->metadata = $registry;
 
 				// Compute access permissions.
-				if ($access = $this->getState('filter.access')) {
-
+				$access = $this->getState('filter.access');
+				if ($access)
+				{
 					// If the access filter has been set, we already know this user can view.
 					$data->params->set('access-view', true);
 				}
@@ -252,7 +253,6 @@ class ContactModelContact extends JModelForm
 
 			$query->where('a.id = ' . (int) $pk);
 			$published = $this->getState('filter.published');
-			$archived = $this->getState('filter.archived');
 			if (is_numeric($published)) {
 				$query->where('a.published IN (1,2)');
 				$query->where('cc.published IN (1,2)');

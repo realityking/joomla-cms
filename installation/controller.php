@@ -30,7 +30,6 @@ class InstallationController extends JControllerLegacy
 	{
 		// Get the current URI to redirect to.
 		$uri      = JURI::getInstance();
-		$redirect = base64_encode($uri);
 
 		// Get the document object.
 		$document = JFactory::getDocument();

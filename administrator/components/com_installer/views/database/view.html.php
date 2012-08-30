@@ -38,7 +38,6 @@ class InstallerViewDatabase extends InstallerViewDefault
 		$this->pagination = $this->get('Pagination');
 		$this->errorCount = count($this->errors);
 
-		$errors = count($this->errors);
 		if (!(strncmp($this->schemaVersion, JVERSION, 5) === 0))
 		{
 			$this->errorCount++;
@@ -62,10 +61,6 @@ class InstallerViewDatabase extends InstallerViewDefault
 	 */
 	protected function addToolbar()
 	{
-		$canDo	= InstallerHelper::getActions();
-		/*
-		 * Set toolbar items for the page
-		 */
 		JToolbarHelper::custom('database.fix', 'refresh', 'refresh', 'COM_INSTALLER_TOOLBAR_DATABASE_FIX', false, false);
 		JToolbarHelper::divider();
 		parent::addToolbar();

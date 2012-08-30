@@ -84,7 +84,7 @@ class InstallationControllerSetup extends JControllerLegacy
 		}
 
 		// Store the options in the session.
-		$vars = $model->storeOptions($return);
+		$model->storeOptions($return);
 
 		// Redirect to the page.
 		$r->view = $this->input->getWord('view', 'site');
@@ -110,7 +110,8 @@ class InstallationControllerSetup extends JControllerLegacy
 	 */
 	public function site()
 	{
-		if (!($vars = $this->checkForm('site')))
+		$vars = $this->checkForm('site');
+		if (!$vars)
 		{
 			return false;
 		}
@@ -163,7 +164,8 @@ class InstallationControllerSetup extends JControllerLegacy
 	 */
 	public function ftp()
 	{
-		if (!($vars = $this->checkForm('ftp')))
+		$vars = $this->checkForm('ftp');
+		if (!$vars)
 		{
 			return false;
 		}
@@ -180,7 +182,8 @@ class InstallationControllerSetup extends JControllerLegacy
 	 */
 	public function summary()
 	{
-		if (!($vars = $this->checkForm('summary')))
+		$vars = $this->checkForm('summary');
+		if (!$vars)
 		{
 			return false;
 		}
@@ -581,9 +584,6 @@ class InstallationControllerSetup extends JControllerLegacy
 
 		// Check for a valid token. If invalid, send a 403 with the error message.
 		JSession::checkToken('request') or $this->sendResponse(new Exception(JText::_('JINVALID_TOKEN'), 403));
-
-		// Get the posted config options.
-		$vars = $this->input->get('jform', array(), 'array');
 
 		$path = JPATH_INSTALLATION;
 		//check whether the folder still exists

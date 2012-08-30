@@ -43,8 +43,6 @@ class JInstallation extends JApplication
 	public function render()
 	{
 		$document = JFactory::getDocument();
-		$config   = JFactory::getConfig();
-		$user     = JFactory::getUser();
 
 		switch ($document->getType())
 		{

@@ -42,7 +42,6 @@ class ContentViewFeatured extends JViewLegacy
 	public function display($tpl = null)
 	{
 		$user = JFactory::getUser();
-		$app = JFactory::getApplication();
 
 		$state 		= $this->get('State');
 		$items 		= $this->get('Items');
@@ -61,7 +60,6 @@ class ContentViewFeatured extends JViewLegacy
 		// Get the metrics for the structural page layout.
 		$numLeading = $params->def('num_leading_articles', 1);
 		$numIntro = $params->def('num_intro_articles', 4);
-		$numLinks = $params->def('num_links', 4);
 
 		// Compute the article slugs and prepare introtext (runs content plugins).
 		foreach ($items as $i => & $item)

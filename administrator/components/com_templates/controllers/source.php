@@ -98,10 +98,9 @@ class TemplatesControllerSource extends JControllerLegacy
 	 */
 	public function edit()
 	{
-		$app		= JFactory::getApplication();
-		$model		= $this->getModel();
-		$recordId	= JRequest::getVar('id');
-		$context	= 'com_templates.edit.source';
+		$app      = JFactory::getApplication();
+		$recordId = JRequest::getVar('id');
+		$context  = 'com_templates.edit.source';
 
 		if (preg_match('#\.\.#', base64_decode($recordId))) {
 			return JError::raiseError(500, JText::_('COM_TEMPLATES_ERROR_SOURCE_FILE_NOT_FOUND'));

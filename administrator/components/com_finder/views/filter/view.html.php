@@ -65,7 +65,6 @@ class FinderViewFilter extends JViewLegacy
 		$user = JFactory::getUser();
 		$userId = $user->get('id');
 		$isNew = ($this->item->filter_id == 0);
-		$checkedOut = !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
 		$canDo = FinderHelper::getActions();
 
 		// Configure the toolbar.

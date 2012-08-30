@@ -58,8 +58,7 @@ class PluginsViewPlugins extends JViewLegacy
 	 */
 	protected function addToolbar()
 	{
-		$state	= $this->get('State');
-		$canDo	= PluginsHelper::getActions();
+		$canDo = PluginsHelper::getActions();
 
 		JToolbarHelper::title(JText::_('COM_PLUGINS_MANAGER_PLUGINS'), 'plugin');
 

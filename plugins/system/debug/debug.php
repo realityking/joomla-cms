@@ -409,7 +409,7 @@ class plgSystemDebug extends JPlugin
 		$selectQueryTypeTicker = array();
 		$otherQueryTypeTicker = array();
 
-		foreach ($log as $k => $sql)
+		foreach ($log as $sql)
 		{
 			// Start Query Type Ticker Additions
 			$fromStart = stripos($sql, 'from');
@@ -555,7 +555,8 @@ class plgSystemDebug extends JPlugin
 
 		$html .= '<ul>';
 
-		foreach (JFactory::getLanguage()->getPaths() as $extension => $files)
+		$paths = JFactory::getLanguage()->getPaths();
+		foreach ($paths as $files)
 		{
 			foreach ($files as $file => $status)
 			{
@@ -617,12 +618,11 @@ class plgSystemDebug extends JPlugin
 				}
 
 				// Prepare the key
-
-				if (($pos = strpos($info['string'], '=')) > 0)
+				if (strpos($info['string'], '=') > 0)
 				{
-					$parts	= explode('=', $info['string']);
-					$key	= $parts[0];
-					$guess	= $parts[1];
+					$parts = explode('=', $info['string']);
+					$key   = $parts[0];
+					$guess = $parts[1];
 				}
 				else
 				{
