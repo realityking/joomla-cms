@@ -68,10 +68,10 @@ $input = JFactory::getApplication()->input;
 							<li><a href="#" id="upload-clear"><?php echo JText::_('COM_MEDIA_CLEAR_LIST'); ?></a></li>
 							<li><a href="#" id="upload-start"><?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?></a></li>
 						</ul>
-						<div class="clr"> </div>
+						<div class="clr"></div>
 						<p class="overall-title"></p>
 						<div class="overall-progress"></div>
-						<div class="clr"> </div>
+						<div class="clr"></div>
 						<p class="current-title"></p>
 						<div class="current-progress"></div>
 						<p class="current-text"></p>
