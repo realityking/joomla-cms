@@ -46,9 +46,6 @@ JText::script('INSTL_FTP_SETTINGS_CORRECT');
 		</script>
 		<jdoc:include type="head" />
 
-		<!--[if IE 7]>
-			<link href="template/css/ie7.css" rel="stylesheet" type="text/css" />
-		<![endif]-->
 		<script type="text/javascript">
 			window.addEvent('domready', function() {
 				window.Install = new Installation('container-installation', '<?php echo JURI::current(); ?>');
