@@ -27,7 +27,6 @@ $option   = $app->input->getCmd('option', '');
 $view     = $app->input->getCmd('view', '');
 $layout   = $app->input->getCmd('layout', '');
 $task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->getCfg('sitename');
 ?>
 <!DOCTYPE html>
@@ -62,7 +61,7 @@ $sitename = $app->getCfg('sitename');
 	</style>
 </head>
 
-<body class="site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " itemid-" . $itemid . " ";?>">
+<body class="site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " ";?>">
 	<!-- Container -->
 	<div class="container">
 		<div id="content">
