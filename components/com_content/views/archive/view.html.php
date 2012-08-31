@@ -28,8 +28,8 @@ class ContentViewArchive extends JViewLegacy
 
 	public function display($tpl = null)
 	{
-		$app = JFactory::getApplication();
-		$user		= JFactory::getUser();
+		$app  = JFactory::getApplication();
+		$user = JFactory::getUser();
 
 		$state 		= $this->get('State');
 		$items 		= $this->get('Items');
@@ -92,8 +92,8 @@ class ContentViewArchive extends JViewLegacy
 		$this->form       = &$form;
 		$this->items      = &$items;
 		$this->params     = &$params;
-		$this->user       = &$user;
-		$this->pagination = &$pagination;
+		$this->user       = $user;
+		$this->pagination = $pagination;
 
 		$this->_prepareDocument();
 

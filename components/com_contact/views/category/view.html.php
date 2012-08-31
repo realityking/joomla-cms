@@ -99,7 +99,7 @@ class ContactViewCategory extends JViewLegacy
 		$this->children   = &$children;
 		$this->params     = &$params;
 		$this->parent     = &$parent;
-		$this->pagination = &$pagination;
+		$this->pagination = $pagination;
 
 		//Escape strings for HTML output
 		$this->pageclass_sfx = htmlspecialchars($this->params->get('pageclass_sfx'));

@@ -38,8 +38,8 @@ class ContentViewCategory extends JViewLegacy
 
 	public function display($tpl = null)
 	{
-		$app	= JFactory::getApplication();
-		$user	= JFactory::getUser();
+		$app  = JFactory::getApplication();
+		$user = JFactory::getUser();
 
 		// Get some data from the models
 		$state		= $this->get('State');
@@ -170,8 +170,8 @@ class ContentViewCategory extends JViewLegacy
 		$this->children   = &$children;
 		$this->params     = &$params;
 		$this->parent     = &$parent;
-		$this->pagination = &$pagination;
-		$this->user       = &$user;
+		$this->pagination = $pagination;
+		$this->user       = $user;
 
 		$this->_prepareDocument();
 

@@ -83,7 +83,7 @@ class AdminModelSysInfo extends JModelLegacy
 	 *
 	 * @return array config values
 	 */
-	public function &getConfig()
+	public function getConfig()
 	{
 		if (is_null($this->config))
 		{
@@ -102,7 +102,7 @@ class AdminModelSysInfo extends JModelLegacy
 	 *
 	 * @return array system information values
 	 */
-	public function &getInfo()
+	public function getInfo()
 	{
 		if (is_null($this->info))
 		{
@@ -134,7 +134,7 @@ class AdminModelSysInfo extends JModelLegacy
 	 *
 	 * @return string PHP info
 	 */
-	public function &getPHPInfo()
+	public function getPHPInfo()
 	{
 		if (is_null($this->php_info))
 		{
@@ -280,7 +280,7 @@ class AdminModelSysInfo extends JModelLegacy
 	 *
 	 * has to be removed (it is present in the config...)
 	 */
-	public function &getEditor()
+	public function getEditor()
 	{
 		if (is_null($this->editor))
 		{

@@ -149,7 +149,7 @@ class ContactViewContact extends JViewLegacy
 		$this->return   = &$return;
 		$this->state    = &$state;
 		$this->item     = &$item;
-		$this->user     = &$user;
+		$this->user     = $user;
 		$this->contacts = &$contacts;
 
 		// Override the layout only if this is not the active menu item

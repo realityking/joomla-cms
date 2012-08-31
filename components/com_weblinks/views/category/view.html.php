@@ -98,7 +98,7 @@ class WeblinksViewCategory extends JViewLegacy
 		$this->children   = &$children;
 		$this->params     = &$params;
 		$this->parent     = &$parent;
-		$this->pagination = &$pagination;
+		$this->pagination = $pagination;
 
 		//Escape strings for HTML output
 		$this->pageclass_sfx = htmlspecialchars($params->get('pageclass_sfx'));

@@ -65,12 +65,12 @@ class FinderViewSearch extends JViewLegacy
 		}
 
 		// Push out the view data.
-		$this->state = &$state;
-		$this->params = &$params;
-		$this->query = &$query;
-		$this->results = &$results;
-		$this->total = &$total;
-		$this->pagination = &$pagination;
+		$this->state      = &$state;
+		$this->params     = &$params;
+		$this->query      = &$query;
+		$this->results    = &$results;
+		$this->total      = &$total;
+		$this->pagination = $pagination;
 
 		// Check for a double quote in the query string.
 		if (strpos($this->query->input, '"'))

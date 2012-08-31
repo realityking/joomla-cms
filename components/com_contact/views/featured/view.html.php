@@ -86,7 +86,7 @@ class ContactViewFeatured extends JViewLegacy
 		$this->children   = &$children;
 		$this->params     = &$params;
 		$this->parent     = &$parent;
-		$this->pagination = &$pagination;
+		$this->pagination = $pagination;
 
 		$this->_prepareDocument();
 

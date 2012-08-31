@@ -127,8 +127,8 @@ class ContentViewFeatured extends JViewLegacy
 
 		$this->params     = &$params;
 		$this->items      = &$items;
-		$this->pagination = &$pagination;
-		$this->user       = &$user;
+		$this->pagination = $pagination;
+		$this->user       = $user;
 
 		$this->_prepareDocument();
 

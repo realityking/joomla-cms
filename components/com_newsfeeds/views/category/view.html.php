@@ -92,7 +92,7 @@ class NewsfeedsViewCategory extends JViewLegacy
 		$this->children   = &$children;
 		$this->params     = &$params;
 		$this->parent     = &$parent;
-		$this->pagination = &$pagination;
+		$this->pagination = $pagination;
 
 		// Check for layout override only if this is not the active menu item
 		// If it is the active menu item, then the view and category id will match

@@ -47,7 +47,7 @@ class AdminModelHelp extends JModelLegacy
 	 * Method to get the help search string
 	 * @return string Help search string
 	 */
-	public function &getHelpSearch()
+	public function getHelpSearch()
 	{
 		if (is_null($this->help_search)) {
 			$this->help_search = JFactory::getApplication()->input->getString('helpsearch');
@@ -59,7 +59,7 @@ class AdminModelHelp extends JModelLegacy
 	 * Method to get the page
 	 * @return string page
 	 */
-	public function &getPage()
+	public function getPage()
 	{
 		if (is_null($this->page))
 		{
@@ -95,7 +95,7 @@ class AdminModelHelp extends JModelLegacy
 	 * Method to get the toc
 	 * @return array Table of contents
 	 */
-	public function &getToc()
+	public function getToc()
 	{
 		if (is_null($this->toc))
 		{
@@ -143,7 +143,7 @@ class AdminModelHelp extends JModelLegacy
 	 * Method to get the latest version check;
 	 * @return string Latest Version Check URL
 	 */
-	public function &getLatestVersionCheck()
+	public function getLatestVersionCheck()
 	{
 		if (!$this->latest_version_check) {
 			$override = 'http://help.joomla.org/proxy/index.php?option=com_help&keyref=Help{major}{minor}:Joomla_Version_{major}_{minor}_{maintenance}';
