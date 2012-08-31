@@ -215,7 +215,6 @@ else
 	</div>
 	<!-- End Status Module -->
 	<?php endif; ?>
-	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
 			$('*[rel=tooltip]').tooltip()

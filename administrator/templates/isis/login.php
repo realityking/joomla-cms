@@ -92,7 +92,6 @@ $sitename = $app->getCfg('sitename');
 			</div>
 		</div>
 	</div>
-	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
 			$('*[rel=tooltip]').tooltip()
