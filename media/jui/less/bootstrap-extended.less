@@ -387,6 +387,8 @@ fieldset.radio.btn-group {
 /* Accessible Hidden Elements (good for hidden labels and such) */
 .element-invisible{
 	position: absolute;
+	left: -9999em;
+	top: -9999em;
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -412,4 +414,19 @@ fieldset.radio.btn-group {
 /* Auto Width */
 .width-auto {
 	width: auto;
+}
+
+/* Small headings */
+.h-small {
+  font-size: 14px;
+  small {
+    font-size: 12px;
+  }
+}
+
+.h-extrasmall {
+  font-size: 11px;
+  color: @grayLight;
+  text-transform: uppercase;
+  line-height: @baseLineHeight;
 }

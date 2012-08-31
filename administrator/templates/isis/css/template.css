@@ -5731,3 +5731,17 @@ ul.manager .height-50 .icon-folder-2 {
   line-height: 35px;
   font-size: 30px;
 }
+
+.h-small {
+  font-size: 14px;
+  small {
+    font-size: 12px;
+  }
+}
+
+.h-extrasmall {
+  font-size: 11px;
+  color: @grayLight;
+  text-transform: uppercase;
+  line-height: @baseLineHeight;
+}
