@@ -160,7 +160,7 @@ abstract class JHtmlBootstrap
 			$debug  = (boolean) $config->get('debug');
 		}
 
-		JHtml::_('script', 'jui/bootstrap.min.js', false, true, false, false, $debug);
+		JHtml::_('script', 'bootstrap/bootstrap.min.js', false, true, false, false, $debug);
 		self::$loaded[__METHOD__] = true;
 
 		return;
