@@ -36,12 +36,6 @@ if (is_file($file))
 	$doc->addStyleSheet($file);
 }
 
-// Detecting Active Variables
-$option   = $input->get('option', '');
-$view     = $input->get('view', '');
-$layout   = $input->get('layout', '');
-$task     = $input->get('task', '');
-$itemid   = $input->get('Itemid', '');
 $sitename = $app->getCfg('sitename');
 
 $showSubmenu = false;
@@ -92,7 +86,7 @@ else
 	?>
 </head>
 
-<body class="admin <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " itemid-" . $itemid . " ";?>" data-spy="scroll" data-target=".subhead" data-offset="87">
+<body data-spy="scroll" data-target=".subhead" data-offset="87">
 	<!-- Top Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">

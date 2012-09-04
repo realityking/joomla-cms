@@ -13,11 +13,8 @@ $app = JFactory::getApplication();
 $doc = JFactory::getDocument();
 
 // Detecting Active Variables
-$option   = $app->input->getCmd('option', '');
-$view     = $app->input->getCmd('view', '');
 $layout   = $app->input->getCmd('layout', '');
 $task     = $app->input->getCmd('task', '');
-$itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->getCfg('sitename');
 
 if($task == "edit" || $layout == "form" )
@@ -117,7 +114,7 @@ else
 	?>
 </head>
 
-<body class="site <?php echo $option . " view-" . $view . " layout-" . $layout . " task-" . $task . " itemid-" . $itemid . " ";?> <?php if ($this->params->get('fluidContainer')) { echo "fluid"; } ?>">
+<body<?php if ($this->params->get('fluidContainer')) { echo ' class="fluid"'; } ?>>
 
 	<!-- Body -->
 	<div class="body">
