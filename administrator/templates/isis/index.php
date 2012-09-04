@@ -44,6 +44,8 @@ $task     = $input->get('task', '');
 $itemid   = $input->get('Itemid', '');
 $sitename = $app->getCfg('sitename');
 
+$cpanel = ($option === 'com_cpanel');
+
 $showSubmenu = false;
 $this->submenumodules = JModuleHelper::getModules('submenu');
 foreach ($this->submenumodules as $submenumodule)
@@ -138,6 +140,9 @@ else
 			</div>
 		</div>
 	</header>
+	<?php
+	if (!$cpanel):
+	?>
 	<!-- Subheader -->
 	<a class="btn btn-subhead" data-toggle="collapse" data-target=".subhead-collapse"><?php echo JText::_('TPL_ISIS_TOOLBAR');?> <i class="icon-wrench"></i></a>
 	<div class="subhead-collapse">
@@ -152,6 +157,13 @@ else
 			</div>
 		</div>
 	</div>
+	<?php
+	else:
+	?>
+	<div style="margin-bottom: 20px"></div>
+	<?php
+	endif;
+	?>
 	<!-- container-fluid -->
 	<div class="container-fluid container-main">
 		<section id="content">
