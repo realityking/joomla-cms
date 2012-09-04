@@ -76,7 +76,7 @@ class JEventDispatcher extends JObject
 	/**
 	 * Get the state of the JEventDispatcher object
 	 *
-	 * @return  mixed    The state of the object.
+	 * @return  mixed  The state of the object.
 	 *
 	 * @since   11.3
 	 */
@@ -94,7 +94,7 @@ class JEventDispatcher extends JObject
 	 * @return  void
 	 *
 	 * @since   11.1
-	 * @throws InvalidArgumentException
+	 * @throws  InvalidArgumentException
 	 */
 	public function register($event, $handler)
 	{
@@ -107,6 +107,7 @@ class JEventDispatcher extends JObject
 		}
 		elseif (class_exists($handler))
 		{
+			JLog::add('JEventDispatcher::register() should only be used with values for $handler that are callable.', JLog::WARNING, 'deprecated');
 			// Ok, class type event handler... let's instantiate and attach it.
 			$this->attach(new $handler($this));
 		}
@@ -157,8 +158,22 @@ class JEventDispatcher extends JObject
 			// Fire the event for an object based observer.
 			if (is_object($this->_observers[$key]))
 			{
-				$args['event'] = $event;
-				$value = $this->_observers[$key]->update($args);
+				if ($this->_observers[$key] instanceof JEventSubscriber)
+				{
+					if (method_exists($this->_observers[$key], $event))
+					{
+						$value = call_user_func_array(array($this->_observers[$key], $event), $args);
+					}
+					else
+					{
+						$value = null;
+					}
+				}
+				else
+				{
+					$args['event'] = $event;
+					$value = $this->_observers[$key]->update($args);
+				}
 			}
 			// Fire the event for a function based observer.
 			elseif (is_array($this->_observers[$key]))
@@ -175,6 +190,79 @@ class JEventDispatcher extends JObject
 	}
 
 	/**
+	 * Adds an event subscriber.
+	 *
+	 * @param   JEventSubscriber  $subscriber  The subscriber to add
+	 *
+	 * @return  void
+	 *
+	 * @since   12.2
+	 */
+	public function addSubscriber(JEventSubscriber $subscriber)
+	{
+		// Make sure we haven't already attached this object as an observer
+		$class = get_class($subscriber);
+
+		foreach ($this->_observers as $check)
+		{
+			if ($check instanceof $class)
+			{
+				return;
+			}
+		}
+
+		$this->_observers[] = $subscriber;
+		$methods = $subscriber::getSubscribedEvents();
+		$key = key($this->_observers);
+
+		foreach ($methods as $method)
+		{
+			$method = strtolower($method);
+
+			if (!isset($this->_methods[$method]))
+			{
+				$this->_methods[$method] = array();
+			}
+
+			$this->_methods[$method][] = $key;
+		}
+	}
+
+	/**
+	 * Removes an event subscriber.
+	 *
+	 * @param   JEventSubscriber  $subscriber  The subscriber
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since   12.2
+	 */
+	function removeSubscriber(JEventSubscriber $subscriber)
+	{
+		$retval = false;
+
+		$key = array_search($subscriber, $this->_observers);
+
+		if ($key !== false)
+		{
+			unset($this->_observers[$key]);
+			$retval = true;
+
+			foreach ($this->_methods as &$method)
+			{
+				$k = array_search($key, $method);
+
+				if ($k !== false)
+				{
+					unset($method[$k]);
+				}
+			}
+		}
+
+		return $retval;
+	}
+
+	/**
 	 * Attach an observer object
 	 *
 	 * @param   object  $observer  An observer object to attach
@@ -182,6 +270,7 @@ class JEventDispatcher extends JObject
 	 * @return  void
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function attach($observer)
 	{
@@ -224,7 +313,7 @@ class JEventDispatcher extends JObject
 			}
 
 			$this->_observers[] = $observer;
-			$methods = array_diff(get_class_methods($observer), get_class_methods('JPlugin'));
+			$methods = get_class_methods($observer);
 		}
 
 		$key = key($this->_observers);
@@ -250,6 +339,7 @@ class JEventDispatcher extends JObject
 	 * @return  boolean  True if the observer object was detached.
 	 *
 	 * @since   11.3
+	 * @deprecated  13.3
 	 */
 	public function detach($observer)
 	{

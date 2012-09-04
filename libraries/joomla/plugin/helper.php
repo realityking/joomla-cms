@@ -187,7 +187,8 @@ abstract class JPluginHelper
 						}
 
 						// Instantiate and register the plugin.
-						new $className($dispatcher, (array) ($plugin));
+						$instance = new $className($dispatcher, (array) ($plugin));
+						$dispatcher->addSubscriber($instance);
 					}
 				}
 			}
