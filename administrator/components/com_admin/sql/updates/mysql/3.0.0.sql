@@ -40,6 +40,94 @@ UPDATE `#__extensions` SET protected = 0 WHERE
 `name` = 'plg_user_contactcreator' OR
 `name` = 'plg_user_profile';
 
+# Columns with boolean values should be a tinyint
+ALTER TABLE `#__languages` MODIFY `published` tinyint(1) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__update_sites` MODIFY `enabled` tinyint(1) unsigned NOT NULL DEFAULT '0';
+
+# extension_id should be a mediumint unsigned
+ALTER TABLE `#__extensions` MODIFY `extension_id` mediumint unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__menu` MODIFY `component_id` mediumint unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__schemas` MODIFY `extension_id` mediumint unsigned NOT NULL;
+ALTER TABLE `#__update_sites_extensions` MODIFY `extension_id` mediumint unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__updates` MODIFY `extension_id` mediumint unsigned NOT NULL DEFAULT '0';
+
+# update_site_id should be a mediumint unsigned
+ALTER TABLE `#__update_sites` MODIFY `update_site_id` mediumint unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__update_sites_extensions` MODIFY `update_site_id` mediumint unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__updates` MODIFY `update_site_id` mediumint unsigned NOT NULL DEFAULT '0';
+
+# #__content.id is an int unsigned
+ALTER TABLE `#__content` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__content_frontpage` MODIFY `content_id` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__content_rating` MODIFY `content_id` int unsigned NOT NULL DEFAULT '0';
+
+# #__categories.id should be an int unsigned
+ALTER TABLE `#__categories` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__banners` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__contact_details` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__content` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__newsfeeds` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__user_notes` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__weblinks` MODIFY `catid` int unsigned NOT NULL DEFAULT '0';
+
+# #__menu.id should be an int unsigned
+ALTER TABLE `#__menu` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__menu` MODIFY `parent_id` int unsigned NOT NULL DEFAULT '1';
+ALTER TABLE `#__modules_menu` MODIFY `menuid` int unsigned NOT NULL DEFAULT '0';
+
+# #__modules.id should be an int unsigned
+ALTER TABLE `#__modules` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__modules_menu` MODIFY `moduleid` int unsigned NOT NULL DEFAULT '0';
+
+# #__usergroups.id should be an int unsigned
+ALTER TABLE `#__usergroups` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__user_usergroup_map` MODIFY `group_id` int unsigned DEFAULT '0';
+
+# Other id's should be unsigned too
+ALTER TABLE `#__updates` MODIFY `update_id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__overrider` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__contact_details` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+
+# The userid should be an int unsigned
+ALTER TABLE `#__users` MODIFY `id` int unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `#__user_profiles` MODIFY `user_id` int unsigned NOT NULL;
+ALTER TABLE `#__messages` MODIFY `user_id_from` int unsigned DEFAULT '0';
+ALTER TABLE `#__messages` MODIFY `user_id_to` int unsigned DEFAULT '0';
+ALTER TABLE `#__messages_cfg` MODIFY `user_id` int unsigned DEFAULT '0';
+ALTER TABLE `#__session` MODIFY `userid` int unsigned DEFAULT '0';
+ALTER TABLE `#__user_usergroup_map` MODIFY `user_id` int unsigned DEFAULT '0';
+ALTER TABLE `#__user_notes` MODIFY `user_id` int unsigned DEFAULT '0';
+
+## Deal with all the checked_out columns
+ALTER TABLE `#__banners` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__banner_clients` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__categories` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__contact_details` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__content` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__extensions` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__finder_filters` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__menu` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__modules` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__newsfeeds` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__user_notes` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__weblinks` MODIFY `checked_out` int unsigned NOT NULL DEFAULT '0';
+
+## Modify the created_by, modified_by columns
+ALTER TABLE `#__categories` MODIFY `created_user_id` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__categories` MODIFY `modified_user_id` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__contact_details` MODIFY `created_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__contact_details` MODIFY `modified_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__content` MODIFY `created_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__content` MODIFY `modified_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__finder_filters` MODIFY `created_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__finder_filters` MODIFY `modified_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__newsfeeds` MODIFY `created_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__newsfeeds` MODIFY `modified_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__user_notes` MODIFY `created_user_id` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__user_notes` MODIFY `modified_user_id` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__weblinks` MODIFY `created_by` int unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__weblinks` MODIFY `modified_by` int unsigned NOT NULL DEFAULT '0';
+
 # Change most tables to InnoDB
 ALTER TABLE `#__assets` ENGINE=InnoDB;
 ALTER TABLE `#__associations` ENGINE=InnoDB;
@@ -110,10 +198,10 @@ ALTER TABLE `#__newsfeeds` ADD COLUMN `hits` int(10) unsigned NOT NULL DEFAULT '
 ALTER TABLE `#__newsfeeds` ADD COLUMN `images` text NOT NULL;
 ALTER TABLE `#__contact_details` ADD COLUMN `version` int(10) unsigned NOT NULL DEFAULT '1';
 ALTER TABLE `#__contact_details` ADD COLUMN `hits` int(10) unsigned NOT NULL DEFAULT '0';
-ALTER TABLE `#__banners` ADD COLUMN `created_by` int(10) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__banners` ADD COLUMN `created_by` int unsigned NOT NULL DEFAULT '0';
 ALTER TABLE `#__banners` ADD COLUMN `created_by_alias` varchar(255) NOT NULL DEFAULT '';
 ALTER TABLE `#__banners` ADD COLUMN `modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00';
-ALTER TABLE `#__banners` ADD COLUMN `modified_by` int(10) unsigned NOT NULL DEFAULT '0';
+ALTER TABLE `#__banners` ADD COLUMN `modified_by` int unsigned NOT NULL DEFAULT '0';
 ALTER TABLE `#__banners` ADD COLUMN `version` int(10) unsigned NOT NULL DEFAULT '1';
 ALTER TABLE `#__categories` ADD COLUMN `version` int(10) unsigned NOT NULL DEFAULT '1';
 
