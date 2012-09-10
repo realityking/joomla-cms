@@ -401,18 +401,14 @@ ENDDATA;
 
 		// Write new file. First try with JFile.
 		$result = JFile::write($configpath, $data);
+
 		// In case JFile used FTP but direct access could help
-		if(!$result) {
-			if(function_exists('file_put_contents')) {
-				$result = @file_put_contents($configpath, $data);
-				if($result !== false) $result = true;
-			} else {
-				$fp = @fopen($configpath, 'wt');
-				if($fp !== false) {
-					$result = @fwrite($fp, $data);
-					if($result !== false) $result = true;
-					@fclose($fp);
-				}
+		if (!$result)
+		{
+			$result = @file_put_contents($configpath, $data);
+			if ($result !== false)
+			{
+				$result = true;
 			}
 		}
 		return $result;
