@@ -174,31 +174,27 @@ class AdminModelSysInfo extends JModelLegacy
 			$this->_addDirectory('administrator/language', JPATH_ADMINISTRATOR . '/language');
 
 			// List all admin languages
-			$admin_langs = new DirectoryIterator(JPATH_ADMINISTRATOR . '/language');
-			foreach ($admin_langs as $alang)
+			$admin_langs = new FilesystemIterator(JPATH_ADMINISTRATOR . '/language');
+			foreach ($admin_langs as $path => $alang)
 			{
-				if (!$alang->isDir() || $alang->isDot())
+				if (!$alang->isDir())
 				{
 					continue;
 				}
 
-				$name = $alang->getFilename();
-
-				$this->_addDirectory('administrator/language/' . $name, JPATH_ADMINISTRATOR . '/language/' . $name);
+				$this->_addDirectory('administrator/language/' . $alang->getFilename(), $path);
 			}
 
 			// List all manifests folders
-			$manifests = new DirectoryIterator(JPATH_ADMINISTRATOR . '/manifests');
-			foreach ($manifests as $manifest)
+			$manifests = new FilesystemIterator(JPATH_ADMINISTRATOR . '/manifests');
+			foreach ($manifests as $path => $manifest)
 			{
-				if (!$manifest->isDir() || $manifest->isDot())
+				if (!$manifest->isDir())
 				{
 					continue;
 				}
 
-				$name = $manifest->getFilename();
-
-				$this->_addDirectory('administrator/manifests/' . $name, JPATH_ADMINISTRATOR . '/manifests/' . $name);
+				$this->_addDirectory('administrator/manifests/' . $manifest->getFilename(), $path);
 			}
 
 			$this->_addDirectory('administrator/modules', JPATH_ADMINISTRATOR . '/modules');
@@ -209,33 +205,29 @@ class AdminModelSysInfo extends JModelLegacy
 			$this->_addDirectory($cparams->get('image_path'), JPATH_SITE . '/' . $cparams->get('image_path'));
 
 			// List all images folders
-			$image_folders = new DirectoryIterator(JPATH_SITE . '/' . $cparams->get('image_path'));
-			foreach ($image_folders as $folder)
+			$image_folders = new FilesystemIterator(JPATH_SITE . '/' . $cparams->get('image_path'));
+			foreach ($image_folders as $path => $folder)
 			{
-				if (!$folder->isDir() || $folder->isDot())
+				if (!$folder->isDir())
 				{
 					continue;
 				}
 
-				$name = $manifest->getFilename();
-
-				$this->_addDirectory('images/' . $name, JPATH_SITE . '/' . $cparams->get('image_path') . '/' . $name);
+				$this->_addDirectory('images/' . $folder->getFilename(), $path);
 			}
 
 			$this->_addDirectory('language', JPATH_SITE . '/language');
 
 			// List all site languages
-			$site_langs = new DirectoryIterator(JPATH_SITE . '/language');
-			foreach ($site_langs as $alang)
+			$site_langs = new FilesystemIterator(JPATH_SITE . '/language');
+			foreach ($site_langs as $path => $alang)
 			{
-				if (!$alang->isDir() || $alang->isDot())
+				if (!$alang->isDir())
 				{
 					continue;
 				}
 
-				$name = $alang->getFilename();
-
-				$this->_addDirectory('language/' . $name, JPATH_SITE . '/language/' . $name);
+				$this->_addDirectory('language/' . $alang->getFilename(), $path);
 			}
 
 			$this->_addDirectory('libraries', JPATH_LIBRARIES);
@@ -244,17 +236,15 @@ class AdminModelSysInfo extends JModelLegacy
 			$this->_addDirectory('modules', JPATH_SITE . '/modules');
 			$this->_addDirectory('plugins', JPATH_PLUGINS);
 
-			$plugin_groups = new DirectoryIterator(JPATH_SITE . '/language');
-			foreach ($plugin_groups as $folder)
+			$plugin_groups = new FilesystemIterator(JPATH_PLUGINS);
+			foreach ($plugin_groups as $path => $folder)
 			{
-				if (!$alang->isDir() || $alang->isDot())
+				if (!$folder->isDir())
 				{
 					continue;
 				}
 
-				$name = $alang->getFilename();
-
-				$this->_addDirectory('plugins/' . $name, JPATH_PLUGINS . '/' . $name);
+				$this->_addDirectory('plugins/' . $folder->getFilename(), $path);
 			}
 
 			$this->_addDirectory('templates', JPATH_SITE . '/templates');

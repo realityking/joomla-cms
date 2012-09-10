@@ -93,49 +93,65 @@ class AdminModelHelp extends JModelLegacy
 
 	/**
 	 * Method to get the toc
-	 * @return array Table of contents
+	 *
+	 * @return  array  Table of contents
 	 */
-	public function &getToc()
+	public function getToc()
 	{
-		if (is_null($this->toc))
+		if (!is_null($this->toc))
 		{
-			// Get vars
-			$lang_tag = $this->getLangTag();
-			$help_search = $this->getHelpSearch();
+			return $this->toc;
+		}
 
-			// Get Help files
-			jimport('joomla.filesystem.folder');
-			$files = JFolder::files(JPATH_BASE . '/help/' . $lang_tag, '\.xml$|\.html$');
-			$this->toc = array();
-			foreach($files as $file)
+		$lang_tag = $this->getLangTag();
+		$help_search = $this->getHelpSearch();
+
+		$this->toc = array();
+
+		$iterator = new FilesystemIterator(JPATH_BASE . '/help/' . $lang_tag);
+
+		foreach ($iterator as $path => $file)
+		{
+			$fileName = $file->getFilename();
+
+			// Only load xml and html files.
+			// Note: DirectoryIterator::getExtension only available PHP >= 5.3.6
+			$ext = substr($fileName, strrpos($fileName, '.') + 1);
+			if (!$file->isFile() || ($ext !== 'xml' && $ext !== 'html'))
 			{
-				$buffer = file_get_contents(JPATH_BASE . '/help/' . $lang_tag . '/' . $file);
-				if (preg_match('#<title>(.*?)</title>#', $buffer, $m))
+				continue;
+			}
+
+			$buffer = file_get_contents($path);
+			if (preg_match('#<title>(.*?)</title>#', $buffer, $m))
+			{
+				$title = trim($m[1]);
+				if ($title)
 				{
-					$title = trim($m[1]);
-					if ($title) {
-						// Translate the page title
-						$title = JText::_($title);
-						// strip the extension
-						$file = preg_replace('#\.xml$|\.html$#', '', $file);
-						if ($help_search)
-						{
-							if (JString::strpos(JString::strtolower(strip_tags($buffer)), JString::strtolower($help_search)) !== false) {
-								// Add an item in the Table of Contents
-								$this->toc[$file] = $title;
-							}
-						}
-						else
+					// Translate the page title
+					$title = JText::_($title);
+
+					// Strip the extension
+					$file = preg_replace('#\.xml$|\.html$#', '', $path);
+					if ($help_search)
+					{
+						if (JString::strpos(JString::strtolower(strip_tags($buffer)), JString::strtolower($help_search)) !== false)
 						{
 							// Add an item in the Table of Contents
-							$this->toc[$file] = $title;
+							$this->toc[$path] = $title;
 						}
+					}
+					else
+					{
+						// Add an item in the Table of Contents
+						$this->toc[$path] = $title;
 					}
 				}
 			}
-			// Sort the Table of Contents
-			asort($this->toc);
 		}
+
+		// Sort the Table of Contents
+		asort($this->toc);
 		return $this->toc;
 	}
 
@@ -151,5 +167,4 @@ class AdminModelHelp extends JModelLegacy
 		}
 		return $this->latest_version_check;
 	}
-
 }

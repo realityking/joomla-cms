@@ -35,7 +35,7 @@ class AdmintoolsHelperDownload
 		$hackPermissions = false;
 
 		// Make sure the target does not exist
-		if (JFile::exists($target))
+		if (is_file($target))
 		{
 			if (!@unlink($target))
 			{

@@ -29,11 +29,11 @@ class TemplatesModelTemplate extends JModelLegacy
 	protected function getFile($path, $name)
 	{
 		$temp = new stdClass;
-
-		if ($template = $this->getTemplate()) {
+		if ($template = $this->getTemplate())
+		{
 			$temp->name = $name;
-			$temp->exists = file_exists($path.$name);
-			$temp->id = urlencode(base64_encode($template->extension_id.':'.$name));
+			$temp->exists = file_exists($path . $name);
+			$temp->id = urlencode(base64_encode($template->extension_id . ':' . $name));
 			return $temp;
 		}
 	}
@@ -48,9 +48,8 @@ class TemplatesModelTemplate extends JModelLegacy
 	{
 		$result	= array();
 
-		if ($template = $this->getTemplate()) {
-			jimport('joomla.filesystem.folder');
-
+		if ($template = $this->getTemplate())
+		{
 			$client = JApplicationHelper::getClientInfo($template->client_id);
 			$path	= JPath::clean($client->path.'/templates/'.$template->element.'/');
 			$lang	= JFactory::getLanguage();
@@ -62,8 +61,8 @@ class TemplatesModelTemplate extends JModelLegacy
 				||	$lang->load('tpl_'.$template->element, $client->path.'/templates/'.$template->element, $lang->getDefault(), false, false);
 
 			// Check if the template path exists.
-
-			if (is_dir($path)) {
+			if (is_dir($path))
+			{
 				$result['main'] = array();
 				$result['css'] = array();
 				$result['clo'] = array();
@@ -77,10 +76,19 @@ class TemplatesModelTemplate extends JModelLegacy
 				$result['main']['offline'] = $this->getFile($path, 'offline.php');
 
 				// Handle the CSS files.
-				$files = JFolder::files($path.'/css', '\.css$', false, false);
+				$files = new FilesystemIterator($path . '/css');
 
-				foreach ($files as $file) {
-					$result['css'][] = $this->getFile($path.'/css/', 'css/'.$file);
+				foreach ($files as $file)
+				{
+					$fileName = $file->getFilename();
+
+					// Only load css files.
+					// Note: DirectoryIterator::getExtension only available PHP >= 5.3.6
+					if (!$file->isFile() || substr($fileName, strrpos($fileName, '.') + 1) != 'css')
+					{
+						continue;
+					}
+					$result['css'][] = $this->getFile($path . '/css', 'css/' . $fileName);
 				}
 			} else {
 				$this->setError(JText::_('COM_TEMPLATES_ERROR_TEMPLATE_FOLDER_NOT_FOUND'));
@@ -198,7 +206,7 @@ class TemplatesModelTemplate extends JModelLegacy
 
 			// Delete new folder if it exists
 			$toPath = $this->getState('to_path');
-			if (JFolder::exists($toPath))
+			if (is_dir($toPath))
 			{
 				if (!JFolder::delete($toPath))
 				{
@@ -213,7 +221,7 @@ class TemplatesModelTemplate extends JModelLegacy
 				return false;
 			}
 
-		return true;
+			return true;
 		}
 		else
 		{
@@ -248,6 +256,9 @@ class TemplatesModelTemplate extends JModelLegacy
 	 */
 	protected function fixTemplateName()
 	{
+		jimport('joomla.filesystem.file');
+		jimport('joomla.filesystem.folder');
+
 		// Rename Language files
 		// Get list of language files
 		$result = true;
@@ -255,7 +266,6 @@ class TemplatesModelTemplate extends JModelLegacy
 		$newName = strtolower($this->getState('new_name'));
 		$oldName = $this->getTemplate()->element;
 
-		jimport('joomla.filesystem.file');
 		foreach ($files as $file)
 		{
 			$newFile = str_replace($oldName, $newName, $file);
@@ -264,7 +274,7 @@ class TemplatesModelTemplate extends JModelLegacy
 
 		// Edit XML file
 		$xmlFile = $this->getState('to_path') . '/templateDetails.xml';
-		if (JFile::exists($xmlFile))
+		if (is_file($xmlFile))
 		{
 			$contents = file_get_contents($xmlFile);
 			$pattern[] = '#<name>\s*' . $oldName . '\s*</name>#i';

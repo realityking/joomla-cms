@@ -180,111 +180,123 @@ class MenusModelMenutypes extends JModelLegacy
 
 	protected function getTypeOptionsFromMVC($component)
 	{
-		$options = array();
-
 		// Get the views for this component.
-		$path = JPATH_SITE . '/components/' . $component . '/views';
+		$viewPath = JPATH_SITE . '/components/' . $component . '/views';
 
-		if (is_dir($path))
+		if (!is_dir($viewPath))
 		{
-			$views = JFolder::folders($path);
-		}
-		else {
 			return false;
 		}
 
-		foreach ($views as $view)
-		{
-			// Ignore private views.
-			if (strpos($view, '_') !== 0) {
-				// Determine if a metadata file exists for the view.
-				$file = $path.'/'.$view.'/metadata.xml';
+		$options = array();
+		$iterator = new FilesystemIterator($viewPath);
 
-				if (is_file($file)) {
-					// Attempt to load the xml file.
-					if ($xml = simplexml_load_file($file)) {
+		foreach ($iterator as $path => $view)
+		{
+			if (!$view->isDir())
+			{
+				continue;
+			}
+
+			$name = $view->getFilename();
+
+			// Ignore private views.
+			if (strpos($name, '_') !== 0)
+			{
+				// Determine if a metadata file exists for the view.
+				$file = $path . '/metadata.xml';
+				if (is_file($file))
+				{
+					$xml = simplexml_load_file($file);
+					if ($xml)
+					{
 						// Look for the first view node off of the root node.
-						if ($menu = $xml->xpath('view[1]')) {
+						$menu = $xml->xpath('view[1]');
+						if ($menu)
+						{
 							$menu = $menu[0];
 
 							// If the view is hidden from the menu, discard it and move on to the next view.
-							if (!empty($menu['hidden']) && $menu['hidden'] == 'true') {
+							if (!empty($menu['hidden']) && $menu['hidden'] == 'true')
+							{
 								unset($xml);
 								continue;
 							}
 
 							// Do we have an options node or should we process layouts?
 							// Look for the first options node off of the menu node.
-							if ($optionsNode = $menu->xpath('options[1]')) {
+							if ($optionsNode = $menu->xpath('options[1]'))
+							{
 								$optionsNode = $optionsNode[0];
 
 								// Make sure the options node has children.
-								if ($children = $optionsNode->children()) {
+								if ($children = $optionsNode->children())
+								{
 									// Process each child as an option.
 									foreach ($children as $child)
 									{
-										if ($child->getName() == 'option') {
+										if ($child->getName() == 'option')
+										{
 											// Create the menu option for the component.
-											$o = new JObject;
-											$o->title		= (string) $child['name'];
-											$o->description	= (string) $child['msg'];
-											$o->request		= array('option' => $component, 'view' => $view, (string) $optionsNode['var'] => (string) $child['value']);
+											$o = new stdClass;
+											$o->title       = (string) $child['name'];
+											$o->description = (string) $child['msg'];
+											$o->request     = array('option' => $component, 'view' => $view, (string) $optionsNode['var'] => (string) $child['value']);
 
 											$options[] = $o;
 										}
-										elseif ($child->getName() == 'default') {
+										elseif ($child->getName() == 'default')
+										{
 											// Create the menu option for the component.
-											$o = new JObject;
-											$o->title		= (string) $child['name'];
-											$o->description	= (string) $child['msg'];
-											$o->request		= array('option' => $component, 'view' => $view);
+											$o = new stdClass;
+											$o->title       = (string) $child['name'];
+											$o->description = (string) $child['msg'];
+											$o->request     = array('option' => $component, 'view' => $view);
 
 											$options[] = $o;
 										}
 									}
 								}
 							}
-							else {
-								$options = array_merge($options, (array) $this->getTypeOptionsFromLayouts($component, $view));
+							else
+							{
+								$options = array_merge($options, (array) $this->getTypeOptionsFromLayouts($component, $name));
 							}
 						}
 						unset($xml);
 					}
-
 				}
-				else {
-					$options = array_merge($options, (array) $this->getTypeOptionsFromLayouts($component, $view));
+				else
+				{
+					$options = array_merge($options, (array) $this->getTypeOptionsFromLayouts($component, $name));
 				}
 			}
 		}
-
 		return $options;
 	}
 
 	protected function getTypeOptionsFromLayouts($component, $view)
 	{
+		// Get the layouts from the view folder.
+		$path = JPATH_SITE . '/components/' . $component . '/views/' . $view . '/tmpl';
+		if (!is_dir($path))
+		{
+			return array();
+		}
+
 		$options = array();
-		$layouts = array();
 		$layoutNames = array();
 		$templateLayouts = array();
 		$lang = JFactory::getLanguage();
 
-		// Get the layouts from the view folder.
-		$path = JPATH_SITE . '/components/' . $component . '/views/' . $view . '/tmpl';
-		if (is_dir($path)) {
-			$layouts = array_merge($layouts, JFolder::files($path, '.xml$', false, true));
-		}
-		else {
-			return $options;
-		}
+		$layouts = JFolder::files($path, '.xml$', false, true);
 
-		// build list of standard layout names
+		// Build list of standard layout names
 		foreach ($layouts as $layout)
 		{
 			// Ignore private layouts.
 			if (strpos(basename($layout), '_') === false)
 			{
-				$file = $layout;
 				// Get the layout name.
 				$layoutNames[] = basename($layout, '.xml');
 			}

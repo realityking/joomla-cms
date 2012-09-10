@@ -210,11 +210,10 @@ class JoomlaupdateModelDefault extends JModelLegacy
 		$target = $tempdir . '/' . $basename;
 
 		// Do we have a cached file?
-		$exists = JFile::exists($target);
+		$exists = is_file($target);
 
 		if (!$exists)
 		{
-
 			// Not there, let's fetch it
 			return $this->downloadPackage($packageURL, $target);
 		}
@@ -395,7 +394,7 @@ ENDDATA;
 
 		// Remove the old file, if it's there...
 		$configpath = JPATH_COMPONENT_ADMINISTRATOR . '/restoration.php';
-		if( JFile::exists($configpath) )
+		if (is_file($configpath))
 		{
 			JFile::delete($configpath);
 		}
