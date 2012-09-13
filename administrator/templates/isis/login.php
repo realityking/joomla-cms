@@ -14,7 +14,6 @@ $doc = JFactory::getDocument();
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
-JHtml::_('jquery.chosen');
 
 // Add Stylesheets
 $doc->addStyleSheet('templates/' .$this->template. '/css/template.css');
@@ -92,8 +91,6 @@ $sitename = $app->getCfg('sitename');
 	<script>
 		(function($){
 			$('*[rel=tooltip]').tooltip()
-		    // Chosen select boxes
-		    $("select").chosen({disable_search_threshold : 10 });
 	    })(jQuery);
 	</script>
 </body>
