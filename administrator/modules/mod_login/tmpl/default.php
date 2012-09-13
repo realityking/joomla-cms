@@ -8,8 +8,11 @@
  */
 
 defined('_JEXEC') or die;
+
 JHtml::_('behavior.keepalive');
 JHtml::_('bootstrap.tooltip');
+JHtml::_('formbehavior.chosen');
+
 $document = JFactory::getDocument();
 ?>
 <form action="<?php echo JRoute::_('index.php', true, $params->get('usesecure')); ?>" method="post" id="form-login" class="form-inline">
