@@ -14,6 +14,7 @@ $doc = JFactory::getDocument();
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
+JHtml::_('bootstrap.tooltip');
 JHtml::_('jquery.chosen');
 
 // Add Stylesheets
@@ -81,7 +82,7 @@ $sitename = $app->getCfg('sitename');
 				<p>&copy; <?php echo $sitename; ?> <?php echo date('Y');?></p>
 			</div>
 			<div class="btn-group">
-				<a class="login-joomla" href="http://www.joomla.org" rel="tooltip" title="<?php echo JText::_('TPL_ISIS_ISFREESOFTWARE');?>">Joomla!&#174;</a>
+				<a class="login-joomla" href="http://www.joomla.org" class="hasTooltip" title="<?php echo JText::_('TPL_ISIS_ISFREESOFTWARE');?>">Joomla!&#174;</a>
 			</div>
 			<div class="btn-group pull-left">
 				<a href="<?php echo JURI::root(); ?>"><i class="icon-share icon-white"></i> <?php echo JText::_('COM_LOGIN_RETURN_TO_SITE_HOME_PAGE') ?></a>
@@ -91,7 +92,6 @@ $sitename = $app->getCfg('sitename');
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
-			$('*[rel=tooltip]').tooltip()
 		    // Chosen select boxes
 		    $("select").chosen({disable_search_threshold : 10 });
 	    })(jQuery);
