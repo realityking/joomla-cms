@@ -22,7 +22,6 @@ $user  = JFactory::getUser();
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
-JHtml::_('jquery.ui');
 
 // Detecting Active Variables
 $option   = $input->get('option', '');

@@ -19,7 +19,6 @@ $user  = JFactory::getUser();
 
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
-JHtml::_('jquery.ui');
 
 // Add Stylesheets
 $doc->addStyleSheet('templates/' . $this->template . '/css/template.css');
