@@ -210,11 +210,6 @@ else
 	<!-- End Status Module -->
 	<script>
 		(function($){
-			$('*[rel=tooltip]').tooltip()
-			$('*[rel=popover]').popover({
-				trigger: 'hover'
-			})
-
 			// fix sub nav on scroll
 			var $win = $(window)
 			  , $nav = $('.subhead')

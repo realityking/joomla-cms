@@ -45,9 +45,6 @@ endif;
 	<jdoc:include type="component" />
 	<script>
 		(function($){
-			$('*[rel=tooltip]').tooltip()
-			$('.tip-bottom').tooltip({placement: "bottom"})
-
 		    // Chosen select boxes
 		    $("select").chosen({disable_search_threshold : 10 });
 

@@ -207,8 +207,6 @@ else
 	<jdoc:include type="modules" name="debug" style="none" />
 	<script>
 		(function($){
-			$('*[rel=tooltip]').tooltip()
-
 			// fix sub nav on scroll
 			var $win = $(window)
 			  , $nav = $('.subhead')
