@@ -246,7 +246,7 @@ abstract class JHtmlGrid
 	 * Method to create an icon for saving a new ordering in a grid
 	 *
 	 * @param   array   $rows   The array of rows of rows
-	 * @param   string  $image  The image
+	 * @param   string  $image  The image [UNUSED]
 	 * @param   string  $task   The task to use, defaults to save order
 	 *
 	 * @return  string
