@@ -378,19 +378,19 @@ class JInstallation extends JApplication
 
 		return $langfiles;
 	}
-	
+
 	/**
 	 * Overload parent method because we don't have menu
 	 *
 	 * @param   string  $name     The name of the application/client.
 	 * @param   array   $options  An optional associative array of configuration settings.
 	 *
-	 * @return  JMenu  JMenu object.
+	 * @return  null
 	 *
-	 * @since   11.1
+	 * @since   3.0
 	 */
 	public function getMenu($name = null, $options = array())
 	{
+		return null;
 	}
-	
 }
